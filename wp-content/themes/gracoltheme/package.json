@@ -1,0 +1,15 @@
+{
+  "name": "gracoltheme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildcss": "npx tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/output.css --watch"
+  },
+  "author": "skyRocket",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
+}
