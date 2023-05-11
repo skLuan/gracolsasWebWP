@@ -1,9 +1,9 @@
 <?php get_header() ?>
-<h2 class="">Front page</h2>
+<main class="mt-24">
     <?php while (have_posts()) {
         the_post();
         the_content();
     }
     ?>
-
+    </main>
 <?php get_footer() ?>

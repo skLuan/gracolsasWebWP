@@ -1,4 +1,5 @@
 <?php
+define('IMAGE', get_stylesheet_directory_uri() . '/assets/img/');
 
 function project_post_type()
 {
@@ -44,10 +45,60 @@ function project_post_type()
         'menu_icon' => 'dashicons-admin-network',
         'publicly_queryable' => true,
         'show_in_rest' => true,
+        'taxonomies' => array( 'categoria-proyecto', 'tag-proyecto', 'ciudadela' ),
     );
     register_post_type('proyectos', $args);
 }
 
+function gsRegisterCiudadelas()
+{
+    $args = [
+        'hierarchical' => false,
+        'labels' => [
+            'name' => 'Ciudadelas',
+            'singular_name' => 'Ciudadela'
+        ],
+        'show_in_nav_menu' => true,
+        'show_admin_column' => true,
+        'rewrite' => ['slug' => 'ciudadela']
+    ];
+
+    register_taxonomy('ciudadela', ['proyectos'], $args);
+}
+function gsRegisterCatProject()
+{
+    $args = [
+        'hierarchical' => true,
+        'labels' => [
+            'name' => 'Categorías de proyectos',
+            'singular_name' => 'Categoría de proyectos'
+        ],
+        'show_in_nav_menu' => true,
+        'show_admin_column' => true,
+        'rewrite' => ['slug' => 'categoria-proyectos']
+    ];
+
+    register_taxonomy('categoria-proyecto', ['proyectos'], $args);
+}
+function gsRegisterTagsProject()
+{
+    $args = [
+        'hierarchical' => true,
+        'labels' => [
+            'name' => 'Etiquetas de proyectos',
+            'singular_name' => 'Etiqueta de proyectos'
+        ],
+        'show_in_nav_menu' => true,
+        'show_admin_column' => true,
+        'rewrite' => ['slug' => 'tag-proyectos']
+    ];
+
+    register_taxonomy('tag-proyecto', ['proyectos'], $args);
+}
+
+add_action('init', 'gsRegisterCiudadelas');
+add_action('init', 'gsRegisterCatProject');
+add_action('init', 'gsRegisterTagsProject');
 add_action('init', 'project_post_type');
 
 function init_template()
@@ -81,3 +132,12 @@ function init_template()
     wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/js/main.js', ['iconify', 'lodash', 'swiper'], '1.8.1', 'all');
 }
 add_action('after_setup_theme', 'init_template');
+
+function add_additional_class_on_li($classes, $item, $args)
+{
+    if (isset($args->add_li_class)) {
+        $classes[] = $args->add_li_class;
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
