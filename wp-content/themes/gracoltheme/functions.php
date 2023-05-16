@@ -1,6 +1,8 @@
 <?php
+require_once 'config/admin_edit.php';
+require_once 'config/taxo-img.php';
+require_once 'config/register_taxonomies.php';
 define('IMAGE', get_stylesheet_directory_uri() . '/assets/img/');
-
 function project_post_type()
 {
     $labels = array(
@@ -45,60 +47,11 @@ function project_post_type()
         'menu_icon' => 'dashicons-admin-network',
         'publicly_queryable' => true,
         'show_in_rest' => true,
-        'taxonomies' => array( 'categoria-proyecto', 'tag-proyecto', 'ciudadela' ),
+        'taxonomies' => array( 'categoria-proyecto', 'tag-proyecto', 'ciudadela', 'amenities' ),
     );
     register_post_type('proyectos', $args);
 }
 
-function gsRegisterCiudadelas()
-{
-    $args = [
-        'hierarchical' => false,
-        'labels' => [
-            'name' => 'Ciudadelas',
-            'singular_name' => 'Ciudadela'
-        ],
-        'show_in_nav_menu' => true,
-        'show_admin_column' => true,
-        'rewrite' => ['slug' => 'ciudadela']
-    ];
-
-    register_taxonomy('ciudadela', ['proyectos'], $args);
-}
-function gsRegisterCatProject()
-{
-    $args = [
-        'hierarchical' => true,
-        'labels' => [
-            'name' => 'Categorías de proyectos',
-            'singular_name' => 'Categoría de proyectos'
-        ],
-        'show_in_nav_menu' => true,
-        'show_admin_column' => true,
-        'rewrite' => ['slug' => 'categoria-proyectos']
-    ];
-
-    register_taxonomy('categoria-proyecto', ['proyectos'], $args);
-}
-function gsRegisterTagsProject()
-{
-    $args = [
-        'hierarchical' => true,
-        'labels' => [
-            'name' => 'Etiquetas de proyectos',
-            'singular_name' => 'Etiqueta de proyectos'
-        ],
-        'show_in_nav_menu' => true,
-        'show_admin_column' => true,
-        'rewrite' => ['slug' => 'tag-proyectos']
-    ];
-
-    register_taxonomy('tag-proyecto', ['proyectos'], $args);
-}
-
-add_action('init', 'gsRegisterCiudadelas');
-add_action('init', 'gsRegisterCatProject');
-add_action('init', 'gsRegisterTagsProject');
 add_action('init', 'project_post_type');
 
 function init_template()
