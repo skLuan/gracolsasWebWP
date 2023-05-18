@@ -34,7 +34,7 @@
                 </div>
                 <div class="flex flex-row mt-5 mx-auto">
                     <div class="mr-10 ml-auto">
-                        <?php if (!empty($precio)) : ?>
+                        <?php if (!empty($precioSMLV)) : ?>
                             <h3 class="text-orangeG text-3xl mx-auto text-center font-futuraBold"><?= $precioSMLV ?> SMMLV</h3>
                             <p class="text-[15px] text-center -mt-1 text-greenG underline">¿Cuánto vale un SMLV?</p>
                         <?php endif; ?>
@@ -69,6 +69,83 @@
                     endif; ?>
                 </div>
             </section>
+        </section>
+        <section class="mt-20 grid grid-cols-12 gap-5">
+            <h2 class="text-orangeG font-futuraBold text-4xl text-center col-span-full">Galería</h2>
+            <div class="col-start-4 col-span-6 flex flex-row justify-evenly">
+                <button class="border border-greenG px-5 py-1 rounded font-futuraBold text-greenG">Inmueble</button>
+                <button class="border border-greenG px-5 py-1 rounded font-futuraBold text-greenG">Exteriores</button>
+                <button class="border border-greenG px-5 py-1 rounded font-futuraBold text-greenG">Planos</button>
+                <button class="border border-greenG px-5 py-1 rounded font-futuraBold text-greenG">Recorrido 360</button>
+                <button class="border border-greenG px-5 py-1 rounded font-futuraBold text-greenG">Brochure</button>
+            </div>
+            <div class="bg-white shadow-lg col-span-12">
+                <div class=" mb-10 w-2/3 mx-auto relative">
+                    <!-- thmbslider -->
+                    <div thumbsSlider="" class="swiper thumbSwiper my-8">
+                        <div class="swiper-wrapper !items-center !justify-center">
+                            <div class="swiper-slide !w-fit">
+                                <img width="100px" src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                            </div>
+                            <div class="swiper-slide !w-fit">
+                                <img width="100px" src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                            </div>
+                            <div class="swiper-slide !w-fit">
+                                <img width="100px" src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                            </div>
+                            <div class="swiper-slide !w-fit">
+                                <img width="100px" src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                            </div>
+                            <div class="swiper-slide !w-fit">
+                                <img width="100px" src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slider main container -->
+                    <div class="swiper swiper-single-project relative overflow-hidden">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide">
+                                <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+
+            </div>
+            <figure class="">
+                <picture class="">
+                    <img class="" src="" alt="">
+                </picture>
+            </figure>
+            </div>
+        </section>
+
+        <section class="relative">
+
+        </section>
+
+        <section>
+            ubicación
         </section>
     <?php
     endwhile; ?>
