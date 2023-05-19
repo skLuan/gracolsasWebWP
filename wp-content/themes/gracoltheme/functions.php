@@ -86,6 +86,12 @@ function init_template()
 }
 add_action('after_setup_theme', 'init_template');
 
+function enqueue_media_script()
+{
+    wp_enqueue_media();
+}
+add_action('admin_enqueue_scripts', 'enqueue_media_script');
+
 function add_additional_class_on_li($classes, $item, $args)
 {
     if (isset($args->add_li_class)) {
