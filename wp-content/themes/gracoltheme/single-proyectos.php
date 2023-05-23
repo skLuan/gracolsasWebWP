@@ -5,20 +5,24 @@
         // -- Toma de precios
         $precio = get_post_meta(get_the_ID(), 'gs_precio_col', true);
         $precioSMLV = get_post_meta(get_the_ID(), 'gs_precio_SMLV', true);
+        $gsBarrio = get_post_meta(get_the_ID(), 'gs_barrio', true);
+        $gsCiudad = get_post_meta(get_the_ID(), 'gs_ciudad', true);
+        $logo_project = get_post_meta(get_the_ID(), 'project_logo', true);
         // -- Tags
         $tags = get_the_terms(get_the_ID(), 'tag-proyecto');
 
         // -- Amenities
         $amenities = get_the_terms(get_the_ID(), 'amenities');
     ?>
-        <picture class="w-screen">
+        <picture class="w-screen overflow-hidden h-[400px]">
             <img class="w-full" src="<?= the_post_thumbnail_url('original') ?>" alt="">
         </picture>
         <section class="max-w-screen-2xl mx-auto bg-white px-5 rounded-sm shadow-lg relative grid gap-5 grid-cols-12 pb-5">
-            <picture class="absolute -top-5"><img src="" alt=""></picture>
+            <!-- -------------------------------------------- Logo -->
+            <picture class="bg-white p-5 left-[63%] shadow-lg rounded absolute -top-20"><img class="w-[170px]" src="<?= $logo_project ?>" alt=""></picture>
             <div class="pt-20 col-span-10 col-start-2">
                 <h2 class="font-futuraBold text-5xl text-greenG-mid uppercase"><?= the_title() ?></h2>
-                <h3 class="text-orangeG text-4xl font-futuraBold">Barrio <a class="text-grayG !font-futura ml-10" href="">Ciudad</a></h3>
+                <h3 class="text-orangeG text-4xl font-futuraBold"><?= $gsBarrio ?> <span class="text-grayG !font-futura ml-10"><?= $gsCiudad ?></span></h3>
             </div>
             <!-- --------------------------------------Descripción -->
             <article class="col-start-2 col-span-5 text-base">
@@ -27,10 +31,10 @@
             <!-- --------------------------------------Precios -->
             <section class="col-span-5 flex flex-col">
                 <p class="text-center mx-auto">Cambio de moneda</p>
-                <div class="flex flex-row">
-                    <button class="ml-auto">COL</button>
-                    <button class="mx-5">USD</button>
-                    <button class="mr-auto">EUR</button>
+                <div class="flex flex-row mt-2">
+                    <button class="border border-greenG rounded px-4 py-1 ml-auto">COL</button>
+                    <button class="border border-greenG rounded px-4 py-1 mx-5">USD</button>
+                    <button class="border border-greenG rounded px-4 py-1 mr-auto">EUR</button>
                 </div>
                 <div class="flex flex-row mt-5 mx-auto">
                     <div class="mr-10 ml-auto">

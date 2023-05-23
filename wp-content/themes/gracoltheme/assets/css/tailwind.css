@@ -25,3 +25,8 @@ li#menu-item-34:hover ul.sub-menu {
 li#menu-item-34 ul.sub-menu li.menu-item {
   @apply my-2 ;
 }
+
+/* Admin pages */
+.postbox .inside {
+  @apply flex flex-row;
+}
