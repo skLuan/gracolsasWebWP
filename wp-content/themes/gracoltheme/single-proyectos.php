@@ -25,7 +25,7 @@
                 <h3 class="text-orangeG text-4xl font-futuraBold"><?= $gsBarrio ?> <span class="text-grayG !font-futura ml-10"><?= $gsCiudad ?></span></h3>
             </div>
             <!-- --------------------------------------Descripción -->
-            <article class="col-start-2 col-span-5 text-base">
+            <article class="col-start-2 col-span-5 text-base text-justify">
                 <?= the_content(); ?>
             </article>
             <!-- --------------------------------------Precios -->
