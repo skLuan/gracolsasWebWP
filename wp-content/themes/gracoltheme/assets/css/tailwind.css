@@ -26,6 +26,17 @@ li#menu-item-34 ul.sub-menu li.menu-item {
   @apply my-2 ;
 }
 
+/* --------------------------------- Home Page -------------------- */
+.bg-greenwhiteG{
+  background-color: #E3E8E3;
+}
+.cardVivienda{
+  background-image: url(../img/card-compracasitas.png);
+}
+
+.bg-blackOp{
+  background-color: #1E1E1E99;
+}
 /* Admin pages */
 .postbox .inside {
   @apply flex flex-row;
