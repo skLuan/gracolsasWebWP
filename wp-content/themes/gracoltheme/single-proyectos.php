@@ -8,6 +8,10 @@
         $gsBarrio = get_post_meta(get_the_ID(), 'gs_barrio', true);
         $gsCiudad = get_post_meta(get_the_ID(), 'gs_ciudad', true);
         $logo_project = get_post_meta(get_the_ID(), 'project_logo', true);
+
+        $serialized_galeria_inmueble = get_post_meta(get_the_ID(),  'project_galeria_inmueble', true);
+        // $galeria_inmueble = get_post_meta(get_the_ID(),  'project_galeria_inmueble', true);
+        $galeria_inmueble = json_decode($serialized_galeria_inmueble[0]);
         // -- Tags
         $tags = get_the_terms(get_the_ID(), 'tag-proyecto');
 
@@ -88,7 +92,12 @@
                     <!-- thmbslider -->
                     <div thumbsSlider="" class="swiper thumbSwiper my-8">
                         <div class="swiper-wrapper !items-center !justify-center">
-                            <div class="swiper-slide !w-fit">
+                            <?php foreach ($galeria_inmueble as $image_url) : ?>
+                                <div class="swiper-slide !w-fit">
+                                    <img width="100px" src="<?= $image_url ?>" />
+                                </div>
+                            <?php endforeach; ?>
+                            <!-- <div class="swiper-slide !w-fit">
                                 <img width="100px" src="https://swiperjs.com/demos/images/nature-1.jpg" />
                             </div>
                             <div class="swiper-slide !w-fit">
@@ -102,7 +111,7 @@
                             </div>
                             <div class="swiper-slide !w-fit">
                                 <img width="100px" src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- Slider main container -->
@@ -110,10 +119,12 @@
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             <!-- Slides -->
-                            <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                            </div>
-                            <div class="swiper-slide">
+                            <?php foreach ($galeria_inmueble as $image_url) : ?>
+                                <div class="swiper-slide">
+                                    <img src="<?= $image_url ?>" />
+                                </div>
+                            <?php endforeach; ?>
+                            <!-- <div class="swiper-slide">
                                 <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
                             </div>
                             <div class="swiper-slide">
@@ -124,7 +135,7 @@
                             </div>
                             <div class="swiper-slide">
                                 <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- If we need pagination -->
