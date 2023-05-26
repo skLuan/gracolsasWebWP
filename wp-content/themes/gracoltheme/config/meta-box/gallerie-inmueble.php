@@ -23,17 +23,17 @@ function render_project_galerie_inmueble_meta_box($post)
     }
 ?>
 
-    <div id="image-gallery-container" class="mx-auto">
+    <div id="image-gallery-container" class="mx-auto w-1/2">
         <?php
         if (isset($image_gallery) && !empty($image_gallery)) : ?>
             <?php foreach ($image_gallery as $i => $image_url) : ?>
                 <div class="image-gallery-item">
                     <figure>
                         <picture>
-                            <img width="100px" src="<?= $image_url ?>" alt="">
+                            <img width="100%" src="<?= $image_url ?>" alt="">
                         </picture>
                     </figure>
-                    <button class="remove-image" onclick="eliminarImagen('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
+                    <button class="remove-image px-4 py-1 border border-greenG-mid" onclick="eliminarImagen('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
                 </div>
             <?php endforeach; ?>
             <div id="gallery-preview"></div>
@@ -43,7 +43,7 @@ function render_project_galerie_inmueble_meta_box($post)
             </div>
         <?php endif; ?>
         <input id="project_galeria_inmueble" type="hidden" name="project_galeria_inmueble[]" value="<?= htmlspecialchars(json_encode($image_gallery)); ?>" readonly>
-        <button class="border border-greenG-mid text-greenG-mid rounded px-3 py-1" id="add-image-galerie-inmueble">Agregar imagen</button>
+        <button class="border mt-5 border-greenG-mid text-white bg-greenG-mid rounded px-3 py-1" id="add-image-galerie-inmueble">Agregar imagen</button>
     </div>
     <script>
         function eliminarImagen(value) {
