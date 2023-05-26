@@ -14,8 +14,8 @@
         $serialized_galeria_exteriores = get_post_meta(get_the_ID(),  'project_galeria_exteriores', true);
         $serialized_galeria_planos = get_post_meta(get_the_ID(),  'project_galeria_planos', true);
         // $galeria_inmueble = get_post_meta(get_the_ID(),  'project_galeria_inmueble', true);
-        
-        
+
+
         if (isset($serialized_galeria_inmueble[0]) && $serialized_galeria_inmueble[0] !== '') {
             $galeria_inmueble = json_decode($serialized_galeria_inmueble[0]);
         } else {
@@ -122,21 +122,6 @@
                                     <img width="100px" src="<?= $image_url ?>" />
                                 </div>
                             <?php endforeach; ?>
-                            <!-- <div class="swiper-slide !w-fit">
-                                <img width="100px" src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                            </div>
-                            <div class="swiper-slide !w-fit">
-                                <img width="100px" src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                            </div>
-                            <div class="swiper-slide !w-fit">
-                                <img width="100px" src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                            </div>
-                            <div class="swiper-slide !w-fit">
-                                <img width="100px" src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                            </div>
-                            <div class="swiper-slide !w-fit">
-                                <img width="100px" src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                            </div> -->
                         </div>
                     </div>
                     <!-- Slider main container -->
@@ -155,18 +140,6 @@
                                     </figure>
                                 </div>
                             <?php endforeach; ?>
-                            <!-- <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-                            </div> -->
                         </div>
                     </div>
                     <!-- If we need pagination -->
@@ -180,7 +153,7 @@
                 <h2 class="text-3xl text-greenG-mid mx-auto text-center"> Imagenes de exteriores</h2>
                 <div class=" mb-10 w-2/3 mx-auto relative">
                     <!-- thmbslider -->
-                    <div thumbsSlider="" class="swiper thumbSwiper my-8">
+                    <div thumbsSlider="" class="swiper thumbSwiperExteriores my-8">
                         <div class="swiper-wrapper !items-center !justify-center">
                             <?php foreach ($galeria_exteriores as $image_url) : ?>
                                 <div class="swiper-slide !w-fit">
@@ -190,7 +163,7 @@
                         </div>
                     </div>
                     <!-- Slider main container -->
-                    <div class="swiper swiper-single-project relative overflow-hidden">
+                    <div class="swiper swiper-single-project-exteriores relative overflow-hidden">
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             <!-- Slides -->
@@ -208,19 +181,19 @@
                         </div>
                     </div>
                     <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
+                    <div class="swiper-pagination-ext"></div>
 
                     <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev-ext"></div>
+                    <div class="swiper-button-next-ext"></div>
                 </div>
                 <p class="mx-auto text-center">------------------------------------</p>
                 <h2 class="text-3xl text-greenG-mid mx-auto text-center"> Imagenes de planos</h2>
                 <div class=" mb-10 w-2/3 mx-auto relative">
                     <!-- thmbslider -->
-                    <div thumbsSlider="" class="swiper thumbSwiper my-8">
+                    <div thumbsSlider="" class="swiper thumbSwiper-planos my-8">
                         <div class="swiper-wrapper !items-center !justify-center">
-                            <?php foreach ($galeria_exteriores as $image_url) : ?>
+                            <?php foreach ($galeria_planos as $image_url) : ?>
                                 <div class="swiper-slide !w-fit">
                                     <img width="100px" src="<?= $image_url ?>" />
                                 </div>
@@ -228,11 +201,11 @@
                         </div>
                     </div>
                     <!-- Slider main container -->
-                    <div class="swiper swiper-single-project relative overflow-hidden">
+                    <div class="swiper swiper-single-project-planos relative overflow-hidden">
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             <!-- Slides -->
-                            <?php foreach ($galeria_exteriores as $image_url) : ?>
+                            <?php foreach ($galeria_planos as $image_url) : ?>
                                 <div class="swiper-slide">
                                     <figure>
                                         <picture>
@@ -246,11 +219,11 @@
                         </div>
                     </div>
                     <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
+                    <div class="swiper-pagination-planos"></div>
 
                     <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev-planos"></div>
+                    <div class="swiper-button-next-planos"></div>
                 </div>
             </div>
             <figure class="">
