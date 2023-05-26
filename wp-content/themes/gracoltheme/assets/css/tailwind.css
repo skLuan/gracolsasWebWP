@@ -6,6 +6,9 @@
   body {
     @apply font-futura;
   }
+  strong, b {
+    @apply font-futuraBold;
+  }
 }
 
 #navbar-menu .current_page_item,

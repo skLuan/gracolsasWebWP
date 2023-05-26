@@ -8,7 +8,8 @@
         $gsBarrio = get_post_meta(get_the_ID(), 'gs_barrio', true);
         $gsCiudad = get_post_meta(get_the_ID(), 'gs_ciudad', true);
         $logo_project = get_post_meta(get_the_ID(), 'project_logo', true);
-
+        $figcaption = get_post_meta(get_the_ID(), 'img_figcaption', true);
+        
         $serialized_galeria_inmueble = get_post_meta(get_the_ID(),  'project_galeria_inmueble', true);
         // $galeria_inmueble = get_post_meta(get_the_ID(),  'project_galeria_inmueble', true);
         if(isset($serialized_galeria_inmueble[0]) && $serialized_galeria_inmueble[0] !== '') {
@@ -30,7 +31,7 @@
         <section class="max-w-screen-2xl mx-auto bg-white px-5 rounded-sm shadow-lg relative grid gap-5 grid-cols-12 pb-5">
             <!-- -------------------------------------------- Logo -->
             <picture class="bg-white p-5 left-[63%] shadow-lg rounded absolute -top-20"><img class="w-[170px]" src="<?= $logo_project ?>" alt=""></picture>
-            <div class="pt-20 col-span-10 col-start-2">
+            <div class="pt-20 col-span-5 col-start-2">
                 <h2 class="font-futuraBold text-5xl text-greenG-mid uppercase"><?= the_title() ?></h2>
                 <h3 class="text-orangeG text-4xl font-futuraBold"><?= $gsBarrio ?> <span class="text-grayG !font-futura ml-10"><?= $gsCiudad ?></span></h3>
             </div>
@@ -127,7 +128,13 @@
                             <!-- Slides -->
                             <?php foreach ($galeria_inmueble as $image_url) : ?>
                                 <div class="swiper-slide">
-                                    <img src="<?= $image_url ?>" />
+                                    <figure>
+                                    <picture>
+
+                                        <img src="<?= $image_url ?>" />
+                                    </picture>    
+                                    <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= $figcaption ?></figcaption>
+                                    </figure>
                                 </div>
                             <?php endforeach; ?>
                             <!-- <div class="swiper-slide">
