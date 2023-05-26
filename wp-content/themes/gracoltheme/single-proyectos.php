@@ -11,8 +11,14 @@
 
         $serialized_galeria_inmueble = get_post_meta(get_the_ID(),  'project_galeria_inmueble', true);
         // $galeria_inmueble = get_post_meta(get_the_ID(),  'project_galeria_inmueble', true);
-        $galeria_inmueble = json_decode($serialized_galeria_inmueble[0]);
+        if(isset($serialized_galeria_inmueble[0]) && $serialized_galeria_inmueble[0] !== '') {
+            $galeria_inmueble = json_decode($serialized_galeria_inmueble[0]);
+        } else {
+            $galeria_inmueble = $serialized_galeria_inmueble;
+            echo var_dump($serialized_galeria_inmueble);
+        }
         // -- Tags
+        //  echo var_dump($serialized_galeria_inmueble);
         $tags = get_the_terms(get_the_ID(), 'tag-proyecto');
 
         // -- Amenities

@@ -70,12 +70,13 @@ function init_template()
 
     // ---------------------- Register Styles ----------------------
     wp_enqueue_style('fonts', get_stylesheet_directory_uri() . '/assets/fonts/fonts.css', '1.0', 'all');
+    wp_enqueue_style('styles', get_stylesheet_directory_uri() . '/style.css', 'tailwind', '1.0', 'all');
+    
     if (!is_admin()) {
         wp_enqueue_style('tailwind', get_stylesheet_directory_uri() . '/assets/css/output.css', 'fonts', '1.0', 'all');
         wp_enqueue_style('swipercss', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css', 'tailwind', '1.0', 'all');
         // wp_enqueue_style('animate', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css', 'tailwind', '1.0', 'all');
     }
-    wp_enqueue_style('styles', get_stylesheet_directory_uri() . '/style.css', 'tailwind', '1.0', 'all');
 
     // ---------------------- Register Scripts ----------------------
     wp_enqueue_script('jquery');
@@ -90,7 +91,8 @@ function init_template()
         'editor_script' => 'infoBlock',
     ));
 }
-add_action('after_setup_theme', 'init_template');
+
+add_action('wp_enqueue_scripts', 'init_template');
 
 
 

@@ -1,5 +1,4 @@
 <?php
-require(get_template_directory() . '/vendor/autoload.php');
 function add_project_galeria_inmueble_meta_box()
 {
     add_meta_box(
@@ -17,12 +16,11 @@ function render_project_galerie_inmueble_meta_box($post)
 {
     $serialized_image_gallery = get_post_meta($post->ID, 'project_galeria_inmueble', true);
     wp_nonce_field('project_galeria_inmueble_meta_box', 'project_galeria_inmueble_nonce');
-    if (isset($serialized_image_gallery[0])) {
+    if (isset($serialized_image_gallery[0]) && $serialized_image_gallery[0] !== '') {
         $image_gallery = json_decode($serialized_image_gallery[0]);
     } else {
         $image_gallery = [];
     }
-    // var_dump($serialized_image_gallery);
 ?>
 
     <div id="image-gallery-container" class="mx-auto">
@@ -35,30 +33,35 @@ function render_project_galerie_inmueble_meta_box($post)
                             <img width="100px" src="<?= $image_url ?>" alt="">
                         </picture>
                     </figure>
-                    <button class="remove-image" onclick="eliminarImagen(<?= $i ?>)">Eliminar imagen</button>
+                    <button class="remove-image" onclick="eliminarImagen('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
                 </div>
             <?php endforeach; ?>
+            <div id="gallery-preview"></div>
         <?php else : ?>
             <div class="image-gallery-item">
                 <div id="gallery-preview"></div>
             </div>
         <?php endif; ?>
-        <input id="project_galeria_inmueble" type="hidden" name="project_galeria_inmueble[]" value="<?php echo htmlspecialchars(json_encode($image_gallery)); ?>" readonly>
+        <input id="project_galeria_inmueble" type="hidden" name="project_galeria_inmueble[]" value="<?= htmlspecialchars(json_encode($image_gallery)); ?>" readonly>
         <button class="border border-greenG-mid text-greenG-mid rounded px-3 py-1" id="add-image-galerie-inmueble">Agregar imagen</button>
     </div>
     <script>
-        function eliminarImagen(index) {
+        function eliminarImagen(value) {
             var preview = document.getElementById('image-gallery-container');
             var inputHiden = document.getElementById('project_galeria_inmueble');
             var inputVal = inputHiden.getAttribute('value');
-            console.log(preview);
+
             var inputJson = JSON.parse(inputVal);
-            inputJson.splice(index, 1);
-            inputHiden.setAttribute('value', inputJson);
+            var index = inputJson.indexOf(value);
+
+            if (index !== -1) {
+                inputJson.splice(index, 1);
+                inputHiden.setAttribute('value', JSON.stringify(inputJson));
+            }
 
 
             var previewImg = preview.querySelectorAll('.image-gallery-item');
-            if (previewImg.length > 0) {
+            if (previewImg.length > 0 && index < previewImg.length) {
                 previewImg[index].remove();
             }
         }
