@@ -1,21 +1,21 @@
 <?php
-function add_project_galeria_exteriores_meta_box()
+function add_project_galeria_planos_meta_box()
 {
     add_meta_box(
-        'galerie_exteriores',
-        'Imagenes del exteriores',
-        'render_project_galerie_exteriores_meta_box',
+        'galerie_planos',
+        'Imagenes del planos',
+        'render_project_galerie_planos_meta_box',
         'proyectos',
         'advanced',
         'default'
     );
 }
-add_action('add_meta_boxes', 'add_project_galeria_exteriores_meta_box');
+add_action('add_meta_boxes', 'add_project_galeria_planos_meta_box');
 
-function render_project_galerie_exteriores_meta_box($post)
+function render_project_galerie_planos_meta_box($post)
 {
-    $serialized_image_gallery = get_post_meta($post->ID, 'project_galeria_exteriores', true);
-    wp_nonce_field('project_galeria_exteriores_meta_box', 'project_galeria_exteriores_nonce');
+    $serialized_image_gallery = get_post_meta($post->ID, 'project_galeria_planos', true);
+    wp_nonce_field('project_galeria_planos_meta_box', 'project_galeria_planos_nonce');
     if (isset($serialized_image_gallery[0]) && $serialized_image_gallery[0] !== '') {
         $image_gallery = json_decode($serialized_image_gallery[0]);
     } else {
@@ -23,32 +23,32 @@ function render_project_galerie_exteriores_meta_box($post)
     }
 ?>
 
-    <div id="image-gallery-container-exteriores" class="mx-auto w-1/2">
+    <div id="image-gallery-container-planos" class="mx-auto w-1/2">
         <?php
         if (isset($image_gallery) && !empty($image_gallery)) : ?>
             <?php foreach ($image_gallery as $i => $image_url) : ?>
-                <div class="image-gallery-item-exteriores">
+                <div class="image-gallery-item-planos">
                     <figure>
                         <picture>
                             <img width="100%" src="<?= $image_url ?>" alt="">
                         </picture>
                     </figure>
-                    <button class="remove-image px-4 py-1 border border-greenG-mid" onclick="eliminarImagenExteriores('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
+                    <button class="remove-image px-4 py-1 border border-greenG-mid" onclick="eliminarImagenplanos('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
                 </div>
             <?php endforeach; ?>
-            <div id="gallery-preview-exteriores"></div>
+            <div id="gallery-preview-planos"></div>
         <?php else : ?>
-            <div class="image-gallery-item-exteriores">
-                <div id="gallery-preview-exteriores"></div>
+            <div class="image-gallery-item-planos">
+                <div id="gallery-preview-planos"></div>
             </div>
         <?php endif; ?>
-        <input id="project_galeria_exteriores" type="hidden" name="project_galeria_exteriores[]" value="<?= htmlspecialchars(json_encode($image_gallery)); ?>" readonly>
-        <button class="border mt-5 border-greenG-mid text-white bg-greenG-mid rounded px-3 py-1" id="add-image-galerie-exteriores">Agregar imagen</button>
+        <input id="project_galeria_planos" type="hidden" name="project_galeria_planos[]" value="<?= htmlspecialchars(json_encode($image_gallery)); ?>" readonly>
+        <button class="border mt-5 border-greenG-mid text-white bg-greenG-mid rounded px-3 py-1" id="add-image-galerie-planos">Agregar imagen</button>
     </div>
     <script>
-        function eliminarImagenExteriores(value) {
-            var preview = document.getElementById('image-gallery-container-exteriores');
-            var inputHiden = document.getElementById('project_galeria_exteriores');
+        function eliminarImagenplanos(value) {
+            var preview = document.getElementById('image-gallery-container-planos');
+            var inputHiden = document.getElementById('project_galeria_planos');
             var inputVal = inputHiden.getAttribute('value');
 
             var inputJson = JSON.parse(inputVal);
@@ -60,14 +60,14 @@ function render_project_galerie_exteriores_meta_box($post)
             console.log(index);
 
 
-            var previewImg = preview.querySelectorAll('.image-gallery-item-exteriores');
+            var previewImg = preview.querySelectorAll('.image-gallery-item-planos');
             if (previewImg.length > 0 && index < previewImg.length) {
                 previewImg[index].remove();
             }
         }
         jQuery(document).ready(function($) {
             // Manejo de la subida de la imagen
-            $('#add-image-galerie-exteriores').click(function() {
+            $('#add-image-galerie-planos').click(function() {
                 var mediaUploader;
                 if (mediaUploader) {
                     mediaUploader.open();
@@ -82,10 +82,10 @@ function render_project_galerie_exteriores_meta_box($post)
                 });
                 mediaUploader.on('select', function() {
                     var attachments = mediaUploader.state().get('selection').toJSON();
-                    // $('#project_galeria_exteriores').val(attachment.url);
+                    // $('#project_galeria_planos').val(attachment.url);
 
                     // Obtener el arreglo actual de imágenes del campo oculto
-                    var inputVal = document.getElementById('project_galeria_exteriores').getAttribute('value');
+                    var inputVal = document.getElementById('project_galeria_planos').getAttribute('value');
                     var imagesArray = (inputVal !== '' && inputVal !== null && inputVal !== undefined) ? JSON.parse(inputVal) : [];
 
                     // Recorrer las imágenes seleccionadas
@@ -95,13 +95,13 @@ function render_project_galerie_exteriores_meta_box($post)
                         var imageHTML = '<img src="' + imageURL + '" />';
 
                         // Agregar la imagen al contenedor
-                        $('#gallery-preview-exteriores').append(imageHTML);
+                        $('#gallery-preview-planos').append(imageHTML);
 
                         imagesArray.push(imageURL);
                     });
                     // Guardar el arreglo actualizado en el campo oculto
-                    $('#project_galeria_exteriores').val(JSON.stringify(imagesArray))
-                    console.log($('#project_galeria_exteriores').val());
+                    $('#project_galeria_planos').val(JSON.stringify(imagesArray))
+                    console.log($('#project_galeria_planos').val());
 
 
                 });
@@ -112,12 +112,12 @@ function render_project_galerie_exteriores_meta_box($post)
 <?php
 }
 
-function save_galerie_exteriores_meta_data($post_id)
+function save_galerie_planos_meta_data($post_id)
 {
-    if (!isset($_POST['project_galeria_exteriores_nonce']) || !wp_verify_nonce($_POST['project_galeria_exteriores_nonce'], 'project_galeria_exteriores_meta_box')) {
+    if (!isset($_POST['project_galeria_planos_nonce']) || !wp_verify_nonce($_POST['project_galeria_planos_nonce'], 'project_galeria_planos_meta_box')) {
         return;
     }
-    // dd($_POST['project_galeria_exteriores']);
+    // dd($_POST['project_galeria_planos']);
     var_dump('Nonce verification passed.');
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
@@ -127,12 +127,12 @@ function save_galerie_exteriores_meta_data($post_id)
         return;
     }
     var_dump('User has edit post capability.');
-    if (isset($_POST['project_galeria_exteriores'])) {
-        $image_gallery = $_POST['project_galeria_exteriores'];
-        // $image_gallery = array_map('sanitize_text_field', $_POST['project_galeria_exteriores']);
+    if (isset($_POST['project_galeria_planos'])) {
+        $image_gallery = $_POST['project_galeria_planos'];
+        // $image_gallery = array_map('sanitize_text_field', $_POST['project_galeria_planos']);
         var_dump('Image gallery:', $image_gallery);
         // $serialized_image_gallery = json_encode($image_gallery);
-        update_post_meta($post_id, 'project_galeria_exteriores', $image_gallery);
+        update_post_meta($post_id, 'project_galeria_planos', $image_gallery);
     }
 }
-add_action('save_post_proyectos', 'save_galerie_exteriores_meta_data');
+add_action('save_post_proyectos', 'save_galerie_planos_meta_data');

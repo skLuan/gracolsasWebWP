@@ -12,7 +12,10 @@
 
         $serialized_galeria_inmueble = get_post_meta(get_the_ID(),  'project_galeria_inmueble', true);
         $serialized_galeria_exteriores = get_post_meta(get_the_ID(),  'project_galeria_exteriores', true);
+        $serialized_galeria_planos = get_post_meta(get_the_ID(),  'project_galeria_planos', true);
         // $galeria_inmueble = get_post_meta(get_the_ID(),  'project_galeria_inmueble', true);
+        
+        
         if (isset($serialized_galeria_inmueble[0]) && $serialized_galeria_inmueble[0] !== '') {
             $galeria_inmueble = json_decode($serialized_galeria_inmueble[0]);
         } else {
@@ -24,7 +27,13 @@
             $galeria_exteriores = json_decode($serialized_galeria_exteriores[0]);
         } else {
             $galeria_exteriores = $serialized_galeria_exteriores;
-            echo var_dump($serialized_galeria_exteriores);
+        }
+
+
+        if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== '') {
+            $galeria_planos = json_decode($serialized_galeria_planos[0]);
+        } else {
+            $galeria_planos = $serialized_galeria_planos;
         }
 
         // -- Tags
@@ -169,6 +178,44 @@
                 </div>
                 <p class="mx-auto text-center">------------------------------------</p>
                 <h2 class="text-3xl text-greenG-mid mx-auto text-center"> Imagenes de exteriores</h2>
+                <div class=" mb-10 w-2/3 mx-auto relative">
+                    <!-- thmbslider -->
+                    <div thumbsSlider="" class="swiper thumbSwiper my-8">
+                        <div class="swiper-wrapper !items-center !justify-center">
+                            <?php foreach ($galeria_exteriores as $image_url) : ?>
+                                <div class="swiper-slide !w-fit">
+                                    <img width="100px" src="<?= $image_url ?>" />
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <!-- Slider main container -->
+                    <div class="swiper swiper-single-project relative overflow-hidden">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <?php foreach ($galeria_exteriores as $image_url) : ?>
+                                <div class="swiper-slide">
+                                    <figure>
+                                        <picture>
+
+                                            <img src="<?= $image_url ?>" />
+                                        </picture>
+                                        <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= $figcaption ?></figcaption>
+                                    </figure>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+                <p class="mx-auto text-center">------------------------------------</p>
+                <h2 class="text-3xl text-greenG-mid mx-auto text-center"> Imagenes de planos</h2>
                 <div class=" mb-10 w-2/3 mx-auto relative">
                     <!-- thmbslider -->
                     <div thumbsSlider="" class="swiper thumbSwiper my-8">
