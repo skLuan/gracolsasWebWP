@@ -18,8 +18,7 @@
                 </ul>
             </div>
             <div class="flex">
-                <input type="text" placeholder="Buscar proyectos" 
-                class="
+                <input type="text" placeholder="Buscar proyectos" class="
                 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 
                 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 
                 focus:outline-none focus:border-slate-300 focus:ring-slate-300 
@@ -47,22 +46,13 @@
         <?= get_template_part('./components/sections/loop', 'home') ?>
     </section>
 
-    <section class="w-4/5 mx-auto">
-        <div class="flex flex-col w-full bg-cover bg-center text-center" style="background-image: url('<?= IMAGE . 'card-compracasitas.png' ?>'); height: 400px">
-            <img class="mx-auto" src="<?= IMAGE . 'titulo-card-casitas.png' ?>" alt="Paso a paso para comprar tu vivienda" />
-            <div>
-                <button class="py-3 px-4 text-whiteG font-bold rounded border-white border-2" style="background-color: #1E1E1E99">En colombia</button>
-                <button class="py-3 px-4 text-yellowG font-bold rounded border-yellowG border-2" style="background-color: #1E1E1E99">En el exterior</button>
-            </div>
-           
-        </div>
-        <div class="w-full bg-cover bg-center text-center" style="background-image: url('<?= IMAGE . 'ultimas-noticias.png' ?>'); height: 170px"></div>
-    </section>
-
-    <section class="max-w-screen-2xl mx-auto mt-5 mb-5">
+    <?= get_template_part('./components/banners/_banner', 'comprarVivienda') ?>
+    
+    <section class="max-w-screen-2xl mx-auto mb-5">
+        <div class="w-full bg-cover bg-center mb-5 text-center" style="background-image: url('<?= IMAGE . 'ultimas-noticias.png' ?>'); height: 170px"></div>
         <div class="grid grid-cols-3 gap-x-5 gap-y-8 w-4/5 mx-auto">
 
-        <div class="rounded-sm bg-white shadow-lg">
+            <div class="rounded-sm bg-white shadow-lg">
                 <div class="bg-cover bg-center" style="background-image: url('<?= IMAGE . 'img-post.png' ?>'); height: 170px"></div>
                 <article class="p-3 text-greenG-mid">
                     <h3 class="font-futuraBold text-2xl text-orangeG"><a href="#">Titulo que se alarga para ver como se ve</a></h3>
@@ -70,7 +60,7 @@
                     <div class="w-full text-right">
                         <p class="text-orangeG text-lg font-futuraBold">Ver más</p>
                     </div>
-                    
+
                 </article>
             </div>
 

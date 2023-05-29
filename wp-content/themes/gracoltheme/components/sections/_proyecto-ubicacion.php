@@ -6,7 +6,7 @@ global $gsBarrio;
 <h2 class="text-orangeG font-futuraBold text-4xl mt-20 mb-3 text-center col-span-full">Ubicación del proyecto</h2>
 <section id="UbicacionProyecto" class="max-w-screen-2xl mx-auto grid grid-cols-2 gap-5 shadow-lg">
     <picture class="col-span-full">
-        <img src="<?= IMAGE . 'banner-ubi-upscale.png' ?>" alt="">
+        <img src="<?= IMAGE . 'B_UbicacionP.jpg' ?>" alt="">
     </picture>
     <div class="pl-5" id="C_ProjectMap">
         <div class="p-10">
