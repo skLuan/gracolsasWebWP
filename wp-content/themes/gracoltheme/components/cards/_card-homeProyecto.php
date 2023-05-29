@@ -7,6 +7,12 @@ $tags && isset($tags) ? $inmueble = $tags[0]->name : $inmueble = '';
 
 $image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
 
+$gsBarrio = get_post_meta(get_the_ID(), 'gs_barrio', true);
+$gsCiudad = get_post_meta(get_the_ID(), 'gs_ciudad', true);
+
+isset($gsBarrio) && $gsBarrio == ''? $gsBarrio = "Barrio" : '';
+isset($gsCiudad) && $gsCiudad == ''? $gsCiudad = "Ciudad" : '';
+
 $permalink = get_the_permalink(get_the_ID());
 ?>
 <div class="rounded-sm bg-white shadow-lg overflow-hidden">
@@ -15,7 +21,7 @@ $permalink = get_the_permalink(get_the_ID());
     </picture>
     <article class="p-3 text-greenG-mid">
         <h3 class="font-futuraBold text-2xl text-greenG-mid"><a href="<?= $permalink ?>"><?= the_title() ?></a></h3>
-        <p class="text-orangeG text-lg font-futuraBold">Barrio <a class="text-grayG !font-futura" href="">Ciudad</a></p>
+        <p class="text-orangeG text-lg font-futuraBold"><?= $gsBarrio ?> <a class="text-grayG !font-futura" href=""><?= $gsCiudad ?></a></p>
         <div class="flex flex-row">
             <picture>
                 <img src="" alt="">
