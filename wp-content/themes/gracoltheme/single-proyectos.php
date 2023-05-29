@@ -8,22 +8,11 @@
         </picture>
         <?= get_template_part('components/sections/_proyecto', 'mainInfo') ?>
         <?= get_template_part('components/sections/_proyecto', 'galeries') ?>
+        <?= get_template_part('components/sections/_proyecto', 'asesores') ?>
+        <?= get_template_part('components/sections/_proyecto', 'ubicacion') ?>
+        <?= get_template_part('components/sections/_proyecto', 'form') ?>
 
-        <section class="max-w-screen-2xl mx-auto relative sectionAsesores w-full grid grid-cols-2">
-            <div class="p-10 flex flex-col">
-                <h3 class="text-whiteG text-4xl text-center font-futuraBold drop-shadow-lg">Estamos listos <br> para atenderte</h3>
-                <a href="" class="bg-orangeG rounded py-1 px-3 my-10 text-whiteG text-xl font-futuraBold mx-auto">Escríbenos</a>
-                <div class="pl-20">
-                    <?= get_template_part('components/cards/card', 'asesor') ?>
-                    <?= get_template_part('components/cards/card', 'asesor') ?>
-                    <?= get_template_part('components/cards/card', 'asesor') ?>
-                </div>
-            </div>
-        </section>
 
-        <section>
-
-        </section>
     <?php
     endwhile; ?>
     <div class="bg-orangeG py-2 text-center text-white fixed bottom-0 w-full z-50">Escríbenos para más información <a href="" class="underline font-futuraBold ml-2 text-lg">Ir al formulario</a></div>
