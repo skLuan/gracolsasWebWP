@@ -15,6 +15,6 @@
 
     <?php
     endwhile; ?>
-    <div class="bg-orangeG py-2 text-center text-white fixed bottom-0 w-full z-50">Escríbenos para más información <a href="" class="underline font-futuraBold ml-2 text-lg">Ir al formulario</a></div>
+    <div class="bg-orangeG py-2 text-center text-white fixed bottom-0 w-full z-50">Escríbenos para más información <a href="#gs_FormProject" class="underline font-futuraBold ml-2 text-lg">Ir al formulario</a></div>
 </main>
 <?php get_footer() ?>

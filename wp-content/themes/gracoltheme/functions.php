@@ -3,6 +3,7 @@ require_once 'config/admin_edit.php';
 require_once 'config/taxo-img.php';
 require_once 'config/register_taxonomies.php';
 define('IMAGE', get_stylesheet_directory_uri() . '/assets/img/');
+define('GSINCLUDE', get_template_directory() . "/includes\/");
 function project_post_type()
 {
     $labels = array(

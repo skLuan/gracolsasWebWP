@@ -46,7 +46,7 @@ $gsCiudad = get_post_meta(get_the_ID(), 'gs_ciudad', true);
                 <?php endif; ?>
             </div>
         </div>
-        <a href="" class="bg-orangeG text-whiteG font-futuraBold mx-auto px-4 py-1 rounded mt-10">Escríbenos</a>
+        <a href="#gs_FormProject" class="bg-orangeG text-whiteG font-futuraBold mx-auto px-4 py-1 rounded mt-10">Escríbenos</a>
     </section>
     <!-- -------------------------------------- Amenities -->
     <section class="col-start-3 col-span-9">
