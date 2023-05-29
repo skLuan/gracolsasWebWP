@@ -1,5 +1,5 @@
 <?php
-require GSINCLUDE . 'InputClass.php';
+get_template_part('includes/InputClass');
 
 $inputProyecto = new gsInput('proyect_name');
 $inputProyecto = new gsInput('proyect_name');
