@@ -16,10 +16,10 @@ class gsInput
 
         ob_start();
 ?>
-        <div class="gs_inputContainer w-fit mx-auto">
-            <label for="<?= $nameId ?>"><?= $labelName ?></label>
+        <div class="gs_inputContainer w-fit mx-auto my-3">
+            <label class="text-base text-white" for="<?= $nameId ?>"><?= $labelName ?></label>
             <br>
-            <input type="<?= $type ?>" name="<?= $nameId ?>" id="<?= $nameId ?>" required>
+            <input class="rounded py-1 px-3 font-futuraBold text-greenG" type="<?= $type ?>" name="<?= $nameId ?>" id="<?= $nameId ?>" required>
         </div>
 <?php
         return ob_get_clean();
