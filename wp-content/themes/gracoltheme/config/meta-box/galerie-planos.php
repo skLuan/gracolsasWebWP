@@ -15,6 +15,9 @@ add_action('add_meta_boxes', 'add_project_galeria_planos_meta_box');
 function render_project_galerie_planos_meta_box($post)
 {
     $serialized_image_gallery = get_post_meta($post->ID, 'project_galeria_planos', true);
+    $figcaption = get_post_meta($post->ID, 'img_figcaption-planos', true);
+
+
     wp_nonce_field('project_galeria_planos_meta_box', 'project_galeria_planos_nonce');
     if (isset($serialized_image_gallery[0]) && $serialized_image_gallery[0] !== '') {
         $image_gallery = json_decode($serialized_image_gallery[0]);
@@ -33,7 +36,14 @@ function render_project_galerie_planos_meta_box($post)
                             <img width="100%" src="<?= $image_url ?>" alt="">
                         </picture>
                     </figure>
-                    <button class="remove-image px-4 py-1 border border-greenG-mid" onclick="eliminarImagenplanos('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
+                    <div class="flex flex-row mt-2">
+                        <div>
+                            <label for="figCaption">Descripción de la imagen</label>
+                            <br>
+                            <input type="text" name="figCaption-planos[]" value="<?= isset($figcaption[$i]) ? $figcaption[$i] : '' ?>" id="figCaption" />
+                        </div>
+                        <button class="w-fit remove-image px-4 ml-auto py-1 border border-red-600 text-red-600" onclick="eliminarImagenplanos('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
+                    </div>
                 </div>
             <?php endforeach; ?>
             <div id="gallery-preview-planos"></div>
@@ -125,6 +135,12 @@ function save_galerie_planos_meta_data($post_id)
     var_dump('Not doing autosave.');
     if (!current_user_can('edit_post', $post_id)) {
         return;
+    }
+    $figCaptions = $_POST['figCaption-planos'];
+    if (isset($figCaptions)) {
+        $figCaptions = json_encode($figCaptions);
+        // dd($figCaptions);
+        update_post_meta($post_id, 'img_figcaption-planos', $figCaptions);
     }
     var_dump('User has edit post capability.');
     if (isset($_POST['project_galeria_planos'])) {

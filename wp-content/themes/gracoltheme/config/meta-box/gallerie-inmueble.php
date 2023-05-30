@@ -15,6 +15,14 @@ add_action('add_meta_boxes', 'add_project_galeria_inmueble_meta_box');
 function render_project_galerie_inmueble_meta_box($post)
 {
     $serialized_image_gallery = get_post_meta($post->ID, 'project_galeria_inmueble', true);
+    $figcaption = get_post_meta($post->ID, 'img_figcaption-exterior', true);
+
+    if (isset($figcaption) && $figcaption !== '') {
+        $figcaption = json_decode($figcaption);
+    } else {
+        $figcaption = [];
+    }
+    
     wp_nonce_field('project_galeria_inmueble_meta_box', 'project_galeria_inmueble_nonce');
     if (isset($serialized_image_gallery[0]) && $serialized_image_gallery[0] !== '') {
         $image_gallery = json_decode($serialized_image_gallery[0]);
@@ -27,13 +35,20 @@ function render_project_galerie_inmueble_meta_box($post)
         <?php
         if (isset($image_gallery) && !empty($image_gallery)) : ?>
             <?php foreach ($image_gallery as $i => $image_url) : ?>
-                <div class="image-gallery-item">
+                <div class="image-gallery-item mb-10">
                     <figure>
                         <picture>
                             <img width="100%" src="<?= $image_url ?>" alt="">
                         </picture>
                     </figure>
-                    <button class="remove-image px-4 py-1 border border-greenG-mid" onclick="eliminarImagen('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
+                    <div class="flex flex-row mt-2">
+                        <div>
+                            <label for="figCaption">Descripción de la imagen</label>
+                            <br>
+                            <input type="text" name="figCaption-interior[]" value="<?= isset($figcaption[$i]) ? $figcaption[$i] : '' ?>" id="figCaptionInterior" />
+                        </div>
+                        <button class="ml-auto remove-image px-4 py-1 border border-greenG-mid" onclick="eliminarImagen('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
+                    </div>
                 </div>
             <?php endforeach; ?>
             <div id="gallery-preview"></div>
@@ -129,6 +144,13 @@ function save_galerie_inmueble_meta_data($post_id)
         return;
     }
     var_dump('User has edit post capability.');
+    $figCaptions = $_POST['figCaption-interior'];
+    if (isset($figCaptions)) {
+        $figCaptions = json_encode($figCaptions);
+        // dd($figCaptions);
+        update_post_meta($post_id, 'img_figcaption-interior', $figCaptions);
+    }
+
     if (isset($_POST['project_galeria_inmueble'])) {
         $image_gallery = $_POST['project_galeria_inmueble'];
         // $image_gallery = array_map('sanitize_text_field', $_POST['project_galeria_inmueble']);

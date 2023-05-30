@@ -1,4 +1,5 @@
 <?php
+
 function add_project_galeria_exteriores_meta_box()
 {
     add_meta_box(
@@ -15,6 +16,14 @@ add_action('add_meta_boxes', 'add_project_galeria_exteriores_meta_box');
 function render_project_galerie_exteriores_meta_box($post)
 {
     $serialized_image_gallery = get_post_meta($post->ID, 'project_galeria_exteriores', true);
+    $figcaption = get_post_meta($post->ID, 'img_figcaption-exterior', true);
+
+
+    if (isset($figcaption) && $figcaption !== '') {
+        $figcaption = json_decode($figcaption);
+    } else {
+        $figcaption = [];
+    }
     wp_nonce_field('project_galeria_exteriores_meta_box', 'project_galeria_exteriores_nonce');
     if (isset($serialized_image_gallery[0]) && $serialized_image_gallery[0] !== '') {
         $image_gallery = json_decode($serialized_image_gallery[0]);
@@ -33,7 +42,14 @@ function render_project_galerie_exteriores_meta_box($post)
                             <img width="100%" src="<?= $image_url ?>" alt="">
                         </picture>
                     </figure>
-                    <button class="remove-image px-4 py-1 border border-greenG-mid" onclick="eliminarImagenExteriores('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
+                    <div class="flex flex-row mt-2">
+                        <div>
+                            <label for="figCaption">Descripción de la imagen</label>
+                            <br>
+                            <input type="text" name="figCaption-exterior[]" value="<?= isset($figcaption[$i]) ? $figcaption[$i] : '' ?>" id="figCaption" />
+                        </div>
+                        <button class="w-fit remove-image px-4 ml-auto py-1 border border-red-600 text-red-600" onclick="eliminarImagenExteriores('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
+                    </div>
                 </div>
             <?php endforeach; ?>
             <div id="gallery-preview-exteriores"></div>
@@ -114,6 +130,8 @@ function render_project_galerie_exteriores_meta_box($post)
 
 function save_galerie_exteriores_meta_data($post_id)
 {
+
+
     if (!isset($_POST['project_galeria_exteriores_nonce']) || !wp_verify_nonce($_POST['project_galeria_exteriores_nonce'], 'project_galeria_exteriores_meta_box')) {
         return;
     }
@@ -127,11 +145,15 @@ function save_galerie_exteriores_meta_data($post_id)
         return;
     }
     var_dump('User has edit post capability.');
+    $figCaptions = $_POST['figCaption-exterior'];
+
+    if (isset($figCaptions)) {
+        $figCaptions = json_encode($figCaptions);
+        // dd($figCaptions);
+        update_post_meta($post_id, 'img_figcaption-exterior', $figCaptions);
+    }
     if (isset($_POST['project_galeria_exteriores'])) {
         $image_gallery = $_POST['project_galeria_exteriores'];
-        // $image_gallery = array_map('sanitize_text_field', $_POST['project_galeria_exteriores']);
-        var_dump('Image gallery:', $image_gallery);
-        // $serialized_image_gallery = json_encode($image_gallery);
         update_post_meta($post_id, 'project_galeria_exteriores', $image_gallery);
     }
 }

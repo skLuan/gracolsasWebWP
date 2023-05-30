@@ -1,7 +1,9 @@
 <?php
+require_once 'vendor/autoload.php';
 require_once 'config/admin_edit.php';
 require_once 'config/taxo-img.php';
 require_once 'config/register_taxonomies.php';
+
 define('IMAGE', get_stylesheet_directory_uri() . '/assets/img/');
 define('GSINCLUDE', get_template_directory() . "/includes\/");
 function project_post_type()
@@ -55,8 +57,7 @@ function project_post_type()
 
 add_action('init', 'project_post_type');
 
-function init_template()
-{
+function gs_template(){
     load_theme_textdomain('gracolsas');
     add_theme_support('post-thumbnails');
     add_theme_support('title-tag');
@@ -68,6 +69,12 @@ function init_template()
             'footer_menu' => 'Footer Menu' // Menu del footer
         )
     );
+}
+add_action('after_setup_theme', 'gs_template');
+
+
+function init_template()
+{
 
     // ---------------------- Register Styles ----------------------
     wp_enqueue_style('fonts', get_stylesheet_directory_uri() . '/assets/fonts/fonts.css', '1.0', 'all');

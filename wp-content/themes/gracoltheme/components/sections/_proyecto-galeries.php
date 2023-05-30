@@ -4,21 +4,33 @@ $serialized_galeria_inmueble = get_post_meta(get_the_ID(),  'project_galeria_inm
 $serialized_galeria_exteriores = get_post_meta(get_the_ID(),  'project_galeria_exteriores', true);
 $serialized_galeria_planos = get_post_meta(get_the_ID(),  'project_galeria_planos', true);
 // $galeria_inmueble = get_post_meta(get_the_ID(),  'project_galeria_inmueble', true);
-$figcaption = get_post_meta(get_the_ID(), 'img_figcaption', true);
+$figcaption_interior = get_post_meta(get_the_ID(), 'img_figcaption-interior', true);
+$figcaption_exteriores = get_post_meta(get_the_ID(), 'img_figcaption-exterior', true);
+$figcaption_planos = get_post_meta(get_the_ID(), 'img_figcaption-exterior', true);
 
+// isset($figcaption_exteriores) && $figcaption_exteriores !== '' || $figcaption_exteriores !== [] ? $figcaption_exteriores = json_decode($figcaption) : $figcaption = [];
 
-if (isset($serialized_galeria_inmueble[0]) && $serialized_galeria_inmueble[0] !== '') {
-    $galeria_inmueble = json_decode($serialized_galeria_inmueble[0]);
-} else {
-    $galeria_inmueble = $serialized_galeria_inmueble;
+function gsSanitizer($rawData = null)
+{
+    $clean = null;
+    isset($rawData) && $rawData !== '' ? $clean = json_decode($rawData)
+        : $clean = $rawData;
+    return $clean;
 }
 
+$galeria_inmueble = gsSanitizer($serialized_galeria_inmueble[0]);
+$galeria_exteriores = gsSanitizer($serialized_galeria_exteriores[0]);
 
-if (isset($serialized_galeria_exteriores[0]) && $serialized_galeria_exteriores[0] !== '') {
-    $galeria_exteriores = json_decode($serialized_galeria_exteriores[0]);
-} else {
-    $galeria_exteriores = $serialized_galeria_exteriores;
-}
+$figcaption_exteriores = gsSanitizer($figcaption_exteriores);
+$figcaption_interior = gsSanitizer($figcaption_interior);
+$figcaption_planos = gsSanitizer($figcaption_planos);
+
+// dd($figcaption_interior);
+// if (isset($serialized_galeria_exteriores[0]) && $serialized_galeria_exteriores[0] !== '') {
+//     $galeria_exteriores = json_decode($serialized_galeria_exteriores[0]);
+// } else {
+//     $galeria_exteriores = $serialized_galeria_exteriores;
+// }
 
 
 if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== '') {
@@ -55,14 +67,14 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
-                    <?php foreach ($galeria_inmueble as $image_url) : ?>
+                    <?php foreach ($galeria_inmueble as $i => $image_url) : ?>
                         <div class="swiper-slide">
                             <figure>
                                 <picture>
 
                                     <img src="<?= $image_url ?>" />
                                 </picture>
-                                <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= $figcaption ?></figcaption>
+                                <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= $figcaption_interior[$i] ?></figcaption>
                             </figure>
                         </div>
                     <?php endforeach; ?>
@@ -91,14 +103,13 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
-                    <?php foreach ($galeria_exteriores as $image_url) : ?>
+                    <?php foreach ($galeria_exteriores as $i => $image_url) : ?>
                         <div class="swiper-slide">
                             <figure>
                                 <picture>
-
                                     <img src="<?= $image_url ?>" />
                                 </picture>
-                                <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= $figcaption ?></figcaption>
+                                <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= $figcaption_exteriores[$i] ?></figcaption>
                             </figure>
                         </div>
                     <?php endforeach; ?>
@@ -127,14 +138,14 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
-                    <?php foreach ($galeria_planos as $image_url) : ?>
+                    <?php foreach ($galeria_planos as $i => $image_url) : ?>
                         <div class="swiper-slide">
                             <figure>
                                 <picture>
 
                                     <img src="<?= $image_url ?>" />
                                 </picture>
-                                <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= $figcaption ?></figcaption>
+                                <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= $figcaption_planos[$i] ?></figcaption>
                             </figure>
                         </div>
                     <?php endforeach; ?>
