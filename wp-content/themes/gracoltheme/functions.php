@@ -96,6 +96,7 @@ function init_template()
     wp_enqueue_script('infoBlock', get_stylesheet_directory_uri() . '/assets/js/infoBlock.js', ['wp-blocks', 'wp-element', 'wp-components'], '1.8.1', 'all');
     if(is_singular('proyectos')){
         wp_enqueue_script('formSend', get_stylesheet_directory_uri() . '/assets/js/proyectoSend.js', ['main'], '1.8.1', 'all');
+        wp_enqueue_script('controlPrices', get_stylesheet_directory_uri() . '/assets/js/projectPrices.js', ['main'], '1.8.1', 'all');
     }
 
     register_block_type('gracoltheme/project-config', array(

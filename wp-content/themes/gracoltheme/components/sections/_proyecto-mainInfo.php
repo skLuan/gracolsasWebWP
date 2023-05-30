@@ -12,6 +12,33 @@ $amenities = get_the_terms(get_the_ID(), 'amenities');
 
 $gsBarrio = get_post_meta(get_the_ID(), 'gs_barrio', true);
 $gsCiudad = get_post_meta(get_the_ID(), 'gs_ciudad', true);
+
+
+$url = 'https://v6.exchangerate-api.com/v6/d25e2b95007cfbdeeb6abaac/latest/USD';  // URL de la API
+$response = file_get_contents($url);  // Realizar la llamada a la API
+if ($response !== false) {
+    // La llamada a la API fue exitosa
+    $data = json_decode($response, true);  // Decodificar la respuesta JSON en un array asociativo
+    // Trabajar con los datos obtenidos de la API
+    $USDCOP = $data['conversion_rates']['COP'];
+    $USDEUR = $data['conversion_rates']['EUR'];
+} else {
+    // La llamada a la API falló
+    // Manejar el error adecuadamente
+    $USDCOP = 4450;
+    $USDEUR = 0.9337;
+}
+$precio_num = str_replace(".", "", $precio); // Eliminar los puntos
+$precioUS = $precio_num / $USDCOP;
+
+
+$precioEUR = $precioUS * $USDEUR;
+$precioUS = number_format($precioUS, 0, ',', '.');
+$precioEUR = number_format($precioEUR, 0, ',', '.');
+$precio = number_format($precio_num, 0, ',', '.');
+
+
+
 ?>
 <section class="max-w-screen-2xl mx-auto bg-white px-5 rounded-sm shadow-lg relative grid gap-5 grid-cols-12 pb-5">
     <!-- -------------------------------------------- Logo -->
@@ -28,9 +55,9 @@ $gsCiudad = get_post_meta(get_the_ID(), 'gs_ciudad', true);
     <section class="col-span-5 flex flex-col">
         <p class="text-center mx-auto">Cambio de moneda</p>
         <div class="flex flex-row mt-2">
-            <button class="border border-greenG rounded px-4 py-1 ml-auto">COL</button>
-            <button class="border border-greenG rounded px-4 py-1 mx-5">USD</button>
-            <button class="border border-greenG rounded px-4 py-1 mr-auto">EUR</button>
+            <button name="gsCol" value="<?= $precio ?>" class="gs_price_button bg-orangeG text-white !border-orangeG border border-greenG rounded px-4 py-1 ml-auto">COL</button>
+            <button name="gsUSD" value="<?= $precioUS ?>" class="gs_price_button   border border-greenG rounded px-4 py-1 mx-5">USD</button>
+            <button name="gsEUR" value="<?= $precioEUR ?>" class="gs_price_button  border border-greenG rounded px-4 py-1 mr-auto">EUR</button>
         </div>
         <div class="flex flex-row mt-5 mx-auto">
             <div class="mr-10 ml-auto">
@@ -41,7 +68,7 @@ $gsCiudad = get_post_meta(get_the_ID(), 'gs_ciudad', true);
             </div>
             <div class="mr-auto">
                 <?php if (!empty($precio)) : ?>
-                    <h3 class="text-orangeG text-3xl font-futuraBold">$<?= $precio ?></h3>
+                    <h3 id="gs_priceSelector" class="text-orangeG text-3xl font-futuraBold">$<?= $precio ?></h3>
                     <p class="text-base text-center -mt-1 text-greenG">Valor aproximado</p>
                 <?php endif; ?>
             </div>
