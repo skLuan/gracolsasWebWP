@@ -8,7 +8,7 @@ $args = array(
 $proyectos = new WP_Query($args);
 if ($proyectos->have_posts()) :
 ?>
-    <div class="grid grid-cols-3 gap-x-5 gap-y-8 w-4/5 mx-auto">
+    <div class="sm:w-full grid grid-cols-1 md:grid-cols-3 gap-x-5 gap-y-8 md:w-4/5 md:mx-auto ">
 
         <?php while ($proyectos->have_posts()) :
             $proyectos->the_post();
