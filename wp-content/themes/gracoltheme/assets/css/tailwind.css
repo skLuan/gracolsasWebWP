@@ -6,6 +6,9 @@
   body {
     @apply font-futura;
   }
+  strong, b {
+    @apply font-futuraBold;
+  }
 }
 
 #navbar-menu .current_page_item,
@@ -32,6 +35,10 @@ li#menu-item-34 ul.sub-menu li.menu-item {
 }
 .cardVivienda{
   background-image: url(../img/card-compracasitas.png);
+}
+.sectionAsesores{
+@apply bg-center bg-cover;
+  background-image: url(../img/BANNER-CALL-CENTER.jpg);
 }
 
 .bg-blackOp{

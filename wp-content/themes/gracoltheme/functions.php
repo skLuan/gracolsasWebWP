@@ -1,8 +1,11 @@
 <?php
+require_once 'vendor/autoload.php';
 require_once 'config/admin_edit.php';
 require_once 'config/taxo-img.php';
 require_once 'config/register_taxonomies.php';
+
 define('IMAGE', get_stylesheet_directory_uri() . '/assets/img/');
+define('GSINCLUDE', get_template_directory() . "/includes\/");
 function project_post_type()
 {
     $labels = array(
@@ -54,8 +57,7 @@ function project_post_type()
 
 add_action('init', 'project_post_type');
 
-function init_template()
-{
+function gs_template(){
     load_theme_textdomain('gracolsas');
     add_theme_support('post-thumbnails');
     add_theme_support('title-tag');
@@ -67,15 +69,22 @@ function init_template()
             'footer_menu' => 'Footer Menu' // Menu del footer
         )
     );
+}
+add_action('after_setup_theme', 'gs_template');
+
+
+function init_template()
+{
 
     // ---------------------- Register Styles ----------------------
     wp_enqueue_style('fonts', get_stylesheet_directory_uri() . '/assets/fonts/fonts.css', '1.0', 'all');
+    wp_enqueue_style('styles', get_stylesheet_directory_uri() . '/style.css', 'tailwind', '1.0', 'all');
+    
     if (!is_admin()) {
         wp_enqueue_style('tailwind', get_stylesheet_directory_uri() . '/assets/css/output.css', 'fonts', '1.0', 'all');
         wp_enqueue_style('swipercss', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css', 'tailwind', '1.0', 'all');
-        // wp_enqueue_style('animate', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css', 'tailwind', '1.0', 'all');
+        wp_enqueue_style('animate', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css', 'tailwind', '1.0', 'all');
     }
-    wp_enqueue_style('styles', get_stylesheet_directory_uri() . '/style.css', 'tailwind', '1.0', 'all');
 
     // ---------------------- Register Scripts ----------------------
     wp_enqueue_script('jquery');
@@ -86,12 +95,17 @@ function init_template()
     wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/js/main.js', ['iconify', 'lodash', 'swiper', 'gracolSwiper'], '1.8.1', 'all');
     wp_enqueue_script('infoBlock', get_stylesheet_directory_uri() . '/assets/js/infoBlock.js', ['wp-blocks', 'wp-element', 'wp-components'], '1.8.1', 'all');
     wp_enqueue_script('acordeon', get_stylesheet_directory_uri() . '/assets/js/acordeon.js', ['iconify', 'lodash', 'swiper', 'gracolSwiper'], '1.8.1', 'all');
+    if(is_singular('proyectos')){
+        wp_enqueue_script('formSend', get_stylesheet_directory_uri() . '/assets/js/proyectoSend.js', ['main'], '1.8.1', 'all');
+        wp_enqueue_script('controlPrices', get_stylesheet_directory_uri() . '/assets/js/projectPrices.js', ['main'], '1.8.1', 'all');
+    }
 
     register_block_type('gracoltheme/project-config', array(
         'editor_script' => 'infoBlock',
     ));
 }
-add_action('after_setup_theme', 'init_template');
+
+add_action('wp_enqueue_scripts', 'init_template');
 
 
 

@@ -17,7 +17,7 @@
                     <li class="flex-auto flex flex-wrap justify-center md:justify-around"><a href="#" class="">Jamundí</a></li>
                 </ul>
             </div>
-            <div class="flex p-1 md:p-0">
+          <div class="flex p-1 md:p-0">
                 <input type="text" placeholder="Buscar proyectos" 
                 class="
                 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 

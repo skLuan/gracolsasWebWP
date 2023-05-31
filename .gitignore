@@ -11,6 +11,7 @@ wp-content/*
 !wp-content/mu-plugins/
 !wp-content/plugins/
 !wp-content/themes/
+wp-content/themes/gracoltheme/vendor/*
 wp-content/themes/gracoltheme/assets/img/
 wp-content/themes/gracoltheme/assets/css/output.css
 
