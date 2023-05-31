@@ -109,7 +109,7 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
                                 <picture>
                                     <img src="<?= $image_url ?>" />
                                 </picture>
-                                <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= $figcaption_exteriores[$i] ?></figcaption>
+                                <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= htmlspecialchars($figcaption_exteriores[$i], ENT_QUOTES, 'UTF-8') ?></figcaption>
                             </figure>
                         </div>
                     <?php endforeach; ?>
@@ -145,7 +145,7 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
 
                                     <img src="<?= $image_url ?>" />
                                 </picture>
-                                <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= $figcaption_planos[$i] ?></figcaption>
+                                <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= htmlspecialchars($figcaption_planos[$i], ENT_QUOTES, 'UTF-8') ?></figcaption>
                             </figure>
                         </div>
                     <?php endforeach; ?>

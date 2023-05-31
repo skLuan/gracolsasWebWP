@@ -15,14 +15,16 @@ add_action('add_meta_boxes', 'add_project_galeria_inmueble_meta_box');
 function render_project_galerie_inmueble_meta_box($post)
 {
     $serialized_image_gallery = get_post_meta($post->ID, 'project_galeria_inmueble', true);
-    $figcaption = get_post_meta($post->ID, 'img_figcaption-exterior', true);
+    $figcaption = get_post_meta($post->ID, 'img_figcaption-interior', true);
 
     if (isset($figcaption) && $figcaption !== '') {
         $figcaption = json_decode($figcaption);
+        foreach ($figcaption as $i => $figCap) {
+           $figCap = htmlspecialchars($figCap, ENT_QUOTES, 'UTF-8');
+        }
     } else {
         $figcaption = [];
     }
-    
     wp_nonce_field('project_galeria_inmueble_meta_box', 'project_galeria_inmueble_nonce');
     if (isset($serialized_image_gallery[0]) && $serialized_image_gallery[0] !== '') {
         $image_gallery = json_decode($serialized_image_gallery[0]);
@@ -134,7 +136,6 @@ function save_galerie_inmueble_meta_data($post_id)
     if (!isset($_POST['project_galeria_inmueble_nonce']) || !wp_verify_nonce($_POST['project_galeria_inmueble_nonce'], 'project_galeria_inmueble_meta_box')) {
         return;
     }
-    // dd($_POST['project_galeria_inmueble']);
     var_dump('Nonce verification passed.');
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
@@ -146,16 +147,19 @@ function save_galerie_inmueble_meta_data($post_id)
     var_dump('User has edit post capability.');
     $figCaptions = $_POST['figCaption-interior'];
     if (isset($figCaptions)) {
-        $figCaptions = json_encode($figCaptions);
-        // dd($figCaptions);
-        update_post_meta($post_id, 'img_figcaption-interior', $figCaptions);
+
+        if (is_array($figCaptions)) {
+            $sanitizedFigCaptions = array_map('sanitize_text_field', $figCaptions);
+            foreach ($figCaptions as $i => $figCap) {
+                $figCap = htmlspecialchars($figCap, ENT_QUOTES, 'UTF-8');
+            }
+            $figCaptions = json_encode($figCaptions, JSON_UNESCAPED_UNICODE);
+            update_post_meta($post_id, 'img_figcaption-interior', $figCaptions);
+        }
     }
 
     if (isset($_POST['project_galeria_inmueble'])) {
         $image_gallery = $_POST['project_galeria_inmueble'];
-        // $image_gallery = array_map('sanitize_text_field', $_POST['project_galeria_inmueble']);
-        var_dump('Image gallery:', $image_gallery);
-        // $serialized_image_gallery = json_encode($image_gallery);
         update_post_meta($post_id, 'project_galeria_inmueble', $image_gallery);
     }
 }

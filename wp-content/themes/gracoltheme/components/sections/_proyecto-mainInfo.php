@@ -63,7 +63,7 @@ $precio = number_format($precio_num, 0, ',', '.');
             <div class="mr-10 ml-auto">
                 <?php if (!empty($precioSMLV)) : ?>
                     <h3 class="text-orangeG text-3xl mx-auto text-center font-futuraBold"><?= $precioSMLV ?> SMMLV</h3>
-                    <p class="text-[15px] text-center -mt-1 text-greenG underline">¿Cuánto vale un SMLV?</p>
+                    <a href="https://www.mintrabajo.gov.co/prensa/comunicados/2022/diciembre/-1.160.000-ser%C3%A1-el-salario-minimo-para-2023-y-auxilio-de-transporte-por-140.606" target="_blank" class="text-[15px] text-center -mt-1 text-greenG underline">¿Cuánto vale un SMLV?</a>
                 <?php endif; ?>
             </div>
             <div class="mr-auto">
