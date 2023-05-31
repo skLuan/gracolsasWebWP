@@ -6,7 +6,7 @@ $serialized_galeria_planos = get_post_meta(get_the_ID(),  'project_galeria_plano
 // $galeria_inmueble = get_post_meta(get_the_ID(),  'project_galeria_inmueble', true);
 $figcaption_interior = get_post_meta(get_the_ID(), 'img_figcaption-interior', true);
 $figcaption_exteriores = get_post_meta(get_the_ID(), 'img_figcaption-exterior', true);
-$figcaption_planos = get_post_meta(get_the_ID(), 'img_figcaption-exterior', true);
+$figcaption_planos = get_post_meta(get_the_ID(), 'img_figcaption-planos', true);
 
 // isset($figcaption_exteriores) && $figcaption_exteriores !== '' || $figcaption_exteriores !== [] ? $figcaption_exteriores = json_decode($figcaption) : $figcaption = [];
 
@@ -74,7 +74,7 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
 
                                     <img src="<?= $image_url ?>" />
                                 </picture>
-                                <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= $figcaption_interior[$i] ?></figcaption>
+                                <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= htmlspecialchars($figcaption_interior[$i],ENT_QUOTES, 'UTF-8') ?></figcaption>
                             </figure>
                         </div>
                     <?php endforeach; ?>
