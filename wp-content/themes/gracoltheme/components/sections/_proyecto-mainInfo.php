@@ -29,6 +29,7 @@ if ($response !== false) {
     $USDEUR = 0.9337;
 }
 $precio_num = str_replace(".", "", $precio); // Eliminar los puntos
+$precio_num = floatval($precio_num);
 $precioUS = $precio_num / $USDCOP;
 
 

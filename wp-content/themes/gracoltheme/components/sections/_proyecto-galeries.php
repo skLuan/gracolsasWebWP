@@ -18,8 +18,12 @@ function gsSanitizer($rawData = null)
     return $clean;
 }
 
-$galeria_inmueble = gsSanitizer($serialized_galeria_inmueble[0]);
-$galeria_exteriores = gsSanitizer($serialized_galeria_exteriores[0]);
+try {
+    $galeria_inmueble = gsSanitizer($serialized_galeria_inmueble[0]);
+    $galeria_exteriores = gsSanitizer($serialized_galeria_exteriores[0]);
+} catch (\Throwable $th) {
+    //throw $th;
+}
 
 $figcaption_exteriores = gsSanitizer($figcaption_exteriores);
 $figcaption_interior = gsSanitizer($figcaption_interior);
@@ -67,7 +71,10 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
-                    <?php foreach ($galeria_inmueble as $i => $image_url) : ?>
+                    
+                    <?php
+                    if(is_array($galeria_inmueble)):
+                    foreach ($galeria_inmueble as $i => $image_url) : ?>
                         <div class="swiper-slide">
                             <figure>
                                 <picture>
@@ -77,7 +84,10 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
                                 <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= htmlspecialchars($figcaption_interior[$i],ENT_QUOTES, 'UTF-8') ?></figcaption>
                             </figure>
                         </div>
-                    <?php endforeach; ?>
+                    <?php endforeach;
+                    else:
+                        echo 'No hay Imagenes';
+                    endif; ?>
                 </div>
             </div>
             <!-- If we need pagination -->

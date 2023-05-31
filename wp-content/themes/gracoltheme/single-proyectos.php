@@ -13,6 +13,8 @@
         <?= get_template_part('components/sections/_proyecto', 'asesores') ?>
 
         <?= get_template_part('./components/banners/_banner', 'comprarVivienda') ?>
+        <?= get_template_part('./components/sections/_faq') ?>
+
 
     <?php
     endwhile; ?>
