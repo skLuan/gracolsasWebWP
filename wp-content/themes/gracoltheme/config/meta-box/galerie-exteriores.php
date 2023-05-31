@@ -148,7 +148,7 @@ function save_galerie_exteriores_meta_data($post_id)
     $figCaptions = $_POST['figCaption-exterior'];
 
     if (isset($figCaptions)) {
-        $figCaptions = json_encode($figCaptions);
+        $figCaptions = json_encode($figCaptions, JSON_UNESCAPED_UNICODE);
         // dd($figCaptions);
         update_post_meta($post_id, 'img_figcaption-exterior', $figCaptions);
     }

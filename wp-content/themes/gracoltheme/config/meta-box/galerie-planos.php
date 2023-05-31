@@ -17,6 +17,14 @@ function render_project_galerie_planos_meta_box($post)
     $serialized_image_gallery = get_post_meta($post->ID, 'project_galeria_planos', true);
     $figcaption = get_post_meta($post->ID, 'img_figcaption-planos', true);
 
+    if (isset($figcaption) && $figcaption !== '') {
+        $figcaption = json_decode($figcaption);
+        foreach ($figcaption as $i => $figCap) {
+            $figCap = htmlspecialchars($figCap, ENT_QUOTES, 'UTF-8');
+        }
+    } else {
+        $figcaption = [];
+    }
 
     wp_nonce_field('project_galeria_planos_meta_box', 'project_galeria_planos_nonce');
     if (isset($serialized_image_gallery[0]) && $serialized_image_gallery[0] !== '') {
@@ -138,16 +146,15 @@ function save_galerie_planos_meta_data($post_id)
     }
     $figCaptions = $_POST['figCaption-planos'];
     if (isset($figCaptions)) {
-        $figCaptions = json_encode($figCaptions);
+        $figCaptions = json_encode($figCaptions, JSON_UNESCAPED_UNICODE);
         // dd($figCaptions);
         update_post_meta($post_id, 'img_figcaption-planos', $figCaptions);
     }
     var_dump('User has edit post capability.');
+
+
     if (isset($_POST['project_galeria_planos'])) {
         $image_gallery = $_POST['project_galeria_planos'];
-        // $image_gallery = array_map('sanitize_text_field', $_POST['project_galeria_planos']);
-        var_dump('Image gallery:', $image_gallery);
-        // $serialized_image_gallery = json_encode($image_gallery);
         update_post_meta($post_id, 'project_galeria_planos', $image_gallery);
     }
 }
