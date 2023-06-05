@@ -15,7 +15,8 @@ $gsCiudad = get_post_meta(get_the_ID(), 'gs_ciudad', true);
 
 
 $url = 'https://v6.exchangerate-api.com/v6/d25e2b95007cfbdeeb6abaac/latest/USD';  // URL de la API
-$response = file_get_contents($url);  // Realizar la llamada a la API
+// $response = file_get_contents($url);  // Realizar la llamada a la API
+$response = false;  // Realizar la llamada a la API
 if ($response !== false) {
     // La llamada a la API fue exitosa
     $data = json_decode($response, true);  // Decodificar la respuesta JSON en un array asociativo
@@ -43,7 +44,7 @@ $precio = number_format($precio_num, 0, ',', '.');
 ?>
 <section class="max-w-screen-2xl lg:mx-auto bg-white mx-5 lg:px-5 rounded-sm shadow-lg relative grid gap-5 grid-cols-1 lg:grid-cols-12 pb-5">
     <!-- -------------------------------------------- Logo -->
-    <picture class="bg-white p-5 lg:left-[63%] right-5 -top-[165px] shadow-lg rounded absolute lg:-top-20"><img class="w-[100px] lg:w-[170px]" src="<?= $logo_project ?>" alt="logo of the project"></picture>
+    <picture class="bg-white p-5 lg:left-[63%] right-5 lg:right-[unset] -top-[165px] shadow-lg rounded absolute lg:-top-20"><img class="w-[100px] lg:w-[170px]" src="<?= $logo_project ?>" alt="logo of the project"></picture>
     <div class="lg:pt-20 pt-10 lg:col-span-5 lg:col-start-2 px-5">
         <h2 class="font-futuraBold text-3xl text-left lg:text-5xl text-greenG-mid uppercase"><?= the_title() ?></h2>
         <h3 class="text-orangeG text-xl text-left lg:text-4xl font-futuraBold"><?= $gsBarrio ?> <span class="text-grayG !font-futura ml-2 lg:ml-5"><?= $gsCiudad ?></span></h3>

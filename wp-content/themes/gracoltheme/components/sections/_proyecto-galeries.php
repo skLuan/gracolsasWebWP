@@ -55,7 +55,7 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
     </div>
     <div class="bg-white relative shadow-lg lg:col-span-12">
 
-        <div id="img_interior" class="gs_slide animate__animated animate__faster animate__fadeInDown mb-10 lg:w-2/3 px-5 mx-auto relative">
+        <div id="img_interior" class="gs_slide animate__animated animate__faster animate__fadeInDown mb-10 max-w-screen-2xl px-5 mx-auto w-full relative">
             <!-- thmbslider -->
             <div thumbsSlider="" class="swiper thumbSwiper my-8">
                 <div class="swiper-wrapper !items-center !justify-center">
@@ -76,9 +76,9 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
                     if (is_array($galeria_inmueble)) :
                         foreach ($galeria_inmueble as $i => $image_url) : ?>
                             <div class="swiper-slide">
-                                <figure class=" overflow-hidden">
+                                <figure class=" overflow-hidden rounded-lg">
                                     <picture>
-                                        <img class="h-[335px] rounded-lg" src="<?= $image_url ?>" />
+                                        <img class="max-w-none lg:max-w-full -translate-x-1/2 lg:-translate-x-0 rounded-lg" src="<?= $image_url ?>" />
                                     </picture>
                                     <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= htmlspecialchars($figcaption_interior[$i], ENT_QUOTES, 'UTF-8') ?></figcaption>
                                 </figure>
@@ -96,7 +96,7 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
         </div>
-        <div id="img_ext" class="gs_slide animate__animated animate__faster animate__fadeInDown hidden mb-10 w-2/3 mx-auto relative">
+        <div id="img_ext" class="gs_slide animate__animated animate__faster animate__fadeInDown hidden mb-10 max-w-screen-2xl px-5 mx-auto w-full relative">
             <!-- thmbslider -->
             <div thumbsSlider="" class="swiper thumbSwiperExteriores my-8">
                 <div class="swiper-wrapper !items-center !justify-center">
@@ -131,7 +131,7 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
             <div class="swiper-button-prev-ext"></div>
             <div class="swiper-button-next-ext"></div>
         </div>
-        <div id="img_planos" class="gs_slide animate__animated animate__faster animate__fadeInDown hidden mb-10 w-2/3 mx-auto relative">
+        <div id="img_planos" class="gs_slide animate__animated animate__faster animate__fadeInDown hidden mb-10 max-w-screen-2xl px-5 mx-auto w-full relative">
             <!-- thmbslider -->
             <div thumbsSlider="" class="swiper thumbSwiper-planos my-8">
                 <div class="swiper-wrapper !items-center !justify-center">

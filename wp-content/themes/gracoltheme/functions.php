@@ -3,6 +3,7 @@ require_once 'vendor/autoload.php';
 require_once 'config/admin_edit.php';
 require_once 'config/taxo-img.php';
 require_once 'config/register_taxonomies.php';
+require_once 'includes/InputClass.php';
 require_once 'includes/cardClass.php';
 require_once 'includes/cardProjectClass.php';
 

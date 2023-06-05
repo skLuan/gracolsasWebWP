@@ -4,7 +4,7 @@
         the_post();
     ?> <figure class="w-full overflow-hidden">
             <picture class="w-screen overflow-hidden">
-                <img class="lg:w-full -translate-x-1/2 h-[400px] max-w-none" src="<?= the_post_thumbnail_url('original') ?>" alt="">
+                <img class="lg:w-full -translate-x-1/2 lg:-translate-x-0 h-[400px] max-w-none" src="<?= the_post_thumbnail_url('original') ?>" alt="">
             </picture>
         </figure>
         <?= get_template_part('components/sections/_proyecto', 'mainInfo') ?>
