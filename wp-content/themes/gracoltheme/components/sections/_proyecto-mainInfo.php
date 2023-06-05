@@ -86,7 +86,7 @@ $precio = number_format($precio_num, 0, ',', '.');
                     $image_url = get_term_meta($amenitie->term_id, 'imagen_taxonomy', true);
             ?>
                     <div class="flex flex-row items-center">
-                        <figure class="ml-10">
+                        <figure class="ml-5">
                             <picture>
                                 <img class="w-[40px] lg:w-[60px]" width="" src="<?= $image_url ?>" alt="">
                             </picture>
