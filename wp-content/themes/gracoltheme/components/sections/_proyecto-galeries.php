@@ -44,16 +44,16 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
 }
 ?>
 
-<section class="mt-20 grid grid-cols-12 gap-5">
-    <h2 class="text-orangeG font-futuraBold text-4xl text-center col-span-full">Galería</h2>
-    <div class="col-start-4 col-span-6 flex flex-row justify-evenly">
-        <button class="gs_galerie_buton transition-all border !bg-orangeG !text-whiteG !border-orangeG border-greenG px-5 py-1 rounded font-futuraBold text-greenG">Inmueble</button>
-        <button class="gs_galerie_buton transition-all border border-greenG px-5 py-1 rounded font-futuraBold text-greenG">Exteriores</button>
-        <button class="gs_galerie_buton transition-all border border-greenG px-5 py-1 rounded font-futuraBold text-greenG">Planos</button>
-        <button class="gs_galerie_buton transition-all border border-greenG px-5 py-1 rounded font-futuraBold text-greenG">Recorrido 360</button>
-        <button class="gs_galerie_buton transition-all border border-greenG px-5 py-1 rounded font-futuraBold text-greenG">Brochure</button>
+<section class="mt-20 grid grid-cols-1 lg:grid-cols-12 gap-5">
+    <h2 class="text-orangeG font-futuraBold text-4xl text-center lg:col-span-full">Galería</h2>
+    <div class="lg:col-start-4 px-3 lg:px-0 lg:col-span-6 flex flex-row flex-wrap justify-center lg:justify-evenly text-greenG">
+        <button class="gs_galerie_buton transition-all m-1 border !text-orangeG !border-[3px] !border-orangeG border-greenG px-5 py-1 rounded font-futuraBold">Inmueble</button>
+        <button class="gs_galerie_buton transition-all m-1 border border-greenG px-4 lg:px-5 py-1 rounded font-futuraBold">Exteriores</button>
+        <button class="gs_galerie_buton transition-all m-1 border border-greenG px-4 lg:px-5 py-1 rounded font-futuraBold">Planos</button>
+        <button class="gs_galerie_buton transition-all m-1 border border-greenG px-4 lg:px-5 py-1 rounded font-futuraBold">Recorrido 360</button>
+        <button class="gs_galerie_buton transition-all m-1 border border-greenG px-4 lg:px-5 py-1 rounded font-futuraBold">Brochure</button>
     </div>
-    <div class="bg-white relative shadow-lg col-span-12">
+    <div class="bg-white relative shadow-lg lg:col-span-12">
 
         <div id="img_interior" class="gs_slide animate__animated animate__faster animate__fadeInDown mb-10 w-2/3 mx-auto relative">
             <!-- thmbslider -->
@@ -71,21 +71,21 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
-                    
-                    <?php
-                    if(is_array($galeria_inmueble)):
-                    foreach ($galeria_inmueble as $i => $image_url) : ?>
-                        <div class="swiper-slide">
-                            <figure>
-                                <picture>
 
-                                    <img src="<?= $image_url ?>" />
-                                </picture>
-                                <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= htmlspecialchars($figcaption_interior[$i],ENT_QUOTES, 'UTF-8') ?></figcaption>
-                            </figure>
-                        </div>
+                    <?php
+                    if (is_array($galeria_inmueble)) :
+                        foreach ($galeria_inmueble as $i => $image_url) : ?>
+                            <div class="swiper-slide">
+                                <figure>
+                                    <picture>
+
+                                        <img src="<?= $image_url ?>" />
+                                    </picture>
+                                    <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= htmlspecialchars($figcaption_interior[$i], ENT_QUOTES, 'UTF-8') ?></figcaption>
+                                </figure>
+                            </div>
                     <?php endforeach;
-                    else:
+                    else :
                         echo 'No hay Imagenes';
                     endif; ?>
                 </div>

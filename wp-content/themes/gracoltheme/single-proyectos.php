@@ -1,11 +1,12 @@
 <?php get_header() ?>
-<main class="mt-24">
+<main class="lg:mt-24">
     <?php while (have_posts()) :
         the_post();
-    ?>
-        <picture class="w-screen overflow-hidden h-[400px]">
-            <img class="w-full" src="<?= the_post_thumbnail_url('original') ?>" alt="">
-        </picture>
+    ?> <figure class="w-full overflow-hidden">
+            <picture class="w-screen overflow-hidden">
+                <img class="lg:w-full -translate-x-1/2 h-[400px] max-w-none" src="<?= the_post_thumbnail_url('original') ?>" alt="">
+            </picture>
+        </figure>
         <?= get_template_part('components/sections/_proyecto', 'mainInfo') ?>
         <?= get_template_part('components/sections/_proyecto', 'galeries') ?>
         <?= get_template_part('components/sections/_proyecto', 'form') ?>
