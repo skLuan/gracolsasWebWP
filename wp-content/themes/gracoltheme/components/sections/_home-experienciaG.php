@@ -6,7 +6,7 @@
     <div class="grid grid-cols-1 gap-x-5 gap-y-8 w-full md:w-4/5 md:mx-auto mb-5">
         <div class="grid md:grid-cols-10 bg-greenwhiteG w-full text-left">
             <picture class="grid md:col-span-3 justify-items-center">
-                <img class="" src="<?= IMAGE . 'people1.png' ?>" alt="Juanita Gomez Herrera" />
+                <img class="" src="<?= IMAGE . 'customers/people1.jpg' ?>" alt="Juanita Gomez Herrera" />
             </picture>
             <article class="relative md:col-span-7 pb-6 md:p-5">
                 <div class="p-5 relative">
@@ -46,7 +46,7 @@
                 <div class="float-left  bg-orangeG h-[38px] w-[200px] absolute bottom-0 right-10"></div>
             </article>
             <picture class="grid md:col-span-3 justify-items-center text-right">
-                <img src="<?= IMAGE . 'people2.png' ?>" alt="Carlos Pérez Moreno" />
+                <img src="<?= IMAGE . 'customers/people2.jpg' ?>" alt="Carlos Pérez Moreno" />
             </picture>
         </div>
     </div>
@@ -54,7 +54,7 @@
     <div class="grid grid-cols-1 gap-x-5 gap-y-8 w-full md:w-4/5 md:mx-auto mb-5">
         <div class="grid md:grid-cols-10 bg-greenwhiteG w-full text-left">
             <picture class="grid md:col-span-3 justify-items-center">
-                <img src="<?= IMAGE . 'people3.png' ?>" alt="Yolanda Carabalí" />
+                <img src="<?= IMAGE . 'customers/people3.jpg' ?>" alt="Yolanda Carabalí" />
             </picture>
             <article class="relative md:col-span-7 pb-6 md:p-5">
                 <div class="p-5 relative">

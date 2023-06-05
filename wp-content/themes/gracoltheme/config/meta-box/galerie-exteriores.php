@@ -61,6 +61,7 @@ function render_project_galerie_exteriores_meta_box($post)
         <input id="project_galeria_exteriores" type="hidden" name="project_galeria_exteriores[]" value="<?= htmlspecialchars(json_encode($image_gallery)); ?>" readonly>
         <button class="border mt-5 border-greenG-mid text-white bg-greenG-mid rounded px-3 py-1" id="add-image-galerie-exteriores">Agregar imagen</button>
     </div>
+    
     <script>
         function eliminarImagenExteriores(value) {
             var preview = document.getElementById('image-gallery-container-exteriores');
