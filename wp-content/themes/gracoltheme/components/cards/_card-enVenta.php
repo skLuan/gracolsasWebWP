@@ -14,15 +14,20 @@ $image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
             <img class="-translate-x-1/2 h-80 max-w-none" src="<?= $image_url ?>" alt="">
         </picture>
     </div>
-    <article class="p-3 text-greenG-mid">
+    <article class="p-5 text-greenG-mid">
         <h3 class="font-futuraBold text-2xl text-greenG-mid"><a href="<?= $cardData->getPLink() ?>"><?= the_title() ?></a></h3>
         <p class="text-orangeG text-lg font-futuraBold"><?= $cardData->getUbicacion()[0] ?>
-        <span class="text-grayG !font-futura"><?= $cardData->getUbicacion()[1] ?></span></p>
+            <span class="text-grayG !font-futura"><?= $cardData->getUbicacion()[1] ?></span>
+        </p>
         <div class="flex flex-row">
             <picture>
                 <img src="" alt="">
             </picture>
             <span><?= $inmueble ?></span>
+        </div>
+        <div class="h-[1px] bg-greenG w-11/12 mx-auto my-3"></div>
+        <div>
+            <?= $cardData->getDescrition() ?>
         </div>
         <div class="flex flex-row mt-5">
             <div class="mr-10">
@@ -33,8 +38,9 @@ $image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
             </div>
             <div>
                 <span class="text-base text-greenG">Valor aproximado:</span>
-                <?php if (!empty($cardData->getvalorSMLV())) : ?>
+                <?php if (!empty($cardData->getvalorPesos())) : ?>
                     <h3 class="text-orangeG text-xl font-futuraBold">$<?= $cardData->getValorPesos() ?></h3>
+                    <a href="https://www.mintrabajo.gov.co/prensa/comunicados/2022/diciembre/-1.160.000-ser%C3%A1-el-salario-minimo-para-2023-y-auxilio-de-transporte-por-140.606" target="_blank" class="text-[15px] text-center -mt-1 text-greenG underline">¿Cuánto vale un SMLV?</a>
                 <?php endif; ?>
             </div>
         </div>

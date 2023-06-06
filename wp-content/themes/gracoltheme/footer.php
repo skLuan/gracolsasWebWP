@@ -1,5 +1,5 @@
 <!-- footer -->
-<footer class="bg-greenG text-whiteG mt-2 relative overflow-hidden pb-14">
+<footer class="bg-greenG text-whiteG mt-2 relative overflow-hidden pb-32">
     <picture class="absolute top-0 right-0 2xl:right-[unset] 2xl:left-0">
         <img class="max-w-[1900px]" src="<?= IMAGE . '/footer-bg.png' ?>" alt="">
     </picture>

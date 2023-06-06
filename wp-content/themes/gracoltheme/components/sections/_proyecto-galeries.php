@@ -78,7 +78,7 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
                             <div class="swiper-slide">
                                 <figure class=" overflow-hidden rounded-lg">
                                     <picture>
-                                        <img class="max-w-none lg:max-w-full -translate-x-1/2 lg:-translate-x-0 rounded-lg" src="<?= $image_url ?>" />
+                                        <img class="max-w-full rounded-lg" src="<?= $image_url ?>" />
                                     </picture>
                                     <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= htmlspecialchars($figcaption_interior[$i], ENT_QUOTES, 'UTF-8') ?></figcaption>
                                 </figure>

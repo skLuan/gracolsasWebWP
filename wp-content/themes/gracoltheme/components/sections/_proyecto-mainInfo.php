@@ -42,7 +42,7 @@ $precio = number_format($precio_num, 0, ',', '.');
 
 
 ?>
-<section class="max-w-screen-2xl lg:mx-auto bg-white mx-5 lg:px-5 rounded-sm shadow-lg relative grid gap-5 grid-cols-1 lg:grid-cols-12 pb-5">
+<section class="max-w-screen-2xl lg:mx-auto bg-white mx-5 lg:px-5 rounded-sm shadow-lg relative grid gap-5 grid-cols-1 lg:grid-cols-12 pb-10">
     <!-- -------------------------------------------- Logo -->
     <picture class="bg-white p-5 lg:left-[63%] right-5 lg:right-[unset] -top-[165px] shadow-lg rounded absolute lg:-top-20"><img class="w-[100px] lg:w-[170px]" src="<?= $logo_project ?>" alt="logo of the project"></picture>
     <div class="lg:pt-20 pt-10 lg:col-span-5 lg:col-start-2 px-5">

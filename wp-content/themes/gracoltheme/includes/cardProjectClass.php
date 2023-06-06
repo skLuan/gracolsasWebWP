@@ -26,6 +26,7 @@ class CardProject extends Card
                 $this->ubicacion = [$gsBarrio, $gsCiudad];
                 $this->valorPesos = get_post_meta($idP, 'gs_precio_col', true);
                 $this->valorSMLV = get_post_meta($idP, 'gs_precio_SMLV', true);
+                $this->description = get_the_excerpt();
         }
 
         public function getUbicacion()
@@ -39,5 +40,9 @@ class CardProject extends Card
         public function getvalorSMLV()
         {
                 return $this->valorSMLV;
+        }
+        public function getDescrition()
+        {
+                return $this->description;
         }
 }

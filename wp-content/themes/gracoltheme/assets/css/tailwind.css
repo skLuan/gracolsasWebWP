@@ -44,7 +44,7 @@
   background-image: url(../img/card-compracasitas.png);
 }
 .sectionAsesores{
-@apply bg-center bg-cover;
+@apply bg-left lg:bg-center bg-cover;
   background-image: url(../img/BANNER-CALL-CENTER.jpg);
 }
 
