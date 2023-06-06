@@ -9,7 +9,7 @@ $image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
 ?>
 <div class="rounded-sm bg-white shadow-lg overflow-hidden flex flex-col w-full max-w-1/3 ">
     <div class="relative">
-        <figure class="bg-white p-5 left-5 bottom-5 shadow-lg rounded absolute z-40 h-[110px] w-[110px]">
+        <figure class="bg-white p-5 left-5 bottom-5 shadow-lg rounded absolute z-20 h-[110px] w-[110px]">
             <picture><img class="" src="<?= $cardData->getlogoUrl() ?>" alt=""></picture>
         </figure>
         <picture class="relative">
