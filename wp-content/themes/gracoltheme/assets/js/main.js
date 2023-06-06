@@ -6,39 +6,24 @@ function main() {
     buttons.forEach((btn) => {
       if (
         !btn.classList.contains(
-          "!bg-orangeG",
-          "!text-whiteG",
+          "!border-[3px]",
+          "!text-orangeG",
           "!border-orangeG"
         )
       )
         return;
-      btn.classList.remove("!bg-orangeG", "!text-whiteG", "!border-orangeG");
+      btn.classList.remove(
+        "!border-[3px]",
+        "!text-orangeG",
+        "!border-orangeG"
+      );
     });
   }
-
-  const animateCSS = (element, animation, prefix = "animate__") => {
-    // We create a Promise and return it
-    new Promise((resolve, reject) => {
-      const animationName = `${prefix}${animation}`;
-      const node = document.querySelector(element);
-
-      node.classList.add(`${prefix}animated`, animationName);
-
-      // When the animation ends, we clean the classes and resolve the Promise
-      function handleAnimationEnd(event) {
-        event.stopPropagation();
-        node.classList.remove(`${prefix}animated`, animationName);
-        resolve("Animation ended");
-      }
-
-      node.addEventListener("animationend", handleAnimationEnd, { once: true });
-    });
-  };
 
   buttons.forEach((button, i) => {
     button.addEventListener("click", () => {
       btnClasses();
-      button.classList.add("!bg-orangeG", "!text-whiteG", "!border-orangeG");
+      button.classList.add("!border-[3px]", "!text-orangeG", "!border-orangeG");
       if (i < 3) {
         try {
           for (let index = 0; index < 3; index++) {

@@ -16,19 +16,26 @@
   @apply !text-orangeG !font-futuraBold underline;
 }
 /* ----------------------- item 34 = proyectos */
-li#menu-item-34 {
+#navbar-menu li#menu-item-34 {
   @apply relative;
 }
-li#menu-item-34 ul.sub-menu {
+#navbar-menu li#menu-item-34 ul.sub-menu {
   @apply hidden absolute bg-white !text-greenG shadow-sm py-3 w-56 ;
 }
-li#menu-item-34:hover ul.sub-menu {
+#navbar-menu li#menu-item-34:hover ul.sub-menu {
   @apply block;
 }
-li#menu-item-34 ul.sub-menu li.menu-item {
+#navbar-menu li#menu-item-34 ul.sub-menu li.menu-item {
   @apply my-2 ;
 }
 
+/* ----------------------- Footer */
+#footer-menu > li.menu-item.menu-item-has-children > a {
+@apply uppercase font-futuraBold text-xl block mt-5;
+}
+#footer-menu li.menu-item.menu-item-has-children > ul li {
+@apply hover:text-orangeG ml-5 lg:ml-0;
+}
 /* --------------------------------- Home Page -------------------- */
 .bg-greenwhiteG{
   background-color: #E3E8E3;
@@ -37,7 +44,7 @@ li#menu-item-34 ul.sub-menu li.menu-item {
   background-image: url(../img/card-compracasitas.png);
 }
 .sectionAsesores{
-@apply bg-center bg-cover;
+@apply bg-left lg:bg-center bg-cover;
   background-image: url(../img/BANNER-CALL-CENTER.jpg);
 }
 

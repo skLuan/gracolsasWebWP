@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
 </head>
-
 <body class="bg-whiteG w-full">
     <div class="fixed top-0 w-full z-40">
         <header class="bg-greenG text-whiteG h-[42px] w-full">
