@@ -9,7 +9,9 @@ $image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
 ?>
 <div class="rounded-sm bg-white shadow-lg overflow-hidden w-full max-w-1/3 ">
     <div class="relative">
-        <picture class="bg-white p-5 left-5 bottom-5 shadow-lg rounded absolute z-50"><img class="w-[90px]" src="<?= $cardData->getlogoUrl() ?>" alt=""></picture>
+        <figure class="bg-white p-5 left-5 bottom-5 shadow-lg rounded absolute z-40 h-[110px] w-[110px]">
+            <picture><img class="" src="<?= $cardData->getlogoUrl() ?>" alt=""></picture>
+        </figure>
         <picture class="relative">
             <img class="-translate-x-1/2 h-80 max-w-none" src="<?= $image_url ?>" alt="">
         </picture>
@@ -36,7 +38,7 @@ $image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
             </div>
         </div>
         <div class="h-[1px] bg-greenG w-11/12 mx-auto my-3"></div>
-        <div>
+        <div class="text-base">
             <?= $cardData->getDescrition() ?>
         </div>
         <div class="flex flex-row mt-5">
