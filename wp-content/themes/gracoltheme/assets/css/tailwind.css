@@ -209,3 +209,8 @@ li#menu-item-34 ul.sub-menu li.menu-item {
 .sub-menu li:nth-child(2){
   margin-bottom:auto !important;
 }
+
+
+.arrow-left{
+  transform: rotate(-90deg);
+}

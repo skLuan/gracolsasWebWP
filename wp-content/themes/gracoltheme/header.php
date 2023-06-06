@@ -11,10 +11,20 @@
 <body class="bg-whiteG w-full">
     <div class="fixed top-0 w-full z-40">
         <header class="bg-greenG text-whiteG h-[42px] w-full">
-            <div class="m-auto justify-end h-full max-w-screen-xl flex flex-row items-center">
+            <div class="m-auto justify-end h-full max-w-screen-xl flex items-center hidden lg:block">
+                <span>
                 <iconify-icon class="text-2xl" icon="carbon:logo-facebook"></iconify-icon>
-                <iconify-icon class="mx-3 text-xl" icon="ri:instagram-line"></iconify-icon>
+                <iconify-icon class="mx-3 text-2xl" icon="ri:instagram-line"></iconify-icon>
+                </span>
+                
                 <a class="" href="https://wa.me/523164906909">+52 316 4906909</a> <a class="ml-3" href="">mail@mail.com</a>
+            </div>
+            <div class="m-auto h-full flex justify-between content-center block lg:hidden px-4">
+                <a href="#" class="flex items-center">
+                    <iconify-icon class="arrow-left text-2xl " icon="material-symbols:keyboard-arrow-up-rounded"></iconify-icon>
+                    Regresar
+                </a>
+                <a href="#" class="flex items-center font-futuraBold underline underline-offset-1 hover:text-orangeG">Soy Cliente</a>
             </div>
         </header>
         <nav class="bg-white shadow-md w-full top-[42px] hidden lg:block">

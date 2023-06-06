@@ -32,8 +32,7 @@ function closeNav() {
 }
 
 overlay.addEventListener("click", function() {
-  sidepanel.style.width = "0";
-  sidepanel.classList.toggle("expanded");
+  closeNav()
 });
 
 
