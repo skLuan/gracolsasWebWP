@@ -1,4 +1,13 @@
-<?php get_header() ?>
+<?php get_header();
+
+$args = array(
+    'post_type' => 'proyectos',
+    'orderby' => 'title',
+    'order' => 'ASC',
+);
+
+query_posts($args);
+?>
 <main class="w-full lg:mt-24">
     <section class="w-full">
         <figure class="">
@@ -17,7 +26,6 @@
                 the_post();
                 // the_content();
                 get_template_part('components/cards/_card', 'enVenta');
-                
             }
             ?>
         </div>
@@ -29,4 +37,6 @@
 
 
 
-<?php get_footer() ?>
+<?php
+wp_reset_query();
+get_footer() ?>

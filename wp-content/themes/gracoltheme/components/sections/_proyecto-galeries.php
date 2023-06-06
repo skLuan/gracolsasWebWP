@@ -9,7 +9,8 @@ $figcaption_exteriores = get_post_meta(get_the_ID(), 'img_figcaption-exterior', 
 $figcaption_planos = get_post_meta(get_the_ID(), 'img_figcaption-planos', true);
 
 // isset($figcaption_exteriores) && $figcaption_exteriores !== '' || $figcaption_exteriores !== [] ? $figcaption_exteriores = json_decode($figcaption) : $figcaption = [];
-
+$url360 = get_post_meta($post->ID, 'gs_url_360', true);
+$urlBrochure = get_post_meta($post->ID, 'gs_url_brochure', true);
 function gsSanitizer($rawData = null)
 {
     $clean = null;
@@ -29,13 +30,6 @@ $figcaption_exteriores = gsSanitizer($figcaption_exteriores);
 $figcaption_interior = gsSanitizer($figcaption_interior);
 $figcaption_planos = gsSanitizer($figcaption_planos);
 
-// dd($figcaption_interior);
-// if (isset($serialized_galeria_exteriores[0]) && $serialized_galeria_exteriores[0] !== '') {
-//     $galeria_exteriores = json_decode($serialized_galeria_exteriores[0]);
-// } else {
-//     $galeria_exteriores = $serialized_galeria_exteriores;
-// }
-
 
 if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== '') {
     $galeria_planos = json_decode($serialized_galeria_planos[0]);
@@ -50,8 +44,8 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
         <button class="gs_galerie_buton transition-all m-1 border !text-orangeG !border-[3px] !border-orangeG border-greenG px-5 py-1 rounded font-futuraBold">Inmueble</button>
         <button class="gs_galerie_buton transition-all m-1 border border-greenG px-4 lg:px-5 py-1 rounded font-futuraBold">Exteriores</button>
         <button class="gs_galerie_buton transition-all m-1 border border-greenG px-4 lg:px-5 py-1 rounded font-futuraBold">Planos</button>
-        <button class="gs_galerie_buton transition-all m-1 border border-greenG px-4 lg:px-5 py-1 rounded font-futuraBold">Recorrido 360</button>
-        <button class="gs_galerie_buton transition-all m-1 border border-greenG px-4 lg:px-5 py-1 rounded font-futuraBold">Brochure</button>
+        <a href="<?= $url360 ?>"      target="_blank" class="gs_galerie_buton transition-all m-1 border border-greenG px-4 lg:px-5 py-1 rounded font-futuraBold">Recorrido 360</a>
+        <a href="<?= $urlBrochure ?>" target="_blank" class="gs_galerie_buton transition-all m-1 border border-greenG px-4 lg:px-5 py-1 rounded font-futuraBold">Brochure</a>
     </div>
     <div class="bg-white relative shadow-lg lg:col-span-12">
 
