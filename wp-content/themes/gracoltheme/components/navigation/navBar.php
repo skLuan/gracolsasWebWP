@@ -21,9 +21,13 @@
             ])
             ?>
             <div class="flex flex-row items-center ml-auto">
-                <iconify-icon class="text-xl hover:text-orangeG" icon="bi:whatsapp"></iconify-icon>
                 <div class="w-[1px] h-full mx-2 bg-greenG"></div>
                 <a class="md:text-lg hover:text-orangeG" href="<?= get_the_permalink(12) ?>">Portal clientes</a>
+            </div>
+            <div class="absolute flex p-2 rounded top-full right-0 mr-5 mt-3 bg-green-700">
+                <a href="">
+                    <iconify-icon class="m-auto text-5xl text-white " icon="ic:twotone-whatsapp"></iconify-icon>
+                </a>
             </div>
         </div>
     </nav>
