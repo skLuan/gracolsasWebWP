@@ -7,7 +7,7 @@ $tags && isset($tags) ? $inmueble = $tags[0]->name : $inmueble = '';
 $image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
 // dd($cardData);
 ?>
-<div class="rounded-sm bg-white shadow-lg overflow-hidden w-full max-w-1/3 ">
+<div class="rounded-sm bg-white shadow-lg overflow-hidden flex flex-col w-full max-w-1/3 ">
     <div class="relative">
         <figure class="bg-white p-5 left-5 bottom-5 shadow-lg rounded absolute z-40 h-[110px] w-[110px]">
             <picture><img class="" src="<?= $cardData->getlogoUrl() ?>" alt=""></picture>
@@ -57,5 +57,5 @@ $image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
             </div>
         </div>
     </article>
-    <a class="w-full bg-greenG text-whiteG underline text-lg flex items-center justify-center pb-3 pt-2  font-futuraBold" href="<?= $cardData->getPLink() ?>">Ver proyecto</a>
+    <a class="w-full mt-auto bg-greenG text-whiteG underline text-lg flex items-center justify-center pb-3 pt-2  font-futuraBold" href="<?= $cardData->getPLink() ?>">Ver proyecto</a>
 </div>

@@ -28,7 +28,7 @@ class CardProject extends Card
                 $this->ubicacion = [$gsBarrio, $gsCiudad];
                 $this->valorPesos = get_post_meta($idP, 'gs_precio_col', true);
                 $this->valorSMLV = get_post_meta($idP, 'gs_precio_SMLV', true);
-                $this->description = get_the_excerpt();
+                $this->description = wp_trim_words(get_the_excerpt(),50, '');
 
                 $this->noAlcobas = get_post_meta($idP, 'gs_noAlcobas', true);
                 $this->mt2 = get_post_meta($idP, 'gs_mt2', true);

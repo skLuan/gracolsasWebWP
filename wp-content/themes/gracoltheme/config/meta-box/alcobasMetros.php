@@ -47,14 +47,14 @@ function save_proyecto_alcobas_metros_meta_box($post_id)
         delete_post_meta($post_id, 'gs_noAlcobas');
     } else {
         // Sanitizar y guardar el valor del precio
-        $alcobas = absint($_POST['noAlcobas']);
+        $alcobas = floatval($_POST['noAlcobas']);
         update_post_meta($post_id, 'gs_noAlcobas', $alcobas);
     }
 
     if (!isset($_POST['gsMt2']) || empty($_POST['gsMt2'])) {
         delete_post_meta($post_id, 'gs_mt2');
     } else {
-        $mt2 = absint($_POST['gsMt2']);
+        $mt2 = floatval($_POST['gsMt2']);
         update_post_meta($post_id, 'gs_mt2', $mt2);
     }
 }
