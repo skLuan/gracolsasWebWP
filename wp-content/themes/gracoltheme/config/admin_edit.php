@@ -1,4 +1,5 @@
 <?php
+require 'meta-box/alcobasMetros.php';
 require 'meta-box/precio.php';
 require 'meta-box/ubicacion.php';
 require 'meta-box/logo.php';

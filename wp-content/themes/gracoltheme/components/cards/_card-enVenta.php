@@ -25,6 +25,16 @@ $image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
             </picture>
             <span><?= $inmueble ?></span>
         </div>
+        <div class="flex flex-row justify-between text-lg">
+            <div class="flex flex-row items-center">
+                <iconify-icon class="text-greenG mr-3 text-3xl" icon="material-symbols:bed"></iconify-icon>
+                <p class="text-greenG-mid"><b class=""><?= $cardData->getAlcobas() ?></b><span class=""> Alcobas</span></p>
+            </div>
+            <div class="flex flex-row items-center">
+                <iconify-icon class="text-greenG mr-3 text-3xl" icon="tabler:ruler-measure"></iconify-icon>
+                <p class="text-greenG-mid text-lg"><b class=""><?= $cardData->getMt2() ?></b> Mt2</p>
+            </div>
+        </div>
         <div class="h-[1px] bg-greenG w-11/12 mx-auto my-3"></div>
         <div>
             <?= $cardData->getDescrition() ?>

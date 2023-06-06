@@ -10,6 +10,8 @@ class CardProject extends Card
         private $numAlcobas;
         private $MxM;
         private $description;
+        private $noAlcobas;
+        private $mt2;
         public function __construct($idProject)
         {
                 parent::__construct($idProject);
@@ -27,6 +29,9 @@ class CardProject extends Card
                 $this->valorPesos = get_post_meta($idP, 'gs_precio_col', true);
                 $this->valorSMLV = get_post_meta($idP, 'gs_precio_SMLV', true);
                 $this->description = get_the_excerpt();
+
+                $this->noAlcobas = get_post_meta($idP, 'gs_noAlcobas', true);
+                $this->mt2 = get_post_meta($idP, 'gs_mt2', true);
         }
 
         public function getUbicacion()
@@ -44,5 +49,13 @@ class CardProject extends Card
         public function getDescrition()
         {
                 return $this->description;
+        }
+        public function getAlcobas()
+        {
+                return $this->noAlcobas;
+        }
+        public function getMt2()
+        {
+                return $this->mt2;
         }
 }
