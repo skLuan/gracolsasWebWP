@@ -7,6 +7,10 @@ $logo_project = get_post_meta(get_the_ID(), 'project_logo', true);
 //  echo var_dump($serialized_galeria_inmueble);
 $tags = get_the_terms(get_the_ID(), 'tag-proyecto');
 
+$tags && isset($tags) ? $inmueble = $tags[0]->name : $inmueble = '';
+
+$inmueble === 'Casas' ? $typeIcon = 'clarity:house-solid' : $typeIcon = 'material-symbols:apartment';
+
 // -- Amenities
 $amenities = get_the_terms(get_the_ID(), 'amenities');
 
@@ -40,6 +44,8 @@ $precioEUR = number_format($precioEUR, 0, ',', '.');
 $precio = number_format($precio_num, 0, ',', '.');
 
 
+$noAlcobas = get_post_meta(get_the_ID(), 'gs_noAlcobas', true);
+$mt2 = get_post_meta(get_the_ID(), 'gs_mt2', true);
 
 ?>
 <section class="max-w-screen-2xl lg:mx-auto bg-white mx-5 lg:px-5 rounded-sm shadow-lg relative grid gap-5 grid-cols-1 lg:grid-cols-12 pb-10">
@@ -81,6 +87,19 @@ $precio = number_format($precio_num, 0, ',', '.');
     <section class="lg:col-start-3 px-3 lg:px-0 lg:col-span-9 text-greenG-mid text-xl">
         <div class="h-[1px] w-full bg-greenG my-12"></div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-1 gap-y-6 lg:gap-y-16">
+
+            <div class="flex flex-row items-center">
+                <iconify-icon class="text-greenG ml-5 mr-3 text-4xl lg:text-6xl w-[40px] lg:w-[60px]" icon="<?= $typeIcon ?>"></iconify-icon>
+                <b class="text-greenG pl-3"><?= $inmueble ?></b></p>
+            </div>
+            <div class="flex flex-row items-center">
+                <iconify-icon class="text-greenG ml-5 mr-3 text-4xl lg:text-6xl" icon="material-symbols:bed"></iconify-icon>
+                <p class="lg:text-2xl pl-3"><b class=""><?= $noAlcobas ?></b><span class=""> Alcobas</span></p>
+            </div>
+            <div class="flex flex-row items-center">
+                <iconify-icon class="text-greenG ml-5 mr-3 text-4xl lg:text-6xl" icon="tabler:ruler-measure"></iconify-icon>
+                <p class="lg:text-2xl pl-3"><b class=""><?= $mt2 ?></b> Mt2</p>
+            </div>
             <?php
             if (!empty($amenities)) :
                 foreach ($amenities as $amenitie) :
