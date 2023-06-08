@@ -6,6 +6,7 @@ require_once 'config/register_taxonomies.php';
 require_once 'includes/InputClass.php';
 require_once 'includes/cardClass.php';
 require_once 'includes/cardProjectClass.php';
+require_once 'includes/searchController.php';
 
 
 define('IMAGE', get_stylesheet_directory_uri() . '/assets/img/');
@@ -107,6 +108,10 @@ function init_template()
     register_block_type('gracoltheme/project-config', array(
         'editor_script' => 'infoBlock',
     ));
+
+    wp_localize_script('main', 'gsLoopQuerys', [
+        'ajaxUrl' => admin_url('admin-ajax.php'),
+    ]);
 }
 
 add_action('wp_enqueue_scripts', 'init_template');

@@ -1,6 +1,5 @@
 <?php
 $previous_url = wp_get_referer();
-// dd($previous_url);
 !$previous_url || !isset($previous_url)? $previous_url = get_home_url(): ''; 
 ?>
 <div class="fixed top-0 w-full z-40">
