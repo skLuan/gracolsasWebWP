@@ -92,7 +92,7 @@ function main() {
           } else {
             cleaning(projecType);
           }
-          loopContainer.innerHTML = "Carganding compita...";
+          loopContainer.innerHTML = "<h2 class='text-center'>Cargando</h2>";
         },
         success: function (data) {
           procededData = Object.entries(data).map((entry) => entry[1]);
