@@ -19,8 +19,5 @@ if ($proyectos->have_posts()) :
             <?= get_template_part('components/cards/_card', 'homeProyecto') ?>
 
         <?php endwhile; ?>
-
-
-
     </div>
 <?php endif; ?>

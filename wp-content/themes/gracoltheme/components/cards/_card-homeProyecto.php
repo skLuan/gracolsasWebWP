@@ -3,7 +3,7 @@ $cardData = new CardProject(get_the_ID());
 
 $tags = get_the_terms(get_the_ID(), 'tag-proyecto');
 $tags && isset($tags) ? $inmueble = $tags[0]->name : $inmueble = '';
-$image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
+
 ?>
 <div class="rounded-sm bg-white shadow-lg overflow-hidden w-full max-w-1/3 ">
     <div class="relative">
@@ -11,7 +11,11 @@ $image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
             <picture><img class="" src="<?= $cardData->getlogoUrl() ?>" alt=""></picture>
         </figure>
         <picture class="relative">
-            <img class="-translate-x-1/2 h-80 max-w-none" src="<?= $image_url ?>" alt="">
+            <?php if ($cardData->getBannerMobile() != '') : ?>
+                <img class=" h-80" src="<?= $cardData->getBannerMobile() ?>" alt="">
+            <?php else :  ?>
+                <img class="-translate-x-1/2 max-w-none h-80" src="<?= $cardData->getImage() ?>" alt="">
+            <?php endif; ?>
         </picture>
     </div>
     <article class="p-5 text-greenG-mid">

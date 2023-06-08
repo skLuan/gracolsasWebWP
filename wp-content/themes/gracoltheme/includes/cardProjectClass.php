@@ -12,6 +12,9 @@ class CardProject extends Card
         private $description;
         private $noAlcobas;
         private $mt2;
+        private $banerMobile;
+        private $image_url;
+
         public function __construct($idProject)
         {
                 parent::__construct($idProject);
@@ -32,6 +35,8 @@ class CardProject extends Card
 
                 $this->noAlcobas = get_post_meta($idP, 'gs_noAlcobas', true);
                 $this->mt2 = get_post_meta($idP, 'gs_mt2', true);
+                $this->banerMobile = get_post_meta($idP, 'project_baner_mobile', true);
+                $this->image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
         }
 
         public function getUbicacion()
@@ -57,5 +62,11 @@ class CardProject extends Card
         public function getMt2()
         {
                 return $this->mt2;
+        }
+        public function getBannerMobile(){
+                return $this->banerMobile;
+        }
+        public function getImage(){
+                return $this->image_url;
         }
 }

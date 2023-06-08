@@ -2,9 +2,11 @@
 <main class="lg:mt-24">
     <?php while (have_posts()) :
         the_post();
+        $banerMobile = get_post_meta($post->ID, 'project_baner_mobile', true);
     ?> <figure class="w-full overflow-hidden">
             <picture class="w-screen overflow-hidden">
-                <img class="lg:w-full -translate-x-1/2 lg:-translate-x-0 h-[400px] max-w-none" src="<?= the_post_thumbnail_url('original') ?>" alt="">
+                <source media="(max-width: 600px)" srcset="<?= $banerMobile ?>">
+                <img class="w-full" src="<?= the_post_thumbnail_url('original') ?>" alt="">
             </picture>
         </figure>
         <?= get_template_part('components/sections/_proyecto', 'mainInfo') ?>
