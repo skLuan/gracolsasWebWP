@@ -44,9 +44,13 @@ function main() {
     });
   };
 
+
+  // ---------------------------------Search method
   function searchProductsHome() {
     let projectUbication = document.querySelectorAll(".btn-ubicacion");
     let loopContainer = document.getElementById("_loopHomeP");
+    
+    loopContainer == null ? loopContainer = document.getElementById("_loopVenta") : '';
 
     let loopInicial = loopContainer.cloneNode(true);
     let ubicaciones = [];
@@ -71,6 +75,7 @@ function main() {
       type.push(tpe.value);
       tpe.addEventListener("change", (e) => btnClicked(e));
     });
+
     function btnClicked(e) {
       let formContainer = document.getElementById("searchPForm");
       jQuery.ajax({
@@ -85,9 +90,13 @@ function main() {
           action: "gsLoopSearch",
           searchUbicacion: formContainer.searchUbicacion.value,
           searchType: formContainer.searchType.value,
+          sendUrl: window.location.href
         },
         beforeSend: function () {
-          if (e.target.getAttribute("name") == "searchUbicacion"){
+          if (
+            e.target.getAttribute("name") == "searchUbicacion" ||
+            e.target.getAttribute("name") == "searchUbicacionMini"
+          ) {
             cleaning(projectUbication);
           } else {
             cleaning(projecType);
@@ -115,6 +124,7 @@ function main() {
       // console.log(e.target);
     }
   }
+
   galeryControl();
   searchProductsHome();
 }

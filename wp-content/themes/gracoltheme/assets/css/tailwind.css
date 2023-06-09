@@ -170,13 +170,8 @@
 }
 
 .mobile-nav__content {
-  width: 220px;
-  z-index: 10;
-  position: relative;
-  height: 100%;
+  @apply z-10 relative h-full overflow-y-auto opacity-0 w-2/3;
   float: right;
-  overflow-y: auto;
-  opacity: 0;
   visibility: hidden;
   -webkit-transform: translateX(100%);
   transform: translateX(100%);

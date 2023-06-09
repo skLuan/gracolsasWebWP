@@ -7,38 +7,62 @@ class CardProject extends Card
         protected $valorPesos;
         protected $valorSMLV;
 
-        private $numAlcobas;
-        private $MxM;
-        private $description;
-        private $noAlcobas;
-        private $mt2;
-        private $banerMobile;
-        private $image_url;
+        private string $description;
+        private int $noAlcobas;
+        private float $mt2;
+        private string $banerMobile;
+        private string $image_url;
+        private string $typeIcon;
+        private string $typeInmueble;
+        public $tags;
+        public $categories;
+        public array $dinamicTags;
 
-        public function __construct($idProject)
+        public function __construct(int $idProject)
         {
                 parent::__construct($idProject);
                 $idP = $this->idProject;
                 $gsBarrio = get_post_meta($idP, 'gs_barrio', true);
                 $gsCiudad = get_post_meta($idP, 'gs_ciudad', true);
 
-                $tags = get_the_terms($idP, 'tag-proyecto');
+                $this->categories = $t = wp_get_post_terms($idP, 'categoria-proyecto');
+                $t = array_map(function ($e) {
+                        $re = [
+                                'id' => $e->term_id,
+                                'name' => $e->name
+                        ];
+                        return $re;
+                }, $t);
+                $this->categories = $t;
+                $this->tags = $tags = get_the_terms($idP, 'tag-proyecto');
+                $tags && isset($tags) ? $this->typeInmueble = $tags[0]->name : $this->typeInmueble = '';
+
+                count($tags) >= 2 ? $this->dinamicTags = array_map(fn($t)=> $t->term_id,$tags) : $this->dinamicTags = [];
 
                 isset($gsBarrio) && $gsBarrio == '' ? $gsBarrio = "Barrio" : '';
                 isset($gsCiudad) && $gsCiudad == '' ? $gsCiudad = "Ciudad" : '';
-                
-                
+
+
                 $this->ubicacion = [$gsBarrio, $gsCiudad];
                 $this->valorPesos = get_post_meta($idP, 'gs_precio_col', true);
                 $this->valorSMLV = get_post_meta($idP, 'gs_precio_SMLV', true);
-                $this->description = wp_trim_words(get_the_excerpt(),50, '...');
+                $this->description = wp_trim_words(get_the_excerpt(), 50, '...');
 
-                $this->noAlcobas = get_post_meta($idP, 'gs_noAlcobas', true);
-                $this->mt2 = get_post_meta($idP, 'gs_mt2', true);
+                $this->noAlcobas = intval(get_post_meta($idP, 'gs_noAlcobas', true));
+                $this->mt2 = floatval(get_post_meta($idP, 'gs_mt2', true));
                 $this->banerMobile = get_post_meta($idP, 'project_baner_mobile', true);
                 $this->image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
-        }
 
+                $this->typeIcon = match ($this->typeInmueble) {
+                        'Casas' => 'clarity:house-solid',
+                        default => 'material-symbols:apartment'
+                };
+        }
+        public function getNameofTag($id){
+                $tagIndex = array_search($id, array_column($this->tags, 'term_id'));
+                $tagName = $this->tags[$tagIndex]->name;
+                return $tagName;
+        }
         public function getUbicacion()
         {
                 return $this->ubicacion;
@@ -63,10 +87,20 @@ class CardProject extends Card
         {
                 return $this->mt2;
         }
-        public function getBannerMobile(){
+        public function getBannerMobile()
+        {
                 return $this->banerMobile;
         }
-        public function getImage(){
+        public function getImage()
+        {
                 return $this->image_url;
+        }
+        public function getTypeIcon()
+        {
+                return $this->typeIcon;
+        }
+        public function getInmueble()
+        {
+                return $this->typeInmueble;
         }
 }

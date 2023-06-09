@@ -11,6 +11,8 @@ function gsLoopSearch()
     $ubiData = $_POST['searchUbicacion'];
     $typeData = $_POST['searchType'];
 
+    $urlPrincipal = "https://localhost/gracolsas.com/";
+
     $return = [];
 
     if (!isset($_POST['searchUbicacion']) && !isset($_POST['searchType'])) {
@@ -35,13 +37,19 @@ function gsLoopSearch()
         );
     }
     $proyectos = new WP_Query($args);
+    // var_dump($_POST['sendUrl']);
     if ($proyectos->have_posts()) {
         while ($proyectos->have_posts()) {
             $proyectos->the_post();
             ob_start();
-            get_template_part('components/cards/_card', 'homeProyecto');
+            if (strcmp($_POST['sendUrl'], $urlPrincipal) === 0) {
+                get_template_part('components/cards/_card', 'homeProyecto');
+            } else {
+                get_template_part('components/cards/_card', 'enVenta');
+            }
+
             $cardContent = ob_get_clean();
-            
+
             $return[] = $cardContent;
         }
     }
