@@ -77,10 +77,7 @@
 
 /* Style the accordion panel. Note: hidden by default */
 .panel {
-  position: relative;
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
+@apply relative max-h-0 overflow-hidden;
   transition: max-height 0.2s ease-out;
 }
 
@@ -89,7 +86,7 @@
   font-size: 13px;
   color: #777;
   position: absolute;
-  bottom: -5px;
+  bottom: -15px;
   margin-left: 5px;
   transform: rotate(90deg);
   width: 10px;
@@ -122,9 +119,7 @@
 }
 
 .accordion span, .panel p{
-  width: 100%;
-  float: left;
-  border-bottom: 1px solid #000;
+  @apply w-full float-left border-b border-greenG-mid;
 }
 
 /* ---------------------------------------------------------------- Mobile Navbar Style */
