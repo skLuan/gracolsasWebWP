@@ -18,7 +18,7 @@
     <?= get_template_part('./components/banners/_banner', 'comprarVivienda') ?>
     <?= get_template_part('./components/sections/_home', 'news') ?>
     <?= get_template_part('./components/sections/_home', 'experienciaG') ?>
-    <?= get_template_part('./components/sections/_faq') ?>
+    <?= get_template_part('./components/sections/_loop', 'faq') ?>
     <?= get_template_part('./components/sections/_loop', 'homeSecundario') ?>
 
 </main>
