@@ -11,7 +11,7 @@ $proyectos = new WP_Query($args);
 <?= get_template_part('components/_search', 'mini') ?>
 <section class="max-w-screen-2xl mx-auto mb-5">
 
-    <div id="Loop-segundario" class="lg:grid flex flex-row overflow-x-scroll md:grid md:grid-cols-3 lg:gap-x-5 lg:gap-y-8">
+    <div id="_loopHomeS" class="flex flex-row overflow-x-scroll">
         <?php
         if ($proyectos->have_posts()) :
         ?>
