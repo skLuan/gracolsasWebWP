@@ -11,7 +11,7 @@ function gsLoopSearch()
     $ubiData = $_POST['searchUbicacion'];
     $typeData = $_POST['searchType'];
 
-    $urlPrincipal = "https://localhost/gracolsas.com/";
+    $urlPrincipal = "/gracolsas.com/";
 
     $return = [];
 

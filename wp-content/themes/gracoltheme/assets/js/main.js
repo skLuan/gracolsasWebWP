@@ -44,13 +44,14 @@ function main() {
     });
   };
 
-
   // ---------------------------------Search method
   function searchProductsHome() {
     let projectUbication = document.querySelectorAll(".btn-ubicacion");
     let loopContainer = document.getElementById("_loopHomeP");
-    
-    loopContainer == null ? loopContainer = document.getElementById("_loopVenta") : '';
+
+    loopContainer == null
+      ? (loopContainer = document.getElementById("_loopVenta"))
+      : "";
 
     let loopInicial = loopContainer.cloneNode(true);
     let ubicaciones = [];
@@ -78,19 +79,25 @@ function main() {
 
     function btnClicked(e) {
       let formContainer = document.getElementById("searchPForm");
+      let searchUbi;
+      let searchType;
+      if (e.target.getAttribute("name") == "searchUbicacionMini") {
+        formContainer = document.getElementById("searchUbiOnly");
+        loopContainer = document.getElementById("_loopHomeS");
+        searchUbi = formContainer.searchUbicacionMini.value;
+        searchType = 'all';
+      } else {
+        searchType = formContainer.searchUbicacion.value;
+        searchUbi = formContainer.searchUbicacion.value;
+      }
       jQuery.ajax({
         url: gsLoopQuerys.ajaxUrl,
         method: "POST",
-        // data: {
-        //   action: "gsLoopSearch",
-        //   ubicacion: e.target.value,
-
-        // },
         data: {
           action: "gsLoopSearch",
-          searchUbicacion: formContainer.searchUbicacion.value,
-          searchType: formContainer.searchType.value,
-          sendUrl: window.location.href
+          searchUbicacion: searchUbi,
+          searchType: searchType,
+          sendUrl: window.location.pathname,
         },
         beforeSend: function () {
           if (
