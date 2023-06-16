@@ -221,3 +221,11 @@
 .arrow-left{
   transform: rotate(-90deg);
 }
+
+.pagos{
+  background-color: #dde3e7;
+}
+
+.queja{
+  background-color: #E4E4E4;
+}
