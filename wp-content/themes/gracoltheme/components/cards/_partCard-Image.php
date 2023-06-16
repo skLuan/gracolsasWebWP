@@ -13,17 +13,17 @@ $heightOfPicture = 'h-[355px]';
 <div class="relative <?= $heightOfPicture ?> overflow-hidden w-full">
     <?php if (in_array(14, $cardData->dinamicTags)) : // ID 
     ?>
-        <svg class="absolute z-10 top-0 left-0" xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90">
+        <svg class="absolute top-0 left-0 z-10" xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 90 90">
             <polygon points="0,0 90,0 0,90" fill="#F44D4D" />
-            <text class="font-futuraBold uppercase" x="12" y="65" font-size="1rem" fill="#ffffff" transform="rotate(-45, 0, 0)" style="transform-box: fill-box; padding-bottom: 1px;">Nuevo</text>
+            <text class="uppercase font-futuraBold" x="12" y="65" font-size="1rem" fill="#ffffff" transform="rotate(-45, 0, 0)" style="transform-box: fill-box; padding-bottom: 1px;">Nuevo</text>
         </svg>
     <?php endif; ?>
 
-    <div class="left-0 bottom-0 absolute z-20 w-full">
+    <div class="absolute bottom-0 left-0 z-20 w-full">
         <figure class="bg-white p-5 ml-5 mb-5 shadow-lg rounded  h-[110px] w-[110px]">
             <picture><img class="" src="<?= $cardData->getlogoUrl() ?>" alt=""></picture>
         </figure>
-        <div class="w-full grid grid-cols-2 text-greenG-mid">
+        <div class="grid w-full grid-cols-2 text-greenG-mid">
             <?php if (in_array(8, $tagsIdArray)) :
                 $tagIndex = array_search(8, $tagsIdArray);
             ?>
@@ -45,8 +45,10 @@ $heightOfPicture = 'h-[355px]';
     <picture class="relative">
         <?php if ($cardData->getBannerMobile() != '') : ?>
             <img class=" h-80 max-w-none" src="<?= $cardData->getBannerMobile() ?>" alt="">
-        <?php else :  ?>
-            <img class="-translate-x-1/2 max-w-none h-full" src="<?= $cardData->getImage() ?>" alt="">
+        <?php elseif($cardData->getImage()) :  ?>
+            <img class="h-full -translate-x-1/2 max-w-none" src="<?= $cardData->getImage() ?>" alt="">
+        <?php else: ?>
+            <div class="w-[23rem]"></div>
         <?php endif; ?>
     </picture>
 </div>

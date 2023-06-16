@@ -1,45 +1,23 @@
-<section class="md:max-w-screen-2xl md:mx-auto mb-10 relative overflow-auto">
-    <div class="w-full bg-cover bg-center bg-no-repeat mb-5 text-center" style="background-image: url('<?= IMAGE . 'ultimas-noticias.png' ?>'); height: 170px"></div>
-    <div class="md:grid md:grid-cols-3 md:gap-x-5 px-5 lg:px-0 pb-5 lg:pb-0 md:gap-y-8 md:w-4/5 md:mx-auto relative w-full flex gap-6 snap-x overflow-x-auto">
+<?php
+$newsArgs = [
+    'post_type' => 'post',
+    'post_per_page' => -1,
+    'order' => 'ASC',
+    'orderby' => 'id',
+];
+$loopNews = new WP_Query($newsArgs);
+?>
+<section class="relative mb-10 overflow-auto md:max-w-screen-2xl md:mx-auto">
+    <div class="w-full mb-5 text-center bg-center bg-no-repeat bg-cover" style="background-image: url('<?= IMAGE . 'ultimas-noticias.png' ?>'); height: 170px"></div>
+    <div class="relative flex w-full gap-6 px-5 pb-5 overflow-x-auto md:grid md:grid-cols-3 md:gap-x-5 lg:px-0 lg:pb-0 md:gap-y-8 md:w-4/5 md:mx-auto snap-x">
+        <?php if ($loopNews->have_posts()) : ?>
+            <?php while ($loopNews->have_posts()) :
+                $loopNews->the_post();
+            ?>
+                <?= get_template_part('components/cards/_card', 'news') ?>
+            <?php endwhile; ?>
+        <?php endif; ?>
 
-        <div class="snap-center shrink-0 rounded-sm bg-white shadow-lg">
-            <div class="shrink-0 w-64 md:w-full">
-                <div class="bg-cover bg-center" style="background-image: url('<?= IMAGE . 'img-post.png' ?>'); height: 170px"></div>
-                <article class="p-3 text-greenG-mid">
-                    <h3 class="font-futuraBold text-2xl text-orangeG"><a href="#">Titulo que se alarga para ver como se ve</a></h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
-                    <div class="w-full text-right">
-                        <p class="text-orangeG text-lg font-futuraBold">Ver más</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-
-        <div class="snap-center shrink-0 rounded-sm bg-white shadow-lg">
-            <div class="shrink-0 w-64 md:w-full">
-                <div class="bg-cover bg-center" style="background-image: url('<?= IMAGE . 'img-post.png' ?>'); height: 170px"></div>
-                <article class="p-3 text-greenG-mid">
-                    <h3 class="font-futuraBold text-2xl text-orangeG"><a href="#">Titulo que se alarga para ver como se ve</a></h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
-                    <div class="w-full text-right">
-                        <p class="text-orangeG text-lg font-futuraBold">Ver más</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-
-        <div class="snap-center shrink-0 rounded-sm bg-white shadow-lg">
-            <div class="shrink-0 w-64 md:w-full">
-                <div class="bg-cover bg-center" style="background-image: url('<?= IMAGE . 'img-post.png' ?>'); height: 170px"></div>
-                <article class="p-3 text-greenG-mid">
-                    <h3 class="font-futuraBold text-2xl text-orangeG"><a href="#">Titulo que se alarga para ver como se ve</a></h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
-                    <div class="w-full text-right">
-                        <p class="text-orangeG text-lg font-futuraBold">Ver más</p>
-                    </div>
-                </article>
-            </div>
-        </div>
 
     </div>
 </section>
