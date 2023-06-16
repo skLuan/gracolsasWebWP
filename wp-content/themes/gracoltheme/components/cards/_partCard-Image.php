@@ -21,7 +21,7 @@ $heightOfPicture = 'h-[355px]';
 
     <div class="absolute bottom-0 left-0 z-20 w-full">
         <figure class="bg-white p-5 ml-5 mb-5 shadow-lg rounded  h-[110px] w-[110px]">
-            <picture><img class="" src="<?= $cardData->getlogoUrl() ?>" alt=""></picture>
+            <picture><img class="lazyload" src="low-quality.jpg" data-src="<?= $cardData->getlogoUrl() ?>" alt=""></picture>
         </figure>
         <div class="grid w-full grid-cols-2 text-greenG-mid">
             <?php if (in_array(8, $tagsIdArray)) :
@@ -44,10 +44,10 @@ $heightOfPicture = 'h-[355px]';
     </div>
     <picture class="relative">
         <?php if ($cardData->getBannerMobile() != '') : ?>
-            <img class=" h-80 max-w-none" src="<?= $cardData->getBannerMobile() ?>" alt="">
-        <?php elseif($cardData->getImage()) :  ?>
-            <img class="h-full -translate-x-1/2 max-w-none" src="<?= $cardData->getImage() ?>" alt="">
-        <?php else: ?>
+            <img class="lazyload h-80 max-w-none" src="low-quality.jpg" data-src="<?= $cardData->getBannerMobile() ?>" alt="">
+        <?php elseif ($cardData->getImage()) :  ?>
+            <img class="h-full -translate-x-1/2 lazyload max-w-none" src="low-quality.jpg" data-src="<?= $cardData->getImage() ?>" alt="">
+        <?php else : ?>
             <div class="w-[23rem]"></div>
         <?php endif; ?>
     </picture>

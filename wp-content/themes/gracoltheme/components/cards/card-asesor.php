@@ -1,11 +1,11 @@
-<div class="card-asesor flex flex-col lg:flex-row my-10 lg:my-3 w-fit">
-    <h5 class="lg:hidden text-white block font-futuraBold">Nombre</h5>
-    <picture class="rounded mr-5">
-        <img class="max-w-[250px]" width="" src="<?= IMAGE . '/asesores/dummy_A.png' ?>" alt="">
+<div class="flex flex-col my-10 card-asesor lg:flex-row lg:my-3 w-fit">
+    <h5 class="block text-white lg:hidden font-futuraBold">Nombre</h5>
+    <picture class="mr-5 rounded">
+        <img class="lazyload max-w-[250px]" width="" src="low-quality.jpg" data-src="<?= IMAGE . '/asesores/dummy_A.png' ?>" alt="">
     </picture>
-    <div class="text-white pt-3">
+    <div class="pt-3 text-white">
         <h5 class="hidden lg:block font-futuraBold">Nombre</h5>
-        <p class="items-center flex">
+        <p class="flex items-center">
             <iconify-icon class="text-xl hover:text-orangeG" icon="bi:whatsapp"></iconify-icon>
             <a href="">+57 000-0000</a>
         </p>

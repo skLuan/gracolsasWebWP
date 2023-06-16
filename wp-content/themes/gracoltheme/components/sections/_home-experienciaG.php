@@ -1,16 +1,16 @@
-<section class="max-w-screen-2xl mx-auto mt-10 mb-10">
-    <div class="text-center grid justify-items-center mt-10 mb-5">
-        <h2 class="text-orangeG font-futuraBold text-3xl mt-3">Experiencia Gracol</h2>
+<section class="mx-auto mt-10 mb-10 max-w-screen-2xl">
+    <div class="grid mt-10 mb-5 text-center justify-items-center">
+        <h2 class="mt-3 text-3xl text-orangeG font-futuraBold">Experiencia Gracol</h2>
     </div>
 
-    <div class="grid grid-cols-1 gap-x-5 gap-y-8 w-full md:w-4/5 md:mx-auto mb-5">
-        <div class="grid md:grid-cols-10 bg-greenwhiteG w-full text-left">
+    <div class="grid w-full grid-cols-1 mb-5 gap-x-5 gap-y-8 md:w-4/5 md:mx-auto">
+        <div class="grid w-full text-left md:grid-cols-10 bg-greenwhiteG">
             <picture class="grid md:col-span-3 justify-items-center">
-                <img class="" src="<?= IMAGE . 'customers/people1.jpg' ?>" alt="Juanita Gomez Herrera" />
+                <img class="lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'customers/people1.jpg' ?>" alt="Juanita Gomez Herrera" />
             </picture>
-            <article class="relative md:col-span-7 pb-6 md:p-5">
-                <div class="p-5 relative">
-                    <h3 class="font-futuraBold text-3xl text-greenG">Juanita Gomez Herrera</h3>
+            <article class="relative pb-6 md:col-span-7 md:p-5">
+                <div class="relative p-5">
+                    <h3 class="text-3xl font-futuraBold text-greenG">Juanita Gomez Herrera</h3>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer augue felis, malesuada et eros
                         a, pulvinar sollicitudin risus. Aenean iaculis tempus nisl, in venenatis tellus cursus eget.
@@ -27,11 +27,11 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 gap-x-5 gap-y-8 w-full md:w-4/5 md:mx-auto mb-5">
-        <div class="flex flex-col-reverse md:grid md:grid-cols-10 bg-greenwhiteG w-full text-left">
-            <article class="relative md:col-span-7 pb-6 md:p-5">
-                <div class="p-5 relative">
-                    <h3 class="font-futuraBold text-3xl text-greenG">Carlos Pérez Moreno</h3>
+    <div class="grid w-full grid-cols-1 mb-5 gap-x-5 gap-y-8 md:w-4/5 md:mx-auto">
+        <div class="flex flex-col-reverse w-full text-left md:grid md:grid-cols-10 bg-greenwhiteG">
+            <article class="relative pb-6 md:col-span-7 md:p-5">
+                <div class="relative p-5">
+                    <h3 class="text-3xl font-futuraBold text-greenG">Carlos Pérez Moreno</h3>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer augue felis, malesuada et eros
                         a, pulvinar sollicitudin risus. Aenean iaculis tempus nisl, in venenatis tellus cursus eget.
@@ -45,20 +45,20 @@
                 </div>
                 <div class="float-left  bg-orangeG h-[38px] w-[200px] absolute bottom-0 right-10"></div>
             </article>
-            <picture class="grid md:col-span-3 justify-items-center text-right">
-                <img src="<?= IMAGE . 'customers/people2.jpg' ?>" alt="Carlos Pérez Moreno" />
+            <picture class="grid text-right md:col-span-3 justify-items-center">
+                <img class="lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'customers/people2.jpg' ?>" alt="Carlos Pérez Moreno" />
             </picture>
         </div>
     </div>
 
-    <div class="grid grid-cols-1 gap-x-5 gap-y-8 w-full md:w-4/5 md:mx-auto mb-5">
-        <div class="grid md:grid-cols-10 bg-greenwhiteG w-full text-left">
+    <div class="grid w-full grid-cols-1 mb-5 gap-x-5 gap-y-8 md:w-4/5 md:mx-auto">
+        <div class="grid w-full text-left md:grid-cols-10 bg-greenwhiteG">
             <picture class="grid md:col-span-3 justify-items-center">
-                <img src="<?= IMAGE . 'customers/people3.jpg' ?>" alt="Yolanda Carabalí" />
+                <img class="lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'customers/people3.jpg' ?>" alt="Yolanda Carabalí" />
             </picture>
-            <article class="relative md:col-span-7 pb-6 md:p-5">
-                <div class="p-5 relative">
-                    <h3 class="font-futuraBold text-3xl text-greenG">Yolanda Carabalí</h3>
+            <article class="relative pb-6 md:col-span-7 md:p-5">
+                <div class="relative p-5">
+                    <h3 class="text-3xl font-futuraBold text-greenG">Yolanda Carabalí</h3>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer augue felis, malesuada et eros
                         a, pulvinar sollicitudin risus. Aenean iaculis tempus nisl, in venenatis tellus cursus eget.

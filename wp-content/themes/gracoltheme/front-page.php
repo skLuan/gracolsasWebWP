@@ -1,5 +1,5 @@
 <?php get_header() ?>
-<main class="w-full mt-24">
+<main class="w-full lg:mt-24">
     <?php while (have_posts()) {
         the_post();
         the_content();
@@ -11,7 +11,7 @@
     
     
     <?= get_template_part('./components/_search') ?>
-    <section id="Loop-principal" class="max-w-screen-2xl mx-auto px-5 mb-5">
+    <section id="Loop-principal" class="px-5 mx-auto mb-5 max-w-screen-2xl">
         <?= get_template_part('./components/sections/_loop', 'home') ?>
     </section>
 

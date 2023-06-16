@@ -56,24 +56,20 @@
   @apply flex flex-row;
 }
 
+.wp-block-image {
+  @apply overflow-hidden;
+}
+.wp-block-image img {
+  @apply w-auto lg:w-full max-w-none lg:max-w-full h-[400px] lg:h-[unset] -translate-x-1/3 lg:-translate-x-0;
+}
+
 /* Accordeon */
 .accordion {
-  position: relative;
-  /*background-color: #eee;*/
-  cursor: pointer;
-  padding: 18px 18px 0px 18px;
-  width: 100%;
-  border: none;
-  text-align: center;
-  outline: none;
+  @apply relative cursor-pointer px-[18px] pt-[18px] w-full border-none text-center outline-none;
   font-size: 15px;
   transition: 0.4s;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-/*.active, .accordion:hover {
-  background-color: #eee;
-}*/
 
 /* Style the accordion panel. Note: hidden by default */
 .panel {

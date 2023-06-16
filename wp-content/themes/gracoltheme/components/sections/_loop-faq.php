@@ -10,7 +10,7 @@
 <section class="w-full pt-10 pb-5 bg-white">
     <div class="grid mb-5 text-center justify-items-center">
         <picture>
-            <img class="mb-1" src="<?= IMAGE . 'pregunta.png' ?>" alt="Preguntas Frecuentes" />
+            <img class="mb-1 lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'pregunta.png' ?>" alt="Preguntas Frecuentes" />
         </picture>
         <h2 class="mt-3 text-2xl text-yellowG font-futuraBold">Preguntas Frecuentes</h2>
     </div>
