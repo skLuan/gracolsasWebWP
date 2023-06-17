@@ -5,11 +5,11 @@ function gsPrices() {
   function btnsclean() {
     btns.forEach((btn) => {
       if (
-        !btn.classList.contains("bg-orangeG", "text-white", "!border-orangeG")
+        !btn.classList.contains("!border-[3px]", "!text-orangeG", "!border-orangeG")
       )
         return;
 
-      btn.classList.remove("bg-orangeG", "text-white", "!border-orangeG");
+      btn.classList.remove("!border-[3px]", "!text-orangeG", "!border-orangeG");
     });
   }
 
@@ -17,7 +17,7 @@ function gsPrices() {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       btnsclean();
-      btn.classList.add("bg-orangeG", "text-white", "!border-orangeG");
+      btn.classList.add("!border-[3px]", "!text-orangeG", "!border-orangeG");
 
       finalPrice.textContent = "$ " + btn.value;
       if (i === 2) finalPrice.textContent = "€ " + btn.value;

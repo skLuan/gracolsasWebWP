@@ -61,6 +61,7 @@ function render_project_galerie_exteriores_meta_box($post)
         <input id="project_galeria_exteriores" type="hidden" name="project_galeria_exteriores[]" value="<?= htmlspecialchars(json_encode($image_gallery)); ?>" readonly>
         <button class="border mt-5 border-greenG-mid text-white bg-greenG-mid rounded px-3 py-1" id="add-image-galerie-exteriores">Agregar imagen</button>
     </div>
+    
     <script>
         function eliminarImagenExteriores(value) {
             var preview = document.getElementById('image-gallery-container-exteriores');
@@ -135,7 +136,6 @@ function save_galerie_exteriores_meta_data($post_id)
     if (!isset($_POST['project_galeria_exteriores_nonce']) || !wp_verify_nonce($_POST['project_galeria_exteriores_nonce'], 'project_galeria_exteriores_meta_box')) {
         return;
     }
-    // dd($_POST['project_galeria_exteriores']);
     var_dump('Nonce verification passed.');
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
@@ -149,7 +149,6 @@ function save_galerie_exteriores_meta_data($post_id)
 
     if (isset($figCaptions)) {
         $figCaptions = json_encode($figCaptions, JSON_UNESCAPED_UNICODE);
-        // dd($figCaptions);
         update_post_meta($post_id, 'img_figcaption-exterior', $figCaptions);
     }
     if (isset($_POST['project_galeria_exteriores'])) {
