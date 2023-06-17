@@ -3,7 +3,7 @@ get_header();
 $bannerAvance = IMAGE . 'baner_avanceObra.png';
 $banerTerminadas = IMAGE . 'baner_Entregadas.png';
 // is_category('en-contruccion');
-if(is_tax('categoria-proyecto', 'en-construccion')){
+if (is_tax('categoria-proyecto', 'en-construccion')) {
     $actualBanner = $bannerAvance;
     $mobileBanner = IMAGE . 'baner_avanceObraMobile.png';
 } else {
@@ -15,13 +15,13 @@ if(is_tax('categoria-proyecto', 'en-construccion')){
     <section class="w-full">
         <figure class="">
             <picture>
-                <source media="(max-width: 500px)" srcset="<?= $mobileBanner ?>">
-                <img src="<?= $actualBanner ?>" alt="principal banner">
+                <source media="(max-width: 500px)" data-srcset="<?= $mobileBanner ?>">
+                <img class="lazyload" src="low-quality.jpg" data-src="<?= $actualBanner ?>" alt="principal banner">
             </picture>
         </figure>
     </section>
-    <section id="loopP" class="max-w-screen-2xl mx-auto px-5 mb-5">
-        <div class="sm:w-full grid grid-cols-1 md:grid-cols-3 gap-x-5 gap-y-8 md:w-4/5 md:mx-auto ">
+    <section id="loopP" class="px-5 mx-auto mb-5 max-w-screen-2xl">
+        <div class="grid grid-cols-1 sm:w-full md:grid-cols-3 gap-x-5 gap-y-8 md:w-4/5 md:mx-auto ">
             <?php while (have_posts()) {
                 the_post();
                 //the_content();

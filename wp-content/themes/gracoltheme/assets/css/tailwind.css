@@ -56,31 +56,24 @@
   @apply flex flex-row;
 }
 
+.wp-block-image {
+  @apply overflow-hidden;
+}
+.wp-block-image img {
+  @apply w-auto lg:w-full max-w-none lg:max-w-full h-[400px] lg:h-[unset] -translate-x-1/3 lg:-translate-x-0;
+}
+
 /* Accordeon */
 .accordion {
-  position: relative;
-  /*background-color: #eee;*/
-  cursor: pointer;
-  padding: 18px 18px 0px 18px;
-  width: 100%;
-  border: none;
-  text-align: center;
-  outline: none;
+  @apply relative cursor-pointer px-[18px] pt-[18px] w-full border-none text-center outline-none;
   font-size: 15px;
   transition: 0.4s;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-/*.active, .accordion:hover {
-  background-color: #eee;
-}*/
 
 /* Style the accordion panel. Note: hidden by default */
 .panel {
-  position: relative;
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
+@apply relative max-h-0 overflow-hidden;
   transition: max-height 0.2s ease-out;
 }
 
@@ -89,7 +82,7 @@
   font-size: 13px;
   color: #777;
   position: absolute;
-  bottom: -5px;
+  bottom: -15px;
   margin-left: 5px;
   transform: rotate(90deg);
   width: 10px;
@@ -122,9 +115,7 @@
 }
 
 .accordion span, .panel p{
-  width: 100%;
-  float: left;
-  border-bottom: 1px solid #000;
+  @apply w-full float-left border-b border-greenG-mid;
 }
 
 /* ---------------------------------------------------------------- Mobile Navbar Style */
@@ -170,13 +161,8 @@
 }
 
 .mobile-nav__content {
-  width: 220px;
-  z-index: 10;
-  position: relative;
-  height: 100%;
+  @apply z-10 relative h-full overflow-y-auto opacity-0 w-2/3;
   float: right;
-  overflow-y: auto;
-  opacity: 0;
   visibility: hidden;
   -webkit-transform: translateX(100%);
   transform: translateX(100%);

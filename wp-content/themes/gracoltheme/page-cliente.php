@@ -78,7 +78,7 @@
             </div>
         </div>
     </section>
-    <?= get_template_part('./components/sections/_faq') ?>
+    <?= get_template_part('./components/sections/_loop', 'faq') ?>
     <?= get_template_part('./components/banners/_banner', 'comprarVivienda') ?>
 
 </main>

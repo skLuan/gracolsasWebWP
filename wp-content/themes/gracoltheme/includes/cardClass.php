@@ -5,12 +5,9 @@ class Card
     protected $idSmart;
     protected $permalink;
     public $logoUrl;
-
-
-
+    
     public function __construct($idProject = null)
     {
-        // dd($idProject);
         $this->idProject = $idProject;
         $this->permalink = get_the_permalink($idProject);
         $this->logoUrl =

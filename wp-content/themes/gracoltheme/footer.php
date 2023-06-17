@@ -8,7 +8,7 @@
             <img class="mb-5 w-64" src="<?= IMAGE . '/logo-white.png' ?>" alt="">
         </picture>
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-5 lg:w-11/12 mx-auto">
-            <div class="w-full">
+            <div class="w-full mt-5">
                 <h6 class="lg:text-xl mb-2 uppercase font-futuraBold">Oficina</h6>
                 <div class="flex flex-row items-center">
                     <iconify-icon class="mr-1" icon="mdi:location"></iconify-icon> Carrera 17N #19N - 238
