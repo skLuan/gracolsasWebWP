@@ -8,6 +8,7 @@ require_once 'includes/InputClass.php';
 require_once 'includes/cardClass.php';
 require_once 'includes/cardProjectClass.php';
 require_once 'includes/searchController.php';
+require_once 'includes/formProjectController.php';
 
 
 define('IMAGE', get_stylesheet_directory_uri() . '/assets/img/');
@@ -68,6 +69,9 @@ function init_template()
 
 add_action('wp_enqueue_scripts', 'init_template');
 
+//------------------ SenderController ------------------
+$formController = new FormProjectController();
+$formController->sendtoJS();
 
 
 function enqueue_media_script()

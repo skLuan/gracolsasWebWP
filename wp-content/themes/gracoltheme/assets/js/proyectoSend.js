@@ -1,5 +1,7 @@
 function send() {
   console.log("desde el send");
+  // var WPHeaderInfo = WPheader;
+  console.log(WPheader);
   // Obtener los valores de los campos del formulario
   var firstName = document.getElementById("first_name").value;
   var lastName = document.getElementById("last_name").value;
@@ -24,25 +26,20 @@ function send() {
   // Convertir el objeto a JSON
   var jsonData = JSON.stringify(formData);
 
-  // Realizar la solicitud POST a la API
-  function sendSmart() {
-    fetch("https://api.smart-home.com.co/api/leadForm/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: jsonData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Manejar la respuesta de la API
-        console.log(data);
-      })
-      .catch((error) => {
-        // Manejar cualquier error
-        console.error(error);
-      });
-  }
+}
+send();
+// Realizar la solicitud POST a la API
+async function sendSmart() {
+  let data = await fetch("https://api.smart-home.com.co/api/leadForm/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: jsonData,
+  })
+  let jsonData = await data.json();
+
+  console.log(jsonData);
 }
 
 // send();

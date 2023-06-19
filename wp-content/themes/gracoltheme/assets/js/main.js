@@ -53,7 +53,6 @@ function main() {
       ? (loopContainer = document.getElementById("_loopVenta"))
       : "";
 
-    let loopInicial = loopContainer.cloneNode(true);
     let ubicaciones = [];
 
     projectUbication.forEach((ubi) => {
@@ -90,6 +89,7 @@ function main() {
         searchType = formContainer.searchUbicacion.value;
         searchUbi = formContainer.searchUbicacion.value;
       }
+      
       jQuery.ajax({
         url: gsLoopQuerys.ajaxUrl,
         method: "POST",
