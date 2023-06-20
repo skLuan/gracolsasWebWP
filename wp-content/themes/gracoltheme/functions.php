@@ -69,9 +69,6 @@ function init_template()
 
 add_action('wp_enqueue_scripts', 'init_template');
 
-//------------------ SenderController ------------------
-$formController = new FormProjectController();
-$formController->sendtoJS();
 
 
 function enqueue_media_script()

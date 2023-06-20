@@ -1,31 +1,26 @@
 <?php
 class FormProjectController
-{
-    public $projectKey = '82CDRO8e0PgNCWNoE5JD8Y3/15WadCyyERqLFR6K3aHcAy-vqjbI4JFEsE25hdPG';
+{   
+    //KEY del proyecto de prueba
+    public $projectKey = 'ia28rR/NKN0EaJkrKl0CygwhC2TC4jAG1Zpnn6ECe0ObefG7dnJtFLpS7iZwyaMK';
+    public $projectName = 'name';
     // Codigo id de pagina web
     public $locationSourseId = '475d0ca1-ea2c-4a59-aa08-7324ec0376dc';
-    public $body = [];
     public $APIURL = "https://api.smart-home.com.co/api/leadForm/";
 
-    public function __construct()
+    public function __construct(string $SM_PROJECT_KEY = '')
     {
-        $this->body = [
-            "first_name" => "John",
-            "last_name" => "Doe",
-            "email" => "john.doe@email.com",
-            "mobile_number" => "+5733292331",
-            "origin" => get_home_url(),
-            "projectId" => $this->projectKey,
-            "locationSourceId" => $this->locationSourseId,
-            "scoring" => "20",
-        ];
+        $SM_PROJECT_KEY != ''?
+        $this->projectKey = $SM_PROJECT_KEY : '';
+        $this->sendtoJS();
     }
 
     public function headerData(): array
     {
         $header = [
             "origin" => get_home_url(),
-            "projectId" => $this->projectKey,
+            "nameProject" => $this->projectName,
+            "SMProjectKey" => $this->projectKey,
             "locationSourceId" => $this->locationSourseId,
         ];
         return $header;
@@ -35,6 +30,14 @@ class FormProjectController
         return json_encode($this->headerData());
     }
 
+    public function setSMID($WP_ID){
+        $SMID = get_post_meta($WP_ID, 'SM_ID_project', true);
+        $this->projectKey = $SMID;
+    }
+    public function setName($WP_ID){
+        $name = get_the_title($WP_ID);
+        $this->projectName = $name;
+    }
     
     public function sendtoJS(): void
     {
@@ -45,10 +48,10 @@ class FormProjectController
                 'data' => $this->headerData(),
             ]);
         };
-        add_action('wp_enqueue_scripts',
+        add_action(
+            'wp_footer',
             $WPfn
         );
-        echo 'listo el envio pr Ajax form';
     }
 
 

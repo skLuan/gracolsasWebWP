@@ -8,5 +8,6 @@ require 'meta-box/gallerie-inmueble.php';
 require 'meta-box/galerie-exteriores.php';
 require 'meta-box/galerie-planos.php';
 require 'meta-box/banner-mobile.php';
+require 'meta-box/SmartHomeId.php';
 //--------------------------------
 // Agregar el meta box para el precio en el formulario de edición de proyectos
