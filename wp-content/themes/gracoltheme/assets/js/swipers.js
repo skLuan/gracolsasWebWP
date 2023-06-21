@@ -74,4 +74,28 @@ try {
       swiper: swiperPlanos,
     },
   });
+  // ---------------------------- avances
+
+  const swiperAvance = new Swiper(".thumbSwiper-avance", {
+    spaceBetween: 20,
+    slidesPerView: 5,
+    watchSlidesProgress: true,
+    autoHeight: true,
+  });
+  const swiperSingleAvance = new Swiper(".swiper-single-project-avance", {
+    // Optional parameters
+    direction: "horizontal",
+    // If we need pagination
+    pagination: {
+      el: ".swiper-pagination-avance",
+    },
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next-avance",
+      prevEl: ".swiper-button-prev-avance",
+    },
+    thumbs: {
+      swiper: swiperAvance,
+    },
+  });
 } catch (error) {}
