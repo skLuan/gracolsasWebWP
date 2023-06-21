@@ -39,9 +39,9 @@ $figcaption_planos = gsSanitizer($figcaption_planos);
         </div>
     </div>
     <!-- If we need pagination -->
-    <div class="swiper-pagination-planos"></div>
+    <div class="swiper-pagination swiper-pagination-planos"></div>
 
     <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev-planos"></div>
-    <div class="swiper-button-next-planos"></div>
+    <div class="swiper-button-prev swiper-button-prev-planos"></div>
+    <div class="swiper-button-next swiper-button-next-planos"></div>
 </div>

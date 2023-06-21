@@ -38,9 +38,9 @@ $figcaption_exteriores = gsSanitizer($figcaption_exteriores);
         </div>
     </div>
     <!-- If we need pagination -->
-    <div class="swiper-pagination-ext"></div>
+    <div class="swiper-pagination swiper-pagination-ext"></div>
 
     <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev-ext"></div>
-    <div class="swiper-button-next-ext"></div>
+    <div class="swiper-button-prev swiper-button-prev-ext"></div>
+    <div class="swiper-button-next swiper-button-next-ext"></div>
 </div>

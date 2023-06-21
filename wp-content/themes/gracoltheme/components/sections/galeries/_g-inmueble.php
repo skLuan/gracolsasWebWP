@@ -43,9 +43,9 @@ $figcaption_interior = gsSanitizer($figcaption_interior);
         </div>
     </div>
     <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
+    <div class="swiper-pagination swiper-pagination-inmueble"></div>
 
     <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev swiper-button-prev-inmueble"></div>
+    <div class="swiper-button-next swiper-button-next-inmueble"></div>
 </div>

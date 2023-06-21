@@ -10,12 +10,12 @@ try {
     direction: "horizontal",
     // If we need pagination
     pagination: {
-      el: ".swiper-pagination",
+      el: ".swiper-pagination-inmueble",
     },
     // Navigation arrows
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: ".swiper-button-next-inmueble",
+      prevEl: ".swiper-button-prev-inmueble",
     },
     thumbs: {
       swiper: swiper,
