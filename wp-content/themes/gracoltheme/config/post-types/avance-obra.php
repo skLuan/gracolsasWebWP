@@ -35,7 +35,7 @@ function project_avance_post_type()
         'public' => true,
         'label' => 'Avances de obra',
         'description' => 'Avances de obra de Gracol',
-        'supports' => array('title', 'editor', 'thumbnail', 'custom-fields', 'revisions'),
+        'supports' => array('title', 'editor', 'custom-fields', 'revisions'),
         'rewrite' => array('slug' => 'avances-obra'),
         'labels' => $labels,
         'show_in_menu' => true,
@@ -43,7 +43,7 @@ function project_avance_post_type()
         'menu_icon' => 'dashicons-slides',
         'publicly_queryable' => true,
         'show_in_rest' => true,
-        'taxonomies' => array('categoria-proyecto', 'tag-proyecto', 'ciudadela', 'amenities'),
+        'taxonomies' => array(),
     );
 
     register_post_type('avance-obra', $args);

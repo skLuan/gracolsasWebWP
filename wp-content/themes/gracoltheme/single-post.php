@@ -12,7 +12,7 @@ get_the_post_thumbnail_url(get_the_ID(), 'medium') ?
         <div class="flex flex-col mx-auto lg:w-2/3">
             <figure class="">
                 <picture>
-                    <img class="w-full " src="<?= $urlImage ?>" alt="banner">
+                    <img class="w-full " data-src="<?= $urlImage ?>" alt="banner">
                 </picture>
             </figure>
             <article>

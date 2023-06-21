@@ -5,7 +5,7 @@
         $banerMobile = get_post_meta($post->ID, 'project_baner_mobile', true);
     ?> <figure class="w-full overflow-hidden">
             <picture class="w-screen overflow-hidden">
-                <source media="(max-width: 600px)" srcset="<?= $banerMobile ?>">
+                <source media="(max-width: 600px)" data-srcset="<?= $banerMobile ?>">
                 <img class="w-full lazyload" src="low-quality.jpg" data-src="<?= the_post_thumbnail_url('original') ?>" alt="">
             </picture>
         </figure>

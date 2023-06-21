@@ -12,7 +12,7 @@ function add_avance_proyecto_ID_meta_box()
         'high' // Prioridad del meta box (high, core, default, low)
     );
 }
-add_action('add_meta_boxes', 'add_avance_proyecto_ID_meta_box');
+add_action('add_meta_boxes_avance-obra', 'add_avance_proyecto_ID_meta_box');
 
 // Mostrar el contenido del meta box de precio
 function display_avance_proyecto_ID_meta_box($post)
@@ -25,6 +25,7 @@ function display_avance_proyecto_ID_meta_box($post)
     ]);
     // Recuperar el valor actual del precio (si existe)
     $projectId = get_post_meta($post->ID, 'a_project_id', true);
+    echo var_dump($post->ID);
 ?>
     <div class="w-full ml-auto">
         <label class="block text-base" for="a_project_id">Proyecto asociado</label>
@@ -33,11 +34,11 @@ function display_avance_proyecto_ID_meta_box($post)
             if ($projects->have_posts()) :
                 while ($projects->have_posts()) :
                     $projects->the_post();
-                    if (get_the_ID() !== $projectId) :
+                    if (get_the_ID() != $projectId) :
             ?>
                         <option value="<?= get_the_ID() ?>"><?= the_title() ?></option>
                     <?php else : ?>
-                        <option selected value="<?= get_the_ID()?>"><?= the_title() ?></option>
+                        <option value="<?= get_the_ID() ?>" selected><?= the_title() ?></option>
                     <?php endif; ?>
                 <?php endwhile; ?>
             <?php endif; ?>

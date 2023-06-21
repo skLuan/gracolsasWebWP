@@ -14,4 +14,5 @@ require 'meta-box/project/SmartHomeId.php';
 //--------------------------------
 // Metaboxes de avance de proyecto
 //--------------------------------
+require 'meta-box/avance/galery.php';
 require 'meta-box/avance/projectID.php';

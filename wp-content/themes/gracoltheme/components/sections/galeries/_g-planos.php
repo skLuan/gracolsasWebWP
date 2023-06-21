@@ -29,7 +29,6 @@ $figcaption_planos = gsSanitizer($figcaption_planos);
                 <div class="swiper-slide">
                     <figure>
                         <picture>
-
                             <img class="lazyload" src="low-quality.jpg" data-src="<?= $image_url ?>" />
                         </picture>
                         <figcaption class="text-2xl text-greenG-mid font-futuraBold"><?= htmlspecialchars($figcaption_planos[$i], ENT_QUOTES, 'UTF-8') ?></figcaption>
