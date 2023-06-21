@@ -1,61 +1,66 @@
 <?php
 //--------------------------------
 // Agregar el meta box para el precio en el formulario de edición de proyectos
-function add_proyecto_price_meta_box()
+function add_avance_proyecto_ID_meta_box()
 {
     add_meta_box(
-        'gs_precio_col', // ID único del meta box
-        'Precio del Proyecto', // Título del meta box
-        'display_proyecto_price_meta_box', // Callback para mostrar el contenido del meta box
-        'proyectos', // Custom post type al que se debe agregar el meta box
+        'gs_avance_projecto_id', // ID único del meta box
+        'Proyecto asociado', // Título del meta box
+        'display_avance_proyecto_ID_meta_box', // Callback para mostrar el contenido del meta box
+        'avance-obra', // Custom post type al que se debe agregar el meta box
         'side', // Posición del meta box (normal, side, advanced)
         'high' // Prioridad del meta box (high, core, default, low)
     );
 }
-add_action('add_meta_boxes', 'add_proyecto_price_meta_box');
+add_action('add_meta_boxes', 'add_avance_proyecto_ID_meta_box');
 
 // Mostrar el contenido del meta box de precio
-function display_proyecto_price_meta_box($post)
+function display_avance_proyecto_ID_meta_box($post)
 {
+    $projects = new WP_Query([
+        'post_type' => 'proyectos',
+        'post_per_page' => -1,
+        'order' => 'ASC',
+        'orderby' => 'title',
+    ]);
     // Recuperar el valor actual del precio (si existe)
-    $precio = get_post_meta($post->ID, 'gs_precio_col', true);
-    $precioSMLV = get_post_meta($post->ID, 'gs_precio_SMLV', true);
-    // Output del campo de precio
+    $projectId = get_post_meta($post->ID, 'a_project_id', true);
 ?>
-    <div class="ml-auto">
-        <label class="block text-base" for="dinero">En dinero</label>
-        <input class="text-base" id="dinero" type="text" name="gs_precio_col" value="<?= esc_attr($precio) ?>" />
-    </div>
-    <div class="ml-5 mr-auto">
-        <label class="block text-base" for="SMLV">En salarios minimos (SMLV)</label>
-        <input class="text-base" id="SMLV" type="text" name="gs_precio_SMLV" value="<?= esc_attr($precioSMLV) ?>" />
+    <div class="w-full ml-auto">
+        <label class="block text-base" for="a_project_id">Proyecto asociado</label>
+        <select class="text-base" id="a_project_id" name="a_project_id">
+            <?php
+            if ($projects->have_posts()) :
+                while ($projects->have_posts()) :
+                    $projects->the_post();
+                    if (get_the_ID() !== $projectId) :
+            ?>
+                        <option value="<?= get_the_ID() ?>"><?= the_title() ?></option>
+                    <?php else : ?>
+                        <option selected value="<?= get_the_ID()?>"><?= the_title() ?></option>
+                    <?php endif; ?>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </select>
     </div>
 <?php
 
 }
 
 // Guardar el valor del precio en la base de datos
-function save_proyecto_price_meta_box($post_id)
+function save_avance_proyecto_ID_meta_box($post_id)
 {
     // Comprobar que el usuario actual tenga permiso para editar el post
     if (!current_user_can('edit_post', $post_id)) {
         return;
     }
-
     // Comprobar que el valor del precio se haya enviado y no esté vacío
-    if (!isset($_POST['gs_precio_col']) || empty($_POST['gs_precio_col'])) {
-        delete_post_meta($post_id, 'gs_precio_col');
+    if (!isset($_POST['a_project_id']) || empty($_POST['a_project_id'])) {
+        delete_post_meta($post_id, 'a_project_id');
     } else {
         // Sanitizar y guardar el valor del precio
-        $precio = sanitize_text_field($_POST['gs_precio_col']);
-        update_post_meta($post_id, 'gs_precio_col', $precio);
-    }
-
-    if (!isset($_POST['gs_precio_SMLV']) || empty($_POST['gs_precio_SMLV'])) {
-        delete_post_meta($post_id, 'gs_precio_SMLV');
-    } else {
-        $precioSMLV = sanitize_text_field($_POST['gs_precio_SMLV']);
-        update_post_meta($post_id, 'gs_precio_SMLV', $precioSMLV);
+        $id = $_POST['a_project_id'];
+        update_post_meta($post_id, 'a_project_id', $id);
     }
 }
-add_action('save_post_proyectos', 'save_proyecto_price_meta_box');
+add_action('save_post_avance-obra', 'save_avance_proyecto_ID_meta_box');

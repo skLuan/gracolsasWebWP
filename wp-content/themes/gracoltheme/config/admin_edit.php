@@ -1,4 +1,6 @@
 <?php
+// Metaboxes de proyecto
+//--------------------------------
 require 'meta-box/project/alcobasMetros.php';
 require 'meta-box/project/precio.php';
 require 'meta-box/project/ubicacion.php';
@@ -10,4 +12,6 @@ require 'meta-box/project/galerie-planos.php';
 require 'meta-box/project/banner-mobile.php';
 require 'meta-box/project/SmartHomeId.php';
 //--------------------------------
-// Agregar el meta box para el precio en el formulario de edición de proyectos
+// Metaboxes de avance de proyecto
+//--------------------------------
+require 'meta-box/avance/projectID.php';
