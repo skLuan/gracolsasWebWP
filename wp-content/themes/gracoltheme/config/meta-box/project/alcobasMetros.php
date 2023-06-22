@@ -12,7 +12,7 @@ function add_proyecto_alcobasMetros_meta_box()
         'high' // Prioridad del meta box (high, core, default, low)
     );
 }
-add_action('add_meta_boxes', 'add_proyecto_alcobasMetros_meta_box');
+add_action('add_meta_boxes_proyectos', 'add_proyecto_alcobasMetros_meta_box');
 
 // Mostrar el contenido del meta box de precio
 function display_proyecto_alcobas_metros_meta_box($post)
@@ -23,11 +23,11 @@ function display_proyecto_alcobas_metros_meta_box($post)
     // Output del campo de precio
 ?>
     <div class="ml-auto">
-        <label class="text-base block" for="noAlcobas">Número de alcobas</label>
+        <label class="block text-base" for="noAlcobas">Número de alcobas</label>
         <input class="text-base" id="noAlcobas" type="number" name="noAlcobas" value="<?= esc_attr($noAlcobas) ?>" />
     </div>
-    <div class="mr-auto ml-5">
-        <label class="text-base block" for="gsMt2">Metros cuadrados</label>
+    <div class="ml-5 mr-auto">
+        <label class="block text-base" for="gsMt2">Metros cuadrados</label>
         <input class="text-base" id="gsMt2" type="number" name="gsMt2" value="<?= esc_attr($mt2) ?>" />
     </div>
 <?php

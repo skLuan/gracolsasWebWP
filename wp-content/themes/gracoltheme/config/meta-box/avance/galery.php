@@ -19,7 +19,6 @@ function render_galery_avance_meta_box($post)
         $serialized_image_gallery = get_post_meta($avance_obra_id, 'galeria_avance', true);
         // Resto del código...
     }
-    echo var_dump($serialized_image_gallery);
 
     $figcaption = get_post_meta($post->ID, 'img_figcaption-avance', true);
 

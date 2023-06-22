@@ -11,6 +11,7 @@ require 'meta-box/project/galerie-exteriores.php';
 require 'meta-box/project/galerie-planos.php';
 require 'meta-box/project/banner-mobile.php';
 require 'meta-box/project/SmartHomeId.php';
+require 'meta-box/project/avanceID.php';
 //--------------------------------
 // Metaboxes de avance de proyecto
 //--------------------------------

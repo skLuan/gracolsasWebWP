@@ -15,28 +15,22 @@ $logoProjectUrl = get_post_meta($projectID, 'project_logo', true);
             </picture>
         </figure>
     </section>
-    <section class="flex">
+    <section class="flex my-10">
         <figure class="p-5 mx-auto bg-white rounded shadow w-72">
             <picture>
                 <img class="w-full lazyload" data-src="<?= $logoProjectUrl ?>" alt="logo project">
             </picture>
         </figure>
     </section>
-    <section id="avance-galeries">
-        
+    <section id="avance-galeries" class="pb-5 mx-auto my-10 bg-white shadow-lg max-w-screen-2xl">
+        <?= get_template_part('components/sections/galeries/_g', 'avance') ?>
     </section>
-    <?php while (have_posts()) :
-        the_post();
-    ?>
-        <div class="flex flex-col mx-auto lg:w-2/3">
-            <article>
-                <h2 class="text-2xl text-greenG font-futuraBold">
-                    <?= the_title(); ?>
-                </h2>
-                <?= the_content(); ?>
-            </article>
-        </div>
-
-    <?php endwhile; ?>
+    <section id="bannersGEn" class="mx-auto mb-5 max-w-screen-2xl">
+        <a href=" <?= get_permalink($projectID) ?>">
+            <picture>
+                <img class="lazyload" data-src="<?= IMAGE . '/BANNER_avance_obra.jpg' ?>" alt="">
+            </picture>
+        </a>
+    </section>
 </main>
 <?php get_footer() ?>

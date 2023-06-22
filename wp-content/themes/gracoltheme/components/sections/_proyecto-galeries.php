@@ -2,13 +2,6 @@
 // isset($figcaption_exteriores) && $figcaption_exteriores !== '' || $figcaption_exteriores !== [] ? $figcaption_exteriores = json_decode($figcaption) : $figcaption = [];
 $url360 = get_post_meta($post->ID, 'gs_url_360', true);
 $urlBrochure = get_post_meta($post->ID, 'gs_url_brochure', true);
-function gsSanitizer($rawData = null)
-{
-    $clean = null;
-    isset($rawData) && $rawData !== '' ? $clean = json_decode($rawData)
-        : $clean = $rawData;
-    return $clean;
-}
 ?>
 
 <section class="grid grid-cols-1 gap-5 mt-20 lg:grid-cols-12">

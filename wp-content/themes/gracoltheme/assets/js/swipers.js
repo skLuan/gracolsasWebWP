@@ -85,6 +85,7 @@ try {
   const swiperSingleAvance = new Swiper(".swiper-single-project-avance", {
     // Optional parameters
     direction: "horizontal",
+    autoHeight: true,
     // If we need pagination
     pagination: {
       el: ".swiper-pagination-avance",

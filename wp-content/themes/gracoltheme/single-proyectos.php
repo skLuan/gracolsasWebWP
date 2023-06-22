@@ -1,4 +1,6 @@
-<?php get_header() ?>
+<?php get_header();
+$avanceID = get_post_meta(get_the_ID(), 'p_avance_id', true);
+?>
 <main class="lg:mt-24">
     <?php while (have_posts()) :
         the_post();
@@ -15,6 +17,15 @@
         <?= get_template_part('components/sections/_proyecto', 'ubicacion') ?>
         <?= get_template_part('components/sections/_proyecto', 'asesores') ?>
 
+        <?php if (isset($avanceID)) : ?>
+            <section id="bannersGEn" class="mx-auto mt-10 max-w-screen-2xl">
+                <a href="<?= get_permalink($avanceID) ?>">
+                    <picture>
+                        <img class="lazyload" data-src="<?= IMAGE . '/BANNER_avance_obra.jpg' ?>" alt="">
+                    </picture>
+                </a>
+            </section>
+        <?php endif; ?>
         <?= get_template_part('./components/banners/_banner', 'comprarVivienda') ?>
         <?= get_template_part('./components/sections/_loop', 'faq') ?>
 
