@@ -8,7 +8,7 @@ require_once 'includes/InputClass.php';
 require_once 'includes/cardClass.php';
 require_once 'includes/cardProjectClass.php';
 require_once 'includes/searchController.php';
-require_once 'includes/formProjectController.php';
+require_once 'includes/FormProjectController.php';
 
 
 define('IMAGE', get_stylesheet_directory_uri() . '/assets/img/');
