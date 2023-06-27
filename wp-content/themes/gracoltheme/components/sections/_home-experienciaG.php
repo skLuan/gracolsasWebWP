@@ -6,19 +6,13 @@
     <div class="grid w-full grid-cols-1 mb-5 gap-x-5 gap-y-8 md:w-4/5 md:mx-auto">
         <div class="grid w-full text-left md:grid-cols-10 bg-greenwhiteG">
             <picture class="grid md:col-span-3 justify-items-center">
-                <img class="lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'customers/people1.jpg' ?>" alt="Juanita Gomez Herrera" />
+                <img class="lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'customers/people3.jpg' ?>" alt="Juanita Gomez Herrera" />
             </picture>
             <article class="relative pb-6 md:col-span-7 md:p-5">
                 <div class="relative p-5">
-                    <h3 class="text-3xl font-futuraBold text-greenG">Juanita Gomez Herrera</h3>
+                    <h3 class="text-3xl font-futuraBold text-greenG">Ing. Raúl solarte</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer augue felis, malesuada et eros
-                        a, pulvinar sollicitudin risus. Aenean iaculis tempus nisl, in venenatis tellus cursus eget.
-                        Fusce odio tortor, tempor et nisi a, feugiat dapibus mi. Curabitur ornare malesuada magna, ut
-                        dictum turpis scelerisque nec. Nullam dignissim, dolor at vehicula efficitur, nibh ante auctor
-                        felis, eget cursus est urna in dui. Vivamus dolor eros, auctor vitae ullamcorper vel, facilisis
-                        vitae enim. Ut et pellentesque tellus. Praesent dapibus mollis condimentum. Morbi id semper
-                        metus, non eleifend purus.
+                        Ingeniero de experiencia en diseño de estructural de obras civiles (Persona que se encuentra ubicado en ciudad de cali y quedamos de hacerle una breve entrevista y levantamiento fotográfico).
                     </p>
 
                 </div>
@@ -31,22 +25,16 @@
         <div class="flex flex-col-reverse w-full text-left md:grid md:grid-cols-10 bg-greenwhiteG">
             <article class="relative pb-6 md:col-span-7 md:p-5">
                 <div class="relative p-5">
-                    <h3 class="text-3xl font-futuraBold text-greenG">Carlos Pérez Moreno</h3>
+                    <h3 class="text-3xl font-futuraBold text-greenG">Pedro Pablo Reyes Guzmán</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer augue felis, malesuada et eros
-                        a, pulvinar sollicitudin risus. Aenean iaculis tempus nisl, in venenatis tellus cursus eget.
-                        Fusce odio tortor, tempor et nisi a, feugiat dapibus mi. Curabitur ornare malesuada magna, ut
-                        dictum turpis scelerisque nec. Nullam dignissim, dolor at vehicula efficitur, nibh ante auctor
-                        felis, eget cursus est urna in dui. Vivamus dolor eros, auctor vitae ullamcorper vel, facilisis
-                        vitae enim. Ut et pellentesque tellus. Praesent dapibus mollis condimentum. Morbi id semper
-                        metus, non eleifend purus.
+                        Presidente de junta (Persona que se encuentra ubicado en ciudad de Popayán y quedamos de hacerle una breve entrevista y levantamiento fotográfico).
                     </p>
 
                 </div>
                 <div class="float-left  bg-orangeG h-[38px] w-[200px] absolute bottom-0 right-10"></div>
             </article>
             <picture class="grid text-right md:col-span-3 justify-items-center">
-                <img class="lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'customers/people2.jpg' ?>" alt="Carlos Pérez Moreno" />
+                <img class="lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'customers/people3.jpg' ?>" alt="Carlos Pérez Moreno" />
             </picture>
         </div>
     </div>
@@ -54,21 +42,14 @@
     <div class="grid w-full grid-cols-1 mb-5 gap-x-5 gap-y-8 md:w-4/5 md:mx-auto">
         <div class="grid w-full text-left md:grid-cols-10 bg-greenwhiteG">
             <picture class="grid md:col-span-3 justify-items-center">
-                <img class="lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'customers/people3.jpg' ?>" alt="Yolanda Carabalí" />
+                <img class="lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'customers/people2.jpg' ?>" alt="Yolanda Carabalí" />
             </picture>
             <article class="relative pb-6 md:col-span-7 md:p-5">
                 <div class="relative p-5">
-                    <h3 class="text-3xl font-futuraBold text-greenG">Yolanda Carabalí</h3>
+                    <h3 class="text-3xl font-futuraBold text-greenG">Sara Cumbal</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer augue felis, malesuada et eros
-                        a, pulvinar sollicitudin risus. Aenean iaculis tempus nisl, in venenatis tellus cursus eget.
-                        Fusce odio tortor, tempor et nisi a, feugiat dapibus mi. Curabitur ornare malesuada magna, ut
-                        dictum turpis scelerisque nec. Nullam dignissim, dolor at vehicula efficitur, nibh ante auctor
-                        felis, eget cursus est urna in dui. Vivamus dolor eros, auctor vitae ullamcorper vel, facilisis
-                        vitae enim. Ut et pellentesque tellus. Praesent dapibus mollis condimentum. Morbi id semper
-                        metus, non eleifend purus.
+                        Cliente del proyecto Puerto Madero, quien recibió su inmueble en el mes de junio y nos va a dar su testimonio.
                     </p>
-
                 </div>
                 <div class="float-left  bg-orangeG h-[38px] w-[200px] absolute bottom-0 left-4 md:left-10"></div>
             </article>

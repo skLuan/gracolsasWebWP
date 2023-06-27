@@ -71,7 +71,8 @@ async function send(e) {
   // var comment = form.getElementById("comment").value;
   var projectId = WPHeaderInfo.SMProjectKey ? WPHeaderInfo.SMProjectKey : ""; // Puedes establecer este valor según tus necesidades
   var locationID = WPHeaderInfo.locationSourceId; // Puedes establecer este valor según tus necesidades
-
+  var testingKey =
+    "ia28rR/NKN0EaJkrKl0CygwhC2TC4jAG1Zpnn6ECe0ObefG7dnJtFLpS7iZwyaMK";
   // Crear el objeto con los datos
   var formData = {
     first_name: firstName,
@@ -80,8 +81,7 @@ async function send(e) {
     mobile_number: mobileNumber,
     origin: origin,
     projectId: projectId,
-    //projectId:
-      //"ia28rR/NKN0EaJkrKl0CygwhC2TC4jAG1Zpnn6ECe0ObefG7dnJtFLpS7iZwyaMK",
+    //projectId: testingKey,
     locationSourceId: locationID,
     scoring: "20",
   };
@@ -91,7 +91,6 @@ async function send(e) {
 
   if ($response.result == "Cliente creado correctamente.") {
     stylesDefault();
-    console.log("sto si paso");
   }
 }
 
