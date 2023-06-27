@@ -79,11 +79,11 @@ async function send(e) {
     email: email,
     mobile_number: mobileNumber,
     origin: origin,
-    // projectId: projectId,
-    projectId:
-      "ia28rR/NKN0EaJkrKl0CygwhC2TC4jAG1Zpnn6ECe0ObefG7dnJtFLpS7iZwyaMK",
+    projectId: projectId,
+    //projectId:
+      //"ia28rR/NKN0EaJkrKl0CygwhC2TC4jAG1Zpnn6ECe0ObefG7dnJtFLpS7iZwyaMK",
     locationSourceId: locationID,
-    scoring: "0",
+    scoring: "20",
   };
   if (!validateForm(formData)) return;
 
