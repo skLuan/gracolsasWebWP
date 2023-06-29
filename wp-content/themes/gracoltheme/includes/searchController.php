@@ -41,9 +41,10 @@ function gsLoopSearch()
     if ($proyectos->have_posts()) {
         while ($proyectos->have_posts()) {
             $proyectos->the_post();
+            $isMini = filter_var($_POST['isMini'], FILTER_VALIDATE_BOOLEAN);
+            // echo var_dump($_POST['isMini']);
             ob_start();
-
-            if (isset($_POST['isMini']) && $_POST['isMini'] == true) {
+            if (isset($isMini) && $isMini === true) {
                 get_template_part('components/cards/_card', 'homeMini');
             } else if (strcmp($_POST['sendUrl'], $urlPrincipal) === 0) {
                 get_template_part('components/cards/_card', 'homeProyecto');
