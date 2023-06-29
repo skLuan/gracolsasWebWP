@@ -9,7 +9,7 @@ if (isset($serialized_galeria_planos[0]) && $serialized_galeria_planos[0] !== ''
 }
 $figcaption_planos = gsSanitizer($figcaption_planos);
 ?>
-<div id="img_planos" class="relative hidden w-full px-5 mx-auto mb-10 gs_slide animate__animated animate__faster animate__fadeInDown max-w-screen-2xl">
+<div id="img_planos" class="relative hidden w-2/3 px-5 mx-auto mb-10 gs_slide animate__animated animate__faster animate__fadeInDown max-w-screen-2xl">
     <!-- thmbslider -->
     <div thumbsSlider="" class="my-8 swiper thumbSwiper-planos">
         <div class="swiper-wrapper !items-center !justify-center">

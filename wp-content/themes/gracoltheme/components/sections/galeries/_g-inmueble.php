@@ -8,7 +8,7 @@ try {
 }
 $figcaption_interior = gsSanitizer($figcaption_interior);
 ?>
-<div id="img_interior" class="relative w-full px-5 mx-auto mb-10 gs_slide animate__animated animate__faster animate__fadeInDown max-w-screen-2xl">
+<div id="img_interior" class="relative w-2/3 px-5 mx-auto mb-10 gs_slide animate__animated animate__faster animate__fadeInDown max-w-screen-2xl">
     <!-- thmbslider -->
     <div thumbsSlider="" class="my-8 swiper thumbSwiper">
         <div class="swiper-wrapper !items-center !justify-center">

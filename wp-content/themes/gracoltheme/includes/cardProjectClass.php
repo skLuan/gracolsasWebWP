@@ -68,8 +68,9 @@ class CardProject extends Card
                 return $this->ubicacion;
         }
         public function getValorPesos()
-        {
-                return $this->valorPesos;
+        {               
+                $value = floatval($this->valorPesos);
+                return number_format($value,0,',','.');
         }
         public function getvalorSMLV()
         {
