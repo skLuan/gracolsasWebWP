@@ -37,7 +37,6 @@ function gsLoopSearch()
         );
     }
     $proyectos = new WP_Query($args);
-    // var_dump($_POST['sendUrl']);
     if ($proyectos->have_posts()) {
         while ($proyectos->have_posts()) {
             $proyectos->the_post();
