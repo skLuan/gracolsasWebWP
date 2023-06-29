@@ -42,7 +42,10 @@ function gsLoopSearch()
         while ($proyectos->have_posts()) {
             $proyectos->the_post();
             ob_start();
-            if (strcmp($_POST['sendUrl'], $urlPrincipal) === 0) {
+
+            if (isset($_POST['isMini']) && $_POST['isMini'] == true) {
+                get_template_part('components/cards/_card', 'homeMini');
+            } else if (strcmp($_POST['sendUrl'], $urlPrincipal) === 0) {
                 get_template_part('components/cards/_card', 'homeProyecto');
             } else {
                 get_template_part('components/cards/_card', 'enVenta');

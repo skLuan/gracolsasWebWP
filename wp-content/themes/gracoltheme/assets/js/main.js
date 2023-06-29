@@ -78,15 +78,18 @@ function main() {
 
     function btnClicked(e) {
       let formContainer = document.getElementById("searchPForm");
+      loopContainer = document.getElementById("_loopHomeP");
       let searchUbi;
       let searchType;
+      let isMini = false;
       if (e.target.getAttribute("name") == "searchUbicacionMini") {
         formContainer = document.getElementById("searchUbiOnly");
         loopContainer = document.getElementById("_loopHomeS");
         searchUbi = formContainer.searchUbicacionMini.value;
         searchType = 'all';
+        isMini = true;
       } else {
-        searchType = formContainer.searchUbicacion.value;
+        searchType = formContainer.searchType.value;
         searchUbi = formContainer.searchUbicacion.value;
       }
       
@@ -98,6 +101,7 @@ function main() {
           searchUbicacion: searchUbi,
           searchType: searchType,
           sendUrl: window.location.pathname,
+          isMini: isMini,
         },
         beforeSend: function () {
           if (
