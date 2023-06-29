@@ -17,9 +17,11 @@ add_action('add_meta_boxes', 'add_proyecto_price_meta_box');
 // Mostrar el contenido del meta box de precio
 function display_proyecto_price_meta_box($post)
 {
+    $proyecto_id = isset($_GET['post']) ? $_GET['post'] : false;
+
     // Recuperar el valor actual del precio (si existe)
-    $precio = get_post_meta($post->ID, 'gs_precio_col', true);
-    $precioSMLV = get_post_meta($post->ID, 'gs_precio_SMLV', true);
+    $precio = get_post_meta($proyecto_id, 'gs_precio_col', true);
+    $precioSMLV = get_post_meta($proyecto_id, 'gs_precio_SMLV', true);
     // Output del campo de precio
 ?>
     <div class="ml-auto">

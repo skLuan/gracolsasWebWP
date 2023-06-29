@@ -1,7 +1,9 @@
 <?php
 $title = get_the_title();
 $permalink = get_permalink( get_the_ID() );
-$content = get_the_content();
+$content = get_the_excerpt();
+
+$content = substr($content, 0, 50) . '...';
 
 $urlImage = IMAGE . 'img-post.png';
 ?>

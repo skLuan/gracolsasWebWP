@@ -17,8 +17,10 @@ add_action('add_meta_boxes', 'add_proyecto_SMID_box');
 // Mostrar el contenido del meta box de precio
 function display_project_SMID($post)
 {
+    $proyecto_id = isset($_GET['post']) ? $_GET['post'] : false;
+
     // Recuperar el valor actual (si existe)
-    $SMID = get_post_meta($post->ID, 'SM_ID_project', true);
+    $SMID = get_post_meta($proyecto_id, 'SM_ID_project', true);
 ?>
     <div class="w-11/12 mx-auto">
         <label class="block text-base" for="dinero">Smarth Home ID</label>

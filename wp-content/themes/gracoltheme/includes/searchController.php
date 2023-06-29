@@ -55,6 +55,7 @@ function gsLoopSearch()
 
             $return[] = $cardContent;
         }
+        wp_reset_postdata();
     }
     wp_send_json($return);
 }

@@ -14,8 +14,9 @@ add_action('add_meta_boxes', 'add_project_galeria_planos_meta_box');
 
 function render_project_galerie_planos_meta_box($post)
 {
-    $serialized_image_gallery = get_post_meta($post->ID, 'project_galeria_planos', true);
-    $figcaption = get_post_meta($post->ID, 'img_figcaption-planos', true);
+    $proyecto_id = isset($_GET['post']) ? $_GET['post'] : false;
+    $serialized_image_gallery = get_post_meta($proyecto_id, 'project_galeria_planos', true);
+    $figcaption = get_post_meta($proyecto_id, 'img_figcaption-planos', true);
 
     if (isset($figcaption) && $figcaption !== '') {
         $figcaption = json_decode($figcaption);
@@ -34,7 +35,7 @@ function render_project_galerie_planos_meta_box($post)
     }
 ?>
 
-    <div id="image-gallery-container-planos" class="mx-auto w-1/2">
+    <div id="image-gallery-container-planos" class="w-1/2 mx-auto">
         <?php
         if (isset($image_gallery) && !empty($image_gallery)) : ?>
             <?php foreach ($image_gallery as $i => $image_url) : ?>
@@ -50,7 +51,7 @@ function render_project_galerie_planos_meta_box($post)
                             <br>
                             <input type="text" name="figCaption-planos[]" value="<?= isset($figcaption[$i]) ? $figcaption[$i] : '' ?>" id="figCaption" />
                         </div>
-                        <button class="w-fit remove-image px-4 ml-auto py-1 border border-red-600 text-red-600" onclick="eliminarImagenplanos('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
+                        <button class="px-4 py-1 ml-auto text-red-600 border border-red-600 w-fit remove-image" onclick="eliminarImagenplanos('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -61,7 +62,7 @@ function render_project_galerie_planos_meta_box($post)
             </div>
         <?php endif; ?>
         <input id="project_galeria_planos" type="hidden" name="project_galeria_planos[]" value="<?= htmlspecialchars(json_encode($image_gallery)); ?>" readonly>
-        <button class="border mt-5 border-greenG-mid text-white bg-greenG-mid rounded px-3 py-1" id="add-image-galerie-planos">Agregar imagen</button>
+        <button class="px-3 py-1 mt-5 text-white border rounded border-greenG-mid bg-greenG-mid" id="add-image-galerie-planos">Agregar imagen</button>
     </div>
     <script>
         function eliminarImagenplanos(value) {

@@ -9,15 +9,15 @@
         </picture>
         <div class="grid grid-cols-1 mx-auto lg:grid-cols-4 gap-x-5 lg:w-11/12">
             <div class="w-full mt-5">
-                <h6 class="mb-2 uppercase lg:text-xl font-futuraBold">Oficina</h6>
-                <div class="flex flex-row mb-3">
-                    <iconify-icon class="mt-1 mr-1" icon="mdi:location"></iconify-icon>
+                <h6 class="uppercase lg:text-xl font-futuraBold">Oficina</h6>
+                <div class="flex flex-row mt-1 mb-3">
+                    <iconify-icon class="mr-1" icon="mdi:location"></iconify-icon>
                     <p class="leading-tight">
+                        <b>Popayán</b>
+                        <br>
                         Carrera 17N #19N - 238
                         <br>
                         Barrio Campamento
-                        <br>
-                        Popayán
                     </p>
                 </div>
                 <div class="flex flex-row items-center mb-3">

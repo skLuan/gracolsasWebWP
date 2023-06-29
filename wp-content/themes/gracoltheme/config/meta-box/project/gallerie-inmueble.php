@@ -14,8 +14,9 @@ add_action('add_meta_boxes', 'add_project_galeria_inmueble_meta_box');
 
 function render_project_galerie_inmueble_meta_box($post)
 {
-    $serialized_image_gallery = get_post_meta($post->ID, 'project_galeria_inmueble', true);
-    $figcaption = get_post_meta($post->ID, 'img_figcaption-interior', true);
+    $proyecto_id = isset($_GET['post']) ? $_GET['post'] : false;
+    $serialized_image_gallery = get_post_meta($proyecto_id, 'project_galeria_inmueble', true);
+    $figcaption = get_post_meta($proyecto_id, 'img_figcaption-interior', true);
 
     if (isset($figcaption) && $figcaption !== '') {
         $figcaption = json_decode($figcaption);
@@ -33,11 +34,11 @@ function render_project_galerie_inmueble_meta_box($post)
     }
 ?>
 
-    <div id="image-gallery-container" class="mx-auto w-1/2">
+    <div id="image-gallery-container" class="w-1/2 mx-auto">
         <?php
         if (isset($image_gallery) && !empty($image_gallery)) : ?>
             <?php foreach ($image_gallery as $i => $image_url) : ?>
-                <div class="image-gallery-item mb-10">
+                <div class="mb-10 image-gallery-item">
                     <figure>
                         <picture>
                             <img width="100%" src="<?= $image_url ?>" alt="">
@@ -49,7 +50,7 @@ function render_project_galerie_inmueble_meta_box($post)
                             <br>
                             <input type="text" name="figCaption-interior[]" value="<?= isset($figcaption[$i]) ? $figcaption[$i] : '' ?>" id="figCaptionInterior" />
                         </div>
-                        <button class="ml-auto remove-image px-4 py-1 border border-greenG-mid" onclick="eliminarImagen('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
+                        <button class="px-4 py-1 ml-auto border remove-image border-greenG-mid" onclick="eliminarImagen('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -60,7 +61,7 @@ function render_project_galerie_inmueble_meta_box($post)
             </div>
         <?php endif; ?>
         <input id="project_galeria_inmueble" type="hidden" name="project_galeria_inmueble[]" value="<?= htmlspecialchars(json_encode($image_gallery)); ?>" readonly>
-        <button class="border mt-5 border-greenG-mid text-white bg-greenG-mid rounded px-3 py-1" id="add-image-galerie-inmueble">Agregar imagen</button>
+        <button class="px-3 py-1 mt-5 text-white border rounded border-greenG-mid bg-greenG-mid" id="add-image-galerie-inmueble">Agregar imagen</button>
     </div>
     <script>
         function eliminarImagen(value) {

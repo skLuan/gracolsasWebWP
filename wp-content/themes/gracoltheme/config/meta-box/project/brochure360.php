@@ -17,21 +17,22 @@ add_action('add_meta_boxes', 'add_proyecto_360_brochure_box');
 // Mostrar el contenido del meta box de precio
 function display_proyecto_360_brochure_box($post)
 {
+    $proyecto_id = isset($_GET['post']) ? $_GET['post'] : false;
     wp_nonce_field('proyecto_360_brochure_box', 'proyecto_360_brochure_nonce');
     // Recuperar el valor actual del precio (si existe)
-    $url360 = get_post_meta($post->ID, 'gs_url_360', true);
-    $urlBrochure = get_post_meta($post->ID, 'gs_url_brochure', true);
+    $url360 = get_post_meta($proyecto_id, 'gs_url_360', true);
+    $urlBrochure = get_post_meta($proyecto_id, 'gs_url_brochure', true);
     // Output del campo de precio
 ?>
     <div class="ml-auto">
-        <label class="text-base block" for="u360">Enlace del 360</label>
+        <label class="block text-base" for="u360">Enlace del 360</label>
         <input class="text-base" id="u360" type="text" name="url360" value="<?= esc_attr($url360) ?>" />
     </div>
-    <div class="mr-auto ml-5">
-        <label class="text-base block" for="urlBrochure">Enlace brochure</label>
+    <div class="ml-5 mr-auto">
+        <label class="block text-base" for="urlBrochure">Enlace brochure</label>
         <input class="text-base" id="urlBrochure" type="text" name="urlBrochure" value="<?= esc_attr($urlBrochure) ?>" />
 
-        <button class="border mt-5 border-greenG-mid text-white bg-greenG-mid rounded px-3 py-1" id="add-brochure">Agregar brochure</button>
+        <button class="px-3 py-1 mt-5 text-white border rounded border-greenG-mid bg-greenG-mid" id="add-brochure">Agregar brochure</button>
         <script>
             // function eliminarImagen(value) {
             //     var preview = document.getElementById('image-gallery-container');

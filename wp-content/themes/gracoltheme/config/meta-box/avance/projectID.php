@@ -17,6 +17,8 @@ add_action('add_meta_boxes_avance-obra', 'add_avance_proyecto_ID_meta_box');
 // Mostrar el contenido del meta box de precio
 function display_avance_proyecto_ID_meta_box($post)
 {
+    $avance_id = isset($_GET['post']) ? $_GET['post'] : false;
+
     $projects = new WP_Query([
         'post_type' => 'proyectos',
         'post_per_page' => -1,
@@ -24,8 +26,8 @@ function display_avance_proyecto_ID_meta_box($post)
         'orderby' => 'title',
     ]);
     // Recuperar el valor actual del precio (si existe)
-    $projectId = get_post_meta($post->ID, 'a_project_id', true);
-    echo var_dump($post->ID);
+    $projectId = get_post_meta($avance_id, 'a_project_id', true);
+    echo var_dump($avance_id);
 ?>
     <div class="w-full ml-auto">
         <label class="block text-base" for="a_project_id">Proyecto asociado</label>
@@ -34,14 +36,14 @@ function display_avance_proyecto_ID_meta_box($post)
             if ($projects->have_posts()) :
                 while ($projects->have_posts()) :
                     $projects->the_post();
-                    if (get_the_ID() != $projectId) :
-            ?>
+                    if (get_the_ID() != $projectId) : ?>
                         <option value="<?= get_the_ID() ?>"><?= the_title() ?></option>
                     <?php else : ?>
                         <option value="<?= get_the_ID() ?>" selected><?= the_title() ?></option>
                     <?php endif; ?>
-                <?php endwhile; ?>
-            <?php endif; ?>
+            <?php endwhile;
+                wp_reset_postdata();
+            endif; ?>
         </select>
     </div>
 <?php
@@ -62,7 +64,7 @@ function save_avance_proyecto_ID_meta_box($post_id)
         // Sanitizar y guardar el valor del precio
         $proyecto_id = $_POST['a_project_id'];
         update_post_meta($post_id, 'a_project_id', $proyecto_id);
-        
+
         update_post_meta($proyecto_id, 'p_avance_id', $post_id);
     }
 }

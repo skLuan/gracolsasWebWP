@@ -15,8 +15,9 @@ $loopNews = new WP_Query($newsArgs);
                 $loopNews->the_post();
             ?>
                 <?= get_template_part('components/cards/_card', 'news') ?>
-            <?php endwhile; ?>
-        <?php endif; ?>
+        <?php endwhile;
+            wp_reset_postdata();
+        endif; ?>
 
 
     </div>

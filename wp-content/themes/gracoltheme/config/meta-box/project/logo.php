@@ -15,7 +15,8 @@ add_action('add_meta_boxes', 'add_project_logo_meta_box');
 
 function render_project_logo_meta_box($post)
 {
-    $image = get_post_meta($post->ID, 'project_logo', true);
+    $proyecto_id = isset($_GET['post']) ? $_GET['post'] : false;
+    $image = get_post_meta($proyecto_id, 'project_logo', true);
     wp_nonce_field('project_logo_meta_box', 'project_logo_nonce');
 ?>
     <div class="mx-auto">

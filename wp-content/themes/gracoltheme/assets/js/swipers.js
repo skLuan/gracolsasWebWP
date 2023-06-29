@@ -4,10 +4,12 @@ try {
     slidesPerView: 5,
     watchSlidesProgress: true,
     autoHeight: true,
+    autoplay:true,
   });
   const swiperSingleProject = new Swiper(".swiper-single-project", {
     // Optional parameters
     direction: "horizontal",
+    autoplay: true,
     // If we need pagination
     pagination: {
       el: ".swiper-pagination-inmueble",
@@ -35,6 +37,7 @@ try {
     {
       // Optional parameters
       direction: "horizontal",
+      autoplay: true,
       // If we need pagination
       pagination: {
         el: ".swiper-pagination-ext",
@@ -61,6 +64,7 @@ try {
   const swiperSinglePlanos = new Swiper(".swiper-single-project-planos", {
     // Optional parameters
     direction: "horizontal",
+    autoplay: true,
     // If we need pagination
     pagination: {
       el: ".swiper-pagination-planos",
@@ -82,10 +86,13 @@ try {
     watchSlidesProgress: true,
     autoHeight: true,
   });
+
   const swiperSingleAvance = new Swiper(".swiper-single-project-avance", {
     // Optional parameters
     direction: "horizontal",
     autoHeight: true,
+    autoplay: true,
+
     // If we need pagination
     pagination: {
       el: ".swiper-pagination-avance",

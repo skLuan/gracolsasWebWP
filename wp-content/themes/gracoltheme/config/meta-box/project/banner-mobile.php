@@ -15,7 +15,8 @@ add_action('add_meta_boxes', 'add_project_baner_mobile_meta_box');
 
 function render_project_baner_mobile_meta_box($post)
 {
-    $image = get_post_meta($post->ID, 'project_baner_mobile', true);
+    $proyecto_id = isset($_GET['post']) ? $_GET['post'] : false;
+    $image = get_post_meta($proyecto_id, 'project_baner_mobile', true);
     wp_nonce_field('project_baner_mobile_meta_box', 'project_baner_mobile_nonce');
 ?>
     <div class="mx-auto">

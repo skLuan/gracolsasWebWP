@@ -27,7 +27,8 @@
                         <?= the_content() ?>
                     </div>
                 </div>
-            <?php endwhile; ?>
-        <?php endif; ?>
+        <?php endwhile;
+            wp_reset_postdata();
+        endif; ?>
     </div>
 </section>

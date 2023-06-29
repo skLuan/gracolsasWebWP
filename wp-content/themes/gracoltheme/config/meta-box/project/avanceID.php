@@ -23,9 +23,10 @@ function display_proyecto_avance_ID_meta_box($post)
         'order' => 'ASC',
         'orderby' => 'title',
     ]);
+    $proyecto_id = isset($_GET['post']) ? $_GET['post'] : false;
     // Recuperar el valor actual del precio (si existe)
-    $projectId = get_post_meta($post->ID, 'p_avance_id', true);
-    echo var_dump($post->ID);
+    $avanceId = get_post_meta($proyecto_id, 'p_avance_id', true);
+    echo var_dump($proyecto_id);
 ?>
     <div class="w-full ml-auto">
         <label class="block text-base" for="p_avance_id">Avance asociado</label>
@@ -34,14 +35,14 @@ function display_proyecto_avance_ID_meta_box($post)
             if ($avances->have_posts()) :
                 while ($avances->have_posts()) :
                     $avances->the_post();
-                    if (get_the_ID() != $projectId) :
-            ?>
+                    if (get_the_ID() != $avanceId) : ?>
                         <option value="<?= get_the_ID() ?>"><?= the_title() ?></option>
                     <?php else : ?>
                         <option value="<?= get_the_ID() ?>" selected><?= the_title() ?></option>
                     <?php endif; ?>
-                <?php endwhile; ?>
-            <?php endif; ?>
+            <?php endwhile;
+                wp_reset_postdata();
+            endif; ?>
         </select>
     </div>
 <?php
@@ -63,7 +64,6 @@ function save_proyecto_avance_ID_meta_box($post_id)
         $avance_id = $_POST['p_avance_id'];
         update_post_meta($post_id, 'p_avance_id', $avance_id);
         update_post_meta($avance_id, 'p_avance_id', $post_id);
-        
     }
 }
 add_action('save_post_avance-obra', 'save_proyecto_avance_ID_meta_box');

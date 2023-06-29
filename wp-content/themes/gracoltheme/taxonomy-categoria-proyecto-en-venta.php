@@ -27,6 +27,7 @@ query_posts($args);
                 // the_content();
                 get_template_part('components/cards/_card', 'enVenta');
             }
+            wp_reset_query();
             ?>
         </div>
     </section>
@@ -34,9 +35,5 @@ query_posts($args);
     <?= get_template_part('./components/sections/_home', 'experienciaG') ?>
     <?= get_template_part('./components/sections/_loop', 'faq') ?>
 </main>
-
-
-
 <?php
-wp_reset_query();
 get_footer() ?>

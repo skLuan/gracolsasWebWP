@@ -4,6 +4,7 @@
         the_post();
         the_content();
     }
+    wp_reset_query();
     ?>
     <!-- Esto tiene que ir dentro del contenido como bloque -->
 
