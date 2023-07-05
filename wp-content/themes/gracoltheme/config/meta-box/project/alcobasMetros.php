@@ -22,7 +22,6 @@ function display_proyecto_alcobas_metros_meta_box($post)
     $noAlcobas = get_post_meta($proyecto_id, 'gs_noAlcobas', true);
     $mt2 = get_post_meta($proyecto_id, 'gs_mt2', true);
     // Output del campo de precio
-    echo var_dump($proyecto_id);
 ?>
     <div class="ml-auto">
         <label class="block text-base" for="noAlcobas">Número de alcobas</label>

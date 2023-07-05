@@ -17,12 +17,13 @@ $avanceID = get_post_meta(get_the_ID(), 'p_avance_id', true);
         <?= get_template_part('components/sections/_proyecto', 'ubicacion') ?>
         <?= get_template_part('components/sections/_proyecto', 'asesores') ?>
 
-        <?php if (isset($avanceID)) : ?>
-            <section id="bannersGEn" class="mx-auto mt-10 max-w-screen-2xl">
-                <a href="<?= get_permalink($avanceID) ?>">
+        <?php if (isset($avanceID) && $avanceID !== '') : ?>
+            <section id="bannersGEn" class="relative mx-auto mt-10 max-w-screen-2xl">
+                <a class="" href="<?= get_permalink($avanceID) ?>">
                     <picture>
                         <img class="lazyload" data-src="<?= IMAGE . '/BANNER_avance_obra.jpg' ?>" alt="">
                     </picture>
+                    <h4 class="absolute w-full text-3xl font-bold text-center text-white underline bottom-[23%]">Ir al avance de obra</h4>
                 </a>
             </section>
         <?php endif; ?>
@@ -34,7 +35,7 @@ $avanceID = get_post_meta(get_the_ID(), 'p_avance_id', true);
     endwhile; ?>
     <div class="fixed bottom-0 z-40 hidden w-full py-2 text-center text-white bg-orangeG lg:block">Escríbenos para más información <a href="#gs_FormProject" class="text-lg underline font-futuraBold">Ir al formulario</a></div>
     <div class="fixed z-50 px-5 py-1 mb-3 ml-5 text-center text-white rounded bg-orangeG lg:hidden bottom-16">
-        <a href="#gs_FormProject" class="text-lg underline font-futuraBold">Ir al formulario</a>
+        <a href="#gs_FormProject" class="text-lg underline font-futuraBold">Más información</a>
     </div>
 </main>
 <?php get_footer() ?>

@@ -4,6 +4,7 @@ require_once 'config/admin_edit.php';
 require_once 'config/taxo-img.php';
 require_once 'config/register_postTypes.php';
 require_once 'config/register_taxonomies.php';
+require_once 'includes/info.php';
 require_once 'includes/InputClass.php';
 require_once 'includes/cardClass.php';
 require_once 'includes/cardProjectClass.php';
@@ -56,6 +57,7 @@ function init_template()
     if(is_singular('proyectos')){
         wp_enqueue_script('formSend', get_stylesheet_directory_uri() . '/assets/js/proyectoSend.js', ['main'], '1.8.1', 'all');
         wp_enqueue_script('controlPrices', get_stylesheet_directory_uri() . '/assets/js/projectPrices.js', ['main'], '1.8.1', 'all');
+        wp_enqueue_script('bouncyBtn', get_stylesheet_directory_uri() . '/assets/js/project-bouncyButton.js', [], '1.8.1', 'all');
     }
 
     register_block_type('gracoltheme/project-config', array(

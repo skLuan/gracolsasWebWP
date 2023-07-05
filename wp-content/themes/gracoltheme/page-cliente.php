@@ -16,7 +16,7 @@
                         </div>
                         <div class="flex flex-row items-center text-left">
                             <iconify-icon class="mr-3 text-3xl text-orangeG" icon="ic:outline-whatsapp"></iconify-icon>
-                            <a class="" href="https://wa.me/523164906909">+52 316 4906909</a>
+                            <a class="" href="https://wa.me/<?= NUM_SERVICIOCLIENTE ?>"><?= NUM_SERVICIOCLIENTE_PRINT ?></a>
                         </div>
                     </div>
                     <a href="" class="px-5 py-1 mt-5 text-white rounded bg-orangeG font-futuraBold">Contáctenos</a>

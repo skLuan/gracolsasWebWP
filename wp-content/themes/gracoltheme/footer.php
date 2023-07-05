@@ -22,7 +22,7 @@
                 </div>
                 <div class="flex flex-row items-center mb-3">
                     <iconify-icon class="mr-1" icon="ic:round-phone"></iconify-icon>
-                    <a class="" href="https://wa.me/523164906909">+52 316 4906909</a>
+                    <a class="" href="https://wa.me/<?= NUM_SERVICIOCLIENTE ?>"><?= NUM_SERVICIOCLIENTE_PRINT ?></a>
                 </div>
                 <div class="flex flex-row items-center">
                     <iconify-icon class="mr-1" icon="tabler:mail-filled"></iconify-icon>

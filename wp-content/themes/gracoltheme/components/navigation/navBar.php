@@ -4,13 +4,9 @@ $previous_url = wp_get_referer();
 ?>
 <div class="fixed top-0 z-40 w-full">
     <header class="bg-greenG text-whiteG h-[42px] w-full">
-        <div class="flex items-center justify-end hidden h-full max-w-screen-xl m-auto lg:block">
-            <span>
-                <iconify-icon class="text-2xl" icon="carbon:logo-facebook"></iconify-icon>
-                <iconify-icon class="mx-3 text-2xl" icon="ri:instagram-line"></iconify-icon>
-            </span>
-
-            <a class="" href="https://wa.me/523164906909">+52 316 4906909</a> <a class="ml-3" href="mailto:servicioalcliente@gracolsas.com">servicioalcliente@gracolsas.com</a>
+        <div class="flex items-center justify-end hidden h-full max-w-screen-md pl-10 m-auto lg:flex lg:justify-start">
+            <a class="my-auto " href="https://wa.me/<?= NUM_SERVICIOCLIENTE ?>"><?= NUM_SERVICIOCLIENTE_PRINT ?></a>
+            <a class="mb-1 ml-3 text-center" href="mailto:servicioalcliente@gracolsas.com">servicioalcliente@gracolsas.com</a>
         </div>
         <div class="flex content-center justify-between block h-full px-4 m-auto lg:hidden">
             <a href="<?= $previous_url ?>" class="flex items-center">
@@ -35,14 +31,12 @@ $previous_url = wp_get_referer();
             ])
             ?>
             <div class="flex flex-row items-center ml-auto">
+                <a href="" class="flex "><iconify-icon class="my-auto text-2xl" icon="carbon:logo-facebook"></iconify-icon></a>
+                <a href="" class="flex ml-1"><iconify-icon class="my-auto text-2xl" icon="ri:instagram-line"></iconify-icon></a>
                 <div class="w-[1px] h-full mx-2 bg-greenG"></div>
                 <a class="md:text-lg hover:text-orangeG" href="<?= get_the_permalink(12) ?>">Portal clientes</a>
             </div>
-            <div class="absolute right-0 flex p-2 mt-3 mr-5 bg-green-700 rounded top-full">
-                <a href="" class="h-fit">
-                    <iconify-icon class="m-auto text-5xl text-white " icon="ic:twotone-whatsapp"></iconify-icon>
-                </a>
-            </div>
+            <?= get_template_part('components/buttons/_btn', 'whatsapp') ?>
         </div>
     </nav>
 </div>
