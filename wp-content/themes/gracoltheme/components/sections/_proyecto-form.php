@@ -12,8 +12,8 @@ $formController->setName(get_the_ID());
         <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('my_form_nonce'); ?>">
         <div class="grid max-w-2xl grid-cols-1 mx-auto lg:grid-cols-2">
             <?= $inputProyecto->renderInput('project_ref', 'Proyecto*', 'text', $formController->projectName, true); ?>
-            <?= $inputProyecto->renderInput('project_tel', 'Teléfono*'); ?>
             <?= $inputProyecto->renderInput('project_customer', 'Nombre*'); ?>
+            <?= $inputProyecto->renderInput('project_tel', 'Teléfono*'); ?>
             <?= $inputProyecto->renderInput('project_email', 'Correo eléctronico*'); ?>
         </div>
         <div class="flex flex-row mx-5 mt-5 w-fit lg:mx-auto">
