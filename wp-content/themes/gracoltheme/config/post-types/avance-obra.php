@@ -42,8 +42,10 @@ function project_avance_post_type()
         'menu_position' => 7,
         'menu_icon' => 'dashicons-slides',
         'publicly_queryable' => true,
+        'show_in_nav_menus' => true, 
         'show_in_rest' => true,
         'taxonomies' => array(),
+        'has_archive' => true,
     );
 
     register_post_type('avance-obra', $args);

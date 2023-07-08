@@ -10,7 +10,7 @@ query_posts($args);
 ?>
 <main class="w-full lg:mt-24">
     <section class="w-full">
-        <figure class="">
+        <figure class="mt-10 lg:mt-0">
             <picture>
                 <source media="(max-width: 500px)" srcset="<?= IMAGE . 'baner_proyectos_mobile.png' ?>">
                 <img class="lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'baner_proyectos.png' ?>" alt="">

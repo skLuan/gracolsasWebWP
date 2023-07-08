@@ -9,7 +9,7 @@
         </picture>
         <div class="grid grid-cols-1 mx-auto lg:grid-cols-4 gap-x-5 lg:w-11/12">
             <div class="w-full mt-5">
-                <h6 class="uppercase lg:text-xl font-futuraBold">Oficina</h6>
+                <h6 class="uppercase lg:text-xl font-futuraBold">Oficina principal</h6>
                 <div class="flex flex-row mt-1 mb-3">
                     <iconify-icon class="mr-1" icon="mdi:location"></iconify-icon>
                     <p class="leading-tight">
@@ -26,14 +26,18 @@
                 </div>
                 <div class="flex flex-row items-center">
                     <iconify-icon class="mr-1" icon="tabler:mail-filled"></iconify-icon>
-                    <a class="" href="">servicioalcliente@gracolsas.com</a>
+                    <a class="" href="mailto:servicioalcliente@gracolsas.com">servicioalcliente@gracolsas.com</a>
                 </div>
-
                 <h6 class="mt-5 uppercase lg:text-xl font-futuraBold">Síguenos</h6>
                 <div class="flex flex-col">
                     <div class="flex flex-row items-center ml-5">
-                        <iconify-icon class="mr-5 text-2xl " icon="carbon:logo-facebook"></iconify-icon>
-                        <iconify-icon class="text-xl " icon="ri:instagram-line"></iconify-icon>
+                        
+                        <a href="<?= FACEBOOK_URL ?>">
+                            <iconify-icon class="mr-5 text-2xl " icon="carbon:logo-facebook"></iconify-icon>
+                        </a>
+                        <a href="<?= INSTAGRAM_URL ?>">
+                            <iconify-icon class="text-xl " icon="ri:instagram-line"></iconify-icon>
+                        </a>
                     </div>
                 </div>
             </div>
