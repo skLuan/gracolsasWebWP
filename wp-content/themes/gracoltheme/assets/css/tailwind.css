@@ -215,3 +215,19 @@
 .queja{
   background-color: #E4E4E4;
 }
+
+.image-blog{
+  width: 100%;
+}
+
+.post{
+  border-bottom: solid 5px #C9C9C7 ;
+}
+
+.border-color{
+  border-color: #C9C9C7;
+}
+
+.text-shadow{
+  text-shadow: 3px 4px 12px #000000;
+}
