@@ -1,43 +1,51 @@
 <?php
-function add_project_galeria_inmueble_meta_box()
+function add_galery_avance_meta_box()
 {
     add_meta_box(
-        'galerie_inmueble',
-        'Imagenes del inmueble',
-        'render_project_galerie_inmueble_meta_box',
-        'proyectos',
+        'galerie_avance',
+        'Imagenes del avance',
+        'render_galery_avance_meta_box',
+        'avance-obra',
         'advanced',
         'default'
     );
 }
-add_action('add_meta_boxes', 'add_project_galeria_inmueble_meta_box');
+add_action('add_meta_boxes_avance-obra', 'add_galery_avance_meta_box');
 
-function render_project_galerie_inmueble_meta_box($post)
+function render_galery_avance_meta_box($post)
 {
-    $serialized_image_gallery = get_post_meta($post->ID, 'project_galeria_inmueble', true);
-    $figcaption = get_post_meta($post->ID, 'img_figcaption-interior', true);
+    $avance_obra_id = isset($_GET['post']) ? $_GET['post'] : false;
+    if ($avance_obra_id) {
+        $serialized_image_gallery = get_post_meta($avance_obra_id, 'galeria_avance', true);
+        // Resto del código...
+    }
+
+    $figcaption = get_post_meta($post->ID, 'img_figcaption-avance', true);
 
     if (isset($figcaption) && $figcaption !== '') {
         $figcaption = json_decode($figcaption);
         foreach ($figcaption as $i => $figCap) {
-           $figCap = htmlspecialchars($figCap, ENT_QUOTES, 'UTF-8');
+            $figCap = htmlspecialchars($figCap, ENT_QUOTES, 'UTF-8');
         }
     } else {
         $figcaption = [];
     }
-    wp_nonce_field('project_galeria_inmueble_meta_box', 'project_galeria_inmueble_nonce');
+
     if (isset($serialized_image_gallery[0]) && $serialized_image_gallery[0] !== '') {
         $image_gallery = json_decode($serialized_image_gallery[0]);
     } else {
         $image_gallery = [];
     }
+
+    wp_nonce_field('galeria_avance_meta_box', 'galeria_avance_nonce');
 ?>
 
-    <div id="image-gallery-container" class="mx-auto w-1/2">
+    <div id="image-gallery-container-avance" class="w-1/2 mx-auto">
         <?php
+
         if (isset($image_gallery) && !empty($image_gallery)) : ?>
             <?php foreach ($image_gallery as $i => $image_url) : ?>
-                <div class="image-gallery-item mb-10">
+                <div class="image-gallery-item-avance">
                     <figure>
                         <picture>
                             <img width="100%" src="<?= $image_url ?>" alt="">
@@ -47,46 +55,44 @@ function render_project_galerie_inmueble_meta_box($post)
                         <div>
                             <label for="figCaption">Descripción de la imagen</label>
                             <br>
-                            <input type="text" name="figCaption-interior[]" value="<?= isset($figcaption[$i]) ? $figcaption[$i] : '' ?>" id="figCaptionInterior" />
+                            <input type="text" name="figCaption-avance[]" value="<?= isset($figcaption[$i]) ? $figcaption[$i] : '' ?>" id="figCaption" />
                         </div>
-                        <button class="ml-auto remove-image px-4 py-1 border border-greenG-mid" onclick="eliminarImagen('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
+                        <button class="px-4 py-1 ml-auto text-red-600 border border-red-600 w-fit remove-image" onclick="eliminarImagenAvance('<?= htmlspecialchars($image_url) ?>')">Eliminar imagen</button>
                     </div>
                 </div>
             <?php endforeach; ?>
-            <div id="gallery-preview"></div>
+            <div id="gallery-preview-avance"></div>
         <?php else : ?>
-            <div class="image-gallery-item">
-                <div id="gallery-preview"></div>
+            <div class="image-gallery-item-avance">
+                <div id="gallery-preview-avance"></div>
             </div>
         <?php endif; ?>
-        <input id="project_galeria_inmueble" type="hidden" name="project_galeria_inmueble[]" value="<?= htmlspecialchars(json_encode($image_gallery)); ?>" readonly>
-        <button class="border mt-5 border-greenG-mid text-white bg-greenG-mid rounded px-3 py-1" id="add-image-galerie-inmueble">Agregar imagen</button>
+        <input id="galeria_avance" type="hidden" name="galeria_avance[]" value="<?= htmlspecialchars(json_encode($image_gallery)); ?>" readonly>
+        <button class="px-3 py-1 mt-5 text-white border rounded border-greenG-mid bg-greenG-mid" id="add-image-galerie-avance">Agregar imagen</button>
     </div>
     <script>
-        function eliminarImagen(value) {
-            var preview = document.getElementById('image-gallery-container');
-            var inputHiden = document.getElementById('project_galeria_inmueble');
+        function eliminarImagenSAvance(value) {
+            var preview = document.getElementById('image-gallery-container-avance');
+            var inputHiden = document.getElementById('galeria_avance');
             var inputVal = inputHiden.getAttribute('value');
 
             var inputJson = JSON.parse(inputVal);
             var index = inputJson.indexOf(value);
-
             if (index !== -1) {
                 inputJson.splice(index, 1);
                 inputHiden.setAttribute('value', JSON.stringify(inputJson));
             }
+            console.log(index);
 
 
-            var previewImg = preview.querySelectorAll('.image-gallery-item');
+            var previewImg = preview.querySelectorAll('.image-gallery-item-avance');
             if (previewImg.length > 0 && index < previewImg.length) {
                 previewImg[index].remove();
             }
         }
         jQuery(document).ready(function($) {
             // Manejo de la subida de la imagen
-            var inputVall = document.getElementById('project_galeria_inmueble').getAttribute('value');
-            console.log('asi llega esta monda', inputVall);
-            $('#add-image-galerie-inmueble').click(function() {
+            $('#add-image-galerie-avance').click(function() {
                 var mediaUploader;
                 if (mediaUploader) {
                     mediaUploader.open();
@@ -101,10 +107,8 @@ function render_project_galerie_inmueble_meta_box($post)
                 });
                 mediaUploader.on('select', function() {
                     var attachments = mediaUploader.state().get('selection').toJSON();
-                    // $('#project_galeria_inmueble').val(attachment.url);
-
                     // Obtener el arreglo actual de imágenes del campo oculto
-                    var inputVal = document.getElementById('project_galeria_inmueble').getAttribute('value');
+                    var inputVal = document.getElementById('galeria_avance').getAttribute('value');
                     var imagesArray = (inputVal !== '' && inputVal !== null && inputVal !== undefined) ? JSON.parse(inputVal) : [];
 
                     // Recorrer las imágenes seleccionadas
@@ -114,13 +118,13 @@ function render_project_galerie_inmueble_meta_box($post)
                         var imageHTML = '<img src="' + imageURL + '" />';
 
                         // Agregar la imagen al contenedor
-                        $('#gallery-preview').append(imageHTML);
+                        $('#gallery-preview-avance').append(imageHTML);
 
                         imagesArray.push(imageURL);
                     });
                     // Guardar el arreglo actualizado en el campo oculto
-                    $('#project_galeria_inmueble').val(JSON.stringify(imagesArray))
-                    console.log($('#project_galeria_inmueble').val());
+                    $('#galeria_avance').val(JSON.stringify(imagesArray))
+                    console.log($('#galeria_avance').val());
 
 
                 });
@@ -131,9 +135,9 @@ function render_project_galerie_inmueble_meta_box($post)
 <?php
 }
 
-function save_galerie_inmueble_meta_data($post_id)
+function save_galerie_avance_meta_data($post_id)
 {
-    if (!isset($_POST['project_galeria_inmueble_nonce']) || !wp_verify_nonce($_POST['project_galeria_inmueble_nonce'], 'project_galeria_inmueble_meta_box')) {
+    if (!isset($_POST['galeria_avance_nonce']) || !wp_verify_nonce($_POST['galeria_avance_nonce'], 'galeria_avance_meta_box')) {
         return;
     }
     var_dump('Nonce verification passed.');
@@ -144,23 +148,17 @@ function save_galerie_inmueble_meta_data($post_id)
     if (!current_user_can('edit_post', $post_id)) {
         return;
     }
-    var_dump('User has edit post capability.');
-    $figCaptions = $_POST['figCaption-interior'];
+    $figCaptions = $_POST['figCaption-avance'];
     if (isset($figCaptions)) {
-
-        if (is_array($figCaptions)) {
-            $sanitizedFigCaptions = array_map('sanitize_text_field', $figCaptions);
-            foreach ($figCaptions as $i => $figCap) {
-                $figCap = htmlspecialchars($figCap, ENT_QUOTES, 'UTF-8');
-            }
-            $figCaptions = json_encode($figCaptions, JSON_UNESCAPED_UNICODE);
-            update_post_meta($post_id, 'img_figcaption-interior', $figCaptions);
-        }
+        $figCaptions = json_encode($figCaptions, JSON_UNESCAPED_UNICODE);
+        update_post_meta($post_id, 'img_figcaption-avance', $figCaptions);
     }
+    var_dump('User has edit post capability.');
 
-    if (isset($_POST['project_galeria_inmueble'])) {
-        $image_gallery = $_POST['project_galeria_inmueble'];
-        update_post_meta($post_id, 'project_galeria_inmueble', $image_gallery);
+
+    if (isset($_POST['galeria_avance'])) {
+        $image_gallery = $_POST['galeria_avance'];
+        update_post_meta($post_id, 'galeria_avance', $image_gallery);
     }
 }
-add_action('save_post_proyectos', 'save_galerie_inmueble_meta_data');
+add_action('save_post_avance-obra', 'save_galerie_avance_meta_data');

@@ -4,18 +4,20 @@ try {
     slidesPerView: 5,
     watchSlidesProgress: true,
     autoHeight: true,
+    autoplay:true,
   });
   const swiperSingleProject = new Swiper(".swiper-single-project", {
     // Optional parameters
     direction: "horizontal",
+    autoplay: true,
     // If we need pagination
     pagination: {
-      el: ".swiper-pagination",
+      el: ".swiper-pagination-inmueble",
     },
     // Navigation arrows
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: ".swiper-button-next-inmueble",
+      prevEl: ".swiper-button-prev-inmueble",
     },
     thumbs: {
       swiper: swiper,
@@ -35,6 +37,7 @@ try {
     {
       // Optional parameters
       direction: "horizontal",
+      autoplay: true,
       // If we need pagination
       pagination: {
         el: ".swiper-pagination-ext",
@@ -61,6 +64,7 @@ try {
   const swiperSinglePlanos = new Swiper(".swiper-single-project-planos", {
     // Optional parameters
     direction: "horizontal",
+    autoplay: true,
     // If we need pagination
     pagination: {
       el: ".swiper-pagination-planos",
@@ -72,6 +76,34 @@ try {
     },
     thumbs: {
       swiper: swiperPlanos,
+    },
+  });
+  // ---------------------------- avances
+
+  const swiperAvance = new Swiper(".thumbSwiper-avance", {
+    spaceBetween: 20,
+    slidesPerView: 5,
+    watchSlidesProgress: true,
+    autoHeight: true,
+  });
+
+  const swiperSingleAvance = new Swiper(".swiper-single-project-avance", {
+    // Optional parameters
+    direction: "horizontal",
+    autoHeight: true,
+    autoplay: true,
+
+    // If we need pagination
+    pagination: {
+      el: ".swiper-pagination-avance",
+    },
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next-avance",
+      prevEl: ".swiper-button-prev-avance",
+    },
+    thumbs: {
+      swiper: swiperAvance,
     },
   });
 } catch (error) {}

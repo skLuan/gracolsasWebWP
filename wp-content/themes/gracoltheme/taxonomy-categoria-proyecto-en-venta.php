@@ -10,7 +10,7 @@ query_posts($args);
 ?>
 <main class="w-full lg:mt-24">
     <section class="w-full">
-        <figure class="">
+        <figure class="mt-10 lg:mt-0">
             <picture>
                 <source media="(max-width: 500px)" srcset="<?= IMAGE . 'baner_proyectos_mobile.png' ?>">
                 <img class="lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'baner_proyectos.png' ?>" alt="">
@@ -27,6 +27,7 @@ query_posts($args);
                 // the_content();
                 get_template_part('components/cards/_card', 'enVenta');
             }
+            wp_reset_query();
             ?>
         </div>
     </section>
@@ -34,9 +35,5 @@ query_posts($args);
     <?= get_template_part('./components/sections/_home', 'experienciaG') ?>
     <?= get_template_part('./components/sections/_loop', 'faq') ?>
 </main>
-
-
-
 <?php
-wp_reset_query();
 get_footer() ?>

@@ -4,10 +4,12 @@ require_once 'config/admin_edit.php';
 require_once 'config/taxo-img.php';
 require_once 'config/register_postTypes.php';
 require_once 'config/register_taxonomies.php';
+require_once 'includes/info.php';
 require_once 'includes/InputClass.php';
 require_once 'includes/cardClass.php';
 require_once 'includes/cardProjectClass.php';
 require_once 'includes/searchController.php';
+require_once 'includes/FormProjectController.php';
 
 
 define('IMAGE', get_stylesheet_directory_uri() . '/assets/img/');
@@ -49,12 +51,13 @@ function init_template()
     wp_enqueue_script('lazysizes', get_stylesheet_directory_uri() . '/assets/js/lazysizes.min.js', '', '1.0', 'all');
     wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js', ['lazysizes'], '1.0', 'all');
     wp_enqueue_script('gracolSwiper', get_stylesheet_directory_uri() . '/assets/js/swipers.js', ['swiper'], '1.8.1', 'all');
-    wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/js/main.js', ['iconify', 'lodash', 'swiper', 'gracolSwiper'], '1.8.1', 'all');
+    wp_enqueue_script('main', get_stylesheet_directory_uri() . '/assets/js/main.js', ['iconify', 'lodash', 'swiper', 'gracolSwiper', 'lazysizes'], '1.8.1', 'all');
     wp_enqueue_script('infoBlock', get_stylesheet_directory_uri() . '/assets/js/infoBlock.js', ['wp-blocks', 'wp-element', 'wp-components'], '1.8.1', 'all');
     wp_enqueue_script('acordeon', get_stylesheet_directory_uri() . '/assets/js/acordeon.js', ['iconify', 'lodash', 'swiper', 'gracolSwiper'], '1.8.1', 'all');
     if(is_singular('proyectos')){
         wp_enqueue_script('formSend', get_stylesheet_directory_uri() . '/assets/js/proyectoSend.js', ['main'], '1.8.1', 'all');
         wp_enqueue_script('controlPrices', get_stylesheet_directory_uri() . '/assets/js/projectPrices.js', ['main'], '1.8.1', 'all');
+        wp_enqueue_script('bouncyBtn', get_stylesheet_directory_uri() . '/assets/js/project-bouncyButton.js', [], '1.8.1', 'all');
     }
 
     register_block_type('gracoltheme/project-config', array(
@@ -91,3 +94,11 @@ function add_additional_class_on_li($classes, $item, $args)
     return $classes;
 }
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
+
+function gsSanitizer($rawData = null)
+{
+    $clean = null;
+    isset($rawData) && $rawData !== '' ? $clean = json_decode($rawData)
+        : $clean = $rawData;
+    return $clean;
+}

@@ -9,7 +9,7 @@ $proyectos = new WP_Query($args);
 ?>
 
 <?= get_template_part('components/_search', 'mini') ?>
-<section class="max-w-screen-2xl mx-auto mb-5">
+<section class="mx-auto mb-5 max-w-screen-2xl">
 
     <div id="_loopHomeS" class="flex flex-row overflow-x-scroll">
         <?php
@@ -20,8 +20,9 @@ $proyectos = new WP_Query($args);
             ?>
                 <?= get_template_part('components/cards/_card', 'homeMini') ?>
 
-            <?php endwhile; ?>
-        <?php endif; ?>
+        <?php endwhile;
+            wp_reset_postdata();
+        endif; ?>
     </div>
 
 

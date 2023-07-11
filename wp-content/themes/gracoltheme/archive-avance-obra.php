@@ -1,22 +1,14 @@
 <?php
 get_header();
 $bannerAvance = IMAGE . 'baner_avanceObra.png';
-$banerTerminadas = IMAGE . 'baner_Entregadas.png';
-// is_category('en-contruccion');
-if (is_tax('categoria-proyecto', 'en-construccion')) {
-    $actualBanner = $bannerAvance;
-    $mobileBanner = IMAGE . 'baner_avanceObraMobile.png';
-} else {
-    $actualBanner = $banerTerminadas;
-    $mobileBanner = IMAGE . 'baner_EntregadasMObile.png';
-}
+$mobileBanner = IMAGE . 'baner_avanceObraMobile.png';
 ?>
 <main class="w-full lg:mt-24">
     <section class="w-full">
         <figure class="mt-10 lg:mt-0">
             <picture>
                 <source media="(max-width: 500px)" data-srcset="<?= $mobileBanner ?>">
-                <img class="lazyload" src="low-quality.jpg" data-src="<?= $actualBanner ?>" alt="principal banner">
+                <img class="lazyload" src="low-quality.jpg" data-src="<?= $bannerAvance ?>" alt="principal banner">
             </picture>
         </figure>
     </section>

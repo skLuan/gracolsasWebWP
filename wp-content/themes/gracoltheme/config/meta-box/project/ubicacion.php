@@ -17,17 +17,19 @@ add_action('add_meta_boxes', 'add_proyecto_ubi_meta_box');
 // Mostrar el contenido del meta box de precio
 function display_proyecto_ubi_meta_box($post)
 {
+    $proyecto_id = isset($_GET['post']) ? $_GET['post'] : false;
+
     // Recuperar el valor actual del precio (si existe)
-    $ciudad = get_post_meta($post->ID, 'gs_ciudad', true);
-    $barrio = get_post_meta($post->ID, 'gs_barrio', true);
+    $ciudad = get_post_meta($proyecto_id, 'gs_ciudad', true);
+    $barrio = get_post_meta($proyecto_id, 'gs_barrio', true);
     // Output del campo de precio
 ?>
     <div class="ml-auto">
-        <label class="text-base block" for="gsCiudad">Ciudad</label>
+        <label class="block text-base" for="gsCiudad">Ciudad</label>
         <input class="text-base" id="gsCiudad" type="text" name="gs_ciudad" value="<?= esc_attr($ciudad) ?>" />
     </div>
-    <div class="mr-auto ml-5">
-        <label class="text-base block" for="gsBarrio">Barrio</label>
+    <div class="ml-5 mr-auto">
+        <label class="block text-base" for="gsBarrio">Barrio</label>
         <input class="text-base" id="gsBarrio" type="text" name="gs_barrio" value="<?= esc_attr($barrio) ?>" />
     </div>
 <?php

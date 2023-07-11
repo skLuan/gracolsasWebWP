@@ -11,6 +11,12 @@
   }
 }
 
+@layer utilities {
+  .btn-project-form-wait {
+  @apply !bg-whiteG !border-2 text-greenG border-greenG;
+  }
+}
+
 #navbar-menu .current_page_item,
 #navbar-menu .current-menu-item {
   @apply !text-orangeG !font-futuraBold underline;

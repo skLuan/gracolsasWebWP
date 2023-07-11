@@ -37,12 +37,15 @@ function gsLoopSearch()
         );
     }
     $proyectos = new WP_Query($args);
-    // var_dump($_POST['sendUrl']);
     if ($proyectos->have_posts()) {
         while ($proyectos->have_posts()) {
             $proyectos->the_post();
+            $isMini = filter_var($_POST['isMini'], FILTER_VALIDATE_BOOLEAN);
+            // echo var_dump($_POST['isMini']);
             ob_start();
-            if (strcmp($_POST['sendUrl'], $urlPrincipal) === 0) {
+            if (isset($isMini) && $isMini === true) {
+                get_template_part('components/cards/_card', 'homeMini');
+            } else if (strcmp($_POST['sendUrl'], $urlPrincipal) === 0) {
                 get_template_part('components/cards/_card', 'homeProyecto');
             } else {
                 get_template_part('components/cards/_card', 'enVenta');
@@ -52,6 +55,7 @@ function gsLoopSearch()
 
             $return[] = $cardContent;
         }
+        wp_reset_postdata();
     }
     wp_send_json($return);
 }

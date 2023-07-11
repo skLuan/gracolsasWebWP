@@ -3,7 +3,7 @@
         <div class="flex-auto"><img class="mx-auto lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'titulo-card-casitas.png' ?>" alt="Paso a paso para comprar tu vivienda" /></div>
         <div class="flex-auto">
             <button class="px-4 py-3 font-bold border-2 border-white rounded text-whiteG" style="background-color: #1E1E1E99">En colombia</button>
-            <button class="px-4 py-3 font-bold border-2 rounded text-yellowG border-yellowG" style="background-color: #1E1E1E99">En el exterior</button>
+            <a href="<?= get_permalink(1) ?>" class="px-4 py-3 font-bold border-2 rounded text-yellowG border-yellowG" style="background-color: #1E1E1E99">En el exterior</a>
         </div>
 
     </div>

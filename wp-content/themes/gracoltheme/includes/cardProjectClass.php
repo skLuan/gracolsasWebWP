@@ -69,8 +69,11 @@ class CardProject extends Card
         }
         public function getValorPesos()
         {
-                return $this->valorPesos;
+                $formattedValue = str_replace('.', '', $this->valorPesos); // Eliminar los puntos del número
+                $value = floatval(str_replace(',', '.', $formattedValue)); // Reemplazar la coma decimal por un punto y convertir a float
+                return number_format($value, 0, ',', '.'); // Formatear el número con puntos y comas
         }
+
         public function getvalorSMLV()
         {
                 return $this->valorSMLV;

@@ -11,31 +11,25 @@ function add_proyecto_price_meta_box()
         'side', // Posición del meta box (normal, side, advanced)
         'high' // Prioridad del meta box (high, core, default, low)
     );
-    // add_meta_box(
-    //     'gs_precio_SMLV', // ID único del meta box
-    //     'Precio EN SMMLV', // Título del meta box
-    //     'display_proyecto_price_SMLV_meta_box', // Callback para mostrar el contenido del meta box
-    //     'proyectos', // Custom post type al que se debe agregar el meta box
-    //     'side', // Posición del meta box (normal, side, advanced)
-    //     'default' // Prioridad del meta box (high, core, default, low)
-    // );
 }
 add_action('add_meta_boxes', 'add_proyecto_price_meta_box');
 
 // Mostrar el contenido del meta box de precio
 function display_proyecto_price_meta_box($post)
 {
+    $proyecto_id = isset($_GET['post']) ? $_GET['post'] : false;
+
     // Recuperar el valor actual del precio (si existe)
-    $precio = get_post_meta($post->ID, 'gs_precio_col', true);
-    $precioSMLV = get_post_meta($post->ID, 'gs_precio_SMLV', true);
+    $precio = get_post_meta($proyecto_id, 'gs_precio_col', true);
+    $precioSMLV = get_post_meta($proyecto_id, 'gs_precio_SMLV', true);
     // Output del campo de precio
 ?>
     <div class="ml-auto">
-        <label class="text-base block" for="dinero">En dinero</label>
+        <label class="block text-base" for="dinero">En dinero</label>
         <input class="text-base" id="dinero" type="text" name="gs_precio_col" value="<?= esc_attr($precio) ?>" />
     </div>
-    <div class="mr-auto ml-5">
-        <label class="text-base block" for="SMLV">En salarios minimos (SMLV)</label>
+    <div class="ml-5 mr-auto">
+        <label class="block text-base" for="SMLV">En salarios minimos (SMLV)</label>
         <input class="text-base" id="SMLV" type="text" name="gs_precio_SMLV" value="<?= esc_attr($precioSMLV) ?>" />
     </div>
 <?php
