@@ -1,14 +1,14 @@
 <?php get_header() ?>
 <main class="w-full lg:mt-24">
-    <section class="w-full bg-white lg:pt-10">
-        <figure class="relative">
-            <picture>
+    <section class="w-full mt-10 bg-white lg:mt-0 lg:pt-10">
+        <figure class="relative h-[450px] lg:h-[unset] bg-white">
+            <picture class="absolute lg:static z-0 right-[-169px] bottom-0 lg:bottom-[unset]">
                 <source media="(max-width: 500px)" srcset="<?= IMAGE . 'baner_servicioCliente.png' ?>">
-                <img src="<?= IMAGE . 'baner_servicioCliente.png' ?>" alt="">
+                <img class="max-w-none h-60 lg:h-[unset]" data-src="<?= IMAGE . 'baner_servicioCliente.png' ?>" alt="banner servicio al cliente">
             </picture>
-            <div class="absolute top-0 left-0 grid w-full h-full grid-cols-12 gap-5 max-w-screen-2xl">
-                <div class="flex flex-col items-center justify-center col-span-6 col-start-2 mb-5 text-center">
-                    <h2 class="text-6xl text-greenG font-futuraBold">Servicio al cliente</h2>
+            <div class="absolute top-0 left-0 grid w-full h-full lg:gap-5 lg:grid-cols-12 max-w-screen-2xl">
+                <div class="flex flex-col items-center mt-10 text-center lg:mt-0 lg:justify-center lg:col-start-2 lg:mb-5 lg:col-span-6">
+                    <h2 class="text-4xl lg:text-6xl text-greenG font-futuraBold">Servicio al cliente</h2>
                     <p class="w-2/3 my-5 text-lg leading-tight text-greenG-mid">Si tienes cualquier pregunta o requerimiento, nuestro equipo de asesores esta siempre dispuesto a ayudarte.</p>
                     <div>
                         <div class="flex flex-row items-center">
