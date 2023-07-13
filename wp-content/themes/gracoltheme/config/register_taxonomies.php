@@ -36,6 +36,23 @@ function gsRegisterCatProject()
 
     register_taxonomy('categoria-proyecto', ['proyectos'], $args);
 }
+// ---------------------------------------- Ubicacion de asesores
+function gsRegisterAsesorUbicacion()
+{
+    $args = [
+        'hierarchical' => false,
+        'labels' => [
+            'name' => 'Ubicación del asesor',
+            'singular_name' => 'Ubicacion asesor'
+        ],
+        'show_in_nav_menu' => true,
+        'show_admin_column' => true,
+        'show_in_rest' => true, 
+        'rewrite' => []
+    ];
+
+    register_taxonomy('asesor-ubicacion', ['asesores-comerciales'], $args);
+}
 
 // ---------------------------------------- Tags
 function gsRegisterTagsProject()
@@ -80,3 +97,4 @@ add_action('init', 'gsRegisterCiudadelas');
 add_action('init', 'gsRegisterCatProject');
 add_action('init', 'gsRegisterTagsProject');
 add_action('init', 'gsRegisterAmenitiesProject');
+add_action('init', 'gsRegisterAsesorUbicacion');

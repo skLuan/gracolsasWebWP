@@ -51,7 +51,7 @@
 }
 .sectionAsesores{
 @apply bg-left lg:bg-center bg-cover;
-  background-image: url(../img/BANNER-CALL-CENTER.jpg);
+  background-image: url(../img/asesores/CALL_CENTER_FONDO.jpg);
 }
 
 .bg-blackOp{

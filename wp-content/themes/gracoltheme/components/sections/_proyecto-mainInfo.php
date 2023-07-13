@@ -72,8 +72,8 @@ $mt2 = get_post_meta(get_the_ID(), 'gs_mt2', true);
         <div class="flex flex-col mx-auto mt-5 lg:flex-row">
             <div class="mx-auto lg:mr-10">
                 <?php if (!empty($precioSMLV)) : ?>
-                    <h3 class="mx-auto text-3xl text-center text-orangeG font-futuraBold"><?= $precioSMLV ?> SMMLV</h3>
-                    <a href="https://www.mintrabajo.gov.co/prensa/comunicados/2022/diciembre/-1.160.000-ser%C3%A1-el-salario-minimo-para-2023-y-auxilio-de-transporte-por-140.606" target="_blank" class="text-[15px] text-center -mt-1 text-greenG underline">¿Cuánto vale un SMLV?</a>
+                    <h3 class="mx-auto text-3xl text-center text-orangeG font-futuraBold"><?= $precioSMLV ?> SMMLV*</h3>
+                    <P class="text-sm">* Del año de escrituración del inmueble</P>
                 <?php endif; ?>
             </div>
             <div class="mr-auto">
