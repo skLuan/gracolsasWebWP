@@ -83,7 +83,8 @@ $mt2 = get_post_meta(get_the_ID(), 'gs_mt2', true);
                 <?php endif; ?>
             </div>
         </div>
-        <a href="#gs_FormProject" class="px-8 py-3 mx-auto text-2xl rounded mt-14 btn-bounty bg-orangeG text-whiteG font-futuraBold">Más información</a>
+        <p class="text-center mt-14">¿Quieres mas información del proyecto? </p>
+        <a href="#gs_FormProject" class="px-8 py-3 mx-auto mt-3 text-2xl rounded btn-bounty bg-orangeG text-whiteG font-futuraBold">Registrate</a>
     </section>
     <!-- -------------------------------------- Amenities -->
     <section class="px-3 text-xl lg:col-start-3 lg:px-0 lg:col-span-9 text-greenG-mid">

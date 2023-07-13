@@ -33,7 +33,7 @@ $avanceID = get_post_meta(get_the_ID(), 'p_avance_id', true);
 
     <?php
     endwhile; ?>
-    <div class="fixed bottom-0 z-40 hidden w-full py-2 text-center text-white bg-orangeG lg:block">Escríbenos para más información <a href="#gs_FormProject" class="text-lg underline font-futuraBold">Ir al formulario</a></div>
+    <div class="fixed bottom-0 z-40 hidden w-full py-2 text-center text-white bg-orangeG lg:block">¿Quieres mas información del proyecto? <a href="#gs_FormProject" class="text-lg underline font-futuraBold">Registrate para más información</a></div>
     <div class="fixed z-50 px-5 py-1 mb-3 ml-5 text-center text-white rounded bg-orangeG lg:hidden bottom-16">
         <a href="#gs_FormProject" class="text-lg underline font-futuraBold">Más información</a>
     </div>
