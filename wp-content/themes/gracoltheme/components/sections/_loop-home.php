@@ -3,7 +3,15 @@ $args = array(
     'post_type'       => 'proyectos',
     'posts_per_page'  => -1,
     'order'           => 'ASC',
-    'orderby'         => 'title'
+    'orderby'         => 'title',
+    'tax_query'        => [
+        [
+            'taxonomy' => 'categoria-proyecto',
+            'field' => 'slug',
+            'terms' => 'obras-entregadas',
+            'operator' => 'NOT IN'
+        ],
+    ]
 );
 $proyectos = new WP_Query($args);
 if ($proyectos->have_posts()) :
