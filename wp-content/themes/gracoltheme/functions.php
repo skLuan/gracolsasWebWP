@@ -13,7 +13,6 @@ require_once 'includes/FormProjectController.php';
 
 
 define('IMAGE', get_stylesheet_directory_uri() . '/assets/img/');
-define('GSINCLUDE', get_template_directory() . "/includes\/");
 
 function gs_template(){
     load_theme_textdomain('gracolsas');
