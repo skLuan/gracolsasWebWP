@@ -1,8 +1,9 @@
 <?php
 
-if (is_tax('categoria-proyecto', 'en-construccion')) {
+if (is_tax('categoria-proyecto', 'en-construccion') || is_tax('categoria-proyecto', 'obras-entregadas')) {
     $projectID = get_the_ID();
-} else {    
+} else {   
+
     $projectID = get_post_meta(get_the_ID(), 'a_project_id', true);
     isset($projectID) && $projectID != '' ? $projectID = intval($projectID) : '';
 }
