@@ -21,6 +21,5 @@
     <?= get_template_part('./components/sections/_home', 'experienciaG') ?>
     <?= get_template_part('./components/sections/_loop', 'faq') ?>
     <?= get_template_part('./components/sections/_loop', 'homeSecundario') ?>
-
 </main>
 <?php get_footer() ?>
