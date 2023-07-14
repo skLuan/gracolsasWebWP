@@ -9,7 +9,7 @@ if (is_tax('categoria-proyecto', 'en-construccion') || is_tax('categoria-proyect
 }
 
 
-$cardData = new CardProject($projectID);
+$cardData = new Card($projectID);
 
 $tags = get_the_terms($projectID, 'tag-proyecto');
 $tags && isset($tags) ? $inmueble = $tags[0]->name : $inmueble = '';
