@@ -1,10 +1,11 @@
 try {
+  // ---------------------------- Interiores
+
   var swiper = new Swiper(".thumbSwiper", {
     spaceBetween: 20,
     slidesPerView: 5,
     watchSlidesProgress: true,
     autoHeight: true,
-    autoplay: true,
   });
   const swiperSingleProject = new Swiper(".swiper-single-project", {
     // Optional parameters

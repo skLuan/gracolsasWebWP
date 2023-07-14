@@ -1,6 +1,6 @@
 <?php
 get_header();
-$actualBanner = $banerTerminadas;
+$actualBanner = IMAGE . 'baner_Entregadas.png';
 $mobileBanner = IMAGE . 'baner_EntregadasMObile.png';
 ?>
 <main class="w-full lg:mt-24">
