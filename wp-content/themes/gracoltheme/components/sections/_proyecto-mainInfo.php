@@ -111,7 +111,7 @@ $mt2 = get_post_meta(get_the_ID(), 'gs_mt2', true);
                     <div class="flex flex-row items-center">
                         <figure class="ml-5">
                             <picture>
-                                <img class="lazyload w-[40px] lg:w-[60px]" width="" src="low-quality.jpg" data-src="<?= $image_url ?>" alt="">
+                                <img class="lazyload max-w-none w-[40px] lg:w-[60px]" width="" src="low-quality.jpg" data-src="<?= $image_url ?>" alt="">
                             </picture>
                         </figure>
                         <span class="pl-6 lg:text-2xl"><?= $amenitie->name ?></span>
