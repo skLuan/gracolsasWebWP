@@ -61,9 +61,9 @@
             </div>
         </div>
         <div id="Encuentra" class="w-full">
-            <div class="grid justify-around w-full grid-cols-2 p-3 text-center bg-center bg-cover" style="background-image: url('<?= IMAGE . 'ayudas.png' ?>'); height: 312px; ">
-                <div class="flex items-center flex-auto">
-                    <div class="p-4">
+            <div class="grid justify-around w-full grid-cols-1 md:grid-cols-2 p-3 text-center bg-center bg-cover" style="background-image: url('<?= IMAGE . 'ayudas.png' ?>'); height: 312px; ">
+                <div class="w-3/5 md:w-auto flex items-center flex-auto">
+                    <div class="p-0 md:p-4">
                         <h2 class="text-3xl text-center text-greenG font-futuraBold">¿No has encontrado lo que buscas?</h2>
                         <p class="text-center text-1xl font-futuraBold text-grayG mb-5">Encuentra lo que buscas en nuestra sección de ayudas</p>
                         <a href="" class="px-5 py-1 mt-5 text-greenG border border-[3px] border-greenG rounded bg-transparent font-futuraBold">Sección de ayudas</a>
