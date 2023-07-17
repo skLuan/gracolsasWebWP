@@ -26,7 +26,7 @@
     </section>
     <section id="options" class="grid grid-cols-1  lg:grid-cols-2 lg:grid-rows-2 px-5 mx-auto mt-5 mb-5 max-w-screen-2xl">
 
-        <div id="pagos" class="w-full pagos">
+        <div id="pagos" class="w-full pagos grid justify-items-center">
             <div class="div-pagos flex flex-wrap justify-around w-full p-3 text-center bg-center bg-cover" 
             style="background: url('<?= IMAGE . 'pagos.jpg' ?>'), #dde3e7;
             background-position-x: -15px;
@@ -45,10 +45,12 @@
             </div>
         </div>
 
-        <div id="quejaReclamo" class="w-full queja">
+        <div id="quejaReclamo" class="w-full queja grid justify-items-center">
             <div class="grid md:flex md:justify-around w-full justify-items-center p-4">
-                <img src="<?= IMAGE . 'queja.png' ?>" alt="queja" class="w-1/4 md:w-2/5">
-                <div class="flex items-center">
+                <div class="w-2/5 flex items-center">
+                <img src="<?= IMAGE . 'queja.png' ?>" alt="queja" class="w-full">
+                </div>
+                <div class="md:w-3/5 flex items-center">
                     <div class="p-4">
                         <h2 class="text-3xl text-center text-orangeG font-futuraBold">¿Alguna queja o reclamo?</h2>
                         <p class="text-center text-1xl font-futuraBold text-grayG">Si tienes alguna queja o reclamo de nuestro servicio dale clic al botón para redireccionarte al formulario de quejas o reclamos.</p>
@@ -76,7 +78,7 @@
                         <a class="float-right underline text-orangeG font-futuraBold underline-offset-1" href="#" class="btn">Saber más</a>
                     </div>
                 </div>
-                <img src="<?= IMAGE . 'garantia.png' ?>" alt="queja" class="w-5/6 md:w-1/2">
+                <img src="<?= IMAGE . 'garantia.png' ?>" alt="queja" class="w-5/6 md:w-2/5">
             </div>
         </div>
     </section>
