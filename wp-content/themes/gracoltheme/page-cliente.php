@@ -44,6 +44,31 @@
                 </div>
 
             </div>
+            <div class="w-full bg-whiteG grid grid-cols-1  lg:grid-cols-3 p-5">
+                <div class="w-full p-4 text-center">
+                    <a href="" class="px-5 py-1 mt-5 text-orangeG border border-[3px] border-orangeG rounded bg-transparent font-futuraBold text-center">Link de Pago 1</a>
+                    <div class="w-full flex flex-wrap justify-center">
+                        <a href="#" class="flex items-center flex-wrap justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 1</span></a>
+                        <a href="#" class="flex items-center flex-wrap justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 2</span></a>
+
+                    </div>
+                </div>
+                <div class="w-full p-4 text-center">
+                    <a href="" class="px-5 py-1 mt-5 text-orangeG border border-[3px] border-orangeG rounded bg-transparent font-futuraBold text-center">Link de Pago 2</a>
+                    <div class="w-full flex flex-wrap justify-center">
+                        <a href="#" class="flex items-center flex-wrap justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 3</span></a>
+                        <a href="#" class="flex items-center flex-wrap justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 4</span></a>
+
+                    </div>
+                </div>
+                <div class="w-full p-4 text-center">
+                    <a href="" class="px-5 py-1 mt-5 text-orangeG border border-[3px] border-orangeG rounded bg-transparent font-futuraBold text-center">Link de Pago 3</a>
+                    <div class="w-full flex flex-wrap justify-center">
+                        <a href="#" class="flex items-center flex-wrap justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 5</span></a>
+                        <a href="#" class="flex items-center flex-wrap justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 6</span></a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div id="quejaReclamo" class="w-full queja grid justify-items-center">
@@ -74,14 +99,16 @@
         </div>
         <div id="Garantias">
             <div class="grid md:flex md:justify-around w-full justify-items-center">
-                <div class="flex items-center">
+                <div class="md:w-3/5 flex items-center">
                     <div class="p-5 md:p-10">
                         <h2 class="text-3xl text-center text-greenG font-futuraBold">Garantías</h2>
                         <p class="text-justify text-1xl font-futuraBold text-grayG">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
                         <a class="float-right underline text-orangeG font-futuraBold underline-offset-1" href="#" class="btn">Saber más</a>
                     </div>
                 </div>
-                <img src="<?= IMAGE . 'garantia.png' ?>" alt="queja" class="w-5/6 md:w-2/5">
+                <div class="w-2/3 md:w-2/5 flex items-center">
+                    <img src="<?= IMAGE . 'garantia.png' ?>" alt="queja" class="w-full">
+                </div>
             </div>
         </div>
     </section>
