@@ -24,89 +24,85 @@
             </div>
         </figure>
     </section>
-    <section id="options" class="grid grid-cols-1  lg:grid-cols-2 lg:grid-rows-2 px-5 mx-auto mt-5 mb-5 max-w-screen-2xl">
+    <section id="options" class="grid grid-cols-1 mx-auto mb-5 lg:grid-cols-2 lg:grid-rows-2 max-w-screen-2xl">
 
-        <div id="pagos" class="w-full pagos grid justify-items-center">
-            <div class="div-pagos flex flex-wrap justify-around w-full p-3 text-center bg-center bg-cover" 
-            style="background: url('<?= IMAGE . 'pagos.jpg' ?>'), #dde3e7;
-            background-position-x: -15px;
-            background-size: 119%;
-            background-position-y: -21px;
-            background-repeat: no-repeat;">
-                <div class="flex-auto"></div>
-                <div class="flex-auto"></div>
-                <div class="flex items-center flex-auto pl-10">
-                    <div class="pl-10">
+        <div id="pagos" class="grid w-full pagos justify-items-center">
+            <div class="relative flex flex-wrap justify-around w-full h-56 overflow-hidden text-center md:h-80">
+                <picture class="absolute z-0 w-full h-full -left-10 md:-left-0">
+                    <img class="h-full md:w-full md:h-auto lazyload max-w-none" data-src="<?= IMAGE . 'pagos.jpg' ?>" alt="">
+                </picture>
+                <div class="z-10 flex items-center w-2/3 ml-auto">
+                    <div class="mx-auto">
                         <h2 class="text-4xl md:text-6xl text-orangeG font-futuraBold">Pagos</h2>
-                        <h3 class="md:text-2xl font-futuraBold text-grayG mb-5">por proyectos</h3>
+                        <h3 class="mb-5 md:text-2xl font-futuraBold text-grayG">por proyectos</h3>
                         <a href="" class="px-5 py-1 mt-5 text-orangeG border border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Encuentra tu Broker</a>
                     </div>
                 </div>
 
             </div>
-            <div class="w-full bg-whiteG grid grid-cols-1  lg:grid-cols-3 p-5">
+            <div class="grid w-full grid-cols-1 p-5 bg-whiteG lg:grid-cols-3">
                 <div class="w-full p-4 text-center">
                     <a href="" class="px-5 py-1 mt-5 text-orangeG border border-[3px] border-orangeG rounded bg-transparent font-futuraBold text-center">Link de Pago 1</a>
-                    <div class="w-full flex flex-wrap justify-center">
-                        <a href="#" class="flex items-center flex-wrap justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 1</span></a>
-                        <a href="#" class="flex items-center flex-wrap justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 2</span></a>
+                    <div class="flex flex-wrap justify-center w-full">
+                        <a href="#" class="flex flex-wrap items-center justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 1</span></a>
+                        <a href="#" class="flex flex-wrap items-center justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 2</span></a>
 
                     </div>
                 </div>
                 <div class="w-full p-4 text-center">
                     <a href="" class="px-5 py-1 mt-5 text-orangeG border border-[3px] border-orangeG rounded bg-transparent font-futuraBold text-center">Link de Pago 2</a>
-                    <div class="w-full flex flex-wrap justify-center">
-                        <a href="#" class="flex items-center flex-wrap justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 3</span></a>
-                        <a href="#" class="flex items-center flex-wrap justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 4</span></a>
+                    <div class="flex flex-wrap justify-center w-full">
+                        <a href="#" class="flex flex-wrap items-center justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 3</span></a>
+                        <a href="#" class="flex flex-wrap items-center justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 4</span></a>
 
                     </div>
                 </div>
                 <div class="w-full p-4 text-center">
                     <a href="" class="px-5 py-1 mt-5 text-orangeG border border-[3px] border-orangeG rounded bg-transparent font-futuraBold text-center">Link de Pago 3</a>
-                    <div class="w-full flex flex-wrap justify-center">
-                        <a href="#" class="flex items-center flex-wrap justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 5</span></a>
-                        <a href="#" class="flex items-center flex-wrap justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 6</span></a>
+                    <div class="flex flex-wrap justify-center w-full">
+                        <a href="#" class="flex flex-wrap items-center justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 5</span></a>
+                        <a href="#" class="flex flex-wrap items-center justify-center mt-5 mr-5"><img src="<?= IMAGE . 'logo-proyecto.png' ?>" alt="logo-proyecto"><span>Nombre Proyecto 6</span></a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="quejaReclamo" class="w-full queja grid justify-items-center">
-            <div class="grid md:flex md:justify-around w-full justify-items-center p-4">
-                <div class="w-2/5 flex items-center">
-                <img src="<?= IMAGE . 'queja.png' ?>" alt="queja" class="w-full">
+        <div id="quejaReclamo" class="grid w-full queja justify-items-center">
+            <div class="grid w-full p-4 md:flex md:justify-around justify-items-center">
+                <div class="flex items-center w-2/5">
+                    <img src="<?= IMAGE . 'queja.png' ?>" alt="queja" class="w-full">
                 </div>
-                <div class="md:w-3/5 flex items-center">
+                <div class="flex items-center md:w-3/5">
                     <div class="p-4 text-center">
                         <h2 class="text-3xl text-center text-orangeG font-futuraBold">¿Alguna queja o reclamo?</h2>
-                        <p class="text-center text-1xl font-futuraBold text-grayG mb-5">Si tienes alguna queja o reclamo de nuestro servicio dale clic al botón para redireccionarte al formulario de quejas o reclamos.</p>
+                        <p class="mb-5 text-center text-1xl font-futuraBold text-grayG">Si tienes alguna queja o reclamo de nuestro servicio dale clic al botón para redireccionarte al formulario de quejas o reclamos.</p>
                         <a href="" class="px-5 py-1 mt-5 text-orangeG border border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Quejas o reclamos</a>
                     </div>
                 </div>
             </div>
         </div>
         <div id="Encuentra" class="w-full">
-            <div class="grid justify-around w-full grid-cols-1 md:grid-cols-2 p-3 text-center bg-center bg-cover" style="background-image: url('<?= IMAGE . 'ayudas.png' ?>'); height: 312px; ">
-                <div class="w-3/5 md:w-auto flex items-center flex-auto">
+            <div class="grid justify-around w-full grid-cols-1 px-5 py-3 text-center bg-center bg-cover md:grid-cols-2" style="background-image: url('<?= IMAGE . 'ayudas.png' ?>'); height: 312px; ">
+                <div class="flex items-center flex-auto w-3/5 md:w-auto">
                     <div class="p-0 md:p-4">
                         <h2 class="text-3xl text-center text-greenG font-futuraBold">¿No has encontrado lo que buscas?</h2>
-                        <p class="text-center text-1xl font-futuraBold text-grayG mb-5">Encuentra lo que buscas en nuestra sección de ayudas</p>
-                        <a href="" class="px-5 py-1 mt-5 text-greenG border border-[3px] border-greenG rounded bg-transparent font-futuraBold">Sección de ayudas</a>
+                        <p class="mb-5 text-center text-1xl font-futuraBold text-grayG">Encuentra lo que buscas en nuestra sección de ayudas</p>
+                        <a href="" class="py-1 mt-5 text-greenG border-[3px] block border-greenG rounded bg-transparent font-futuraBold">Sección de ayudas</a>
                     </div>
                 </div>
                 <div class="flex-auto"></div>
             </div>
         </div>
         <div id="Garantias">
-            <div class="grid md:flex md:justify-around w-full justify-items-center">
-                <div class="md:w-3/5 flex items-center">
+            <div class="grid w-full md:flex md:justify-around justify-items-center">
+                <div class="flex items-center md:w-3/5">
                     <div class="p-5 md:p-10">
                         <h2 class="text-3xl text-center text-greenG font-futuraBold">Garantías</h2>
                         <p class="text-justify text-1xl font-futuraBold text-grayG">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
                         <a class="float-right underline text-orangeG font-futuraBold underline-offset-1" href="#" class="btn">Saber más</a>
                     </div>
                 </div>
-                <div class="w-2/3 md:w-2/5 flex items-center">
+                <div class="flex items-center w-2/3 md:w-2/5">
                     <img src="<?= IMAGE . 'garantia.png' ?>" alt="queja" class="w-full">
                 </div>
             </div>
