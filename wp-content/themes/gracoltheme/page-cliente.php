@@ -35,11 +35,10 @@
             background-repeat: no-repeat;">
                 <div class="flex-auto"></div>
                 <div class="flex-auto"></div>
-                <div class="flex-auto"></div>
-                <div class="flex items-center flex-auto">
-                    <div>
-                        <h2 class="text-6xl text-orangeG font-futuraBold">Pagos</h2>
-                        <h3 class="text-2xl font-futuraBold text-grayG">por proyectos</h3>
+                <div class="flex items-center flex-auto pl-10">
+                    <div class="pl-10">
+                        <h2 class="text-4xl md:text-6xl text-orangeG font-futuraBold">Pagos</h2>
+                        <h3 class="md:text-2xl font-futuraBold text-grayG">por proyectos</h3>
                     </div>
                 </div>
 
