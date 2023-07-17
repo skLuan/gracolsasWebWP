@@ -237,3 +237,20 @@
 .text-shadow{
   text-shadow: 3px 4px 12px #000000;
 }
+
+
+@media (max-width: 500px) {
+
+  .div-pagos{
+    height: 160px!important;
+  }
+
+}
+
+.div-pagos{
+  height: 333px;
+}
+
+.w-300{
+  width: 300px;
+}

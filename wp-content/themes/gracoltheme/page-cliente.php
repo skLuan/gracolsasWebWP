@@ -24,10 +24,16 @@
             </div>
         </figure>
     </section>
-    <section id="options" class="grid grid-cols-2 grid-rows-2 px-5 mx-auto mt-5 mb-5 max-w-screen-2xl">
+    <section id="options" class="grid grid-cols-1  lg:grid-cols-2 lg:grid-rows-2 px-5 mx-auto mt-5 mb-5 max-w-screen-2xl">
 
         <div id="pagos" class="w-full pagos">
-            <div class="flex flex-wrap justify-around w-full p-3 text-center bg-center bg-cover" style="background-color: #dde3e7; background-image: url('<?= IMAGE . 'pagos.jpg' ?>');background-position-x: -100px; height: 312px; ">
+            <div class="div-pagos flex flex-wrap justify-around w-full p-3 text-center bg-center bg-cover" 
+            style="background: url('<?= IMAGE . 'pagos.jpg' ?>'), #dde3e7;
+            background-position-x: -15px;
+            background-size: 119%;
+            background-position-y: -21px;
+            background-repeat: no-repeat;">
+                <div class="flex-auto"></div>
                 <div class="flex-auto"></div>
                 <div class="flex-auto"></div>
                 <div class="flex items-center flex-auto">
@@ -41,8 +47,8 @@
         </div>
 
         <div id="quejaReclamo" class="w-full queja">
-            <div class="flex justify-around w-full">
-                <img src="<?= IMAGE . 'queja.png' ?>" alt="queja" width="300px">
+            <div class="grid md:flex md:justify-around w-full justify-items-center p-4">
+                <img src="<?= IMAGE . 'queja.png' ?>" alt="queja" class="w-1/4 md:w-2/5">
                 <div class="flex items-center">
                     <div class="p-4">
                         <h2 class="text-3xl text-center text-orangeG font-futuraBold">¿Alguna queja o reclamo?</h2>
@@ -63,15 +69,15 @@
             </div>
         </div>
         <div id="Garantias">
-            <div class="flex justify-end w-full">
+            <div class="grid md:flex md:justify-around w-full justify-items-center">
                 <div class="flex items-center">
-                    <div class="p-10">
+                    <div class="p-5 md:p-10">
                         <h2 class="text-3xl text-center text-greenG font-futuraBold">Garantías</h2>
                         <p class="text-justify text-1xl font-futuraBold text-grayG">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
                         <a class="float-right underline text-orangeG font-futuraBold underline-offset-1" href="#" class="btn">Saber más</a>
                     </div>
                 </div>
-                <img src="<?= IMAGE . 'garantia.png' ?>" alt="queja" width="300px">
+                <img src="<?= IMAGE . 'garantia.png' ?>" alt="queja" class="w-5/6 md:w-1/2">
             </div>
         </div>
     </section>
