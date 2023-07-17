@@ -38,7 +38,8 @@
                 <div class="flex items-center flex-auto pl-10">
                     <div class="pl-10">
                         <h2 class="text-4xl md:text-6xl text-orangeG font-futuraBold">Pagos</h2>
-                        <h3 class="md:text-2xl font-futuraBold text-grayG">por proyectos</h3>
+                        <h3 class="md:text-2xl font-futuraBold text-grayG mb-5">por proyectos</h3>
+                        <a href="" class="px-5 py-1 mt-5 text-orangeG border border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Encuentra tu Broker</a>
                     </div>
                 </div>
 
@@ -51,9 +52,10 @@
                 <img src="<?= IMAGE . 'queja.png' ?>" alt="queja" class="w-full">
                 </div>
                 <div class="md:w-3/5 flex items-center">
-                    <div class="p-4">
+                    <div class="p-4 text-center">
                         <h2 class="text-3xl text-center text-orangeG font-futuraBold">¿Alguna queja o reclamo?</h2>
-                        <p class="text-center text-1xl font-futuraBold text-grayG">Si tienes alguna queja o reclamo de nuestro servicio dale clic al botón para redireccionarte al formulario de quejas o reclamos.</p>
+                        <p class="text-center text-1xl font-futuraBold text-grayG mb-5">Si tienes alguna queja o reclamo de nuestro servicio dale clic al botón para redireccionarte al formulario de quejas o reclamos.</p>
+                        <a href="" class="px-5 py-1 mt-5 text-orangeG border border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Quejas o reclamos</a>
                     </div>
                 </div>
             </div>
@@ -63,7 +65,8 @@
                 <div class="flex items-center flex-auto">
                     <div class="p-4">
                         <h2 class="text-3xl text-center text-greenG font-futuraBold">¿No has encontrado lo que buscas?</h2>
-                        <p class="text-center text-1xl font-futuraBold text-grayG">Encuentra lo que buscas en nuestra sección de ayudas</p>
+                        <p class="text-center text-1xl font-futuraBold text-grayG mb-5">Encuentra lo que buscas en nuestra sección de ayudas</p>
+                        <a href="" class="px-5 py-1 mt-5 text-greenG border border-[3px] border-greenG rounded bg-transparent font-futuraBold">Sección de ayudas</a>
                     </div>
                 </div>
                 <div class="flex-auto"></div>
