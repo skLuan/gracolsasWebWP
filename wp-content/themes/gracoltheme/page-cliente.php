@@ -24,23 +24,23 @@
             </div>
         </figure>
     </section>
-    <section id="options" class="grid grid-cols-1 mx-auto mb-5 lg:grid-cols-2 lg:grid-rows-2 max-w-screen-2xl">
+    <section id="options" class="grid grid-cols-1 mx-auto mb-5 lg:grid-cols-2 lg:grid-rows-none max-w-screen-2xl">
 
-        <div id="pagos" class="grid w-full pagos justify-items-center">
+        <div id="pagos" class="grid w-full h-fit pagos justify-items-center">
             <div class="relative flex flex-wrap justify-around w-full h-56 overflow-hidden text-center md:h-80">
                 <picture class="absolute z-0 w-full h-full -left-10 md:-left-0">
                     <img class="h-full md:w-full md:h-auto lazyload max-w-none" data-src="<?= IMAGE . 'pagos.jpg' ?>" alt="">
                 </picture>
                 <div class="z-10 flex items-center w-2/3 ml-auto">
                     <div class="mx-auto">
-                        <h2 class="text-4xl md:text-6xl text-orangeG font-futuraBold">Pagos</h2>
-                        <h3 class="mb-5 md:text-2xl font-futuraBold text-grayG">por proyectos</h3>
-                        <a href="" class="px-5 py-1 mt-5 text-orangeG border border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Encuentra tu Broker</a>
+                        <h2 class="text-3xl md:text-5xl text-orangeG font-futuraBold">Paga tus cuotas</h2>
+                        <h3 class="mb-5 md:text-2xl md:pt-3 font-futuraBold text-grayG">fácil, rápido y seguro</h3>
+                        <button id="btn_pagos" class="px-5 py-1 mt-5 text-orangeG border border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Encuentra tu Broker</button>
                     </div>
                 </div>
 
             </div>
-            <div class="grid w-full grid-cols-1 p-5 bg-whiteG lg:grid-cols-3">
+            <div id="container_pagos" class="grid w-full grid-cols-1 p-5 bg-whiteG lg:grid-cols-3">
                 <div class="w-full p-4 text-center">
                     <a href="" class="px-5 py-1 mt-5 text-orangeG border border-[3px] border-orangeG rounded bg-transparent font-futuraBold text-center">Link de Pago 1</a>
                     <div class="flex flex-wrap justify-center w-full">
@@ -76,35 +76,41 @@
                     <div class="p-4 text-center">
                         <h2 class="text-3xl text-center text-orangeG font-futuraBold">¿Alguna queja o reclamo?</h2>
                         <p class="mb-5 text-center text-1xl font-futuraBold text-grayG">Si tienes alguna queja o reclamo de nuestro servicio dale clic al botón para redireccionarte al formulario de quejas o reclamos.</p>
-                        <a href="" class="px-5 py-1 mt-5 text-orangeG border border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Quejas o reclamos</a>
+                        <button id="btn_quejas" class="px-5 py-1 mt-5 text-orangeG border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Quejas o reclamos</button>
                     </div>
                 </div>
+            </div>
+            <div id="form_quejasreclamos_container" class="w-10/12 transition-all">
+                <?= get_template_part('components/_form', 'postventa') ?>
+            </div>
+        </div>
+        <div id="Garantias">
+            <div class="grid w-full md:flex md:justify-around justify-items-center">
+                <div class="flex items-center md:w-3/5">
+                    <div class="p-5 md:p-10 lg:flex lg:flex-col">
+                        <h2 class="text-3xl text-center text-greenG font-futuraBold">Garantías y post ventas</h2>
+                        <p class="mb-5 text-center text-1xl font-futuraBold text-grayG">Tienes algún problema con tu vivienda? escribenos para solucionarlo lo más rapido posible</p>
+                        <button id="btn_garantia" class="px-5 mx-auto text-center py-1 text-orangeG border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Abrir formulario</button>
+                    </div>
+                </div>
+                <div class="flex items-center w-2/3 md:w-2/5">
+                    <img src="<?= IMAGE . 'garantia.png' ?>" alt="queja" class="w-full">
+                </div>
+            </div>
+            <div id="form_postventa_container">
+                <?= get_template_part('components/_form', 'postventa') ?>
             </div>
         </div>
         <div id="Encuentra" class="w-full">
             <div class="grid justify-around w-full grid-cols-1 px-5 py-3 text-center bg-center bg-cover md:grid-cols-2" style="background-image: url('<?= IMAGE . 'ayudas.png' ?>'); height: 312px; ">
                 <div class="flex items-center flex-auto w-3/5 md:w-auto">
                     <div class="p-0 md:p-4">
-                        <h2 class="text-3xl text-center text-greenG font-futuraBold">¿No has encontrado lo que buscas?</h2>
-                        <p class="mb-5 text-center text-1xl font-futuraBold text-grayG">Encuentra lo que buscas en nuestra sección de ayudas</p>
-                        <a href="" class="py-1 mt-5 text-greenG border-[3px] block border-greenG rounded bg-transparent font-futuraBold">Sección de ayudas</a>
+                        <h2 class="text-3xl text-center text-greenG font-futuraBold">Manual de usuarios</h2>
+                        <p class="mb-5 text-center text-1xl font-futuraBold text-grayG">Descubre todos tus derechos y responsabilidades</p>
+                        <a href="" class="py-1 mt-5 text-greenG border-[3px] block border-greenG rounded bg-transparent font-futuraBold">Ir a los manuales</a>
                     </div>
                 </div>
                 <div class="flex-auto"></div>
-            </div>
-        </div>
-        <div id="Garantias">
-            <div class="grid w-full md:flex md:justify-around justify-items-center">
-                <div class="flex items-center md:w-3/5">
-                    <div class="p-5 md:p-10">
-                        <h2 class="text-3xl text-center text-greenG font-futuraBold">Garantías</h2>
-                        <p class="text-justify text-1xl font-futuraBold text-grayG">Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
-                        <a class="float-right underline text-orangeG font-futuraBold underline-offset-1" href="#" class="btn">Saber más</a>
-                    </div>
-                </div>
-                <div class="flex items-center w-2/3 md:w-2/5">
-                    <img src="<?= IMAGE . 'garantia.png' ?>" alt="queja" class="w-full">
-                </div>
             </div>
         </div>
     </section>

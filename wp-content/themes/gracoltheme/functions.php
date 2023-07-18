@@ -59,6 +59,10 @@ function init_template()
         wp_enqueue_script('bouncyBtn', get_stylesheet_directory_uri() . '/assets/js/project-bouncyButton.js', [], '1.8.1', 'all');
     }
 
+    if(is_page('cliente')){
+        wp_enqueue_script('btnsCliente', get_stylesheet_directory_uri() . '/assets/js/btns-cliente.js', [], '1.8.1', 'all');
+    }
+
     register_block_type('gracoltheme/project-config', array(
         'editor_script' => 'infoBlock',
     ));
