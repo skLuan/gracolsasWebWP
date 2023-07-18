@@ -1,5 +1,5 @@
 <?php
-$ubicacion = get_post_meta(get_the_ID(),'gs_ciudad', true);
+$ubicacion = get_post_meta(get_the_ID(), 'gs_ciudad', true);
 $ubicacion = remove_accents($ubicacion);
 $newsArgs = [
     'post_type' => 'asesores-comerciales',
@@ -25,9 +25,14 @@ $asesores = new WP_Query($newsArgs);
         <?php if ($asesores->have_posts()) : ?>
             <?php while ($asesores->have_posts()) :
                 $asesores->the_post();
-                $number = get_post_meta(get_the_ID(),'gs_telefono_asesor', true);
-                $asesor = ['name' => get_the_title(),
-                'number' => $number];
+                $number = get_post_meta(get_the_ID(), 'gs_telefono_asesor', true);
+                $picture = get_post_meta(get_the_ID(), 'imagen_asesor', true);
+
+                $asesor = [
+                    'name' => get_the_title(),
+                    'number' => $number,
+                    'picture' => $picture
+                ];
             ?>
                 <?= get_template_part('components/cards/card', 'asesor', ['asesor' => $asesor]) ?>
         <?php endwhile;
