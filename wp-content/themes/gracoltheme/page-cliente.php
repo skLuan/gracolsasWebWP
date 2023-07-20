@@ -64,7 +64,7 @@ $archive_url = get_category_link($category->term_id);
                 </div>
             </div>
             <div id="form_quejasreclamos_container" class="w-10/12 transition-all">
-                <?= get_template_part('components/_form', 'postventa') ?>
+                <?= get_template_part('components/_form', 'queja') ?>
             </div>
         </div>
         <div id="Garantias">
