@@ -59,6 +59,9 @@ function init_template()
         wp_enqueue_script('controlPrices', get_stylesheet_directory_uri() . '/assets/js/projectPrices.js', ['main'], '1.8.1', 'all');
         wp_enqueue_script('bouncyBtn', get_stylesheet_directory_uri() . '/assets/js/project-bouncyButton.js', [], '1.8.1', 'all');
     }
+    if(is_page('quienes-somos')){
+        wp_enqueue_script('lineaTiempo', get_stylesheet_directory_uri() . '/assets/js/lineatiempo.js', [], '1.8.1', 'all');
+    }
 
     register_block_type('gracoltheme/project-config', array(
         'editor_script' => 'infoBlock',
