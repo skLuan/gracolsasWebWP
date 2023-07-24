@@ -84,15 +84,17 @@ function main() {
       let isMini = false;
       if (e.target.getAttribute("name") == "searchUbicacionMini") {
         formContainer = document.getElementById("searchUbiOnly");
-        loopContainer = document.getElementById("_loopHomeS");
+        loopContainer = document
+          .getElementById("_loopHomeS")
+          .querySelector(".swiper-wrapper");
         searchUbi = formContainer.searchUbicacionMini.value;
-        searchType = 'all';
+        searchType = "all";
         isMini = true;
       } else {
         searchType = formContainer.searchType.value;
         searchUbi = formContainer.searchUbicacion.value;
       }
-      
+
       jQuery.ajax({
         url: gsLoopQuerys.ajaxUrl,
         method: "POST",
@@ -112,17 +114,29 @@ function main() {
           } else {
             cleaning(projecType);
           }
-          loopContainer.innerHTML = "<h2 class='text-center'>Cargando</h2>";
+          loopContainer.innerHTML = `<div class="swiper-slide"><h2 class='text-center'>Cargando</h2></div>`;
+          swiperCards.update(); // Referencia del swiper activado en swipers.js
+          swiperCards.autoplay.pause();
         },
         success: function (data) {
           procededData = Object.entries(data).map((entry) => entry[1]);
-
           loopContainer.innerHTML = "";
-          procededData.forEach((div) => {
-            const tempElement = document.createElement("div");
-            tempElement.innerHTML = div;
-            loopContainer.append(tempElement.firstChild);
-          });
+          if (e.target.getAttribute("name") == "searchUbicacionMini") {
+            procededData.forEach((div) => {
+              const tempElement = document.createElement("div");
+              tempElement.classList.add("swiper-slide");
+              tempElement.innerHTML = div;
+              loopContainer.append(tempElement);
+            });
+            swiperCards.update(); // Referencia del swiper activado en swipers.js
+            if(procededData.length > 4) {swiperCards.autoplay.resume();}
+          } else {
+            procededData.forEach((div) => {
+              const tempElement = document.createElement("div");
+              tempElement.innerHTML = div;
+              loopContainer.append(tempElement.firstChild);
+            });
+          }
         },
         error: function (error) {
           console.error(error);
@@ -135,7 +149,6 @@ function main() {
       // console.log(e.target);
     }
   }
-
   galeryControl();
   searchProductsHome();
 }

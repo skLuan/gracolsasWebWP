@@ -36,7 +36,6 @@ class CardProject extends Card
                 $this->categories = $t;
                 $this->tags = $tags = get_the_terms($idP, 'tag-proyecto');
                 $tags && isset($tags) ? $this->typeInmueble = $tags[0]->name : $this->typeInmueble = '';
-
                 count($tags) >= 2 ? $this->dinamicTags = array_map(fn($t)=> $t->term_id,$tags) : $this->dinamicTags = [];
 
                 isset($gsBarrio) && $gsBarrio == '' ? $gsBarrio = "Barrio" : '';
@@ -52,7 +51,6 @@ class CardProject extends Card
                 $this->mt2 = floatval(get_post_meta($idP, 'gs_mt2', true));
                 $this->banerMobile = get_post_meta($idP, 'project_baner_mobile', true);
                 $this->image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
-
                 $this->typeIcon = match ($this->typeInmueble) {
                         'Casas' => 'clarity:house-solid',
                         default => 'material-symbols:apartment'

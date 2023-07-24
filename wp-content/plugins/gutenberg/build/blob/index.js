@@ -1,46 +1,46 @@
-/******/ (function() { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 		__webpack_require__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
 /******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
 /******/ 		};
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	!function() {
-/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
-/******/ 	}();
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = function(exports) {
+/******/ 		__webpack_require__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "createBlobURL": function() { return /* binding */ createBlobURL; },
-/* harmony export */   "getBlobByURL": function() { return /* binding */ getBlobByURL; },
-/* harmony export */   "getBlobTypeByURL": function() { return /* binding */ getBlobTypeByURL; },
-/* harmony export */   "revokeBlobURL": function() { return /* binding */ revokeBlobURL; },
-/* harmony export */   "isBlobURL": function() { return /* binding */ isBlobURL; }
+/* harmony export */   "createBlobURL": () => (/* binding */ createBlobURL),
+/* harmony export */   "getBlobByURL": () => (/* binding */ getBlobByURL),
+/* harmony export */   "getBlobTypeByURL": () => (/* binding */ getBlobTypeByURL),
+/* harmony export */   "revokeBlobURL": () => (/* binding */ revokeBlobURL),
+/* harmony export */   "isBlobURL": () => (/* binding */ isBlobURL)
 /* harmony export */ });
 /**
  * @type {Record<string, File|undefined>}
@@ -83,9 +83,7 @@ function getBlobByURL(url) {
  */
 
 function getBlobTypeByURL(url) {
-  var _getBlobByURL;
-
-  return (_getBlobByURL = getBlobByURL(url)) === null || _getBlobByURL === void 0 ? void 0 : _getBlobByURL.type.split('/')[0]; // 0: media type , 1: file extension eg ( type: 'image/jpeg' ).
+  return getBlobByURL(url)?.type.split('/')[0]; // 0: media type , 1: file extension eg ( type: 'image/jpeg' ).
 }
 /**
  * Remove the resource and file cache from memory.

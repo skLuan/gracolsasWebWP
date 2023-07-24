@@ -1,15 +1,19 @@
-<div class="flex flex-col my-10 card-asesor lg:flex-row lg:my-3 w-fit">
-    <h5 class="block text-white lg:hidden font-futuraBold">Nombre</h5>
-    <picture class="mr-5 rounded">
-        <img class="lazyload max-w-[250px]" width="" src="low-quality.jpg" data-src="<?= IMAGE . '/asesores/dummy_A.png' ?>" alt="">
-    </picture>
-    <div class="pt-3 text-white">
-        <h5 class="hidden lg:block font-futuraBold">Nombre</h5>
-        <p class="flex items-center">
-            <iconify-icon class="text-xl hover:text-orangeG" icon="bi:whatsapp"></iconify-icon>
-            <a href="">+57 000-0000</a>
+<?php
+$asesor = $args['asesor'];
+?>
+<div class="flex flex-col justify-center mx-auto my-10 card-asesor lg:my-3 w-fit">
+    <figure class="w-40 h-40 mx-auto overflow-hidden bg-white rounded-full shadow-md">
+        <picture class="">
+            <img class="h-full lazyload max-w-none" width="" src="low-quality.jpg" data-src="<?= $asesor['picture'] ?>" alt="asesor picture">
+        </picture>
+    </figure>
+    <div class="pt-3 text-center text-white">
+        <h5 class="text-2xl font-futuraBold"><?= $asesor['name'] ?></h5>
+        <p class="flex items-center justify-center">
+            <iconify-icon class="mr-3 text-xl hover:text-orangeG" icon="bi:whatsapp"></iconify-icon>
+            <a class="text-xl" href="https://wa.me/<?= $asesor['number'] ?>"><?= $asesor['number'] ?></a>
         </p>
-        <a href="" class="underline text-orangeG font-futuraBold">Iniciar chat</a>
+        <a href="https://wa.me/<?= $asesor['number'] ?>" class="underline text-greenG-mid font-futuraBold">Iniciar chat</a>
 
     </div>
 </div>

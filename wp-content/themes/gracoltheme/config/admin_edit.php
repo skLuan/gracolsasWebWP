@@ -17,3 +17,9 @@ require 'meta-box/project/avanceID.php';
 //--------------------------------
 require 'meta-box/avance/galery.php';
 require 'meta-box/avance/projectID.php';
+//--------------------------------
+// Metaboxes de asesores comerciales
+//--------------------------------
+require 'meta-box/asesores/telefono.php';
+require 'meta-box/asesores/imagenAsesor.php';
+

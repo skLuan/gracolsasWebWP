@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google tag (gtag.js) -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-CMB7GDF0VV"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CMB7GDF0VV"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -17,10 +17,10 @@
         gtag('js', new Date());
 
         gtag('config', 'G-CMB7GDF0VV');
-    </script> -->
+    </script>
 
     <!-- Facebook Pixel Code -->
-    <!-- <script>
+    <script>
         ! function(f, b, e, v, n, t, s) {
             if (f.fbq) return;
             n = f.fbq = function() {
@@ -43,9 +43,8 @@
         fbq('track', 'PageView');
     </script>
     <noscript>
-        <img height="1" width="1" src="https://www.facebook.com/tr?id=1267190214169542&ev=PageView
-&noscript=1" />
-    </noscript> -->
+        <img height="1" width="1" src="https://www.facebook.com/tr?id=1267190214169542&ev=PageView&noscript=1" />
+    </noscript>
     <!-- End Facebook Pixel Code -->
 
     <?php wp_head(); ?>

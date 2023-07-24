@@ -72,8 +72,8 @@ $mt2 = get_post_meta(get_the_ID(), 'gs_mt2', true);
         <div class="flex flex-col mx-auto mt-5 lg:flex-row">
             <div class="mx-auto lg:mr-10">
                 <?php if (!empty($precioSMLV)) : ?>
-                    <h3 class="mx-auto text-3xl text-center text-orangeG font-futuraBold"><?= $precioSMLV ?> SMMLV</h3>
-                    <a href="https://www.mintrabajo.gov.co/prensa/comunicados/2022/diciembre/-1.160.000-ser%C3%A1-el-salario-minimo-para-2023-y-auxilio-de-transporte-por-140.606" target="_blank" class="text-[15px] text-center -mt-1 text-greenG underline">¿Cuánto vale un SMLV?</a>
+                    <h3 class="mx-auto text-3xl text-center text-orangeG font-futuraBold"><?= $precioSMLV ?> SMMLV*</h3>
+                    <P class="text-sm">* Del año de escrituración del inmueble</P>
                 <?php endif; ?>
             </div>
             <div class="mr-auto">
@@ -83,7 +83,8 @@ $mt2 = get_post_meta(get_the_ID(), 'gs_mt2', true);
                 <?php endif; ?>
             </div>
         </div>
-        <a href="#gs_FormProject" class="px-8 py-3 mx-auto text-2xl rounded mt-14 btn-bounty bg-orangeG text-whiteG font-futuraBold">Más información</a>
+        <p class="text-center mt-14">¿Quieres mas información del proyecto? </p>
+        <a href="#gs_FormProject" class="px-8 py-3 mx-auto mt-3 text-2xl rounded btn-bounty bg-orangeG text-whiteG font-futuraBold">Registrate</a>
     </section>
     <!-- -------------------------------------- Amenities -->
     <section class="px-3 text-xl lg:col-start-3 lg:px-0 lg:col-span-9 text-greenG-mid">
@@ -110,7 +111,7 @@ $mt2 = get_post_meta(get_the_ID(), 'gs_mt2', true);
                     <div class="flex flex-row items-center">
                         <figure class="ml-5">
                             <picture>
-                                <img class="lazyload w-[40px] lg:w-[60px]" width="" src="low-quality.jpg" data-src="<?= $image_url ?>" alt="">
+                                <img class="lazyload max-w-none w-[40px] lg:w-[60px]" width="" src="low-quality.jpg" data-src="<?= $image_url ?>" alt="">
                             </picture>
                         </figure>
                         <span class="pl-6 lg:text-2xl"><?= $amenitie->name ?></span>

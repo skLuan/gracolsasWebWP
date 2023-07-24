@@ -1,21 +1,23 @@
 <?php
 
-if (is_tax('categoria-proyecto', 'en-construccion')) {
+// var_dump($args['idP']);
+
+if (isset($args['idP'])) {
+    $projectID = $args['idP'];
+} else {
     $projectID = get_the_ID();
-} else {    
-    $projectID = get_post_meta(get_the_ID(), 'a_project_id', true);
-    isset($projectID) && $projectID != '' ? $projectID = intval($projectID) : '';
 }
 
+// var_dump(get_the_title());
 
-$cardData = new CardProject($projectID);
+$cardData = new Card($projectID);
 
 $tags = get_the_terms($projectID, 'tag-proyecto');
 $tags && isset($tags) ? $inmueble = $tags[0]->name : $inmueble = '';
 $image_url = get_the_post_thumbnail_url($projectID, 'original');
-$url = get_permalink(get_the_ID());
+$url = get_the_permalink(get_the_ID());
 ?>
-<div class="flex flex-col w-full mt-10 overflow-hidden rounded-sm max-w-1/3">
+<div class="flex flex-col w-full mt-10 overflow-hidden rounded-sm">
     <div class="relative w-10/12 h-full p-5 m-auto mb-10 bg-white shadow-lg">
         <a href="<?= $url ?>">
             <picture class="relative">

@@ -51,7 +51,7 @@
 }
 .sectionAsesores{
 @apply bg-left lg:bg-center bg-cover;
-  background-image: url(../img/BANNER-CALL-CENTER.jpg);
+  background-image: url(../img/asesores/CALL_CENTER_FONDO.jpg);
 }
 
 .bg-blackOp{
@@ -167,7 +167,7 @@
 }
 
 .mobile-nav__content {
-  @apply z-10 relative h-full overflow-y-auto opacity-0 w-2/3;
+  @apply z-10 relative h-full overflow-y-auto opacity-0 w-3/4;
   float: right;
   visibility: hidden;
   -webkit-transform: translateX(100%);
@@ -241,14 +241,6 @@
 
 @media (max-width: 500px) {
 
-  .div-pagos{
-    height: 160px!important;
-  }
-
-}
-
-.div-pagos{
-  height: 333px;
 }
 
 .w-300{

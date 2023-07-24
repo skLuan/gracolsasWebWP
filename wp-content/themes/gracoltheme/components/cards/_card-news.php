@@ -1,11 +1,13 @@
 <?php
 $title = get_the_title();
-$permalink = get_permalink( get_the_ID() );
+$permalink = get_permalink(get_the_ID());
 $content = get_the_excerpt();
 
-$content = substr($content, 0, 50) . '...';
+$content = substr($content, 0, 200) . '...';
 
 $urlImage = IMAGE . 'img-post.png';
+the_post_thumbnail_url() !== null ? $urlImage = the_post_thumbnail_url() : '';
+
 ?>
 <div class="bg-white rounded-sm shadow-lg snap-center shrink-0">
     <div class="w-64 shrink-0 md:w-full">

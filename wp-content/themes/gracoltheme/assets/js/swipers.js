@@ -1,10 +1,11 @@
 try {
+  // ---------------------------- Interiores
+
   var swiper = new Swiper(".thumbSwiper", {
     spaceBetween: 20,
     slidesPerView: 5,
     watchSlidesProgress: true,
     autoHeight: true,
-    autoplay:true,
   });
   const swiperSingleProject = new Swiper(".swiper-single-project", {
     // Optional parameters
@@ -107,3 +108,23 @@ try {
     },
   });
 } catch (error) {}
+
+// ------------------------------- Cards in home
+let swiperCards;
+try {
+  window;
+  swiperCards = new Swiper(".swiperCard", {
+    direction: "horizontal",
+    spaceBetween: 20,
+    slidesPerView: 1,
+    autoplay: true,
+    breakpoints: {
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 4,
+      },
+    },
+  });
+} catch (error) {
+  console.log(error);
+}

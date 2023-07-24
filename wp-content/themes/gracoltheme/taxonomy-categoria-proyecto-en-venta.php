@@ -4,6 +4,14 @@ $args = array(
     'post_type' => 'proyectos',
     'orderby' => 'title',
     'order' => 'ASC',
+    'tax_query'        => array(
+        array(
+            'taxonomy' => 'categoria-proyecto',
+            'field' => 'slug',
+            'terms' => 'obras-entregadas',
+            'operator' => 'NOT IN'
+        ),
+    )
 );
 
 query_posts($args);

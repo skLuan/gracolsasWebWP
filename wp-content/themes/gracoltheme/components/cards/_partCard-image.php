@@ -33,11 +33,11 @@ $heightOfPicture = 'h-[355px]';
                         <?= $tagsNameArray[$tagIndex] ?>
                     </div>
                 <?php endif;
-                if (in_array(27, $cardData->dinamicTags)) :
+                if (in_array(54, $cardData->dinamicTags)) :
                 ?>
                     <div class="leading-tight flex flex-row items-center py-2 pr-1 pl-3   bg-[#FF902B]">
                         <iconify-icon class="mr-2 text-xl lg:text-3xl" icon="fluent:megaphone-loud-32-regular"></iconify-icon>
-                        <?= $cardData->getNameofTag(27) ?>
+                        <?= $cardData->getNameofTag(54) ?>
                     </div>
                 <?php endif; ?>
 

@@ -30,13 +30,16 @@
                 </div>
                 <h6 class="mt-5 uppercase lg:text-xl font-futuraBold">Síguenos</h6>
                 <div class="flex flex-col">
-                    <div class="flex flex-row items-center ml-5">
-                        
+                    <div class="flex flex-row items-center mt-3 ml-5">
+
                         <a href="<?= FACEBOOK_URL ?>">
                             <iconify-icon class="mr-5 text-2xl " icon="carbon:logo-facebook"></iconify-icon>
                         </a>
                         <a href="<?= INSTAGRAM_URL ?>">
-                            <iconify-icon class="text-xl " icon="ri:instagram-line"></iconify-icon>
+                            <iconify-icon class="mr-5 text-xl" icon="ri:instagram-line"></iconify-icon>
+                        </a>
+                        <a href="">
+                            <iconify-icon class="text-2xl" icon="mdi:youtube"></iconify-icon>
                         </a>
                     </div>
                 </div>

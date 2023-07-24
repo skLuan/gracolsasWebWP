@@ -16,9 +16,6 @@ global $gsBarrio;
     </div>
     <article class="flex flex-col items-center justify-center px-5 lg:px-20">
         <h3 class="my-3 text-4xl text-center font-futuraBold text-greenG drop-shadow"><?= $gsBarrio ?></h3>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante.
-        </p>
         <div class="flex flex-row items-end justify-around w-full mt-5 mb-10 lg:my-5">
             <a class="underline font-futuraBold text-grayG" href=""><iconify-icon class="mr-3 text-5xl" icon="logos:google-maps"></iconify-icon> Ir con Google maps</a>
             <a class="underline font-futuraBold text-grayG" href=""><iconify-icon class="pt-4 mr-3 text-5xl text-gray-600 align-text-bottom" icon="simple-icons:waze"></iconify-icon>Ir con Waze</a>
