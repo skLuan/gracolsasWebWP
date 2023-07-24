@@ -35,12 +35,21 @@ class CardProject extends Card
                 }, $t);
                 $this->categories = $t;
                 $this->tags = $tags = get_the_terms($idP, 'tag-proyecto');
-                $tags && isset($tags) ? $this->typeInmueble = $tags[0]->name : $this->typeInmueble = '';
-                count($tags) >= 2 ? $this->dinamicTags = array_map(fn($t)=> $t->term_id,$tags) : $this->dinamicTags = [];
+                if (!$tags && !isset($tags)) {
+                        $this->typeInmueble = '';
+                }
+                if (count($tags) > 1) {
+                        $parent_id_inmueble = 12;
+                        foreach ($tags as $key => $tag) {
+                                if ($tag->parent == $parent_id_inmueble) {
+                                        $this->typeInmueble = $tag->name;
+                                }
+                        }
+                }
+                count($tags) >= 2 ? $this->dinamicTags = array_map(fn ($t) => $t->term_id, $tags) : $this->dinamicTags = [];
 
                 isset($gsBarrio) && $gsBarrio == '' ? $gsBarrio = "Barrio" : '';
                 isset($gsCiudad) && $gsCiudad == '' ? $gsCiudad = "Ciudad" : '';
-
 
                 $this->ubicacion = [$gsBarrio, $gsCiudad];
                 $this->valorPesos = get_post_meta($idP, 'gs_precio_col', true);
@@ -56,7 +65,8 @@ class CardProject extends Card
                         default => 'material-symbols:apartment'
                 };
         }
-        public function getNameofTag($id){
+        public function getNameofTag($id)
+        {
                 $tagIndex = array_search($id, array_column($this->tags, 'term_id'));
                 $tagName = $this->tags[$tagIndex]->name;
                 return $tagName;

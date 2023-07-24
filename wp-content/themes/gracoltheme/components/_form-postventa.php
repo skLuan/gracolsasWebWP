@@ -5,6 +5,7 @@ $inputpostVenta = new gsInput('proyect_name');
     <h2 class="mt-5 mb-10 text-3xl text-center text-greenG font-futuraBold col-span-full">Post venta</h2>
     <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('my_form_nonce'); ?>">
     <div class="grid max-w-2xl grid-cols-1 mx-auto lg:grid-cols-2">
+        <?= get_template_part('components/misc/_select', 'proyectos', ['proyectos' => 'garantias']) ?>
         <?= $inputpostVenta->renderInput('project_ref', 'Proyecto*', 'text', 'projectName', true); ?>
         <?= $inputpostVenta->renderInput('project_customer', 'Nombre*'); ?>
         <?= $inputpostVenta->renderInput('project_tel', 'Teléfono*'); ?>

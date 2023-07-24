@@ -51,13 +51,13 @@ $archive_url = get_category_link($category->term_id);
         </div>
 
         <div id="quejaReclamo" class="grid w-full queja justify-items-center">
-            <div class="relative grid w-full h-80 md:flex md:justify-around justify-items-center">
-                <picture class="absolute left-0 z-0 w-full h-full">
-                    <img src="<?= IMAGE . 'queja.jpg' ?>" alt="queja" class="h-full max-w-none">
-                </picture>
-                <div class="z-10 flex flex-col items-center ml-10 mr-auto md:w-1/2">
+            <div class="relative bg-[#B3B3B3] grid w-full h-80 md:flex md:justify-around justify-items-center">
+                <figure class="absolute z-0 w-full h-full -right-0 md:-right-28 lg:-right-0">
+                    <img src="<?= IMAGE . 'queja.jpg' ?>" alt="queja" class="h-2/3 md:h-full max-w-none">
+                </figure>
+                <div class="z-10 bg-[#B3B3B3] md:bg-transparent bg-opacity-40 flex flex-col items-center ml-5 md:ml-10 mr-auto md:w-1/2">
                     <div class="p-4 mt-auto">
-                        <h2 class="mb-5 text-3xl text-white font-futuraBold">¿Alguna queja o reclamo?</h2>
+                        <h2 class="mb-10 text-3xl text-white lg:mb-5 font-futuraBold">¿Alguna queja o reclamo?</h2>
                         <p class="text-white text-1xl font-futuraBold">Si tienes alguna queja o reclamo de nuestro servicio dale clic al botón para redireccionarte al formulario de quejas o reclamos.</p>
                     </div>
                     <button id="btn_quejas" class="px-5 py-1 mb-10 bg-white bg-opacity-80 mt-auto text-orangeG border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Quejas o reclamos</button>

@@ -68,7 +68,7 @@ wp_reset_query();
                         setup_postdata($result);
                         switch ($post_type):
                             case 'proyectos':
-                                get_template_part('components/cards/_card', 'homeProyecto', ['idP' => $result->ID]);
+                                get_template_part('components/cards/_card', 'homeMini', ['idP' => $result->ID]);
                                 break;
                             case 'obras-entregadas':
                                 get_template_part('components/cards/_card', 'simple', ['idP' => $result->ID]);

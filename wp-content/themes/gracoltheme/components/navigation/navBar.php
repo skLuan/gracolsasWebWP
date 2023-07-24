@@ -36,7 +36,7 @@ $previous_url = wp_get_referer();
                 <div class="w-[1px] h-full mx-2 bg-greenG"></div>
                 <a class="md:text-lg hover:text-orangeG" href="<?= get_the_permalink(12) ?>">Portal clientes</a>
             </div>
-            <?= get_template_part('components/buttons/_btn', 'whatsapp') ?>
+            <?= get_template_part('components/misc/_btn', 'whatsapp') ?>
         </div>
     </nav>
 </div>
