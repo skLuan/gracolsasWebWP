@@ -81,11 +81,12 @@ add_action('wp_enqueue_scripts', 'init_template');
 
 function enqueue_media_script()
 {
+    wp_enqueue_style('fonts', get_stylesheet_directory_uri() . '/assets/fonts/fonts.css', '1.0', 'all');
     wp_enqueue_media();
     $screen = get_current_screen();
 
     // Verificar si estamos en la página de edición de "proyectos"
-    if ($screen->id === 'proyectos') {
+    if ($screen->id === 'proyectos' || $screen->id === 'avance-obra') {
         wp_enqueue_style('tailwind', get_stylesheet_directory_uri() . '/assets/css/output.css', 'fonts', '1.0', 'all');
         // wp_enqueue_style('animate', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css', 'tailwind', '1.0', 'all');
     }
