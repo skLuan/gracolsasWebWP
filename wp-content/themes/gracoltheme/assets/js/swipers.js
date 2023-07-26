@@ -1,6 +1,5 @@
 try {
   // ---------------------------- Interiores
-
   var swiper = new Swiper(".thumbSwiper", {
     spaceBetween: 20,
     slidesPerView: 5,
@@ -79,21 +78,21 @@ try {
       swiper: swiperPlanos,
     },
   });
-  // ---------------------------- avances
+} catch (error) {}
 
+try {
+  // ---------------------------- avances
   const swiperAvance = new Swiper(".thumbSwiper-avance", {
     spaceBetween: 20,
     slidesPerView: 5,
     watchSlidesProgress: true,
     autoHeight: true,
   });
-
   const swiperSingleAvance = new Swiper(".swiper-single-project-avance", {
     // Optional parameters
     direction: "horizontal",
     autoHeight: true,
     autoplay: true,
-
     // If we need pagination
     pagination: {
       el: ".swiper-pagination-avance",
@@ -103,12 +102,14 @@ try {
       nextEl: ".swiper-button-next-avance",
       prevEl: ".swiper-button-prev-avance",
     },
-    thumbs: {
-      swiper: swiperAvance,
-    },
+    // thumbs: {
+    //   swiper: swiperAvance,
+    // },
   });
-} catch (error) {}
-
+  // swiperSingleAvance.thumbs = swiperAvance;
+} catch (error) {
+  console.log(error);
+}
 // ------------------------------- Cards in home
 let swiperCards;
 try {
