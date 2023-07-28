@@ -13,7 +13,6 @@ $args = array(
         ),
     )
 );
-
 query_posts($args);
 ?>
 <main class="w-full lg:mt-24">

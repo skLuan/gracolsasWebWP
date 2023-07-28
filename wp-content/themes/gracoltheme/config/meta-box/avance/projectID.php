@@ -24,6 +24,14 @@ function display_avance_proyecto_ID_meta_box($post)
         'post_per_page' => -1,
         'order' => 'ASC',
         'orderby' => 'title',
+        'tax_query'        => array(
+            array(
+                'taxonomy' => 'categoria-proyecto',
+                'field' => 'slug',
+                'terms' => 'obras-entregadas',
+                'operator' => 'NOT IN'
+            ),
+        )
     ]);
     // Recuperar el valor actual del precio (si existe)
     $projectId = get_post_meta($avance_id, 'a_project_id', true);

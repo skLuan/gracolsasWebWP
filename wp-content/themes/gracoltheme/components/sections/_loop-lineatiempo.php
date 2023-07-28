@@ -2,7 +2,34 @@
 $fechas = $args['fechas'];
 $title = $args['title'];
 sort($fechas);
-
+function obtenerNombreMes($mesNumero)
+{
+    return match ($mesNumero) {
+        '01' => 'Ene',
+        '02' => 'Feb',
+        '03' => 'Mar',
+        '04' => 'Abr',
+        '05' => 'May',
+        '06' => 'Jun',
+        '07' => 'Jul',
+        '08' => 'Ago',
+        '09' => 'Sep',
+        '10' => 'Oct',
+        '11' => 'Nov',
+        '12' => 'Dic',
+        default => 'mes inválido'
+    };
+}
+foreach ($fechas as &$fecha) {
+    $dateTime = new DateTime($fecha);
+    // Obtener el día, el mes y el año
+    $dia = $dateTime->format('d');
+    $mesNumero = $dateTime->format('m');
+    $anio = $dateTime->format('Y');
+    $mesNombre = obtenerNombreMes($mesNumero);
+    $fechaNueva = $dia . '/' . $mesNombre . '/' . $anio;
+    $fecha = $fechaNueva; //this
+}
 ?>
 
 <section class="grid grid-cols-1 gap-5 mx-auto mt-20 lg:grid-cols-12 max-w-screen-2xl">

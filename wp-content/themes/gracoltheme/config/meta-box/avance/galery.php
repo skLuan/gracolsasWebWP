@@ -15,6 +15,7 @@ add_action('add_meta_boxes_avance-obra', 'add_galery_avance_meta_box');
 
 function render_galery_avance_meta_box($post)
 {
+    wp_nonce_field('galeria_avance_meta_box', 'galeria_avance_nonce');
     $avance_obra_id = isset($_GET['post']) ? $_GET['post'] : false;
     if ($avance_obra_id) {
         $avance_obra = get_post_meta($avance_obra_id, 'galeria_avance', true);
@@ -132,9 +133,15 @@ function render_galery_avance_meta_box($post)
             mediaUploader.on('select', function() {
                 var attachments = mediaUploader.state().get('selection').toJSON();
                 // Recorrer las imágenes seleccionadas
-                console.log('pree');
-                var imgAr = []
                 let container = e.target.parentNode;
+                let inputImages = container.querySelector('input.gal_avance');
+                let preAtribbute = JSON.parse(inputImages.getAttribute('value'));
+                var imgAr = [];
+                console.log('pree');
+                console.log(preAtribbute);
+                if (preAtribbute.length > 0) {
+                    imgAr = preAtribbute;
+                }
                 let imageContainer = e.target.parentNode.querySelector('.container-item-avance');
                 jQuery.each(attachments, function(index, attachment) {
                     var imageURL = attachment.url;
@@ -149,7 +156,6 @@ function render_galery_avance_meta_box($post)
                 });
                 console.log(container);
                 // Guardar el arreglo actualizado en el campo oculto
-                let inputImages = container.querySelector('input.gal_avance');
                 inputImages.setAttribute('value', JSON.stringify(imgAr));
             });
             mediaUploader.open();
@@ -164,7 +170,6 @@ function render_galery_avance_meta_box($post)
 
 function save_galerie_avance_meta_data($post_id)
 {
-    dd('neeeel');
     if (!isset($_POST['galeria_avance_nonce']) || !wp_verify_nonce($_POST['galeria_avance_nonce'], 'galeria_avance_meta_box')) {
         return;
     }
@@ -188,7 +193,7 @@ function save_galerie_avance_meta_data($post_id)
                 "galery" => $image_gallery[$key],
             ];
         }
-        dd($full_avance);
+        // dd($image_gallery);
         update_post_meta($post_id, 'galeria_avance', $full_avance);
     } else {
     }
