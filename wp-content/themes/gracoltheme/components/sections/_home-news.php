@@ -4,6 +4,14 @@ $newsArgs = [
     'post_per_page' => -1,
     'order' => 'ASC',
     'orderby' => 'id',
+    'tax_query'        => array(
+        array(
+            'taxonomy' => 'category',
+            'field' => 'slug',
+            'terms' => 'noticias',
+            'operator' => 'IN'
+        ),
+    )
 ];
 $loopNews = new WP_Query($newsArgs);
 ?>

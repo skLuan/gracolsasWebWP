@@ -41,7 +41,8 @@ function render_galery_avance_meta_box($post)
     <div id="image-gallery-container-avance" class="w-11/12 mx-auto">
         <button onclick="nuevoAvance()" class="px-3 py-1 mt-5 text-white border rounded border-greenG-mid bg-greenG-mid" id="add-avance-container">Nuevo Avance</button>
         <?php
-        if (isset($avance_obra) && count($avance_obra) > 0) :
+        if (isset($avance_obra) && count($avance_obra) > 0 && $avance_obra[0] !== '[]') :
+            echo var_dump($avance_obra[0]);
             foreach ($avance_obra as $key => $avance) :
                 $fecha = $avance['fecha'];
                 $galeria = json_decode($avance['galery']);
