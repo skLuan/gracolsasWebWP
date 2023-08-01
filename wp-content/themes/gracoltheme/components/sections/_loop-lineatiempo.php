@@ -17,7 +17,7 @@ function obtenerNombreMes($mesNumero)
         default => 'mes inválido'
     };
 }
-if (isset($args['fechas'])) {
+if (isset($args['fechas']) && count($args['fechas']) > 0) {
     $fechas = $args['fechas'];
     sort($fechas);
     if (is_string($fechas[0])) {
@@ -32,13 +32,14 @@ if (isset($args['fechas'])) {
             $fecha = $fechaNueva; //this
         }
     }
+} else {
+    $fechas = [0];
 }
 if (isset($args['title'])) {
     $title = $args['title'];
 }
 ?>
-
-<section class="grid grid-cols-1 gap-5 mx-auto mt-20 lg:grid-cols-12 max-w-screen-2xl">
+<section class="grid grid-cols-1 gap-5 mx-auto mt-16 lg:grid-cols-12 max-w-screen-2xl">
     <h2 class="text-4xl text-center text-orangeG font-futuraBold lg:col-span-full"><?= $title ?></h2>
     <div class="relative flex flex-row flex-wrap justify-center px-3 lg:col-start-3 lg:px-0 lg:col-span-8 lg:justify-evenly text-greenG">
         <?php
