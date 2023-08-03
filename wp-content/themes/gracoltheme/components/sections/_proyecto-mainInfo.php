@@ -6,9 +6,13 @@ $logo_project = get_post_meta(get_the_ID(), 'project_logo', true);
 // -- Tags
 //  echo var_dump($serialized_galeria_inmueble);
 $tags = get_the_terms(get_the_ID(), 'tag-proyecto');
-
-$tags && isset($tags) ? $inmueble = $tags[0]->name : $inmueble = '';
-
+$parentTagID = 71;
+$tipoProyecto = 12;
+if($tags && isset($tags) && $tags[0]->parent !== $parentTagID) {
+    $inmueble = $tags[0]->name;
+} else if($tags[1]->parent == $tipoProyecto) {
+    $inmueble = $tags[1]->name;
+}
 $inmueble === 'Casas' ? $typeIcon = 'clarity:house-solid' : $typeIcon = 'material-symbols:apartment';
 
 // -- Amenities
@@ -84,7 +88,7 @@ $mt2 = get_post_meta(get_the_ID(), 'gs_mt2', true);
             </div>
         </div>
         <p class="text-center mt-14">¿Quieres mas información del proyecto? </p>
-        <a href="#gs_FormProject" class="px-8 py-3 mx-auto mt-3 text-2xl rounded btn-bounty bg-orangeG text-whiteG font-futuraBold">Registrate</a>
+        <a href="#gs_FormProject" class="px-8 py-3 mx-auto mt-3 text-2xl rounded btn-bounty bg-orangeG text-whiteG font-futuraBold">Regístrate</a>
     </section>
     <!-- -------------------------------------- Amenities -->
     <section class="px-3 text-xl lg:col-start-3 lg:px-0 lg:col-span-9 text-greenG-mid">
