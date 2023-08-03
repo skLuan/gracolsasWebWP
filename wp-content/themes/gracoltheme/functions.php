@@ -58,7 +58,7 @@ function init_template()
         wp_enqueue_script('controlPrices', get_stylesheet_directory_uri() . '/assets/js/projectPrices.js', ['main'], '1.8.1', true);
         wp_enqueue_script('bouncyBtn', get_stylesheet_directory_uri() . '/assets/js/project-bouncyButton.js', [], '1.8.1', true);
     }
-    if(is_page('quienes-somos') || is_singular('avance-obra')){
+    if(is_page('nuestra-empresa') || is_singular('avance-obra')){
         wp_enqueue_script('lineaTiempo', get_stylesheet_directory_uri() . '/assets/js/lineatiempo.js', ['gracolSwiper'], '1.8.1', true);
     }
 
