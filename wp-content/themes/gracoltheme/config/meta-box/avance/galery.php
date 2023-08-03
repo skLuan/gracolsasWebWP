@@ -111,14 +111,15 @@ function render_galery_avance_meta_box($post)
                 let imgInput = bigContainer.querySelector('input.gal_avance');
                 let value = imgInput.getAttribute('value');
                 let arrayValue = '';
-                console.log(value);
                 if (value !== '') {
                     arrayValue = JSON.parse(value);
                 }
                 let imageTodelete = image.getAttribute('src').trim();
-                let indexTodelete = value.indexOf(imageTodelete);
+                let indexTodelete = arrayValue.indexOf(imageTodelete);
                 if (indexTodelete !== -1) {
                     arrayValue.splice(indexTodelete, 1);
+                    console.log('el valor es');
+                    console.log(arrayValue);
                     imgInput.setAttribute('value', JSON.stringify(arrayValue));
                     btnParent.remove();
                 }
