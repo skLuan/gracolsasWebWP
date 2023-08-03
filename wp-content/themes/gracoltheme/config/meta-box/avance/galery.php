@@ -42,7 +42,7 @@ function render_galery_avance_meta_box($post)
         <button onclick="nuevoAvance()" class="px-3 py-1 mt-5 text-white border rounded border-greenG-mid bg-greenG-mid" id="add-avance-container">Nuevo Avance</button>
         <?php
         if (isset($avance_obra) && count($avance_obra) > 0 && $avance_obra[0] !== '[]') :
-            echo var_dump($avance_obra[0]);
+            // echo var_dump($avance_obra[0]);
             foreach ($avance_obra as $key => $avance) :
                 $fecha = $avance['fecha'];
                 $galeria = json_decode($avance['galery']);
@@ -54,14 +54,17 @@ function render_galery_avance_meta_box($post)
                     <input id="" class="gal_avance" type="hidden" name="gal_avance[]" value="<?= $gal ?>" readonly>
                     <button class="px-3 py-1 mt-5 text-white border rounded border-greenG-mid bg-greenG-mid add-images-avance" id="">Agregar imagen</button>
                     <div class="flex flex-row flex-wrap container-item-avance">
-                        <?php foreach ($galeria as $i => $img) : ?>
+                        <?php
+                        if(isset($galeria) && $galeria !== 'null'):
+                            foreach ($galeria as $i => $img) : ?>
                             <figure class="w-1/3 mx-5">
                                 <picture>
                                     <img width="100%" src=" <?= htmlspecialchars($img) ?>" alt="">
                                 </picture>
                                 <button class="px-4 py-1 ml-auto text-red-600 border border-red-600 w-fit remove-image" onclick="deleteImage(this)">Eliminar imagen</button>
                             </figure>
-                        <?php endforeach; ?>
+                        <?php endforeach;
+                        endif; ?>
                     </div>
                     <div class="flex flex-row mt-2">
                         <button onclick="deleteAvance(this)" class="px-4 py-1 my-5 ml-auto text-red-600 border border-red-600 w-fit remove-image">Eliminar Avance</button>
@@ -107,7 +110,11 @@ function render_galery_avance_meta_box($post)
             if (bigContainer.classList.contains('avance-container')) {
                 let imgInput = bigContainer.querySelector('input.gal_avance');
                 let value = imgInput.getAttribute('value');
-                let arrayValue = JSON.parse(value);
+                let arrayValue = '';
+                if (value !== '') {
+                    arrayValue = JSON.parse(value);
+
+                }
                 let imageTodelete = image.getAttribute('src').trim();
                 let indexTodelete = value.indexOf(imageTodelete);
                 if (indexTodelete !== -1) {
@@ -190,6 +197,7 @@ function save_galerie_avance_meta_data($post_id)
     if (isset($_POST['gal_avance']) && isset($_POST['fecha_avance'])) {
         $fecha_avance = $_POST['fecha_avance'];
         $image_gallery = $_POST['gal_avance'];
+        dd($image_gallery);
         foreach ($fecha_avance as $key => $value) {
             $full_avance[] = [
                 "fecha" => $value,
