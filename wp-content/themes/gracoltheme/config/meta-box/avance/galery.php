@@ -55,14 +55,14 @@ function render_galery_avance_meta_box($post)
                     <button class="px-3 py-1 mt-5 text-white border rounded border-greenG-mid bg-greenG-mid add-images-avance" id="">Agregar imagen</button>
                     <div class="flex flex-row flex-wrap container-item-avance">
                         <?php
-                        if(isset($galeria) && $galeria !== 'null'):
+                        if (isset($galeria) && $galeria !== 'null') :
                             foreach ($galeria as $i => $img) : ?>
-                            <figure class="w-1/3 mx-5">
-                                <picture>
-                                    <img width="100%" src=" <?= htmlspecialchars($img) ?>" alt="">
-                                </picture>
-                                <button class="px-4 py-1 ml-auto text-red-600 border border-red-600 w-fit remove-image" onclick="deleteImage(this)">Eliminar imagen</button>
-                            </figure>
+                                <figure class="w-1/3 mx-5">
+                                    <picture>
+                                        <img width="100%" src=" <?= htmlspecialchars($img) ?>" alt="">
+                                    </picture>
+                                    <button class="px-4 py-1 ml-auto text-red-600 border border-red-600 w-fit remove-image" onclick="deleteImage(this)">Eliminar imagen</button>
+                                </figure>
                         <?php endforeach;
                         endif; ?>
                     </div>
@@ -113,7 +113,7 @@ function render_galery_avance_meta_box($post)
                 let arrayValue = '';
                 if (value !== '') {
                     arrayValue = JSON.parse(value);
-
+                    console.log();
                 }
                 let imageTodelete = image.getAttribute('src').trim();
                 let indexTodelete = value.indexOf(imageTodelete);
@@ -145,7 +145,7 @@ function render_galery_avance_meta_box($post)
                 let inputImages = container.querySelector('input.gal_avance');
                 console.log(inputImages.getAttribute('value'));
                 let preAtribbute = [];
-                if (inputImages.getAttribute('value') !== '') {
+                if (inputImages.getAttribute('value') !== '' && inputImages.getAttribute('value') !== 'null' && inputImages.getAttribute('value') !== null) {
                     preAtribbute = JSON.parse(inputImages.getAttribute('value'));
                 }
                 var imgAr = [];
