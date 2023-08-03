@@ -111,9 +111,9 @@ function render_galery_avance_meta_box($post)
                 let imgInput = bigContainer.querySelector('input.gal_avance');
                 let value = imgInput.getAttribute('value');
                 let arrayValue = '';
+                console.log(value);
                 if (value !== '') {
                     arrayValue = JSON.parse(value);
-                    console.log();
                 }
                 let imageTodelete = image.getAttribute('src').trim();
                 let indexTodelete = value.indexOf(imageTodelete);
@@ -197,7 +197,6 @@ function save_galerie_avance_meta_data($post_id)
     if (isset($_POST['gal_avance']) && isset($_POST['fecha_avance'])) {
         $fecha_avance = $_POST['fecha_avance'];
         $image_gallery = $_POST['gal_avance'];
-        dd($image_gallery);
         foreach ($fecha_avance as $key => $value) {
             $full_avance[] = [
                 "fecha" => $value,
