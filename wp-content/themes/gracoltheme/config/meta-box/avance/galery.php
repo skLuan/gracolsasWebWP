@@ -136,10 +136,12 @@ function render_galery_avance_meta_box($post)
                 // Recorrer las imágenes seleccionadas
                 let container = e.target.parentNode;
                 let inputImages = container.querySelector('input.gal_avance');
-                let preAtribbute = JSON.parse(inputImages.getAttribute('value'));
+                console.log(inputImages.getAttribute('value'));
+                let preAtribbute = [];
+                if (inputImages.getAttribute('value') !== '') {
+                    preAtribbute = JSON.parse(inputImages.getAttribute('value'));
+                }
                 var imgAr = [];
-                console.log('pree');
-                console.log(preAtribbute);
                 if (preAtribbute.length > 0) {
                     imgAr = preAtribbute;
                 }
