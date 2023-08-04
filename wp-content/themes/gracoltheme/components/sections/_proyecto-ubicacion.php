@@ -31,10 +31,7 @@ $ciudadela = get_the_terms($id, 'ciudadela');
 !isset($gsBarrio) ? $gsBarrio = get_post_meta($id, 'gs_barrio', true) : '';
 !isset($gsCiudad) ? $gsCiudad = get_post_meta($id, 'gs_ciudad', true) : '';
 $gsCiudadSlug = normalize($gsCiudad);
-var_dump($gsCiudadSlug);
 $gsCiudadSlug = strtolower($gsCiudadSlug);
-// var_dump($gsCiudad);
-var_dump($gsCiudadSlug);
 $select = '';
 if ($gsCiudadSlug == 'jamundi') {
     $select = 'jamundi';
