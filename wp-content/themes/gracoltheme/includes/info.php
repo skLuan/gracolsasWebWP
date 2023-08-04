@@ -6,6 +6,7 @@ define('NUM_VENTAS', 573174356010);
 define('NUM_VENTAS_PRINT', '+57 317 435 6010');
 define('FACEBOOK_URL', 'https://www.facebook.com/constructoragracol');
 define('INSTAGRAM_URL', 'https://www.instagram.com/constructoragracol/');
-
+define('GOOGLE_OFICE_URL', 'https://maps.app.goo.gl/nx4ZEDToCpUCthZ97');
+define('WAZE_OFICE_URL', 'https://waze.com/ul/hd23w11khg');
 
 ?>

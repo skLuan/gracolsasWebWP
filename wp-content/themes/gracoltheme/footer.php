@@ -9,15 +9,17 @@
         </picture>
         <div class="grid grid-cols-1 mx-auto lg:grid-cols-4 gap-x-5 lg:w-11/12">
             <div class="w-full mt-5">
-                <h6 class="uppercase lg:text-xl font-futuraBold">Oficina principal</h6>
+                <h6 class="uppercase lg:text-xl font-futuraBold"><a class="hover:text-greenG-light" href="<?= GOOGLE_OFICE_URL ?>">Oficina principal</a></h6>
                 <div class="flex flex-row mt-1 mb-3">
                     <iconify-icon class="mr-1" icon="mdi:location"></iconify-icon>
                     <p class="leading-tight">
-                        <b>Popayán</b>
-                        <br>
-                        Carrera 17N #19N - 238
-                        <br>
-                        Barrio Campamento
+                        <a class="hover:text-greenG-light" href="<?= GOOGLE_OFICE_URL ?>">
+                            <b>Popayán</b>
+                            <br>
+                            Carrera 17N #19N - 238
+                            <br>
+                            Barrio Campamento
+                        </a>
                     </p>
                 </div>
                 <div class="flex flex-row items-center mb-3">
@@ -49,12 +51,14 @@
                 <div class="flex flex-row mb-3">
                     <iconify-icon class="mt-1 mr-1" icon="mdi:location"></iconify-icon>
                     <div>
-                        <b>Popayán</b>
-                        <p class="leading-tight">
-                            Calle 34N con carrera 13(esquina)
-                            <br>
-                            Barrio Campamento
-                        </p>
+                        <a class="hover:text-greenG-light" href="<?= GOOGLE_OFICE_URL ?>">
+                            <b>Popayán</b>
+                            <p class="leading-tight">
+                                Calle 34N con carrera 13(esquina)
+                                <br>
+                                Barrio Campamento
+                            </p>
+                        </a>
                     </div>
                 </div>
                 <div class="flex flex-row mb">
