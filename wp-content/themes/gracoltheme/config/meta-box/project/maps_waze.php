@@ -49,15 +49,15 @@ function save_proyecto_locations_meta_box($post_id)
         delete_post_meta($post_id, 'gs_precio_col');
     } else {
         // Sanitizar y guardar el valor del precio
-        $precio = sanitize_text_field($_POST['gs_google_location']);
-        update_post_meta($post_id, 'gs_google_location', $precio);
+        $googleMap = sanitize_text_field($_POST['gs_google_location']);
+        update_post_meta($post_id, 'gs_google_location', $googleMap);
     }
 
     if (!isset($_POST['gs_waze_location']) || empty($_POST['gs_waze_location'])) {
         delete_post_meta($post_id, 'gs_waze_location');
     } else {
-        $precioSMLV = sanitize_text_field($_POST['gs_waze_location']);
-        update_post_meta($post_id, 'gs_waze_location', $precioSMLV);
+        $wazeMap = sanitize_text_field($_POST['gs_waze_location']);
+        update_post_meta($post_id, 'gs_waze_location', $wazeMap);
     }
 }
 add_action('save_post_proyectos', 'save_proyecto_locations_meta_box');
