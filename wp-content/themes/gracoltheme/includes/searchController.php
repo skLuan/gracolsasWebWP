@@ -19,7 +19,7 @@ function gsLoopSearch()
     $ubiData = $_POST['searchUbicacion'];
     $typeData = $_POST['searchType'];
 
-    $urlPrincipal = "/gracolsas.com/";
+    $urlProyectosVenta = "/categoria-proyectos/en-venta/";
 
     $return = [];
 
@@ -53,10 +53,10 @@ function gsLoopSearch()
             ob_start();
             if (isset($isMini) && $isMini === true) {
                 get_template_part('components/cards/_card', 'homeMini');
-            } else if (strcmp($_POST['sendUrl'], $urlPrincipal) === 0) {
-                get_template_part('components/cards/_card', 'homeProyecto');
-            } else {
+            } else if (strcmp($_POST['sendUrl'], $urlProyectosVenta) === 0) {
                 get_template_part('components/cards/_card', 'enVenta');
+            } else {
+                get_template_part('components/cards/_card', 'homeProyecto');
             }
 
             $cardContent = ob_get_clean();

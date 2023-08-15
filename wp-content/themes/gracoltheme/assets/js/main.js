@@ -48,10 +48,9 @@ function main() {
   function searchProductsHome() {
     let projectUbication = document.querySelectorAll(".btn-ubicacion");
     let loopContainer = document.getElementById("_loopHomeP");
-
     loopContainer == null
-      ? (loopContainer = document.getElementById("_loopVenta"))
-      : "";
+    ? (loopContainer = document.getElementById("_loopVenta"))
+    : "";
 
     let ubicaciones = [];
 
@@ -78,7 +77,7 @@ function main() {
 
     function btnClicked(e) {
       let formContainer = document.getElementById("searchPForm");
-      loopContainer = document.getElementById("_loopHomeP");
+      // let loopContainer = document.getElementById("_loopHomeP");
       let searchUbi;
       let searchType;
       let isMini = false;
@@ -115,8 +114,12 @@ function main() {
             cleaning(projecType);
           }
           loopContainer.innerHTML = `<div class="swiper-slide"><h2 class='text-center'>Cargando</h2></div>`;
-          swiperCards.update(); // Referencia del swiper activado en swipers.js
-          swiperCards.autoplay.pause();
+          try {
+            swiperCards.update(); // Referencia del swiper activado en swipers.js
+            swiperCards.autoplay.pause();
+          } catch (error) {
+            console.log(error);
+          }
         },
         success: function (data) {
           procededData = Object.entries(data).map((entry) => entry[1]);
@@ -146,7 +149,6 @@ function main() {
         "text-orangeG",
         "font-futuraBold"
       );
-      // console.log(e.target);
     }
   }
   galeryControl();

@@ -13,8 +13,8 @@ $isOriginal = $urlBase == $urlImage;
 ?>
 <div class="bg-white rounded-sm shadow-lg snap-center shrink-0">
     <div class="w-64 shrink-0 md:w-full">
-        <figure class="min-h-[203px] <?= $isOriginal ? '' : 'py-3' ?>">
-            <picture class="w-full">
+        <figure class="min-h-[203px] flex flex-col <?= $isOriginal ? '' : 'py-3' ?>">
+            <picture class="w-full m-auto">
                 <img class="lazyload m-auto <?= $isOriginal ? 'w-full' : 'w-1/2' ?>" data-src="<?= $urlImage ?>" alt="">
             </picture>
         </figure>
