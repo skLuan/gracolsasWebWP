@@ -2,12 +2,12 @@
 
 
 
-<main class="w-full lg:mt-24">
+<main class="w-full lg:mt-8">
     <section class="w-full bg-white">
         <figure class="relative h-48 overflow-hidden lg:h-auto">
             <picture class="">
                 <source media="(max-width: 500px)" srcset="<?= IMAGE . 'bannerblog.jpg' ?>">
-                <img class="h-full -translate-x-1/3 max-w-none lg:max-w-full" src="<?= IMAGE . 'bannerblog.jpg' ?>" alt="">
+                <img class="h-full max-w-none lg:max-w-full" src="<?= IMAGE . 'bannerblog.jpg' ?>" alt="">
             </picture>
         </figure>
     </section>

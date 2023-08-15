@@ -10,8 +10,12 @@ $urlBrochure = get_post_meta($post->ID, 'gs_url_brochure', true);
         <button class="px-4 py-1 m-1 transition-all border !text-orangeG !border-orangeG !border-[3px] rounded gs_galerie_buton border-greenG lg:px-5 font-futuraBold">Exteriores</button>
         <button class="px-4 py-1 m-1 transition-all border rounded gs_galerie_buton border-greenG lg:px-5 font-futuraBold">Planos</button>
         <button class="px-5 py-1 m-1 transition-all border rounded gs_galerie_buton border-greenG font-futuraBold">Inmueble</button>
-        <a href="<?= $url360 ?>" target="_blank" class="px-4 py-1 m-1 transition-all border rounded gs_galerie_buton border-greenG lg:px-5 font-futuraBold">Recorrido 360</a>
-        <a href="<?= $urlBrochure ?>" target="_blank" class="px-4 py-1 m-1 transition-all border rounded gs_galerie_buton border-greenG lg:px-5 font-futuraBold">Brochure</a>
+        <?php if(isset($url360) && $url360 !== ''): ?>
+            <a href="<?= $url360 ?>" target="_blank" class="px-4 py-1 m-1 transition-all border rounded gs_galerie_buton border-greenG lg:px-5 font-futuraBold">Recorrido 360</a>
+        <?php endif; ?>
+        <?php if(isset($urlBrochure) && $urlBrochure !== ''): ?>
+            <a href="<?= $urlBrochure ?>" target="_blank" class="px-4 py-1 m-1 transition-all border rounded gs_galerie_buton border-greenG lg:px-5 font-futuraBold">Brochure</a>
+        <?php endif; ?>
     </div>
     <div class="relative bg-white shadow-lg lg:col-span-12">
         <?= get_template_part('components/sections/galeries/_g', 'exteriores') ?>

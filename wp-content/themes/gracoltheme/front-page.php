@@ -1,5 +1,5 @@
 <?php get_header() ?>
-<main class="w-full lg:mt-24">
+<main class="w-full mt-16 lg:mt-20">
     <?php while (have_posts()) {
         the_post();
         the_content();
