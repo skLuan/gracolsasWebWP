@@ -5,13 +5,19 @@ $content = get_the_excerpt();
 
 $content = substr($content, 0, 200) . '...';
 
-$urlImage = IMAGE . 'img-post.png';
-the_post_thumbnail_url() !== null ? $urlImage = the_post_thumbnail_url() : '';
-
+$urlImage = $urlBase = IMAGE . 'img-post.png';
+if (get_the_post_thumbnail_url() !== false && get_the_post_thumbnail_url() !== '') {
+    $urlImage = get_the_post_thumbnail_url();
+}
+$isOriginal = $urlBase == $urlImage;
 ?>
 <div class="bg-white rounded-sm shadow-lg snap-center shrink-0">
     <div class="w-64 shrink-0 md:w-full">
-        <div class="bg-center bg-cover" style="background-image: url('<?= $urlImage ?>'); height: 170px"></div>
+        <figure class="<?= $isOriginal ? '' : 'py-3' ?>">
+            <picture class="w-full">
+                <img class="lazyload <?= $isOriginal ? 'w-full' : 'h-1/2' ?>" data-src="<?= $urlImage ?>" alt="">
+            </picture>
+        </figure>
         <article class="p-3 text-greenG-mid">
             <h3 class="text-2xl font-futuraBold text-orangeG"><a href="<?= $permalink ?>">
                     <?= $title ?>
