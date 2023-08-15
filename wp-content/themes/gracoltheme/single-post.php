@@ -5,7 +5,7 @@ get_the_post_thumbnail_url(get_the_ID(), 'medium') ?
     $urlImage = IMAGE . 'img-post.png';
 
 ?>
-<main class="w-full lg:mt-24">
+<main class="w-full lg:mt-16">
     <?php while (have_posts()) :
         the_post();
     ?>

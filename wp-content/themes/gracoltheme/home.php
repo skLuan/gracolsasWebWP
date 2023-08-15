@@ -1,4 +1,20 @@
-<?php get_header() ?>
+<?php get_header();
+$newsArgs = [
+    'post_type' => 'post',
+    'post_per_page' => -1,
+    'order' => 'ASC',
+    'orderby' => 'id',
+    'tax_query'        => array(
+        array(
+            'taxonomy' => 'category',
+            'field' => 'slug',
+            'terms' => 'manual-de-usuario',
+            'operator' => 'NOT IN'
+        ),
+    )
+];
+$loopNews = new WP_Query($newsArgs);
+?>
 
 
 
@@ -12,9 +28,9 @@
         </figure>
     </section>
     <section class="grid grid-cols-1 mt-5 mb-5 bg-white sm:w-full md:grid-cols-1 md:w-4/5 md:mx-auto">
-        <?php if (have_posts()) {
-            while (have_posts()) {
-                the_post();
+        <?php if ($loopNews->have_posts()) {
+            while ($loopNews->have_posts()) {
+                $loopNews->the_post();
                 //the_content();
                 get_template_part('components/content', 'archive');
             }

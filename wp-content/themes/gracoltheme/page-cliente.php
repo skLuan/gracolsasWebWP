@@ -6,7 +6,7 @@ $category_slug = 'manual-de-usuario';
 $category = get_category_by_slug($category_slug);
 $archive_url = get_category_link($category->term_id);
 ?>
-<main class="w-full lg:mt-24">
+<main class="w-full lg:mt-16">
     <section class="w-full mt-10 bg-white lg:mt-0 lg:pt-10">
         <figure class="relative overflow-hidden h-[450px] lg:h-[unset] bg-white">
             <picture class="absolute lg:static z-0 right-[-169px] bottom-0 lg:bottom-[unset]">

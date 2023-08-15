@@ -31,7 +31,7 @@ alcanza un área aproximada de 17.000 m2, construidos.',
 
 ];
 ?>
-<main class="w-full lg:mt-24">
+<main class="w-full lg:mt-16">
     <section class="px-5 mx-auto bg-white shadow-lg max-w-screen-2xl">
         <h2 class="py-5 text-4xl text-center text-orangeG font-futuraBold col-span-full">Gracol hoy</h2>
         <article class="mx-auto mb-5 lg:w-1/2">

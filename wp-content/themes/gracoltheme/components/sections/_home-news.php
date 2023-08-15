@@ -16,8 +16,6 @@ $newsArgs = [
 $loopNews = new WP_Query($newsArgs);
 ?>
 <section class="relative mb-10 overflow-auto md:max-w-screen-2xl md:mx-auto">
-    <!-- <div class="w-full mb-5 text-center bg-center bg-no-repeat bg-cover" style="background-image: url('<?= IMAGE . 'ultimas-noticias.png' ?>'); height: 170px">
-    </div> -->
     <div class="flex items-center justify-center w-full mb-5 overflow-hidden text-center bg-center bg-no-repeat bg-cover">
         <picture>
             <img class="h-24 lg:h-[unset] max-w-none" src="<?= IMAGE . 'ultimas-noticias.png' ?>" alt="news banner">

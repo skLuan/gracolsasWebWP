@@ -11,7 +11,7 @@ if (is_tax('categoria-proyecto', 'en-construccion')) {
     $mobileBanner = IMAGE . 'baner_EntregadasMObile.png';
 }
 ?>
-<main class="w-full lg:mt-24">
+<main class="w-full lg:mt-16">
     <section class="w-full">
         <figure class="mt-10 lg:mt-0">
             <picture>

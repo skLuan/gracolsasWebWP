@@ -17,7 +17,7 @@ if (isset($galeria_avance) && $galeria_avance !== '') {
 }
 $logoProjectUrl = get_post_meta($projectID, 'project_logo', true);
 ?>
-<main class="w-full lg:mt-24">
+<main class="w-full lg:mt-16">
     <section class="w-full">
         <figure class="">
             <picture>

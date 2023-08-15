@@ -15,7 +15,7 @@ $args = array(
 );
 query_posts($args);
 ?>
-<main class="w-full lg:mt-24">
+<main class="w-full lg:mt-16">
     <section class="w-full">
         <figure class="mt-10 lg:mt-0">
             <picture>
