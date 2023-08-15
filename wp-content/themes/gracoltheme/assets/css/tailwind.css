@@ -61,12 +61,11 @@
 .postbox .inside {
   @apply flex flex-row;
 }
-
 .wp-block-image {
   @apply overflow-hidden;
 }
 .wp-block-image img {
-  @apply w-auto lg:w-full max-w-none lg:max-w-full h-[400px] lg:h-[unset] -translate-x-1/3 lg:-translate-x-0;
+  @apply w-auto lg:w-full max-w-none lg:max-w-full lg:h-auto;
 }
 
 /* Accordeon */

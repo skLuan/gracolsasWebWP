@@ -3,7 +3,7 @@ get_header();
 $bannerAvance = IMAGE . 'baner_avanceObra.png';
 $mobileBanner = IMAGE . 'baner_avanceObraMobile.png';
 ?>
-<main class="w-full lg:mt-24">
+<main class="w-full mt-16 lg:mt-24">
     <section class="w-full">
         <figure class="mt-10 lg:mt-0">
             <picture>

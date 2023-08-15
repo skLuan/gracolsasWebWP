@@ -2,7 +2,7 @@
 
 
 
-<main class="w-full lg:mt-8">
+<main class="w-full lg:mt-16">
     <section class="w-full bg-white">
         <figure class="relative h-48 overflow-hidden lg:h-auto">
             <picture class="">
