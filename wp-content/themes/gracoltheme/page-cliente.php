@@ -60,10 +60,10 @@ $archive_url = get_category_link($category->term_id);
                         <h2 class="mb-10 text-3xl text-white lg:mb-5 font-futuraBold">¿Alguna queja o reclamo?</h2>
                         <p class="text-white text-1xl font-futuraBold">Si tienes alguna queja o reclamo de nuestro servicio dale clic al botón para redireccionarte al formulario de quejas o reclamos.</p>
                     </div>
-                    <button id="btn_quejas" class="px-5 py-1 mb-10 bg-white bg-opacity-80 mt-auto text-orangeG border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Quejas o reclamos</button>
+                    <button id="btn_quejas" class="px-5 py-1 mb-10 bg-white bg-opacity-80 mt-auto text-orangeG border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Abrir formulario</button>
                 </div>
             </div>
-            <div id="form_quejasreclamos_container" class="w-full transition-all">
+            <div id="form_quejasreclamos_container" class="w-full hidden transition-all">
                 <?= get_template_part('components/_form', 'queja') ?>
             </div>
         </div>
@@ -80,7 +80,7 @@ $archive_url = get_category_link($category->term_id);
                     </div>
                 </div>
             </div>
-            <div id="form_postventa_container" class="bg-[#E4E4E4]">
+            <div id="form_postventa_container" class="bg-[#E4E4E4] hidden">
                 <?= get_template_part('components/_form', 'postventa') ?>
             </div>
         </div>

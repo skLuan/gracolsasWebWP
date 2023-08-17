@@ -57,7 +57,7 @@ if (count($brokers) > 0) {
     }
 }
 ?>
-<div id="container_pagos" class="grid w-full grid-cols-1 p-5 bg-whiteG lg:grid-cols-3">
+<div id="container_pagos" class="grid hidden w-full grid-cols-1 p-5 bg-whiteG lg:grid-cols-3">
     <?php
     if (count($brokers) > 0) :
         foreach ($brokers as $broker => $projectInfo) :

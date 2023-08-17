@@ -1,14 +1,14 @@
 <?php
-    $faqArgs = [
-        'post_type' => 'faq',
-        'post_per_page' => -1,
-        'order' => 'ASC',
-        'orderby' => 'id',
-    ];
-    $faqs = new WP_Query($faqArgs);
-    ?>
+$faqArgs = [
+    'post_type' => 'faq',
+    'post_per_page' => -1,
+    'order' => 'ASC',
+    'orderby' => 'id',
+];
+$faqs = new WP_Query($faqArgs);
+?>
 <section class="w-full pt-10 pb-5 bg-white">
-    <div class="grid mb-5 text-center justify-items-center">
+    <div class="grid mb-5 mt-16 text-center justify-items-center">
         <picture>
             <img class="mb-1 lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'pregunta.png' ?>" alt="Preguntas Frecuentes" />
         </picture>
@@ -21,7 +21,7 @@
             <?php while ($faqs->have_posts()) :
                 $faqs->the_post();
             ?>
-                <div>
+                <div class="w-3/4 m-auto">
                     <button class="accordion text-greenG font-futuraBold"><span class="pb-1 text-lg"><?= the_title() ?></span></button>
                     <div class="justify-center m-2 text-base lg:px-12 panel text-greenG">
                         <?= the_content() ?>
