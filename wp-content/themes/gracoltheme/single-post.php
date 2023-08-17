@@ -1,7 +1,7 @@
 <?php get_header();
 
-get_the_post_thumbnail_url(get_the_ID(), 'medium') ?
-    $urlImage = get_the_post_thumbnail_url(get_the_ID(), 'medium') :
+get_the_post_thumbnail_url(get_the_ID(), 'high') ?
+    $urlImage = get_the_post_thumbnail_url(get_the_ID(), 'high') :
     $urlImage = IMAGE . 'img-post.png';
 
 ?>
@@ -11,7 +11,7 @@ get_the_post_thumbnail_url(get_the_ID(), 'medium') ?
     ?>
     <section class="grid grid-cols-1 mt-5 mb-5 bg-white sm:w-full md:w-4/5 md:mx-auto">
         <article class="border-color border-b-[4px]  grid grid-cols-1 md:grid-cols-2 gap-2">
-            <picture><img data-src="<?= $urlImage ?>" alt="image" class="lazyload image-blog" ></picture>
+            <picture class="py-10"><img data-src="<?= $urlImage ?>" alt="image" class="lazyload image-blog" ></picture>
             <div class="flex flex-col justify-center mb-5 text-left lg:col-span-6 lg:col-start-2 lg:mx-3 items-left md:mx-5">
                 <div class="md:mx-5">
                     <h2 class="mx-5 text-3xl lg:mx-0 text-greenG md:text-4xl lg:leading-snug lg:text-5xl font-futuraBold"><?= the_title(); ?></h2>

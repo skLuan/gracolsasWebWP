@@ -9,25 +9,28 @@ $urlImage = $urlBase = IMAGE . 'img-post.png';
 if (get_the_post_thumbnail_url() !== false && get_the_post_thumbnail_url() !== '') {
     $urlImage = get_the_post_thumbnail_url();
 }
+
 $isOriginal = $urlBase == $urlImage;
 ?>
 <div class="bg-white rounded-sm shadow-lg snap-center shrink-0">
-    <div class="w-64 shrink-0 md:w-full">
-        <figure class="min-h-[203px] flex flex-col <?= $isOriginal ? '' : 'py-3' ?>">
-            <picture class="w-full m-auto">
-                <img class="lazyload m-auto <?= $isOriginal ? 'w-full' : 'w-1/2' ?>" data-src="<?= $urlImage ?>" alt="">
-            </picture>
+    <div class="w-64 shrink-0 md:w-full h-full flex flex-col">
+        <figure class="min-h-[203px] ">
+            <a href="<?= $permalink ?>">
+                <picture class="w-full m-auto">
+                    <img class="lazyload m-auto <?= $isOriginal ? 'w-full' : 'w-full' ?>" data-src="<?= $urlImage ?>" alt="">
+                </picture>
+            </a>
         </figure>
         <article class="p-3 text-greenG-mid">
-            <h3 class="text-2xl font-futuraBold text-orangeG"><a href="<?= $permalink ?>">
+            <h3 class="text-2xl font-futuraBold text-greenG"><a href="<?= $permalink ?>">
                     <?= $title ?>
                 </a></h3>
-            <p>
+            <p calss="leading-tight">
                 <?= $content ?>
             </p>
-            <div class="w-full text-right">
-                <p class="text-lg text-orangeG font-futuraBold">Ver más</p>
-            </div>
         </article>
+        <div class="p-3 w-full text-right mt-auto">
+            <a href="<?= $permalink ?>" class="text-lg text-orangeG font-futuraBold">Ver más</a>
+        </div>
     </div>
 </div>

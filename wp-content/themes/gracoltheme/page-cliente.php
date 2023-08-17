@@ -80,7 +80,7 @@ $archive_url = get_category_link($category->term_id);
                     </div>
                 </div>
             </div>
-            <div id="form_postventa_container">
+            <div id="form_postventa_container" class="">
                 <?= get_template_part('components/_form', 'postventa') ?>
             </div>
         </div>
