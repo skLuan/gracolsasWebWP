@@ -6,12 +6,12 @@ $inputpostVenta = new gsInput('proyect_name');
     <h2 class="mt-5 mb-10 text-3xl text-center text-greenG font-futuraBold col-span-full">Quejas y reclamos</h2>
     <input type="hidden" name="nonce" value="<?php // echo wp_create_nonce('my_form_nonce'); ?>">
     <div class="grid max-w-2xl grid-cols-1 mx-auto lg:grid-cols-2">
-        <?php // $inputpostVenta->renderInput('project_ref', 'Proyecto*', 'text', 'projectName', true); ?>
-        <?php // $inputpostVenta->renderInput('project_customer', 'Nombre*'); ?>
-        <?php // $inputpostVenta->renderInput('project_tel', 'Teléfono*'); ?>
-        <?php // $inputpostVenta->renderInput('project_email', 'Correo eléctronico*'); ?>
-        <?php // $inputpostVenta->renderInput('subject', 'Asunto'); ?>
-        <?php // $inputpostVenta->renderInput('claimLocation', 'Espacio', 'text', '',false, 'Ej Sala, Comedor'); ?>
+        <?php // echo $inputpostVenta->renderInput('project_ref', 'Proyecto*', 'text', 'projectName', true); ?>
+        <?php // echo $inputpostVenta->renderInput('project_customer', 'Nombre*'); ?>
+        <?php // echo $inputpostVenta->renderInput('project_tel', 'Teléfono*'); ?>
+        <?php // echo $inputpostVenta->renderInput('project_email', 'Correo eléctronico*'); ?>
+        <?php // echo $inputpostVenta->renderInput('subject', 'Asunto'); ?>
+        <?php // echo $inputpostVenta->renderInput('claimLocation', 'Espacio', 'text', '',false, 'Ej Sala, Comedor'); ?>
         <label for="gs_claimDescription" class="w-[84%] mx-auto col-span-full"><span class="text-lg">Descripción</span>
             <textarea class="w-full" name="gs_claimDescription" id="gs_claimDescription" cols="30" rows="5"></textarea>
         </label>

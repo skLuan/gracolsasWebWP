@@ -1,4 +1,4 @@
-¡<?php
+<?php
     $faqArgs = [
         'post_type' => 'faq',
         'post_per_page' => -1,

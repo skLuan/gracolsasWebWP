@@ -31,7 +31,7 @@ $archive_url = get_category_link($category->term_id);
             </div>
         </figure>
     </section>
-    <section id="options" class="grid grid-cols-1 mx-auto mb-5 lg:grid-cols-2 lg:grid-rows-none max-w-screen-2xl">
+    <section id="options" class="grid grid-cols-1 mx-auto lg:grid-cols-2 lg:grid-rows-none max-w-screen-2xl">
 
         <div id="pagos" class="grid w-full h-fit pagos justify-items-center">
             <div class="relative flex flex-wrap justify-around w-full h-56 overflow-hidden text-center md:h-80">
@@ -50,7 +50,7 @@ $archive_url = get_category_link($category->term_id);
             <?= get_template_part('components/sections/_loop', 'brokers') ?>
         </div>
 
-        <div id="quejaReclamo" class="grid w-full queja justify-items-center">
+        <div id="quejaReclamo" class="grid w-full bg-[#E4E4E4] justify-items-center">
             <div class="relative bg-[#B3B3B3] grid w-full h-80 md:flex md:justify-around justify-items-center">
                 <figure class="absolute z-0 w-full h-full -right-0 md:-right-28 lg:-right-0">
                     <img src="<?= IMAGE . 'queja.jpg' ?>" alt="queja" class="h-2/3 md:h-full max-w-none">
@@ -63,7 +63,7 @@ $archive_url = get_category_link($category->term_id);
                     <button id="btn_quejas" class="px-5 py-1 mb-10 bg-white bg-opacity-80 mt-auto text-orangeG border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Quejas o reclamos</button>
                 </div>
             </div>
-            <div id="form_quejasreclamos_container" class="w-10/12 transition-all">
+            <div id="form_quejasreclamos_container" class="w-full transition-all">
                 <?= get_template_part('components/_form', 'queja') ?>
             </div>
         </div>
@@ -80,7 +80,7 @@ $archive_url = get_category_link($category->term_id);
                     </div>
                 </div>
             </div>
-            <div id="form_postventa_container" class="">
+            <div id="form_postventa_container" class="bg-[#E4E4E4]">
                 <?= get_template_part('components/_form', 'postventa') ?>
             </div>
         </div>
