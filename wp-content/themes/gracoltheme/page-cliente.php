@@ -52,7 +52,7 @@ $archive_url = get_category_link($category->term_id);
 
         <div id="quejaReclamo" class="grid w-full bg-[#E4E4E4] justify-items-center">
             <div class="relative bg-[#B3B3B3] grid w-full h-80 md:flex md:justify-around justify-items-center">
-                <figure class="absolute z-0 w-full h-full -right-0 md:-right-28 lg:-right-0">
+                <figure class="absolute z-0 w-full h-full overflow-hidden -right-0 md:-right-28 lg:-right-0">
                     <img src="<?= IMAGE . 'queja.jpg' ?>" alt="queja" class="h-2/3 md:h-full max-w-none">
                 </figure>
                 <div class="z-10 bg-[#B3B3B3] md:bg-transparent bg-opacity-40 flex flex-col items-center ml-5 md:ml-10 mr-auto md:w-1/2">

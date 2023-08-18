@@ -17,12 +17,12 @@ function normalize($string)
     return strtr($string, $table);
 }
 $urls = [
-    'principalGoogle' => 'https://goo.gl/maps/U7ircX2Tk67dVw4B7',
-    'principalWaze' => 'https://waze.com/ul/hd23w11khg',
-    'ciudadelaBosqueGoogle' => 'https://maps.app.goo.gl/hSxz8Guh8TpNdgZe6',
-    'ciudadelaBosqueWaze' => 'https://waze.com/ul/hd23w1h5nh',
-    'JamundiGoogle' => 'https://goo.gl/maps/9A5T8xEVHNvftzKbA',
-    'JamundiWaze' => 'https://waze.com/ul/hd29d6rwk7',
+    'principalGoogle' => URL_GOOGLE_PRINCIPAL,
+    'principalWaze' => URL_WAZE_PRINCIPAL,
+    'ciudadelaBosqueGoogle' => URL_GOOGLE_CIUDADELABOSQUE,
+    'ciudadelaBosqueWaze' => URL_WAZE_CIUDADELABOSQUE,
+    'JamundiGoogle' => URL_GOOGLE_JAMUNDI,
+    'JamundiWaze' => URL_WAZE_JAMUNDI,
 ];
 $id = get_the_ID();
 

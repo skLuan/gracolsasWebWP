@@ -30,10 +30,10 @@ $previous_url = wp_get_referer();
             ])
             ?>
             <div class="flex flex-row items-center ml-auto">
+                <a class="md:text-lg hover:text-orangeG" href="<?= get_the_permalink(12) ?>">Portal clientes</a>
+                <div class="w-[1px] h-full mx-2 bg-greenG"></div>
                 <a href="<?= FACEBOOK_URL ?>" class="flex "><iconify-icon class="my-auto text-2xl" icon="carbon:logo-facebook"></iconify-icon></a>
                 <a href="<?= INSTAGRAM_URL ?>" class="flex ml-1"><iconify-icon class="my-auto text-2xl" icon="ri:instagram-line"></iconify-icon></a>
-                <div class="w-[1px] h-full mx-2 bg-greenG"></div>
-                <a class="md:text-lg hover:text-orangeG" href="<?= get_the_permalink(12) ?>">Portal clientes</a>
             </div>
             <?= get_template_part('components/misc/_btn', 'whatsapp') ?>
         </div>
