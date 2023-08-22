@@ -21,15 +21,19 @@ if (isset($args['fechas']) && count($args['fechas']) > 0) {
     $fechas = $args['fechas'];
     sort($fechas);
     if (is_string($fechas[0])) {
-        foreach ($fechas as &$fecha) {
-            $dateTime = new DateTime($fecha);
-            // Obtener el día, el mes y el año
-            $dia = $dateTime->format('d');
-            $mesNumero = $dateTime->format('m');
-            $anio = $dateTime->format('Y');
-            $mesNombre = obtenerNombreMes($mesNumero);
-            $fechaNueva = $dia . '/' . $mesNombre . '/' . $anio;
-            $fecha = $fechaNueva; //this
+        try {
+            foreach ($fechas as &$fecha) {
+                $dateTime = new DateTime($fecha);
+                // Obtener el día, el mes y el año
+                $dia = $dateTime->format('d');
+                $mesNumero = $dateTime->format('m');
+                $anio = $dateTime->format('Y');
+                $mesNombre = obtenerNombreMes($mesNumero);
+                $fechaNueva = $dia . '/' . $mesNombre . '/' . $anio;
+                $fecha = $fechaNueva; //this
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
         }
     }
 } else {

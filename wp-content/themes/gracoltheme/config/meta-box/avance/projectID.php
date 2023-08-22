@@ -29,7 +29,7 @@ function display_avance_proyecto_ID_meta_box($post)
                 'taxonomy' => 'categoria-proyecto',
                 'field' => 'slug',
                 'terms' => 'obras-entregadas',
-                'operator' => 'NOT IN'
+                'operator' => 'IN'
             ),
         )
     ]);

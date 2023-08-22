@@ -2,13 +2,13 @@
 $actualBanner = IMAGE . 'baner_Entregadas.png';
 $mobileBanner = IMAGE . 'baner_EntregadasMObile.png';
 $projectID = get_the_ID();
-$galeria_avance = get_post_meta(get_the_ID(),  'galeria_avance', true);
-$fechas = [];
+$avanceID = get_post_meta($projectID, 'p_avance_id', true);
+$galeria_avance = get_post_meta($avanceID,  'galeria_avance', true);
+$fechas = ['Finalizacion del proyecto'];
 $galerias = [];
 if (isset($galeria_avance) && $galeria_avance !== '') {
     try {
         foreach ($galeria_avance as $key => $avance) {
-            $fechas[] = $avance['fecha'];
             $galerias[] = json_decode($avance['galery']);
         }
     } catch (\Throwable $th) {
@@ -33,8 +33,8 @@ $logoProjectUrl = get_post_meta($projectID, 'project_logo', true);
             </picture>
         </figure>
     </section>
-    <?= get_template_part('components/sections/_loop', 'lineatiempo', ['fechas' => $fechas, 'title' => 'Avances']) ?>
-    <section id="avance-galeries" class="pb-5 mx-auto my-5 bg-white shadow-lg max-w-screen-2xl">
+    <?= get_template_part('components/sections/_loop', 'lineatiempo', ['fechas' => $fechas, 'title' => 'Obra finalizada']) ?>
+    <section id="obra-entregada" class="pb-5 mx-auto my-5 bg-white shadow-lg max-w-screen-2xl">
         <?php
         foreach ($galerias as $i => $galeria) {
             $fecha = $fechas[$i];
