@@ -4,7 +4,7 @@ function project_avance_post_type()
     $labels = array(
         'name'                  => __('Avances de obra', 'Post Type General Name', 'gracolsas'),
         'singular_name'         => __('Avance de obra', 'Post Type Singular Name', 'gracolsas'),
-        'menu_name'             => __('Avances de obra', 'gracolsas'),
+        'menu_name'             => __('Avances de obra u obras entregadas', 'gracolsas'),
         'name_admin_bar'        => __('Avances de obra', 'gracolsas'),
         'archives'              => __('Archivos de Avances de obra', 'gracolsas'),
         'attributes'            => __('Atributos de Avances de obra', 'gracolsas'),

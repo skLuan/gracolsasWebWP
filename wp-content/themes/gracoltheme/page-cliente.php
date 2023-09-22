@@ -40,10 +40,10 @@ $archive_url = get_category_link($category->term_id);
                 </picture>
                 <div class="z-10 flex flex-col items-center w-2/3 ml-auto">
                     <div class="mx-auto mt-auto">
-                        <h2 class="text-3xl md:text-5xl text-orangeG font-futuraBold">Paga tus cuotas</h2>
-                        <h3 class="md:text-2xl md:pt-3 font-futuraBold text-grayG">fácil, rápido y seguro</h3>
+                        <h2 class="text-3xl md:text-5xl text-orangeG font-futuraBold">Portal de pagos</h2>
+                        <h3 class="md:text-2xl md:pt-3 font-futuraBold text-grayG">Paga tus cuotas fácil, rápido y seguro</h3>
                     </div>
-                    <button id="btn_pagos" class="px-5 py-1 mt-auto mb-10 text-orangeG border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Encuentra tu Broker</button>
+                    <button id="btn_pagos" class="px-5 py-1 mt-auto mb-10 text-orangeG border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Realizar pago</button>
                 </div>
 
             </div>
@@ -57,10 +57,11 @@ $archive_url = get_category_link($category->term_id);
                 </figure>
                 <div class="z-10 bg-[#B3B3B3] md:bg-transparent bg-opacity-40 flex flex-col items-center ml-5 md:ml-10 mr-auto md:w-1/2">
                     <div class="p-4 mt-auto">
-                        <h2 class="mb-10 text-3xl text-white lg:mb-5 font-futuraBold">¿Alguna queja o reclamo?</h2>
-                        <p class="text-white text-1xl font-futuraBold">Si tienes alguna queja o reclamo de nuestro servicio dale clic al botón para redireccionarte al formulario de quejas o reclamos.</p>
+                        <h2 class="mb-10 text-3xl text-white lg:mb-5 font-futuraBold"> Sugerencias y peticiones</h2>
+                        <p class="text-white text-1xl font-futuraBold">Si tiene alguna solicitud, nuestro equipo de asesores esta siempre dispuesto ha ayudarte.</p>
                     </div>
-                    <button id="btn_quejas" class="px-5 py-1 mb-10 bg-white bg-opacity-80 mt-auto text-orangeG border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Abrir formulario</button>
+                    <button id="btn_quejas" class="px-5 py-1 mb-10 bg-white bg-opacity-80 mt-auto text-orangeG border-[3px] border-orangeG rounded bg-transparent font-futuraBold">Radicar solicitud
+                    </button>
                 </div>
             </div>
             <div id="form_quejasreclamos_container" class="w-full hidden transition-all">
@@ -74,9 +75,10 @@ $archive_url = get_category_link($category->term_id);
                 </picture>
                 <div class="z-10 flex items-center mr-auto md:w-3/5">
                     <div class="flex flex-col p-5 md:p-10">
-                        <h2 class="mb-5 text-3xl text-white lg:text-center font-futuraBold">Garantías y post ventas</h2>
-                        <p class="mb-5 text-white lg:text-center text-1xl font-futuraBold">Tienes algún problema con tu vivienda? escribenos para solucionarlo lo más rapido posible</p>
-                        <button id="btn_garantia" class="px-5 mx-auto bg-greenG bg-opacity-70 text-center py-1 text-orangeG border-[3px] border-orangeG rounded font-futuraBold">Abrir formulario</button>
+                        <h2 class="mb-5 text-3xl text-white lg:text-center font-futuraBold">Garantías y postventa</h2>
+                        <p class="mb-5 text-white lg:text-center text-1xl font-futuraBold">Si tiene algún inconveniente en su inmueble, nuestro equipo de asesores esta siempre dispuesto ha ayudarte.</p>
+                        <a id="url_garantia" target="_blank" href="https://manage.smart-home.com.co/CustomerExperiences/LoginCustomerExperince.html?action=login&companyCode=50c04f3c&companyColor=F25922" class="px-5 mx-auto bg-greenG bg-opacity-70 text-center py-1 text-orangeG border-[3px] border-orangeG rounded font-futuraBold">Radicar solicitud</a>
+                        <!-- <button id="btn_garantia" class="px-5 mx-auto bg-greenG bg-opacity-70 text-center py-1 text-orangeG border-[3px] border-orangeG rounded font-futuraBold">Radicar solicitud</button> -->
                     </div>
                 </div>
             </div>
@@ -88,8 +90,9 @@ $archive_url = get_category_link($category->term_id);
             <div class="grid justify-around w-full grid-cols-1 px-5 py-3 text-center bg-center bg-cover h-80 md:grid-cols-2" style="background-image: url('<?= IMAGE . 'ayudas.png' ?>');">
                 <div class="flex items-center flex-auto w-3/5 md:w-auto">
                     <div class="p-0 md:p-4">
-                        <h2 class="mb-5 text-3xl text-center text-greenG font-futuraBold">Manual de usuarios</h2>
-                        <p class="mb-5 text-center text-1xl font-futuraBold text-grayG">Descubre todos tus derechos y responsabilidades</p>
+                        <h2 class="mb-5 text-3xl text-center text-greenG font-futuraBold">Manual de usuario de proyectos</h2>
+                        <p class="text-center text-1xl font-futuraBold text-grayG">Usos y recomendaciones en el inmueble adquirido.</p>
+                        <p class="mb-5 text-center font-futuraBold text-sm text-grayG">(Bosque encantado, palmas llano, palmas sol, mirador del sol, marsella, puerto madero)</p>
                         <a href="<?= $archive_url ?>" class="py-1 mt-5 text-greenG border-[3px] block border-greenG rounded bg-transparent font-futuraBold">Ir a los manuales</a>
                     </div>
                 </div>

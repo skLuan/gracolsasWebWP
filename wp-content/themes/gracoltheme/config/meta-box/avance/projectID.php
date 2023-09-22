@@ -24,22 +24,23 @@ function display_avance_proyecto_ID_meta_box($post)
         'post_per_page' => -1,
         'order' => 'ASC',
         'orderby' => 'title',
-        'tax_query'        => array(
+        'tax_query' => array(
+            // 'relation' => 'OR', // Establecer la relación OR para que coincida con cualquiera de las dos taxonomías
             array(
                 'taxonomy' => 'categoria-proyecto',
                 'field' => 'slug',
-                'terms' => 'obras-entregadas',
+                'terms' => array('obras-entregadas', 'en-construccion', 'en-entrega'),
                 'operator' => 'IN'
             ),
         )
     ]);
-    // Recuperar el valor actual del precio (si existe)
     $projectId = get_post_meta($avance_id, 'a_project_id', true);
-    echo var_dump($avance_id);
+    echo var_dump($projectId);
 ?>
     <div class="w-full ml-auto">
         <label class="block text-base" for="a_project_id">Proyecto asociado</label>
         <select class="text-base" id="a_project_id" name="a_project_id">
+            <option value="empy">Selecciona un proyecto</option>
             <?php
             if ($projects->have_posts()) :
                 while ($projects->have_posts()) :
@@ -50,7 +51,7 @@ function display_avance_proyecto_ID_meta_box($post)
                         <option value="<?= get_the_ID() ?>" selected><?= the_title() ?></option>
                     <?php endif; ?>
             <?php endwhile;
-                wp_reset_postdata();
+            // wp_reset_postdata();
             endif; ?>
         </select>
     </div>

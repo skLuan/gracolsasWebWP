@@ -51,6 +51,13 @@ $precio = number_format($precio_num, 0, ',', '.');
 $noAlcobas = get_post_meta(get_the_ID(), 'gs_noAlcobas', true);
 $mt2 = get_post_meta(get_the_ID(), 'gs_mt2', true);
 
+function alcobasPlural($noAlcobas) {
+    $labelNoAlcoba = 'Alcobas';
+    if($noAlcobas == 1){
+        $labelNoAlcoba = 'Alcoba';
+    }
+    return $labelNoAlcoba;
+}
 ?>
 <section class="relative grid grid-cols-1 gap-5 pb-10 mx-5 bg-white rounded-sm shadow-lg max-w-screen-2xl lg:mx-auto lg:px-5 lg:grid-cols-12">
     <!-- -------------------------------------------- Logo -->
@@ -101,7 +108,7 @@ $mt2 = get_post_meta(get_the_ID(), 'gs_mt2', true);
             </div>
             <div class="flex flex-row items-center">
                 <iconify-icon class="ml-5 mr-3 text-4xl text-greenG lg:text-6xl" icon="material-symbols:bed"></iconify-icon>
-                <p class="pl-3 lg:text-2xl"><b class=""><?= $noAlcobas ?></b><span class=""> Alcobas</span></p>
+                <p class="pl-3 lg:text-2xl"><b class=""><?= $noAlcobas ?></b><span class=""> <?= alcobasPlural($noAlcobas) ?></span></p>
             </div>
             <div class="flex flex-row items-center">
                 <iconify-icon class="ml-5 mr-3 text-4xl text-greenG lg:text-6xl" icon="tabler:ruler-measure"></iconify-icon>

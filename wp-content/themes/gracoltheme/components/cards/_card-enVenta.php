@@ -28,7 +28,7 @@ $cardData = new CardProject(get_the_ID());
             </div>
         </div>
         <div class="h-[1px] bg-greenG w-11/12 mx-auto my-3"></div>
-        <div class="text-base leading-tight">
+        <div class="text-base text-justify leading-tight">
             <?= $cardData->getDescrition() ?>
         </div>
         <?= get_template_part('components/cards/_partCard', 'precios', ['cardData' => $cardData]); ?>

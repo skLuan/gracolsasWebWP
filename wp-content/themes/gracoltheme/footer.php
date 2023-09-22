@@ -40,7 +40,7 @@
                         <a href="<?= INSTAGRAM_URL ?>" target="_blank">
                             <iconify-icon class="mr-5 text-xl" icon="ri:instagram-line"></iconify-icon>
                         </a>
-                        <a href="https://youtube.com" target="_blank">
+                        <a href="https://www.youtube.com/@constructoragracol219" target="_blank">
                             <iconify-icon class="text-2xl" icon="mdi:youtube"></iconify-icon>
                         </a>
                     </div>

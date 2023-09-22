@@ -25,11 +25,11 @@ function display_proyecto_alcobas_metros_meta_box($post)
 ?>
     <div class="ml-auto">
         <label class="block text-base" for="noAlcobas">Número de alcobas</label>
-        <input class="text-base" id="noAlcobas" type="number" name="noAlcobas" value="<?= esc_attr($noAlcobas) ?>" />
+        <input class="text-base" id="noAlcobas" type="text" name="noAlcobas" value="<?= esc_attr($noAlcobas) ?>" />
     </div>
     <div class="ml-5 mr-auto">
         <label class="block text-base" for="gsMt2">Metros cuadrados</label>
-        <input class="text-base" id="gsMt2" type="number" name="gsMt2" value="<?= esc_attr($mt2) ?>" />
+        <input class="text-base" id="gsMt2" type="text" name="gsMt2" value="<?= esc_attr($mt2) ?>" />
     </div>
 <?php
 
@@ -48,14 +48,14 @@ function save_proyecto_alcobas_metros_meta_box($post_id)
         delete_post_meta($post_id, 'gs_noAlcobas');
     } else {
         // Sanitizar y guardar el valor del precio
-        $alcobas = floatval($_POST['noAlcobas']);
+        $alcobas = $_POST['noAlcobas'];
         update_post_meta($post_id, 'gs_noAlcobas', $alcobas);
     }
 
     if (!isset($_POST['gsMt2']) || empty($_POST['gsMt2'])) {
         delete_post_meta($post_id, 'gs_mt2');
     } else {
-        $mt2 = floatval($_POST['gsMt2']);
+        $mt2 = $_POST['gsMt2'];
         update_post_meta($post_id, 'gs_mt2', $mt2);
     }
 }

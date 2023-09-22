@@ -26,7 +26,7 @@ function display_proyecto_avance_ID_meta_box($post)
     $proyecto_id = isset($_GET['post']) ? $_GET['post'] : false;
     // Recuperar el valor actual del precio (si existe)
     $avanceId = get_post_meta($proyecto_id, 'p_avance_id', true);
-    echo var_dump($proyecto_id);
+    echo var_dump($avanceId);
 ?>
     <div class="w-full ml-auto">
         <label class="block text-base" for="p_avance_id">Avance asociado</label>
@@ -63,7 +63,7 @@ function save_proyecto_avance_ID_meta_box($post_id)
         // Sanitizar y guardar el valor del precio
         $avance_id = $_POST['p_avance_id'];
         update_post_meta($post_id, 'p_avance_id', $avance_id);
-        update_post_meta($avance_id, 'p_avance_id', $post_id);
+        update_post_meta($avance_id, 'a_project_id', $post_id);
     }
 }
-add_action('save_post_avance-obra', 'save_proyecto_avance_ID_meta_box');
+add_action('save_post_proyectos', 'save_proyecto_avance_ID_meta_box');

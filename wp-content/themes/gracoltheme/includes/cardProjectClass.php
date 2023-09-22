@@ -8,8 +8,8 @@ class CardProject extends Card
         protected $valorSMLV;
 
         private string $description;
-        private int $noAlcobas;
-        private float $mt2;
+        private string $noAlcobas;
+        private string $mt2;
         private string $banerMobile;
         private string $image_url;
         private string $typeIcon;
@@ -56,8 +56,8 @@ class CardProject extends Card
                 $this->valorSMLV = get_post_meta($idP, 'gs_precio_SMLV', true);
                 $this->description = wp_trim_words(get_the_excerpt(), 50, '...');
 
-                $this->noAlcobas = intval(get_post_meta($idP, 'gs_noAlcobas', true));
-                $this->mt2 = floatval(get_post_meta($idP, 'gs_mt2', true));
+                $this->noAlcobas = get_post_meta($idP, 'gs_noAlcobas', true);
+                $this->mt2 = get_post_meta($idP, 'gs_mt2', true);
                 $this->banerMobile = get_post_meta($idP, 'project_baner_mobile', true);
                 $this->image_url = get_the_post_thumbnail_url(get_the_ID(), 'original');
                 $this->typeIcon = match ($this->typeInmueble) {

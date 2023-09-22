@@ -23,6 +23,14 @@ $args = array(
             'compare' => 'EXISTS', // Puedes usar 'EXISTS' para verificar si el meta dato existe en el post
         ),
     ),
+    'tax_query'        => array(
+        array(
+            'taxonomy' => 'categoria-proyecto',
+            'field' => 'slug',
+            'terms' => 'obras-entregadas',
+            'operator' => 'NOT IN'
+        ),
+    )
 );
 
 $query = new WP_Query($args);

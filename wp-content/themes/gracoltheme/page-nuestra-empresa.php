@@ -31,11 +31,11 @@ alcanza un área aproximada de 17.000 m2, construidos.',
 
 ];
 ?>
-<main class="w-full lg:mt-16">
+<main class="w-full mt-16">
     <section class="px-5 mx-auto bg-white shadow-lg max-w-screen-2xl">
         <h2 class="py-5 text-4xl text-center text-orangeG font-futuraBold col-span-full">Gracol hoy</h2>
         <article class="mx-auto mb-5 lg:w-1/2">
-            <p>
+            <p class="text-justify">
                 Hoy en día, en GRANDES Y MODERNAS CONSTRUCCIONES DE COLOMBIA S.A.S. GRACOL enfoca sus esfuerzos en la construcción de obras civiles destinadas a vivienda y comercio de alta calidad que logran satisfacer las expectativas de
                 nuestros clientes y que permitan a los colombianos acceder a vivienda propia. Entre ellos encontramos: Viviendas de estratos Altos, medio-alto, medio y Bajo, Viviendas de Interés Social
                 (Vis) y todo tipo de Obras civiles.
@@ -44,7 +44,7 @@ alcanza un área aproximada de 17.000 m2, construidos.',
         <article class="flex flex-col justify-between py-12 mx-auto lg:flex-row md:w-2/3">
             <div class="md:w-1/2">
                 <h2 class="text-2xl text-center text-orangeG font-futuraBold">Misión</h2>
-                <p>
+                <p class="text-justify mr-5">
                     Empresa Líder de Popayán en el sector de la construcción con presencia a nivel nacional,
                     destacada por su cumplimiento y enfocada a contribuir con el sueño de las Familias
                     colombianas en tener vivienda propia de alta calidad.
@@ -52,7 +52,7 @@ alcanza un área aproximada de 17.000 m2, construidos.',
             </div>
             <div class="mt-5 md:mt-0 md:w-1/2">
                 <h2 class="text-2xl text-center text-orangeG font-futuraBold">Visión</h2>
-                <p>
+                <p class="text-justify">
                     Para el 2027 ser reconocida a nivel nacional en construcción de vivienda, con presencia
                     de proyectos como mínimo en 5 regiones y caracterizándose por ser una de las empresas
                     con altos niveles en clima organizacional, con un equipo apasionado por lo que hace y
@@ -64,7 +64,7 @@ alcanza un área aproximada de 17.000 m2, construidos.',
         </article>
     </section>
     <?= get_template_part('components/sections/_loop', 'lineatiempo', $args) ?>
-    <section class="relative bg-white shadow-lg lg:mx-auto lg:px-5 max-w-screen-2xl lg:mt-5">
+    <section class="relative text-justify bg-white shadow-lg lg:mx-auto lg:px-5 max-w-screen-2xl lg:mt-5">
         <?php
         foreach ($fechas as $i => $fecha) :
             $texto = $textos[$fecha];
