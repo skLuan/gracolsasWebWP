@@ -21,7 +21,7 @@ $asesores = new WP_Query($newsArgs);
         <img class="-translate-x-1/4 lg:-translate-x-0 h-800 lazyload lg:h-auto max-w-none lg:max-w-max" data-src="<?= IMAGE . 'asesores/BANNER_CALL_CENTER.jpg' ?>" alt="company team">
     </picture>
     <div class="relative grid grid-cols-1 p-10 pt-0 lg:pt-10 lg:flex lg:flex-row lg:flex-wrap lg:w-full sectionAsesores">
-        <h3 class="absolute max-w-2xl px-5 py-2 mx-auto text-4xl text-center -translate-y-6 col-span-full text-whiteG bg-orangeG drop-shadow-md">Estamos listos para atenderte</h3>
+        <h3 class="absolute max-w-2xl px-5 py-2 mx-auto text-4xl text-center -translate-y-20 left-1/3 col-span-full text-whiteG bg-orangeG drop-shadow-md">Estamos listos para atenderte</h3>
         <?php if ($asesores->have_posts()) : ?>
             <?php while ($asesores->have_posts()) :
                 $asesores->the_post();
