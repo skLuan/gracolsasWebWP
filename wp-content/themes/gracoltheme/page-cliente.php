@@ -92,8 +92,7 @@ $archive_url = get_category_link($category->term_id);
                     <div class="p-0 md:p-4">
                         <h2 class="mb-5 text-3xl text-center text-greenG font-futuraBold">Manual de usuario de proyectos</h2>
                         <p class="text-center text-1xl font-futuraBold text-grayG">Usos y recomendaciones en el inmueble adquirido.</p>
-                        <p class="mb-5 text-center font-futuraBold text-sm text-grayG">(Bosque encantado, palmas llano, palmas sol, mirador del sol, marsella, puerto madero)</p>
-                        <a href="<?= $archive_url ?>" class="py-1 mt-5 text-greenG border-[3px] block border-greenG rounded bg-transparent font-futuraBold">Ir a los manuales</a>
+                        <a href="<?= $archive_url ?>" class="py-1 mt-5 text-greenG border-[3px] block border-greenG rounded bg-transparent font-futuraBold">Ver manuales</a>
                     </div>
                 </div>
                 <div class="flex-auto"></div>

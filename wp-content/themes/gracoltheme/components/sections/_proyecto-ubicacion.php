@@ -33,6 +33,7 @@ $ciudadela = get_the_terms($id, 'ciudadela');
 $gsCiudadSlug = normalize($gsCiudad);
 $gsCiudadSlug = strtolower($gsCiudadSlug);
 $select = '';
+
 if ($gsCiudadSlug == 'jamundi') {
     $select = 'jamundi';
     $googleMap = $urls['JamundiGoogle'];
@@ -53,6 +54,31 @@ try {
 } catch (\Throwable $th) {
     //throw $th;
 }
+
+// ---- Este es un parche para que los proyectos marsella y puerto madero sean ligeramente diferentes ya que
+// ---- cuentan con un movimiento diferente
+$localBarrio;
+$marsella_id = 14;
+$puerto_id = 42;
+switch (get_the_ID()) {
+    case $marsella_id:
+        # code...
+        $localBarrio = 'Sala de ventas <br> Calle 34 Nte #13';
+        break;
+
+    case $puerto_id:
+        $localBarrio = 'Calle 25  N #240';
+        $googleMap = 'https://maps.app.goo.gl/CtUPNHg75FTft2iK8';
+        $wazeMap = 'https://www.waze.com/es/live-map/directions?from=place.ChIJsUxwDIoDMI4Rg9LJSbVY90c';
+        $select = 'puertoM';
+        break;
+
+    default:
+        # code...
+        $localBarrio = $gsBarrio;
+        break;
+}
+// ---- Fin del parche ------------------------------------------------------------------------------
 ?>
 <section id="UbicacionProyecto" class="grid grid-cols-1 gap-5 mx-auto shadow-lg max-w-screen-2xl lg:grid-cols-2">
     <figure class="overflow-hidden lg:col-span-full">
@@ -71,17 +97,20 @@ try {
             <?php elseif ($select == 'popabosque') : ?>
                 <!-- Ciudadela bosque -->
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.069529880306!2d-76.59231249999999!3d2.4839375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e300311c028d47d%3A0xbc4b87efe742074f!2zRkNNNStIMywgUG9wYXnDoW4sIENhdWNh!5e0!3m2!1ses!2sco!4v1691168573328!5m2!1ses!2sco" class="w-full h-80 lg:w-[600px] lg:h-[450px]" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <?php elseif ($select == 'puertoM') : ?>
+                <!-- Ciudadela bosque -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.164049302833!2d-76.5895816!3d2.4524185999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30038a0c704cb1%3A0x47f758b549c9d283!2sPuerto%20Madero!5e0!3m2!1ses!2sco!4v1695753783556!5m2!1ses!2sco" class="w-full h-80 lg:w-[600px] lg:h-[450px]" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <?php endif; ?>
         </div>
     </div>
     <article class="flex flex-col items-center justify-center px-5 lg:px-20">
-        <h3 class="my-3 text-4xl text-center font-futuraBold text-greenG drop-shadow"><?= $gsBarrio ?></h3>
+        <h3 class="my-3 text-4xl text-center font-futuraBold text-greenG drop-shadow"><?= $localBarrio ?></h3>
         <div class="flex flex-row items-end justify-around w-full mt-5 mb-10 lg:my-5">
             <?php if (isset($googleMap) && $googleMap !== '') : ?>
-                <a class="underline font-futuraBold text-grayG" href="<?= $googleMap ?>"><iconify-icon class="mr-3 text-5xl" icon="logos:google-maps"></iconify-icon> Ir con Google maps</a>
+                <a class="underline font-futuraBold text-grayG" target="_blank" href="<?= $googleMap ?>"><iconify-icon class="mr-3 text-5xl" icon="logos:google-maps"></iconify-icon> Ir con Google maps</a>
             <?php endif; ?>
             <?php if (isset($wazeMap) && $wazeMap !== '') : ?>
-                <a class="underline font-futuraBold text-grayG" href="<?= $wazeMap ?>"><iconify-icon class="pt-4 mr-3 text-5xl text-gray-600 align-text-bottom" icon="simple-icons:waze"></iconify-icon>Ir con Waze</a>
+                <a class="underline font-futuraBold text-grayG" target="_blank" href="<?= $wazeMap ?>"><iconify-icon class="pt-4 mr-3 text-5xl text-gray-600 align-text-bottom" icon="simple-icons:waze"></iconify-icon>Ir con Waze</a>
             <?php endif; ?>
         </div>
     </article>

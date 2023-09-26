@@ -1,7 +1,7 @@
 <?php
 $asesor = $args['asesor'];
 ?>
-<div class="flex flex-col justify-center mx-auto my-10 card-asesor lg:my-3 w-fit">
+<div class="flex flex-col lg:mx-auto justify-center mx-auto my-10 card-asesor lg:my-3 w-fit">
     <figure class="w-40 h-40 mx-auto overflow-hidden bg-white rounded-full shadow-md">
         <picture class="">
             <img class="h-full lazyload max-w-none" width="" src="low-quality.jpg" data-src="<?= $asesor['picture'] ?>" alt="asesor picture">
