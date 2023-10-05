@@ -65,82 +65,62 @@ if ( defined( 'IS_GUTENBERG_PLUGIN' ) && IS_GUTENBERG_PLUGIN ) {
 
 		return $menu_items_by_parent_id;
 	}
-
-	/**
-	 * Add Interactivity API directives to the navigation-submenu and page-list blocks markup using the Tag Processor
-	 * The final HTML of the navigation-submenu and the page-list blocks will look similar to this:
-	 *
-	 * <li
-	 *   class="has-child"
-	 *   data-wp-context='{ "core": { "navigation": { "isMenuOpen": false, "overlay": false } } }'
-	 *   data-wp-effect="effects.core.navigation.initMenu"
-	 *   data-wp-on.keydown="actions.core.navigation.handleMenuKeydown"
-	 *   data-wp-on.focusout="actions.core.navigation.handleMenuFocusout"
-	 * >
-	 *   <button
-	 *     class="wp-block-navigation-submenu__toggle"
-	 *     data-wp-on.click="actions.core.navigation.openMenu"
-	 *     data-wp-bind.aria-expanded="context.core.navigation.isMenuOpen"
-	 *   >
-	 *   </button>
-	 *   <span>Title</span>
-	 *   <ul class="wp-block-navigation__submenu-container">
-	 *     SUBMENU ITEMS
-	 *   </ul>
-	 * </li>
-	 *
-	 * @param string $w Markup of the navigation block.
-	 * @param array  $block_attributes Block attributes.
-	 *
-	 * @return string Submenu markup with the directives injected.
-	 */
-	function gutenberg_block_core_navigation_add_directives_to_submenu( $w, $block_attributes ) {
-		while ( $w->next_tag(
-			array(
-				'tag_name'   => 'LI',
-				'class_name' => 'has-child',
-			)
-		) ) {
-			// Add directives to the parent `<li>`.
-			$w->set_attribute( 'data-wp-interactive', true );
-			$w->set_attribute( 'data-wp-context', '{ "core": { "navigation": { "submenuOpenedBy": {}, "type": "submenu" } } }' );
-			$w->set_attribute( 'data-wp-effect', 'effects.core.navigation.initMenu' );
-			$w->set_attribute( 'data-wp-on--focusout', 'actions.core.navigation.handleMenuFocusout' );
-			$w->set_attribute( 'data-wp-on--keydown', 'actions.core.navigation.handleMenuKeydown' );
-			if ( ! isset( $block_attributes['openSubmenusOnClick'] ) || false === $block_attributes['openSubmenusOnClick'] ) {
-				$w->set_attribute( 'data-wp-on--mouseenter', 'actions.core.navigation.openMenuOnHover' );
-				$w->set_attribute( 'data-wp-on--mouseleave', 'actions.core.navigation.closeMenuOnHover' );
-			}
-
-			// Add directives to the toggle submenu button.
-			if ( $w->next_tag(
-				array(
-					'tag_name'   => 'BUTTON',
-					'class_name' => 'wp-block-navigation-submenu__toggle',
-				)
-			) ) {
-				$w->set_attribute( 'data-wp-on--click', 'actions.core.navigation.toggleMenuOnClick' );
-				$w->set_attribute( 'data-wp-bind--aria-expanded', 'selectors.core.navigation.isMenuOpen' );
-			};
-
-			// Add directives to the submenu.
-			if ( $w->next_tag(
-				array(
-					'tag_name'   => 'UL',
-					'class_name' => 'wp-block-navigation__submenu-container',
-				)
-			) ) {
-				$w->set_attribute( 'data-wp-on--focusin', 'actions.core.navigation.openMenuOnFocus' );
-			}
-
-			// Iterate through subitems if exist.
-			gutenberg_block_core_navigation_add_directives_to_submenu( $w, $block_attributes );
-		}
-		return $w->get_updated_html();
-	};
 }
 
 
+/**
+ * Add Interactivity API directives to the navigation-submenu and page-list
+ * blocks markup using the Tag Processor.
+ *
+ * @param string $w Markup of the navigation block.
+ * @param array  $block_attributes Block attributes.
+ *
+ * @return string Submenu markup with the directives injected.
+ */
+function gutenberg_block_core_navigation_add_directives_to_submenu( $w, $block_attributes ) {
+	while ( $w->next_tag(
+		array(
+			'tag_name'   => 'LI',
+			'class_name' => 'has-child',
+		)
+	) ) {
+		// Add directives to the parent `<li>`.
+		$w->set_attribute( 'data-wp-interactive', true );
+		$w->set_attribute( 'data-wp-context', '{ "core": { "navigation": { "submenuOpenedBy": {}, "type": "submenu" } } }' );
+		$w->set_attribute( 'data-wp-effect', 'effects.core.navigation.initMenu' );
+		$w->set_attribute( 'data-wp-on--focusout', 'actions.core.navigation.handleMenuFocusout' );
+		$w->set_attribute( 'data-wp-on--keydown', 'actions.core.navigation.handleMenuKeydown' );
+		if ( ! isset( $block_attributes['openSubmenusOnClick'] ) || false === $block_attributes['openSubmenusOnClick'] ) {
+			$w->set_attribute( 'data-wp-on--mouseenter', 'actions.core.navigation.openMenuOnHover' );
+			$w->set_attribute( 'data-wp-on--mouseleave', 'actions.core.navigation.closeMenuOnHover' );
+		}
+
+		// Add directives to the toggle submenu button.
+		if ( $w->next_tag(
+			array(
+				'tag_name'   => 'BUTTON',
+				'class_name' => 'wp-block-navigation-submenu__toggle',
+			)
+		) ) {
+			$w->set_attribute( 'data-wp-on--click', 'actions.core.navigation.toggleMenuOnClick' );
+			$w->set_attribute( 'data-wp-bind--aria-expanded', 'selectors.core.navigation.isMenuOpen' );
+			// The `aria-expanded` attribute for SSR is already added in the submenu block.
+		}
+		// Add directives to the submenu.
+		if ( $w->next_tag(
+			array(
+				'tag_name'   => 'UL',
+				'class_name' => 'wp-block-navigation__submenu-container',
+			)
+		) ) {
+			$w->set_attribute( 'data-wp-on--focus', 'actions.core.navigation.openMenuOnFocus' );
+		}
+
+		// Iterate through subitems if exist.
+		gutenberg_block_core_navigation_add_directives_to_submenu( $w, $block_attributes );
+	}
+	return $w->get_updated_html();
+}
 
 /**
  * Build an array with CSS classes and inline styles defining the colors
@@ -271,10 +251,6 @@ function gutenberg_block_core_navigation_render_submenu_icon() {
 	return '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false"><path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path></svg>';
 }
 
-
-
-
-
 /**
  * Filter out empty "null" blocks from the block list.
  * 'parse_blocks' includes a null block with '\n\n' as the content when
@@ -287,7 +263,7 @@ function gutenberg_block_core_navigation_render_submenu_icon() {
 function gutenberg_block_core_navigation_filter_out_empty_blocks( $parsed_blocks ) {
 	$filtered = array_filter(
 		$parsed_blocks,
-		static function( $block ) {
+		static function ( $block ) {
 			return isset( $block['blockName'] );
 		}
 	);
@@ -417,7 +393,7 @@ function gutenberg_render_block_core_navigation( $attributes, $content, $block )
 	// a fallback (i.e. the block has no menu associated with it).
 	$is_fallback = false;
 
-	$nav_menu_name = '';
+	$nav_menu_name = $attributes['ariaLabel'] ?? '';
 
 	/**
 	 * Deprecated:
@@ -553,7 +529,7 @@ function gutenberg_render_block_core_navigation( $attributes, $content, $block )
 	}
 
 	// Manually add block support text decoration as CSS class.
-	$text_decoration       = _wp_array_get( $attributes, array( 'style', 'typography', 'textDecoration' ), null );
+	$text_decoration       = $attributes['style']['typography']['textDecoration'] ?? null;
 	$text_decoration_class = sprintf( 'has-text-decoration-%s', $text_decoration );
 
 	$colors     = gutenberg_block_core_navigation_build_css_colors( $attributes );
@@ -653,24 +629,25 @@ function gutenberg_render_block_core_navigation( $attributes, $content, $block )
 		$inner_blocks_html .= '</ul>';
 	}
 
-	// If the script already exists, there is no point in removing it from viewScript.
-	$should_load_view_script = ( $is_responsive_menu || ( $has_submenus && ( $attributes['openSubmenusOnClick'] || $attributes['showSubmenuIcon'] ) ) );
+	$should_load_view_script = ( $has_submenus && ( $attributes['openSubmenusOnClick'] || $attributes['showSubmenuIcon'] ) ) || $is_responsive_menu;
 	$view_js_file            = 'wp-block-navigation-view';
+
+	// If the script already exists, there is no point in removing it from viewScript.
 	if ( ! wp_script_is( $view_js_file ) ) {
 		$script_handles = $block->block_type->view_script_handles;
 
 		// If the script is not needed, and it is still in the `view_script_handles`, remove it.
 		if ( ! $should_load_view_script && in_array( $view_js_file, $script_handles, true ) ) {
-			$block->block_type->view_script_handles = array_diff( $script_handles, array( $view_js_file, 'wp-block-navigation-view-2' ) );
+			$block->block_type->view_script_handles = array_diff( $script_handles, array( $view_js_file ) );
 		}
 		// If the script is needed, but it was previously removed, add it again.
 		if ( $should_load_view_script && ! in_array( $view_js_file, $script_handles, true ) ) {
-			$block->block_type->view_script_handles = array_merge( $script_handles, array( $view_js_file, 'wp-block-navigation-view-2' ) );
+			$block->block_type->view_script_handles = array_merge( $script_handles, array( $view_js_file ) );
 		}
 	}
 
 	// Add directives to the submenu if needed.
-	if ( defined( 'IS_GUTENBERG_PLUGIN' ) && IS_GUTENBERG_PLUGIN && $has_submenus && $should_load_view_script ) {
+	if ( $has_submenus && $should_load_view_script ) {
 		$w                 = new WP_HTML_Tag_Processor( $inner_blocks_html );
 		$inner_blocks_html = gutenberg_block_core_navigation_add_directives_to_submenu( $w, $attributes );
 	}
@@ -718,7 +695,7 @@ function gutenberg_render_block_core_navigation( $attributes, $content, $block )
 	$responsive_container_directives = '';
 	$responsive_dialog_directives    = '';
 	$close_button_directives         = '';
-	if ( defined( 'IS_GUTENBERG_PLUGIN' ) && IS_GUTENBERG_PLUGIN && $should_load_view_script ) {
+	if ( $should_load_view_script ) {
 		$nav_element_directives          = '
 			data-wp-interactive
 			data-wp-context=\'{ "core": { "navigation": { "overlayOpenedBy": {}, "type": "overlay", "roleAttribute": "" } } }\'
@@ -736,7 +713,7 @@ function gutenberg_render_block_core_navigation( $attributes, $content, $block )
 			tabindex="-1"
 		';
 		$responsive_dialog_directives    = '
-			data-wp-bind--aria-modal="selectors.core.navigation.isMenuOpen"
+			data-wp-bind--aria-modal="selectors.core.navigation.ariaModal"
 			data-wp-bind--role="selectors.core.navigation.roleAttribute"
 			data-wp-effect="effects.core.navigation.focusFirstElement"
 		';
@@ -833,6 +810,25 @@ function gutenberg_block_core_navigation_typographic_presets_backcompatibility( 
 add_filter( 'render_block_data', 'gutenberg_block_core_navigation_typographic_presets_backcompatibility' );
 
 /**
+ * Ensure that the view script has the `wp-interactivity` dependency.
+ *
+ * @since 6.4.0
+ *
+ * @global WP_Scripts $wp_scripts
+ */
+function gutenberg_block_core_navigation_ensure_interactivity_dependency() {
+	global $wp_scripts;
+	if (
+		isset( $wp_scripts->registered['wp-block-navigation-view'] ) &&
+		! in_array( 'wp-interactivity', $wp_scripts->registered['wp-block-navigation-view']->deps, true )
+	) {
+		$wp_scripts->registered['wp-block-navigation-view']->deps[] = 'wp-interactivity';
+	}
+}
+
+add_action( 'wp_print_scripts', 'gutenberg_block_core_navigation_ensure_interactivity_dependency' );
+
+/**
  * Turns menu item data into a nested array of parsed blocks
  *
  * @deprecated 6.3.0 Use WP_Navigation_Fallback::parse_blocks_from_menu_items() instead.
@@ -925,7 +921,7 @@ function gutenberg_block_core_navigation_get_classic_menu_fallback() {
 		// Otherwise return the most recently created classic menu.
 		usort(
 			$classic_nav_menus,
-			static function( $a, $b ) {
+			static function ( $a, $b ) {
 				return $b->term_id - $a->term_id;
 			}
 		);
