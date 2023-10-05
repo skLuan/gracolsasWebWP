@@ -19,7 +19,7 @@ function display_proyecto_avance_ID_meta_box($post)
 {
     $avances = new WP_Query([
         'post_type' => 'avance-obra',
-        'post_per_page' => -1,
+        'posts_per_page' => -1,
         'order' => 'ASC',
         'orderby' => 'title',
     ]);
@@ -27,6 +27,7 @@ function display_proyecto_avance_ID_meta_box($post)
     // Recuperar el valor actual del precio (si existe)
     $avanceId = get_post_meta($proyecto_id, 'p_avance_id', true);
     echo var_dump($avanceId);
+    // echo var_dump($avances->);
 ?>
     <div class="w-full ml-auto">
         <label class="block text-base" for="p_avance_id">Avance asociado</label>

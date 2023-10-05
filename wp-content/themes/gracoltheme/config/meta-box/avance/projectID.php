@@ -21,7 +21,7 @@ function display_avance_proyecto_ID_meta_box($post)
 
     $projects = new WP_Query([
         'post_type' => 'proyectos',
-        'post_per_page' => -1,
+        'posts_per_page' => -1,
         'order' => 'ASC',
         'orderby' => 'title',
         'tax_query' => array(
