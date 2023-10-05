@@ -32,10 +32,17 @@ alcanza un área aproximada de 17.000 m2, construidos.',
 ];
 ?>
 <main class="w-full mt-16">
+    <section class="w-full">
+        <figure class="mt-10 lg:mt-0">
+            <picture>
+                <source media="(max-width: 500px)" srcset="<?= IMAGE . 'banner_gracol_hoy.jpg' ?>">
+                <img class="lazyload" src="low-quality.jpg" data-src="<?= IMAGE . 'banner_gracol_hoy.jpg' ?>" alt="">
+            </picture>
+        </figure>
+    </section>
     <section class="px-5 mx-auto bg-white shadow-lg max-w-screen-2xl">
-        <h2 class="py-5 text-4xl text-center text-orangeG font-futuraBold col-span-full">Gracol hoy</h2>
         <article class="mx-auto mb-5 lg:w-1/2">
-            <p class="text-justify">
+            <p class="text-justify pt-10">
                 Hoy en día, en GRANDES Y MODERNAS CONSTRUCCIONES DE COLOMBIA S.A.S. GRACOL enfoca sus esfuerzos en la construcción de obras civiles destinadas a vivienda y comercio de alta calidad que logran satisfacer las expectativas de
                 nuestros clientes y que permitan a los colombianos acceder a vivienda propia. Entre ellos encontramos: Viviendas de estratos Altos, medio-alto, medio y Bajo, Viviendas de Interés Social
                 (Vis) y todo tipo de Obras civiles.
@@ -68,12 +75,14 @@ alcanza un área aproximada de 17.000 m2, construidos.',
         <?php
         foreach ($fechas as $i => $fecha) :
             $texto = $textos[$fecha];
+            $image = IMAGE . 'historia/historia_';
+            $i == 0 ? $image .= $fecha . '.png' : $image .= $fecha . '.jpg';
             get_template_part(
                 'components/sections/_contenido',
                 'lineatiempo',
                 [
                     'idP' => $fecha,
-                    'imagen' => IMAGE . 'img-lineatiempo.png',
+                    'imagen' => $image,
                     'texto' => $texto,
                 ]
             );

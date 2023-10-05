@@ -17,7 +17,7 @@ $mobileBanner = IMAGE . 'baner_avanceObraMobile.png';
             <?php while (have_posts()) {
                 the_post();
                 //the_content();
-                get_template_part('components/cards/_card', 'news');
+                get_template_part('components/cards/_card', 'manual-usuario');
             }
             ?>
         </div>
