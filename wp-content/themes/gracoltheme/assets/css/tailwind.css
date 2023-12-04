@@ -6,6 +6,15 @@
   body {
     @apply font-futura;
   }
+  strong, b {
+    @apply font-futuraBold;
+  }
+}
+
+@layer utilities {
+  .btn-project-form-wait {
+  @apply !bg-whiteG !border-2 text-greenG border-greenG;
+  }
 }
 
 #navbar-menu .current_page_item,
@@ -13,15 +22,239 @@
   @apply !text-orangeG !font-futuraBold underline;
 }
 /* ----------------------- item 34 = proyectos */
-li#menu-item-34 {
+#navbar-menu li#menu-item-34 {
   @apply relative;
 }
-li#menu-item-34 ul.sub-menu {
+#navbar-menu li#menu-item-34 ul.sub-menu {
   @apply hidden absolute bg-white !text-greenG shadow-sm py-3 w-56 ;
 }
-li#menu-item-34:hover ul.sub-menu {
+#navbar-menu li#menu-item-34:hover ul.sub-menu {
   @apply block;
 }
-li#menu-item-34 ul.sub-menu li.menu-item {
+#navbar-menu li#menu-item-34 ul.sub-menu li.menu-item {
   @apply my-2 ;
+}
+
+/* ----------------------- Footer */
+#footer-menu > li.menu-item.menu-item-has-children > a {
+@apply uppercase font-futuraBold text-xl block mt-5;
+}
+#footer-menu li.menu-item.menu-item-has-children > ul li {
+@apply hover:text-orangeG ml-5 lg:ml-0;
+}
+/* --------------------------------- Home Page -------------------- */
+.bg-greenwhiteG{
+  background-color: #E3E8E3;
+}
+.cardVivienda{
+  background-image: url(../img/card-compracasitas.png);
+}
+.sectionAsesores{
+@apply bg-left lg:bg-center bg-cover;
+  background-image: url(../img/asesores/CALL_CENTER_FONDO.jpg);
+}
+
+.bg-blackOp{
+  background-color: #1E1E1E99;
+}
+/* Admin pages */
+.postbox .inside {
+  @apply flex flex-row;
+}
+.wp-block-image {
+  @apply overflow-hidden;
+}
+.wp-block-image img {
+  @apply w-auto lg:w-full max-w-none lg:max-w-full lg:h-auto;
+}
+
+/* Accordeon */
+.accordion {
+  @apply relative cursor-pointer px-[18px] pt-[18px] w-full border-none text-center outline-none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+@apply relative max-h-0 overflow-hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.panel:after {
+  content: '\0276E'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  position: absolute;
+  bottom: -15px;
+  margin-left: 5px;
+  transform: rotate(90deg);
+  width: 10px;
+  top: 6;
+  left: 50%;
+  margin-left: -5px;
+}
+
+.accordion:after {
+  content: '\0276E'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  position: absolute;
+  bottom: -17px;
+  margin-left: 5px;
+  transform: rotate(90deg);
+  width: 10px;
+  top: 6;
+  left: 50%;
+  margin-left: -5px;
+}
+
+.panel.active:after {
+  content: "\0276E"; /* Unicode character for "minus" sign (-) */
+  transform: rotate(-90deg);
+}
+
+.accordion.active:after{
+  content: ''!important;
+}
+
+.accordion span, .panel p{
+  @apply w-full float-left border-b border-greenG-mid;
+}
+
+/* ---------------------------------------------------------------- Mobile Navbar Style */
+
+.mobile-nav__wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 45;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  -webkit-transition: visibility 500ms ease 500ms, -webkit-transform 500ms ease 500ms;
+  transition: visibility 500ms ease 500ms, -webkit-transform 500ms ease 500ms;
+  transition: transform 500ms ease 500ms, visibility 500ms ease 500ms;
+  transition: transform 500ms ease 500ms, visibility 500ms ease 500ms, -webkit-transform 500ms ease 500ms;
+  visibility: hidden;
+}
+
+.mobile-nav__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.mobile-nav__wrapper.expanded {
+  opacity: 1;
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);
+  visibility: visible;
+  -webkit-transition: visibility 500ms ease 0ms, -webkit-transform 500ms ease 0ms;
+  transition: visibility 500ms ease 0ms, -webkit-transform 500ms ease 0ms;
+  transition: transform 500ms ease 0ms, visibility 500ms ease 0ms;
+  transition: transform 500ms ease 0ms, visibility 500ms ease 0ms, -webkit-transform 500ms ease 0ms;
+}
+
+.mobile-nav__content {
+  @apply z-10 relative h-full overflow-y-auto opacity-0 w-3/4;
+  float: right;
+  visibility: hidden;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transition: opacity 500ms ease 0ms, visibility 500ms ease 0ms, -webkit-transform 500ms ease 0ms;
+  transition: opacity 500ms ease 0ms, visibility 500ms ease 0ms, -webkit-transform 500ms ease 0ms;
+  transition: opacity 500ms ease 0ms, visibility 500ms ease 0ms, transform 500ms ease 0ms;
+  transition: opacity 500ms ease 0ms, visibility 500ms ease 0ms, transform 500ms ease 0ms, -webkit-transform 500ms ease 0ms;
+}
+
+.mobile-nav__wrapper.expanded .mobile-nav__content {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition: opacity 500ms ease 500ms, visibility 500ms ease 500ms, -webkit-transform 500ms ease 500ms;
+  transition: opacity 500ms ease 500ms, visibility 500ms ease 500ms, -webkit-transform 500ms ease 500ms;
+  transition: opacity 500ms ease 500ms, visibility 500ms ease 500ms, transform 500ms ease 500ms;
+  transition: opacity 500ms ease 500ms, visibility 500ms ease 500ms, transform 500ms ease 500ms, -webkit-transform 500ms ease 500ms;
+}
+
+.text-greenG-Olive {
+  color: #889487;
+}
+
+.mobile_menu li:nth-child(2), .mobile_menu li:nth-child(4){
+  margin-bottom: 20px;
+}
+
+.sub-menu{
+  margin-left: 13px;
+}
+
+.sub-menu li{
+  font-family: "Futura-Bk-BT" !important;
+}
+
+.sub-menu li:nth-child(2){
+  margin-bottom:auto !important;
+}
+
+
+.arrow-left{
+  transform: rotate(-90deg);
+}
+
+.pagos{
+  background-color: #dde3e7;
+}
+
+.image-blog{
+  width: 100%;
+}
+
+.post{
+  border-bottom: solid 5px #C9C9C7 ;
+}
+
+.border-color{
+  border-color: #C9C9C7;
+}
+
+.text-shadow{
+  text-shadow: 3px 4px 12px #000000;
+}
+
+
+@media (max-width: 500px) {
+
+}
+
+.w-300{
+  width: 300px;
+}
+
+.linea-tiempo{
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  margin-top: 20px;
+}
+
+.linea-contenido{
+  width: 100%;
+  height: 3px;
+}
+
+.punto-tiempo{
+  position: relative!important;
+  z-index: 2;
 }

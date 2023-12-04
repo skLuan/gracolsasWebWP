@@ -8,7 +8,7 @@ module.exports = {
     },
     extend: {
       maxWidth: {
-        'max-w-screen-2xl': '1440px'
+        "screen-2xl": "1440px",
       },
       colors: {
         orangeG: {

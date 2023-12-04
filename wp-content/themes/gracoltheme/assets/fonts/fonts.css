@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Futura-Hv-BT';
     src: url('FuturaBT-Heavy.woff2') format('woff2'),
-        url('FuturaBT-Heavy.woff') format('woff')
+        url('FuturaBT-Heavy.woff') format('woff'),
         url('FuturaBT-Heavy.ttf') format('ttf');
     font-weight: 900;
     font-style: normal;
@@ -10,9 +10,9 @@
 
 @font-face {
     font-family: 'Futura-Bk-BT';
-    src: url('FuturaBT-Book.woff2') format('woff2'),
-        url('FuturaBT-Book.woff') format('woff'),
-        url('FuturaBT-Book.ttf') format('ttf');
+    src: url('./FuturaBT-Book.woff2') format('woff2'),
+        url('./FuturaBT-Book.woff') format('woff'),
+        url('./FuturaBT-Book.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

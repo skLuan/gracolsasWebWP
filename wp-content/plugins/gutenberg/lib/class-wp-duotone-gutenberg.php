@@ -32,6 +32,10 @@
  * @since 6.3.0
  */
 
+if ( class_exists( 'WP_Duotone_Gutenberg' ) ) {
+	return;
+}
+
 /**
  * Manages duotone block supports and global styles.
  *
@@ -478,7 +482,7 @@ class WP_Duotone_Gutenberg {
 	 * @return string The CSS variable name.
 	 */
 	private static function get_css_custom_property_name( $slug ) {
-		return  "--wp--preset--duotone--$slug";
+		return "--wp--preset--duotone--$slug";
 	}
 
 	/**
@@ -488,7 +492,7 @@ class WP_Duotone_Gutenberg {
 	 * @return string The ID of the duotone filter.
 	 */
 	private static function get_filter_id( $slug ) {
-		return  "wp-duotone-$slug";
+		return "wp-duotone-$slug";
 	}
 
 	/**
@@ -530,10 +534,19 @@ class WP_Duotone_Gutenberg {
 		foreach ( $colors as $color_str ) {
 			$color = self::colord_parse( $color_str );
 
-			$duotone_values['r'][] = $color['r'] / 255;
-			$duotone_values['g'][] = $color['g'] / 255;
-			$duotone_values['b'][] = $color['b'] / 255;
-			$duotone_values['a'][] = $color['a'];
+			if ( null === $color ) {
+				$error_message = sprintf(
+					/* translators: %s: duotone colors */
+					__( '"%s" in theme.json settings.color.duotone is not a hex or rgb string.', 'gutenberg' ),
+					$color_str
+				);
+				_doing_it_wrong( __METHOD__, $error_message, '6.3.0' );
+			} else {
+				$duotone_values['r'][] = $color['r'] / 255;
+				$duotone_values['g'][] = $color['g'] / 255;
+				$duotone_values['b'][] = $color['b'] / 255;
+				$duotone_values['a'][] = $color['a'];
+			}
 		}
 
 		ob_start();
@@ -642,14 +655,14 @@ class WP_Duotone_Gutenberg {
 			// `supports.filter.duotone` has not been set and the experimental
 			// property has been, the experimental property value is copied into
 			// `supports.filter.duotone`.
-			$duotone_support = _wp_array_get( $block_type->supports, array( 'filter', 'duotone' ), false );
+			$duotone_support = $block_type->supports['filter']['duotone'] ?? false;
 			if ( ! $duotone_support ) {
 				return null;
 			}
 
 			// If the experimental duotone support was set, that value is to be
 			// treated as a selector and requires scoping.
-			$experimental_duotone = _wp_array_get( $block_type->supports, array( 'color', '__experimentalDuotone' ), false );
+			$experimental_duotone = $block_type->supports['color']['__experimentalDuotone'] ?? false;
 			if ( $experimental_duotone ) {
 				$root_selector = wp_get_block_css_selector( $block_type );
 				return is_string( $experimental_duotone )
@@ -712,6 +725,15 @@ class WP_Duotone_Gutenberg {
 	 * @param string $filter_value     The filter CSS value. e.g. 'url(#wp-duotone-blue-orange)' or 'unset'.
 	 */
 	private static function enqueue_global_styles_preset( $filter_id, $duotone_selector, $filter_value ) {
+		if ( ! array_key_exists( $filter_id, self::$global_styles_presets ) ) {
+			$error_message = sprintf(
+				/* translators: %s: duotone filter ID */
+				__( 'The duotone id "%s" is not registered in theme.json settings', 'gutenberg' ),
+				$filter_id
+			);
+			_doing_it_wrong( __METHOD__, $error_message, '6.3.0' );
+			return;
+		}
 		self::$used_global_styles_presets[ $filter_id ] = self::$global_styles_presets[ $filter_id ];
 		self::enqueue_custom_filter( $filter_id, $duotone_selector, $filter_value, self::$global_styles_presets[ $filter_id ] );
 	}
@@ -728,7 +750,7 @@ class WP_Duotone_Gutenberg {
 		if ( property_exists( $block_type, 'supports' ) ) {
 			// Previous `color.__experimentalDuotone` support flag is migrated
 			// to `filter.duotone` via `block_type_metadata_settings` filter.
-			$has_duotone_support = _wp_array_get( $block_type->supports, array( 'filter', 'duotone' ), null );
+			$has_duotone_support = $block_type->supports['filter']['duotone'] ?? null;
 		}
 
 		if ( $has_duotone_support ) {
@@ -753,7 +775,7 @@ class WP_Duotone_Gutenberg {
 	public static function set_global_styles_presets() {
 		// Get the per block settings from the theme.json.
 		$tree              = gutenberg_get_global_settings();
-		$presets_by_origin = _wp_array_get( $tree, array( 'color', 'duotone' ), array() );
+		$presets_by_origin = $tree['color']['duotone'] ?? array();
 
 		foreach ( $presets_by_origin as $presets ) {
 			foreach ( $presets as $preset ) {
@@ -973,7 +995,7 @@ class WP_Duotone_Gutenberg {
 	 * @return array Filtered block type settings.
 	 */
 	public static function migrate_experimental_duotone_support_flag( $settings, $metadata ) {
-		$duotone_support = _wp_array_get( $metadata, array( 'supports', 'color', '__experimentalDuotone' ), null );
+		$duotone_support = $metadata['supports']['color']['__experimentalDuotone'] ?? null;
 
 		if ( ! isset( $settings['supports']['filter']['duotone'] ) && null !== $duotone_support ) {
 			_wp_array_set( $settings, array( 'supports', 'filter', 'duotone' ), (bool) $duotone_support );
