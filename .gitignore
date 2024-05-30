@@ -17,6 +17,7 @@ wp-content/themes/gracoltheme/assets/css/output.css
 
 # ignore these plugins
 wp-content/plugins/hello.php
+wp-content/plugins/wp-database-backup
 
 # ignore specific themes
 wp-content/themes/twenty*/

@@ -7,6 +7,7 @@ $fechas = [];
 $galerias = [];
 if(isset($galeria_avance)) {
     try {
+        var_dump($galeria_avance);
         foreach ($galeria_avance as $key => $avance) {
             $fechas[] = $avance['fecha'];
             $galerias[] = json_decode($avance['galery']);
