@@ -48,7 +48,7 @@
                 <div class="relative p-5">
                     <h3 class="text-3xl font-futuraBold text-greenG">Sara Cumbal</h3>
                     <p>
-                        Cliente del proyecto Puerto Madero, quien recibió su inmueble en el mes de junio y nos va a dar su testimonio.
+                        Haber cumplido la meta de tener vivienda propia es muy satisfactorio para mi familia y para mí, agradezco a Gracol por haberme permitido cumplir este sueño y por poner a disposición a su equipo de trabajo, de quienes tuve la mayor colaboración durante todos los procesos, me siento muy satisfecha de recibir mi apartamento en Puerto Madero, un proyecto privilegiado debido a su diseño, ubicación, precio y futura valorización (Me siento tranquila al saber que el proyecto está respaldado por una empresa con gran trayectoria en la construcción de vivienda)
                     </p>
                 </div>
                 <div class="float-left  bg-orangeG h-[38px] w-[200px] absolute bottom-0 left-4 md:left-10"></div>

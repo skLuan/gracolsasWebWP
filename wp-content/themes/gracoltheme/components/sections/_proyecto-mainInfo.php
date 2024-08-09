@@ -8,9 +8,9 @@ $logo_project = get_post_meta(get_the_ID(), 'project_logo', true);
 $tags = get_the_terms(get_the_ID(), 'tag-proyecto');
 $parentTagID = 71;
 $tipoProyecto = 12;
-if($tags && isset($tags) && $tags[0]->parent !== $parentTagID) {
+if ($tags && isset($tags) && $tags[0]->parent !== $parentTagID) {
     $inmueble = $tags[0]->name;
-} else if($tags[1]->parent == $tipoProyecto) {
+} else if ($tags[1]->parent == $tipoProyecto) {
     $inmueble = $tags[1]->name;
 }
 $inmueble === 'Casas' ? $typeIcon = 'clarity:house-solid' : $typeIcon = 'material-symbols:apartment';
@@ -51,9 +51,10 @@ $precio = number_format($precio_num, 0, ',', '.');
 $noAlcobas = get_post_meta(get_the_ID(), 'gs_noAlcobas', true);
 $mt2 = get_post_meta(get_the_ID(), 'gs_mt2', true);
 
-function alcobasPlural($noAlcobas) {
+function alcobasPlural($noAlcobas)
+{
     $labelNoAlcoba = 'Alcobas';
-    if($noAlcobas == 1){
+    if ($noAlcobas == 1) {
         $labelNoAlcoba = 'Alcoba';
     }
     return $labelNoAlcoba;
@@ -84,13 +85,15 @@ function alcobasPlural($noAlcobas) {
             <div class="mx-auto lg:mr-10">
                 <?php if (!empty($precioSMLV)) : ?>
                     <h3 class="mx-auto text-3xl text-center text-orangeG font-futuraBold"><?= $precioSMLV ?> SMMLV*</h3>
-                    <P class="text-sm">* Del año de escrituración del inmueble</P>
+                    <span class="text-base text-greenG px-10 block text-center">* Del año de escrituración del inmueble</span>
                 <?php endif; ?>
             </div>
-            <div class="mr-auto">
+            <div class="lg:mr-auto flex flex-col">
                 <?php if (!empty($precio)) : ?>
-                    <h3 id="gs_priceSelector" class="text-3xl text-orangeG font-futuraBold">$<?= $precio ?></h3>
-                    <p class="-mt-1 text-base text-center text-greenG">Valor aproximado</p>
+
+                    <span class="text-base text-greenG"><?= !empty($precioSMLV) ? '' : 'Desde:' ?></span>
+                    <h3 id="gs_priceSelector" class="text-3xl text-center text-orangeG font-futuraBold">$<?= $precio ?></h3>
+                    <span class="text-base mx-auto text-center text-greenG"><?= !empty($precioSMLV) ? 'Valor aproximado' : '' ?></span>
                 <?php endif; ?>
             </div>
         </div>

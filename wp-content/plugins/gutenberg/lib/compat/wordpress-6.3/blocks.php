@@ -45,7 +45,7 @@ function gutenberg_rename_reusable_block_cpt_to_pattern( $args, $post_type ) {
 		$args['labels']['singular_name']            = _x( 'Pattern', 'post type singular name' );
 		$args['labels']['add_new_item']             = __( 'Add new Pattern' );
 		$args['labels']['new_item']                 = __( 'New Pattern' );
-		$args['labels']['edit_item']                = __( 'Edit Pattern' );
+		$args['labels']['edit_item']                = __( 'Edit Block Pattern' );
 		$args['labels']['view_item']                = __( 'View Pattern' );
 		$args['labels']['view_items']               = __( 'View Patterns' );
 		$args['labels']['all_items']                = __( 'All Patterns' );
@@ -104,7 +104,7 @@ function gutenberg_wp_block_register_post_meta() {
 		$post_type,
 		'wp_pattern_sync_status',
 		array(
-			'auth_callback'     => function() {
+			'auth_callback'     => function () {
 				return current_user_can( 'edit_posts' );
 			},
 			'sanitize_callback' => 'sanitize_text_field',
