@@ -73,18 +73,26 @@ async function send(e) {
   var locationID = WPHeaderInfo.locationSourceId; // Puedes establecer este valor según tus necesidades
   var testingKey =
     "ia28rR/NKN0EaJkrKl0CygwhC2TC4jAG1Zpnn6ECe0ObefG7dnJtFLpS7iZwyaMK";
-  // Crear el objeto con los datos
+  // Crear el objeto con los 
+  
+
   var formData = {
-    first_name: firstName,
-    last_name: lastName,
-    email: email,
-    mobile_number: mobileNumber,
-    origin: origin,
-    projectId: projectId,
+    origen: origin,
+    camapana: 'GENERAL',
+    proyecto: projectName,
+    nombres: firstName,
+    apellidos: lastName,
+    correo: email,
+    telefono: mobileNumber,
     //projectId: testingKey,
-    locationSourceId: locationID,
-    scoring: "20",
+    // locationSourceId: locationID,
+    mensaje: "Estoy interezado",
+    etiquetas: "",
   };
+
+
+
+
   if (!validateForm(formData)) return;
 
   $response = await sendSmart(formData);
